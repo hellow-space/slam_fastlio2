@@ -1,0 +1,34 @@
+obstacle_avoidance_node:
+  ros__parameters:
+    # ROI区域配置（核心：只处理该范围内的点云）
+    roi_x_min: 0.0
+    roi_x_max: 2.0   # 向前最大检测距离
+    roi_y_min: -4.0   # 向左最大检测范围
+    roi_y_max: 4.0    # 向右最大检测范围
+    roi_z_min: -0.3   # 最低检测高度
+    roi_z_max: 3.0    # 最高检测高度
+    
+    # 地面分割配置
+    ground_z_max: 0.2        # 地面最大z值（默认0.15）
+    ground_plane_dist_thresh: 0.2  # 地面平面距离阈值（默认0.15）
+    
+    # 点云下采样
+    voxel_size: 0.1          # 体素大小（越大点云越稀疏，速度越快）
+    
+    # 聚类配置（控制障碍物聚类效果）
+    cluster_tolerance: 0.6   # 聚类距离（越大越容易合并相邻障碍物）
+    min_cluster_size: 15     # 最小聚类点数（过滤噪点）
+    max_cluster_size: 30000  # 最大聚类点数（过滤超大无效点云）
+    
+    # 障碍物判定
+    min_obstacle_height: 0.2 # 最小障碍物高度（过滤低矮杂波）
+    
+    # 距离阈值（状态判定）
+    emergency_distance: 2.0  # 紧急：必须停车
+    danger_distance: 4.0     # 危险：减速避让
+    warning_distance: 8.0    # 警告：注意观察
+    
+    # 扇形区域过滤（可选：只处理前方指定角度/距离）
+    min_range: 0.1           # 最小检测距离
+    max_range: 2.0         # 最大检测距离
+    angle_deg: 60.0          # 检测角度

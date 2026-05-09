@@ -1,0 +1,10 @@
+livox_body_position:
+  translation:
+    x: 0.47
+    y: 0.0
+    z: 0.10
+  rotation_rpy:
+    roll: 0.0
+    pitch: 30.0
+    yaw: 0.0
+
