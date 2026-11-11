@@ -1,91 +1,237 @@
-/**:
-  ros__parameters:
-    use_sim_time: false  
+/**:                              # ROS2 通配节点名：参数可应用于匹配的节点
+  ros__parameters:                # ROS2 参数必须放在这一层下面
+
+    use_sim_time: false           # false：系统时间；true：使用 /clock 仿真时间
+
+    # ==================== 1. 传感器开关与话题 ====================
     common:
-      img_en: 0
-      lidar_en: 1
-      img_topic: "/left_camera/image_raw"
-      lid_topic: "/livox/lidar"
-      imu_topic: "/livox/imu"
-      ros_driver_bug_fix: false
+      img_en: 0                  # 关闭图像参与估计；当前主要使用雷达 + IMU
+      lidar_en: 1                # 开启激光雷达输入
+      img_topic: "/left_camera/image_raw"  # 图像话题；img_en=0 时不参与视觉更新
+      lid_topic: "/livox/lidar"   # 激光雷达输入话题
+      imu_topic: "/livox/imu"     # IMU 输入话题
 
+      ros_driver_bug_fix: false  # 特定驱动时间戳问题的兼容开关
+                                 # 官方实现会对 IMU 时间做整数秒修正
+                                 # 不是通用的自动时间同步开关
+
+    # ==================== 2. 传感器外参 ====================
     extrin_calib:
+      # 雷达到 IMU 的平移，单位：米
+      # 官方变换关系：p_imu = extrinsic_R * p_lidar + extrinsic_T
+      # 必须与实际设备安装/标定一致
       extrinsic_T: [0.04165, 0.02326, -0.0284]
-      extrinsic_R: [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
-      Rcl: [0.00610193,-0.999863,-0.0154172, -0.00615449,0.0153796,-0.999863, 0.999962,0.00619598,-0.0060598]
-      Pcl: [0.0194384, 0.104689,-0.0251952]
 
-    time_offset: 
-      imu_time_offset: 0.0
-      img_time_offset: 0.1
-      exposure_time_init: 0.0
+      # 雷达到 IMU 的旋转矩阵，按行展开
+      # 当前为单位矩阵，表示两个坐标系的轴方向一致
+      extrinsic_R: [1.0, 0.0, 0.0,
+                    0.0, 1.0, 0.0,
+                    0.0, 0.0, 1.0]
 
+      # 雷达到相机的旋转矩阵，按行展开
+      # 相机外参关系：p_camera = Rcl * p_lidar + Pcl
+      # img_en=0 时不用于视觉更新
+      Rcl: [0.00610193, -0.999863, -0.0154172,
+            -0.00615449, 0.0153796, -0.999863,
+            0.999962, 0.00619598, -0.0060598]
+
+      # 雷达到相机的平移，单位：米
+      Pcl: [0.0194384, 0.104689, -0.0251952]
+
+    # ==================== 3. 时间偏移 ====================
+    time_offset:
+      imu_time_offset: 0.0       # IMU 时间偏移，单位：秒
+                                 # 官方实现：修正时间 = 原始时间 - 此值
+
+      img_time_offset: 0.1       # 图像时间偏移，单位：秒
+                                 # 官方实现：修正时间 = 原始时间 + 此值
+                                 # 当前关闭图像，不参与视觉同步
+
+      exposure_time_init: 0.0    # 图像曝光/采集时刻的初始时间修正，单位：秒
+                                 # 官方同步逻辑还会将此值加到图像时间上
+                                 # 与下面的在线曝光亮度估计不是同一参数
+
+    # ==================== 4. 点云预处理 ====================
     preprocess:
-      point_filter_num: 2
-      filter_size_surf: 0.1
-      lidar_type: 1
-      scan_line: 4
-      blind: 0.4
+      point_filter_num: 1        # 间隔抽点，通常每 2 个候选点保留 1 个
+                                 # 设为 1 可取消这一步抽稀，但仍有其他过滤
+                                 # 数值越小，保留点越多，计算量通常越大
 
+      filter_size_surf: 0.1      # 当前帧体素降采样尺寸，单位：米
+                                 # 当前为 10 cm；越小，点云细节保留越多
+                                 # 不是地面高度阈值
+
+      lidar_type: 1              # 雷达数据处理类型
+                                 # 官方 1 对应 Livox/Avia 处理分支
+                                 # ROS2 改版是否兼容 MID-360，以其实现为准
+
+      scan_line: 4               # 扫描线/通道数量配置，应匹配雷达及驱动
+                                 # 不是每秒扫描次数；错误设置可能丢掉部分通道
+
+      blind: 0.4                 # 近距离过滤半径，单位：米
+                                 # 删除距雷达约 0.4 m 以内的点
+                                 # 按三维距离过滤，不是专门删除地面
+                                 # 近处地面落入此范围也会被删掉
+
+    # ==================== 5. 视觉惯性估计 ====================
+    # 当前 img_en=0，这组参数不参与正常的视觉更新
     vio:
-      max_iterations: 5
-      outlier_threshold: 1000
-      img_point_cov: 100
-      patch_size: 8
-      patch_pyrimid_level: 4
-      normal_en: true
-      raycast_en: false
+      max_iterations: 5         # 每次视觉状态更新的最大迭代次数
+
+      outlier_threshold: 1000   # 图像块光度误差的异常值剔除阈值
+                                 # 越小越严格；不是距离或地面过滤阈值
+
+      img_point_cov: 100         # 图像观测噪声参数
+                                 # 越大通常表示越不信任视觉观测
+
+      patch_size: 8              # 图像块边长，单位：像素；这里是 8×8
+
+      patch_pyrimid_level: 4     # 图像块多尺度金字塔层数
+                                 # pyrimid 是项目原参数拼写，不要自行改名
+
+      normal_en: true           # 使用平面法向信息辅助图像块投影/变形
+
+      raycast_en: false          # 关闭沿相机视线搜索地图点的机制
+
       inverse_composition_en: false
-      exposure_estimate_en: true
-      inv_expo_cov: 0.1
+                                 # 关闭逆向组合形式的视觉优化
+                                 # 使用另一条视觉优化实现路径
 
+      exposure_estimate_en: true # 开启在线曝光相关状态估计，补偿亮度变化
+
+      inv_expo_cov: 0.1          # 逆曝光状态的过程噪声参数
+                                 # 用于调节曝光状态变化的不确定性
+
+    # ==================== 6. IMU 配置 ====================
     imu:
-      imu_en: true
-      imu_int_frame: 30
-      acc_cov: 0.2
-      gyr_cov: 0.5
-      b_acc_cov: 0.0001
-      b_gyr_cov: 0.0001
+      imu_en: true               # 开启 IMU，用于状态预测和点云运动去畸变
 
+      imu_int_frame: 30          # IMU 初始化累计帧数参数
+                                 # 不是 IMU 发布频率，也不是 30 秒
+                                 # 具体计数方式以当前版本代码为准
+
+      acc_cov: 0.2               # 加速度计噪声协方差/缩放参数
+      gyr_cov: 0.5               # 陀螺仪噪声协方差/缩放参数
+
+      b_acc_cov: 0.0001          # 意图：加速度计零偏随机游走噪声
+      b_gyr_cov: 0.0001          # 意图：陀螺仪零偏随机游走噪声
+                                 # 注意：所查官方主程序将这两项硬编码为 0.0001
+                                 # 你的 ROS2 版是否读取 YAML，需要确认
+                                 # 不能保证只修改这两行就会生效
+
+    # ==================== 7. 雷达惯性估计与体素地图 ====================
     lio:
-      max_iterations: 5
-      dept_err: 0.02
-      beam_err: 0.05
-      min_eigen_value: 0.01
-      voxel_size: 0.5
-      max_layer: 2
-      max_points_num: 30
+      max_iterations: 5         # 每次雷达状态更新的最大迭代次数
+
+      dept_err: 0.02             # 雷达测距误差参数，单位：米
+                                 # 用于构造点的测量不确定性
+                                 # dept 是原参数拼写，不要改成 depth
+
+      beam_err: 0.05             # 雷达束角度误差参数
+                                 # 用于构造点的方向测量不确定性
+                                 # 具体角度单位需核对当前版 calcBodyCov 实现
+
+      min_eigen_value: 0.01      # 判定体素内点是否近似平面的特征值阈值
+                                 # 越小通常要求点更贴近平面
+                                 # 用于平面建模，不是地面剔除开关
+
+      voxel_size: 0.5            # 地图顶层体素边长，单位：米
+                                 # 与 preprocess.filter_size_surf 用途不同
+
+      max_layer: 2               # 体素八叉树最大细分层级
+                                 # 官方从第 0 层开始计数
+
+      max_points_num: 30         # 单个体素节点用于平面更新的点数上限参数
+                                 # 官方达到上限后会停止该节点相应更新
+                                 # 不是整幅点云最多保留 30 个点
+
       layer_init_num: [5, 5, 5, 5, 5]
+                                 # 各层体素初始化所需的点数阈值
+                                 # 数组下标对应层级；只使用实际到达的层
 
-    local_map:  
-      map_sliding_en: false
-      half_map_size: 100
-      sliding_thresh: 8.0
+    # ==================== 8. 局部地图管理 ====================
+    local_map:
+      map_sliding_en: false      # 关闭地图滑动裁剪
+                                 # 开启后随运动清理窗口外的地图体素
 
+      half_map_size: 100         # 官方实现：窗口半宽，按顶层体素格数计
+                                 # 不是直接以米为单位
+                                 # voxel_size=0.5 时，对应约 50 m 半宽
+                                 # 当前关闭滑动，这项不触发窗口裁剪
+
+      sliding_thresh: 8.0       # 距上次滑动位置移动多远后触发滑动，单位：米
+                                 # 当前 map_sliding_en=false，不触发滑动
+
+    # ==================== 9. 高频里程计与重力对齐 ====================
     uav:
-      imu_rate_odom: false
-      gravity_align_en: false
+      imu_rate_odom: false       # 关闭 IMU 传播产生的高频里程计输出
+                                 # 不等于关闭正常雷达里程计
 
+      gravity_align_en: false   # 不执行额外的初始重力对齐
+                                 # 不等于关闭 IMU 或重力估计
+                                 # 地面不一定与世界坐标系 XY 平面平行
+
+    # ==================== 10. 发布配置 ====================
     publish:
-      dense_map_en: false
-      pub_effect_point_en: true
-      pub_odom_en: true
-      pub_plane_en: false
-      pub_scan_num: 1
-      blind_rgb_points: 0.0
-      scan_publish_en: true
+      dense_map_en: true       # 官方：发布体素降采样后的点云
+                                 # true：选择去畸变后、体素降采样前的点云
+                                 # 无法恢复预处理 blind 和抽点已删除的点
+
+      pub_effect_point_en: true # 发布参与配准的有效匹配点，通常是独立话题
+                                 # 不表示主点云仅保留这些点，也不表示去地面
+
+      pub_odom_en: true          # 【改版参数】按名称应控制里程计发布
+                                 # 是否控制 TF，需查当前代码
+
+      pub_plane_en: false       # 关闭地图平面可视化
+                                 # 不等于关闭平面匹配，更不等于删除地面
+
+      pub_scan_num: 1           # 官方用于彩色点云分支的累积发布控制
+                                 # 1 表示不额外等待多次累积
+                                 # 不是 Hz；当前 img_en=0 时可能不影响普通点云
+
+      blind_rgb_points: 0.0     # 彩色点云的近距离过滤阈值，单位：米
+                                 # 官方在相机坐标系下判断距离
+                                 # 当前关闭图像，通常不影响普通雷达点云
+
+      scan_publish_en: true     # 【改版参数】按名称应为扫描点云发布开关
+
       scan_bodyframe_pub_en: false
-      scan_lidarframe_pub_en: true   # 🔥 强制雷达坐标系
+                                 # 【改版参数】按名称应关闭机体坐标系点云发布
+                                 # body 指 IMU 还是机器人基座，需查代码
+
+      scan_lidarframe_pub_en: true
+                                 # 【改版参数】按名称应开启雷达坐标系点云发布
+                                 # 不能仅凭此项认定 /cloud_registered 被强制改坐标系
+                                 # 也可能只是开启另一个独立话题
+
       scan_worldframe_pub_en: false
-      pub_tf_freq: 100
-      imu_integrated_tf: true                 
+                                 # 【改版参数】按名称应关闭世界坐标系点云发布
+                                 # 具体控制哪个话题，需要核对发布代码
 
+      pub_tf_freq: 100           # 【改版参数】按名称应为 TF 发布频率，通常是 Hz
+                                 # 不一定等于雷达更新频率或真实估计频率
+
+      imu_integrated_tf: true    # 【改版参数】按名称推测使用 IMU 传播位姿发布 TF
+                                 # 与 imu_rate_odom 的依赖关系无法仅凭 YAML 确定
+
+    # ==================== 11. 轨迹评估与保存 ====================
     evo:
-      seq_name: "CBD_Building_01"
-      pose_output_en: false
+      seq_name: "CBD_Building_01" # 数据序列/轨迹输出命名标识，不是话题名称
+      pose_output_en: false      # 关闭用于离线评估的位姿轨迹文件输出
+                                 # 与是否发布 ROS 里程计话题是两回事
 
+    # ==================== 12. 点云文件保存 ====================
     pcd_save:
-      pcd_save_en: false
-      colmap_output_en: false
-      filter_size_pcd: 0.15
-      interval: -1
+      pcd_save_en: false         # 关闭 PCD 点云文件保存
+
+      colmap_output_en: false    # 关闭 COLMAP 相关数据导出
+                                 # 官方此功能通常配合 interval=-1 使用
+
+      filter_size_pcd: 0.15      # 保存时的体素降采样尺寸，单位：米
+                                 # 所查官方实现用于部分保存分支，如彩色点云
+                                 # 不是实时发布点云的通用过滤尺寸
+
+      interval: -1              # -1：累计后统一保存，不按固定帧数分文件
+                                 # 正数：按配置的累计帧数分批保存
+                                 # 当前 pcd_save_en=false，不执行保
