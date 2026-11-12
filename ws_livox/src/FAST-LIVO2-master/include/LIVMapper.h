@@ -26,10 +26,19 @@ which is included as part of this source code package.
 #include <geometry_msgs/msg/transform_stamped.hpp>
 #include <nav_msgs/msg/path.hpp>
 #include <vikit/camera_loader.h>
+#ifdef ENABLE_LIO_DIAGNOSTICS
+#include "timing_diagnostics.h"
+#endif
 
 class LIVMapper
 {
 public:
+#ifdef ENABLE_LIO_DIAGNOSTICS
+  std::unique_ptr<fastlivo_diag::Recorder> diagnostics;
+  double diagnostic_last_imu_callback = 0, diagnostic_last_lidar_callback = 0;
+  int diagnostic_sync_reason = 0;
+  void diagnosticQueues(fastlivo_diag::Row &row) const;
+#endif
   LIVMapper(rclcpp::Node::SharedPtr &node, std::string node_name, const rclcpp::NodeOptions & options = rclcpp::NodeOptions());
   ~LIVMapper();
   void initializeSubscribersAndPublishers(rclcpp::Node::SharedPtr &nh, image_transport::ImageTransport &it_);

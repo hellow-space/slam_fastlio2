@@ -13,6 +13,16 @@ which is included as part of this source code package.
 #include "LIVMapper.h"
 #include <vikit/camera_loader.h>
 
+#ifdef ENABLE_LIO_DIAGNOSTICS
+#include <cstdlib>
+#include <unistd.h>
+#define LIO_DIAG_BEGIN(variable, event) auto variable = diagnostics->scope(event)
+#define LIO_DIAG_END(variable) variable.finish()
+#else
+#define LIO_DIAG_BEGIN(variable, event)
+#define LIO_DIAG_END(variable)
+#endif
+
 using namespace Sophus;
 LIVMapper::LIVMapper(rclcpp::Node::SharedPtr &node, std::string node_name, const rclcpp::NodeOptions & options)
     : node(std::make_shared<rclcpp::Node>(node_name, options)),
@@ -46,7 +56,38 @@ LIVMapper::LIVMapper(rclcpp::Node::SharedPtr &node, std::string node_name, const
   initializeComponents(this->node);          // initialize components errors
   path.header.stamp = this->node->now();
   path.header.frame_id = "camera_init";
+#ifdef ENABLE_LIO_DIAGNOSTICS
+  const char *directory = std::getenv("FASTLIVO_TIMING_DIR");
+  const auto run_id = std::chrono::system_clock::now().time_since_epoch().count();
+  const std::string filename = std::string(directory ? directory : "/tmp/fastlivo_timing") +
+      "/run_" + std::to_string(run_id) + "_" + std::to_string(getpid()) + "/events.csv";
+  diagnostics = std::make_unique<fastlivo_diag::Recorder>(filename);
+  RCLCPP_INFO(this->node->get_logger(), "LIO diagnostics: %s (%s)", filename.c_str(),
+              diagnostics->enabled() ? "enabled" : "disabled: output unavailable");
+#endif
 }
+
+#ifdef ENABLE_LIO_DIAGNOSTICS
+void LIVMapper::diagnosticQueues(fastlivo_diag::Row &row) const
+{
+  // Existing run()/spin_some() executes these callbacks serially. No new lock,
+  // executor, algorithm queue, or queue operation is introduced here.
+  row.imu_q = imu_buffer.size();
+  row.lidar_q = lid_raw_data_buffer.size();
+  row.lidar_stamp_q = lid_header_time_buffer.size();
+  row.prop_imu_q = prop_imu_buffer.size();
+  if (!imu_buffer.empty())
+  {
+    row.imu_front_s = stamp2Sec(imu_buffer.front()->header.stamp);
+    row.imu_back_s = stamp2Sec(imu_buffer.back()->header.stamp);
+  }
+  if (!lid_header_time_buffer.empty())
+  {
+    row.lidar_front_s = lid_header_time_buffer.front();
+    row.lidar_back_s = lid_header_time_buffer.back();
+  }
+}
+#endif
 
 LIVMapper::~LIVMapper() {}
 
@@ -324,6 +365,10 @@ void LIVMapper::gravityAlignment()
 
 void LIVMapper::processImu() 
 {
+  LIO_DIAG_BEGIN(diag_function, "process_imu");
+#ifdef ENABLE_LIO_DIAGNOSTICS
+  diag_function.row.state_before_s = LidarMeasures.last_lio_update_time;
+#endif
   // double t0 = omp_get_wtime();
 
   p_imu->Process2(LidarMeasures, _state, feats_undistort);
@@ -333,6 +378,9 @@ void LIVMapper::processImu()
   state_propagat = _state;
   voxelmap_manager->state_ = _state;
   voxelmap_manager->feats_undistort_ = feats_undistort;
+#ifdef ENABLE_LIO_DIAGNOSTICS
+  diag_function.row.scan_end_s = LidarMeasures.last_lio_update_time;
+#endif
 
   // double t_prop = omp_get_wtime();
 
@@ -343,6 +391,7 @@ void LIVMapper::processImu()
 
 void LIVMapper::stateEstimationAndMapping() 
 {
+  LIO_DIAG_BEGIN(diag_function, "estimation_mapping");
   switch (LidarMeasures.lio_vio_flg) 
   {
     case VIO:
@@ -412,6 +461,8 @@ void LIVMapper::handleVIO()
 
 void LIVMapper::handleLIO() 
 {    
+  LIO_DIAG_BEGIN(diag_function, "handle_lio");
+  LIO_DIAG_BEGIN(diag_preamble, "lio_preamble_io");
   euler_cur = RotMtoEuler(_state.rot_end);
   fout_pre << setw(20) << LidarMeasures.last_lio_update_time - _first_lidar_time << " " << euler_cur.transpose() * 57.3 << " "
            << _state.pos_end.transpose() << " " << _state.vel_end.transpose() << " " << _state.bias_g.transpose() << " "
@@ -423,12 +474,16 @@ void LIVMapper::handleLIO()
     return;
   }
 
+  LIO_DIAG_END(diag_preamble);
+  LIO_DIAG_BEGIN(diag_down, "downsample");
   double t0 = omp_get_wtime();
 
   downSizeFilterSurf.setInputCloud(feats_undistort);
   downSizeFilterSurf.filter(*feats_down_body);
   
   double t_down = omp_get_wtime();
+  LIO_DIAG_END(diag_down);
+  LIO_DIAG_BEGIN(diag_transform, "downcloud_transform");
 
   feats_down_size = feats_down_body->points.size();
   voxelmap_manager->feats_down_body_ = feats_down_body;
@@ -436,15 +491,20 @@ void LIVMapper::handleLIO()
   voxelmap_manager->feats_down_world_ = feats_down_world;
   voxelmap_manager->feats_down_size_ = feats_down_size;
   
+  LIO_DIAG_END(diag_transform);
   if (!lidar_map_inited) 
   {
+    LIO_DIAG_BEGIN(diag_build, "initial_map_build");
     lidar_map_inited = true;
     voxelmap_manager->BuildVoxelMap();
   }
 
   double t1 = omp_get_wtime();
 
+  LIO_DIAG_BEGIN(diag_estimate, "state_estimation");
   voxelmap_manager->StateEstimation(state_propagat);
+  LIO_DIAG_END(diag_estimate);
+  LIO_DIAG_BEGIN(diag_pose, "state_copy_pose_io_and_odom");
   _state = voxelmap_manager->state_;
   _pv_list = voxelmap_manager->pv_list_;
 
@@ -486,6 +546,8 @@ void LIVMapper::handleLIO()
   publish_odometry(pubOdomAftMapped);
 
   double t3 = omp_get_wtime();
+  LIO_DIAG_END(diag_pose);
+  LIO_DIAG_BEGIN(diag_map, "map_covariance_and_update");
 
   PointCloudXYZI::Ptr world_lidar(new PointCloudXYZI());
   transformLidar(_state.rot_end, _state.pos_end, feats_down_body, world_lidar);
@@ -498,17 +560,23 @@ void LIVMapper::handleLIO()
           (-point_crossmat) * _state.cov.block<3, 3>(0, 0) * (-point_crossmat).transpose() + _state.cov.block<3, 3>(3, 3);
     voxelmap_manager->pv_list_[i].var = var;
   }
+  LIO_DIAG_BEGIN(diag_update, "voxel_map_update");
   voxelmap_manager->UpdateVoxelMap(voxelmap_manager->pv_list_);
+  LIO_DIAG_END(diag_update);
   std::cout << "[ LIO ] Update Voxel Map" << std::endl;
   _pv_list = voxelmap_manager->pv_list_;
   
   double t4 = omp_get_wtime();
+  LIO_DIAG_END(diag_map);
+  LIO_DIAG_BEGIN(diag_slide, "map_slide");
 
   if(voxelmap_manager->config_setting_.map_sliding_en)
   {
     voxelmap_manager->mapSliding();
   }
   
+  LIO_DIAG_END(diag_slide);
+  LIO_DIAG_BEGIN(diag_world, "fullcloud_transform");
   PointCloudXYZI::Ptr laserCloudFullRes(dense_map_en ? feats_undistort : feats_down_body);
   int size = laserCloudFullRes->points.size();
   PointCloudXYZI::Ptr laserCloudWorld(new PointCloudXYZI(size, 1));
@@ -518,12 +586,18 @@ void LIVMapper::handleLIO()
     RGBpointBodyToWorld(&laserCloudFullRes->points[i], &laserCloudWorld->points[i]);
   }
   *pcl_w_wait_pub = *laserCloudWorld;
+  LIO_DIAG_END(diag_world);
+  LIO_DIAG_BEGIN(diag_publish, "post_map_publications");
 
   if (!img_en) publish_frame_world(pubLaserCloudFullRes, vio_manager);
   if (pub_effect_point_en) publish_effect_world(pubLaserCloudEffect, voxelmap_manager->ptpl_list_);
+  LIO_DIAG_BEGIN(diag_plane, "plane_publish");
   if (voxelmap_manager->config_setting_.is_pub_plane_map_) voxelmap_manager->pubVoxelMap();
+  LIO_DIAG_END(diag_plane);
   publish_path(pubPath);
   publish_mavros(mavros_pose_publisher);
+  LIO_DIAG_END(diag_publish);
+  LIO_DIAG_BEGIN(diag_io, "lio_tail_console_and_file_io");
 
   frame_num++;
   aver_time_consu = aver_time_consu * (frame_num - 1) / frame_num + (t4 - t0) / frame_num;
@@ -611,22 +685,139 @@ void LIVMapper::savePCD()
 void LIVMapper::run(rclcpp::Node::SharedPtr &node) 
 {
   rclcpp::Rate rate(5000);
+#ifdef ENABLE_LIO_DIAGNOSTICS
+  double previous_complete = 0, wait_chain_start = 0, wait_window_start = 0;
+  double wait_spin_ms = 0, wait_sync_ms = 0, wait_sleep_ms = 0;
+  uint64_t wait_count = 0, wait_chain_count = 0, processed_frames = 0;
+  std::array<uint64_t, 7> wait_reasons{};
+  auto report_wait = [&]() {
+    if (wait_count == 0) return;
+    const double end = fastlivo_diag::steadySeconds();
+    auto row = diagnostics->row("wait_window", wait_window_start);
+    row.duration_ms = (end - wait_window_start) * 1000;
+    row.count = wait_count;
+    row.ros_s = this->node->get_clock()->now().seconds();
+    diagnosticQueues(row);
+    diagnostics->record(row);
+    for (auto phase : {std::make_pair("wait_spin", wait_spin_ms),
+                       std::make_pair("wait_sync", wait_sync_ms),
+                       std::make_pair("wait_sleep", wait_sleep_ms)})
+    {
+      row.event = phase.first;
+      row.duration_ms = phase.second;
+      diagnostics->record(row);
+    }
+    for (size_t i = 1; i < wait_reasons.size(); ++i)
+    {
+      if (!wait_reasons[i]) continue;
+      row.event = "wait_reason";
+      row.duration_ms = 0;
+      row.status = i;
+      row.count = wait_reasons[i];
+      diagnostics->record(row);
+    }
+    wait_count = 0;
+    wait_spin_ms = wait_sync_ms = wait_sleep_ms = 0;
+    wait_reasons.fill(0);
+    wait_window_start = end;
+  };
+#endif
   while (rclcpp::ok()) 
   {
+#ifdef ENABLE_LIO_DIAGNOSTICS
+    const double cycle_start = fastlivo_diag::steadySeconds();
+    diagnostics->beginInputLoop();
+#endif
     rclcpp::spin_some(this->node);
+#ifdef ENABLE_LIO_DIAGNOSTICS
+    const double spin_end = fastlivo_diag::steadySeconds();
+    auto sync_before = diagnostics->row("sync_before", spin_end);
+    diagnosticQueues(sync_before);
+#endif
     if (!sync_packages(LidarMeasures)) 
     {
+#ifdef ENABLE_LIO_DIAGNOSTICS
+      const double sync_end = fastlivo_diag::steadySeconds();
+      if (wait_chain_start == 0) wait_chain_start = cycle_start;
+      if (wait_count == 0) wait_window_start = cycle_start;
+      ++wait_count;
+      ++wait_chain_count;
+      ++wait_reasons[diagnostic_sync_reason];
+      wait_spin_ms += (spin_end - cycle_start) * 1000;
+      wait_sync_ms += (sync_end - spin_end) * 1000;
+#endif
       rate.sleep();
+#ifdef ENABLE_LIO_DIAGNOSTICS
+      wait_sleep_ms += (fastlivo_diag::steadySeconds() - sync_end) * 1000;
+      if (fastlivo_diag::steadySeconds() - wait_window_start >= 1) report_wait();
+#endif
       continue;
     }
+#ifdef ENABLE_LIO_DIAGNOSTICS
+    const double sync_end = fastlivo_diag::steadySeconds();
+    diagnostics->frame_id = ++processed_frames;
+    diagnostics->odom_published = false;
+    diagnostics->target_end_s = LidarMeasures.measures.back().lio_time;
+    diagnostics->scan_end_s = fastlivo_diag::missing;
+    sync_before.frame_id = diagnostics->frame_id;
+    sync_before.target_end_s = diagnostics->target_end_s;
+    diagnostics->record(sync_before);
+    auto sync_after = diagnostics->row("sync_after", sync_end);
+    sync_after.status = 1;
+    diagnosticQueues(sync_after);
+    diagnostics->record(sync_after);
+    diagnostics->duration("spin", cycle_start, spin_end);
+    diagnostics->duration("sync", spin_end, sync_end);
+    report_wait();
+    if (wait_chain_start > 0)
+    {
+      auto wait = diagnostics->row("sync_wait", wait_chain_start);
+      wait.duration_ms = (sync_end - wait_chain_start) * 1000;
+      wait.count = wait_chain_count;
+      diagnostics->record(wait);
+      wait_chain_start = 0;
+      wait_chain_count = 0;
+    }
+    auto diag_cycle = diagnostics->scope("full_cycle", cycle_start);
+    auto diag_first = diagnostics->scope("first_frame_setup");
+#endif
     handleFirstFrame();
+#ifdef ENABLE_LIO_DIAGNOSTICS
+    diag_first.finish();
+#endif
 
     processImu();
+#ifdef ENABLE_LIO_DIAGNOSTICS
+    diagnostics->scan_end_s = LidarMeasures.last_lio_update_time;
+#endif
 
     // if (!p_imu->imu_time_init) continue;
 
     stateEstimationAndMapping();
+#ifdef ENABLE_LIO_DIAGNOSTICS
+    const double complete = fastlivo_diag::steadySeconds();
+    diag_cycle.row.ros_s = this->node->get_clock()->now().seconds();
+    diag_cycle.row.scan_end_s = LidarMeasures.last_lio_update_time;
+    diag_cycle.row.status = diagnostics->odom_published ? 1 : 0;
+    diagnosticQueues(diag_cycle.row);
+    diag_cycle.row.input_points = feats_undistort->size();
+    diag_cycle.row.down_points = feats_down_body->size();
+    diag_cycle.row.map_voxels = voxelmap_manager->voxel_map_.size();
+    diag_cycle.row.path_poses = path.poses.size();
+    if (diagnostics->odom_published)
+    {
+      diag_cycle.row.effective_points = voxelmap_manager->effct_feat_num_;
+      diag_cycle.row.iterations = voxelmap_manager->diagnostic_iterations_;
+    }
+    diag_cycle.finish();
+    if (previous_complete > 0) diagnostics->duration("frame_period", previous_complete, complete);
+    previous_complete = complete;
+#endif
   }
+#ifdef ENABLE_LIO_DIAGNOSTICS
+  report_wait();
+  diagnostics->close();
+#endif
   savePCD();
 }
 
@@ -652,6 +843,7 @@ void LIVMapper::prop_imu_once(StatesGroup &imu_prop_state, const double dt, V3D 
 
 void LIVMapper::imu_prop_callback()
 {
+  LIO_DIAG_BEGIN(diag_function, "imu_prop_callback");
   if (p_imu->imu_need_init || !new_imu || !ekf_finish_once) { return; }
   mtx_buffer_imu_prop.lock();
   new_imu = false; // 控制 propagate 频率和 IMU 频率一致
@@ -768,6 +960,18 @@ void LIVMapper::RGBpointBodyToWorld(PointType const *const pi, PointType *const 
 
 void LIVMapper::standard_pcl_cbk(const sensor_msgs::msg::PointCloud2::ConstSharedPtr &msg)
 {
+#ifdef ENABLE_LIO_DIAGNOSTICS
+  auto diag_callback = diagnostics->scope("lidar_callback");
+  diag_callback.row.scan_end_s = fastlivo_diag::missing;
+  diag_callback.row.ros_s = this->node->get_clock()->now().seconds();
+  diag_callback.row.raw_stamp_s = stamp2Sec(msg->header.stamp);
+  diag_callback.row.input_points = msg->width * msg->height;
+  diag_callback.row.status = -1;
+  if (diagnostic_last_lidar_callback > 0)
+    diag_callback.row.callback_gap_ms = (diag_callback.row.start_steady_s - diagnostic_last_lidar_callback) * 1000;
+  diagnostic_last_lidar_callback = diag_callback.row.start_steady_s;
+  diagnosticQueues(diag_callback.row);
+#endif
   if (!lidar_en) return;
   mtx_buffer.lock();
   // cout<<"got feature"<<endl;
@@ -778,10 +982,18 @@ void LIVMapper::standard_pcl_cbk(const sensor_msgs::msg::PointCloud2::ConstShare
   }
   // ROS_INFO("get point cloud at time: %.6f", stamp2Sec(msg->header.stamp));
   PointCloudXYZI::Ptr ptr(new PointCloudXYZI());
+  LIO_DIAG_BEGIN(diag_preprocess, "lidar_preprocess");
   p_pre->process(msg, ptr);
+  LIO_DIAG_END(diag_preprocess);
   lid_raw_data_buffer.push_back(ptr);
   lid_header_time_buffer.push_back(stamp2Sec(msg->header.stamp));
   last_timestamp_lidar = stamp2Sec(msg->header.stamp);
+#ifdef ENABLE_LIO_DIAGNOSTICS
+  diag_callback.row.corrected_stamp_s = last_timestamp_lidar;
+  diag_callback.row.down_points = ptr->size();
+  diag_callback.row.status = 1;
+  diagnosticQueues(diag_callback.row);
+#endif
 
   mtx_buffer.unlock();
   sig_buffer.notify_all();
@@ -789,9 +1001,23 @@ void LIVMapper::standard_pcl_cbk(const sensor_msgs::msg::PointCloud2::ConstShare
 
 void LIVMapper::livox_pcl_cbk(const livox_ros_driver2::msg::CustomMsg::ConstSharedPtr &msg_in)
 {
+#ifdef ENABLE_LIO_DIAGNOSTICS
+  auto diag_callback = diagnostics->scope("lidar_callback");
+  diag_callback.row.scan_end_s = fastlivo_diag::missing;
+  diag_callback.row.ros_s = this->node->get_clock()->now().seconds();
+  diag_callback.row.raw_stamp_s = stamp2Sec(msg_in->header.stamp);
+  diag_callback.row.input_points = msg_in->point_num;
+  diag_callback.row.status = -1;
+  if (diagnostic_last_lidar_callback > 0)
+    diag_callback.row.callback_gap_ms = (diag_callback.row.start_steady_s - diagnostic_last_lidar_callback) * 1000;
+  diagnostic_last_lidar_callback = diag_callback.row.start_steady_s;
+  diagnosticQueues(diag_callback.row);
+#endif
   if (!lidar_en) return;
   mtx_buffer.lock();
+  LIO_DIAG_BEGIN(diag_copy, "lidar_message_copy");
   livox_ros_driver2::msg::CustomMsg::SharedPtr msg(new livox_ros_driver2::msg::CustomMsg(*msg_in));
+  LIO_DIAG_END(diag_copy);
   // if ((abs(stamp2Sec(msg->header.stamp) - last_timestamp_lidar) > 0.2 && last_timestamp_lidar > 0) || sync_jump_flag)
   // {
   //   ROS_WARN("lidar jumps %.3f\n", stamp2Sec(msg->header.stamp) - last_timestamp_lidar);
@@ -814,9 +1040,14 @@ void LIVMapper::livox_pcl_cbk(const livox_ros_driver2::msg::CustomMsg::ConstShar
   }
   RCLCPP_INFO(this->node->get_logger(), "get point cloud at time: %.6f", stamp2Sec(msg->header.stamp));
   PointCloudXYZI::Ptr ptr(new PointCloudXYZI());
+  LIO_DIAG_BEGIN(diag_preprocess, "lidar_preprocess");
   p_pre->process(msg, ptr);
+  LIO_DIAG_END(diag_preprocess);
 
   if (!ptr || ptr->empty()) {
+#ifdef ENABLE_LIO_DIAGNOSTICS
+    diag_callback.row.status = -5;
+#endif
     RCLCPP_ERROR(this->node->get_logger(), "Received an empty point cloud");
     mtx_buffer.unlock();
     return;
@@ -825,6 +1056,12 @@ void LIVMapper::livox_pcl_cbk(const livox_ros_driver2::msg::CustomMsg::ConstShar
   lid_raw_data_buffer.push_back(ptr);
   lid_header_time_buffer.push_back(cur_head_time);
   last_timestamp_lidar = cur_head_time;
+#ifdef ENABLE_LIO_DIAGNOSTICS
+  diag_callback.row.corrected_stamp_s = cur_head_time;
+  diag_callback.row.down_points = ptr->size();
+  diag_callback.row.status = 1;
+  diagnosticQueues(diag_callback.row);
+#endif
 
   mtx_buffer.unlock();
   sig_buffer.notify_all();
@@ -832,13 +1069,31 @@ void LIVMapper::livox_pcl_cbk(const livox_ros_driver2::msg::CustomMsg::ConstShar
 
 void LIVMapper::imu_cbk(const sensor_msgs::msg::Imu::ConstSharedPtr &msg_in)
 {
+#ifdef ENABLE_LIO_DIAGNOSTICS
+  auto diag_callback = diagnostics->scope("imu_callback");
+  diag_callback.row.scan_end_s = fastlivo_diag::missing;
+  diag_callback.row.ros_s = this->node->get_clock()->now().seconds();
+  diag_callback.row.raw_stamp_s = stamp2Sec(msg_in->header.stamp);
+  diag_callback.row.input_points = 1;
+  diag_callback.row.status = -1;
+  if (diagnostic_last_imu_callback > 0)
+    diag_callback.row.callback_gap_ms = (diag_callback.row.start_steady_s - diagnostic_last_imu_callback) * 1000;
+  diagnostic_last_imu_callback = diag_callback.row.start_steady_s;
+  diagnosticQueues(diag_callback.row);
+#endif
   if (!imu_en) return;
 
+#ifdef ENABLE_LIO_DIAGNOSTICS
+  diag_callback.row.status = -2;
+#endif
   if (last_timestamp_lidar < 0.0) return;
   RCLCPP_INFO(this->node->get_logger(), "get imu at time: %.6f", stamp2Sec(msg_in->header.stamp));
   sensor_msgs::msg::Imu::SharedPtr msg(new sensor_msgs::msg::Imu(*msg_in));
   msg->header.stamp = sec2Stamp(stamp2Sec(msg->header.stamp) - imu_time_offset);
   double timestamp = stamp2Sec(msg->header.stamp);
+#ifdef ENABLE_LIO_DIAGNOSTICS
+  diag_callback.row.status = -3;
+#endif
 
   if (fabs(last_timestamp_lidar - timestamp) > 0.5 && (!ros_driver_fix_en))
   {
@@ -847,6 +1102,9 @@ void LIVMapper::imu_cbk(const sensor_msgs::msg::Imu::ConstSharedPtr &msg_in)
 
   if (ros_driver_fix_en) timestamp += std::round(last_timestamp_lidar - timestamp);
   msg->header.stamp = sec2Stamp(timestamp);
+#ifdef ENABLE_LIO_DIAGNOSTICS
+  diag_callback.row.corrected_stamp_s = timestamp;
+#endif
 
   mtx_buffer.lock();
 
@@ -860,6 +1118,9 @@ void LIVMapper::imu_cbk(const sensor_msgs::msg::Imu::ConstSharedPtr &msg_in)
 
   if (last_timestamp_imu > 0.0 && timestamp > last_timestamp_imu + 0.2)
   {
+#ifdef ENABLE_LIO_DIAGNOSTICS
+    diag_callback.row.status = -4;
+#endif
     RCLCPP_WARN(this->node->get_logger(), "imu time stamp Jumps %0.4lf seconds \n", timestamp - last_timestamp_imu);
     mtx_buffer.unlock();
     sig_buffer.notify_all();
@@ -869,6 +1130,10 @@ void LIVMapper::imu_cbk(const sensor_msgs::msg::Imu::ConstSharedPtr &msg_in)
   last_timestamp_imu = timestamp;
 
   imu_buffer.push_back(msg);
+#ifdef ENABLE_LIO_DIAGNOSTICS
+  diag_callback.row.status = 1;
+  diagnosticQueues(diag_callback.row);
+#endif
   cout<<"got imu: "<<timestamp<<" imu size "<<imu_buffer.size()<<endl;
   mtx_buffer.unlock();
   if (imu_prop_enable)
@@ -879,6 +1144,9 @@ void LIVMapper::imu_cbk(const sensor_msgs::msg::Imu::ConstSharedPtr &msg_in)
     new_imu = true;
     mtx_buffer_imu_prop.unlock();
   }
+#ifdef ENABLE_LIO_DIAGNOSTICS
+  diagnosticQueues(diag_callback.row);
+#endif
   sig_buffer.notify_all();
 }
 
@@ -947,9 +1215,30 @@ void LIVMapper::img_cbk(const sensor_msgs::msg::Image::ConstSharedPtr &msg_in)
 
 bool LIVMapper::sync_packages(LidarMeasureGroup &meas)
 {
-  if (lid_raw_data_buffer.empty() && lidar_en) return false;
-  if (img_buffer.empty() && img_en) return false;
-  if (imu_buffer.empty() && imu_en) return false;
+#ifdef ENABLE_LIO_DIAGNOSTICS
+  diagnostic_sync_reason = 6; // Other/LIVO branches, not inferred from ONLY_LIO.
+#endif
+  if (lid_raw_data_buffer.empty() && lidar_en)
+  {
+#ifdef ENABLE_LIO_DIAGNOSTICS
+    diagnostic_sync_reason = 1;
+#endif
+    return false;
+  }
+  if (img_buffer.empty() && img_en)
+  {
+#ifdef ENABLE_LIO_DIAGNOSTICS
+    diagnostic_sync_reason = 2;
+#endif
+    return false;
+  }
+  if (imu_buffer.empty() && imu_en)
+  {
+#ifdef ENABLE_LIO_DIAGNOSTICS
+    diagnostic_sync_reason = 3;
+#endif
+    return false;
+  }
 
   switch (slam_mode_)
   {
@@ -960,7 +1249,13 @@ bool LIVMapper::sync_packages(LidarMeasureGroup &meas)
     {
       // If not push the lidar into measurement data buffer
       meas.lidar = lid_raw_data_buffer.front(); // push the first lidar topic
-      if (meas.lidar->points.size() <= 1) return false;
+      if (meas.lidar->points.size() <= 1)
+  {
+#ifdef ENABLE_LIO_DIAGNOSTICS
+    diagnostic_sync_reason = 4;
+#endif
+    return false;
+  }
 
       meas.lidar_frame_beg_time = lid_header_time_buffer.front();                                                // generate lidar_frame_beg_time
       meas.lidar_frame_end_time = meas.lidar_frame_beg_time + meas.lidar->points.back().curvature / double(1000); // calc lidar scan end time
@@ -973,6 +1268,9 @@ bool LIVMapper::sync_packages(LidarMeasureGroup &meas)
       // larger than _lidar_frame_end_time,
       // make sure complete propagate.
       // ROS_ERROR("out sync");
+#ifdef ENABLE_LIO_DIAGNOSTICS
+      diagnostic_sync_reason = 5;
+#endif
       return false;
     }
 
@@ -1195,6 +1493,7 @@ void LIVMapper::publish_img_rgb(const image_transport::Publisher &pubImage, VIOM
 
 void LIVMapper::publish_frame_world(const rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr &pubLaserCloudFullRes, VIOManagerPtr vio_manager)
 {
+  LIO_DIAG_BEGIN(diag_function, "cloud_publish_and_save");
   if (pcl_w_wait_pub->empty()) return;
   PointCloudXYZRGB::Ptr laserCloudWorldRGB(new PointCloudXYZRGB());
   if (img_en)
@@ -1323,6 +1622,7 @@ void LIVMapper::publish_visual_sub_map(const rclcpp::Publisher<sensor_msgs::msg:
 
 void LIVMapper::publish_effect_world(const rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr &pubLaserCloudEffect, const std::vector<PointToPlane> &ptpl_list)
 {
+  LIO_DIAG_BEGIN(diag_function, "effect_publish");
   int effect_feat_num = ptpl_list.size();
   PointCloudXYZI::Ptr laserCloudWorld(new PointCloudXYZI(effect_feat_num, 1));
   for (int i = 0; i < effect_feat_num; i++)
@@ -1351,13 +1651,16 @@ template <typename T> void LIVMapper::set_posestamp(T &out)
 
 void LIVMapper::publish_odometry(const rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr &pubOdomAftMapped)
 {
+  LIO_DIAG_BEGIN(diag_function, "odom_publish");
   odomAftMapped.header.frame_id = "camera_init";
   odomAftMapped.child_frame_id = "aft_mapped";
   odomAftMapped.header.stamp = this->node->get_clock()->now(); //.ros::Time()fromSec(last_timestamp_lidar);
   set_posestamp(odomAftMapped.pose.pose);
 
   static std::shared_ptr<tf2_ros::TransformBroadcaster> br;
+  LIO_DIAG_BEGIN(diag_broadcaster, "tf_broadcaster_create");
   br = std::make_shared<tf2_ros::TransformBroadcaster>(this->node);
+  LIO_DIAG_END(diag_broadcaster);
   tf2::Transform transform;
   tf2::Quaternion q;
   transform.setOrigin(tf2::Vector3(_state.pos_end(0), _state.pos_end(1), _state.pos_end(2)));
@@ -1366,12 +1669,27 @@ void LIVMapper::publish_odometry(const rclcpp::Publisher<nav_msgs::msg::Odometry
   q.setY(geoQuat.y);
   q.setZ(geoQuat.z);
   transform.setRotation(q);
+  LIO_DIAG_BEGIN(diag_tf_send, "tf_send");
   br->sendTransform(geometry_msgs::msg::TransformStamped(createTransformStamped(transform, odomAftMapped.header.stamp, "camera_init", "aft_mapped")));
+  LIO_DIAG_END(diag_tf_send);
+#ifdef ENABLE_LIO_DIAGNOSTICS
+  diag_function.row.ros_s = this->node->get_clock()->now().seconds();
+  diag_function.row.raw_stamp_s = stamp2Sec(odomAftMapped.header.stamp);
+  diag_function.row.scan_end_s = LidarMeasures.last_lio_update_time;
+  diag_function.row.status = 1;
+  diagnosticQueues(diag_function.row);
+#endif
+  LIO_DIAG_BEGIN(diag_odom_send, "odom_send");
   pubOdomAftMapped->publish(odomAftMapped);
+  LIO_DIAG_END(diag_odom_send);
+#ifdef ENABLE_LIO_DIAGNOSTICS
+  diagnostics->odom_published = true;
+#endif
 }
 
 void LIVMapper::publish_mavros(const rclcpp::Publisher<geometry_msgs::msg::PoseStamped>::SharedPtr &mavros_pose_publisher)
 {
+  LIO_DIAG_BEGIN(diag_function, "mavros_publish");
   msg_body_pose.header.stamp = this->node->get_clock()->now();
   msg_body_pose.header.frame_id = "camera_init";
   set_posestamp(msg_body_pose.pose);
@@ -1380,6 +1698,7 @@ void LIVMapper::publish_mavros(const rclcpp::Publisher<geometry_msgs::msg::PoseS
 
 void LIVMapper::publish_path(const rclcpp::Publisher<nav_msgs::msg::Path>::SharedPtr &pubPath)
 {
+  LIO_DIAG_BEGIN(diag_function, "path_publish");
   set_posestamp(msg_body_pose.pose);
   msg_body_pose.header.stamp = this->node->get_clock()->now();
   msg_body_pose.header.frame_id = "camera_init";

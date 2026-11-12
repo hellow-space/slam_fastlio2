@@ -212,6 +212,9 @@ public:
 
   int feats_down_size_;
   int effct_feat_num_;
+#ifdef ENABLE_LIO_DIAGNOSTICS
+  int diagnostic_iterations_ = 0;
+#endif
   std::vector<M3D> cross_mat_list_;
   std::vector<M3D> body_cov_list_;
   std::vector<pointWithVar> pv_list_;

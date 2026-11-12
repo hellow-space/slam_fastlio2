@@ -1,6 +1,12 @@
 cmake_minimum_required(VERSION 3.10)
 project(fast_livo)
 
+option(ENABLE_LIO_DIAGNOSTICS "Record passive FAST-LIVO2 stage/queue timing" OFF)
+if(ENABLE_LIO_DIAGNOSTICS)
+  # PUBLIC class layouts must agree across all libraries and main.cpp.
+  add_definitions(-DENABLE_LIO_DIAGNOSTICS)
+endif()
+
 set(CMAKE_BUILD_TYPE "Release")
 message(STATUS "Build Type: ${CMAKE_BUILD_TYPE}")
 

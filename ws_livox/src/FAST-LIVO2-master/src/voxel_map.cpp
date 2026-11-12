@@ -366,6 +366,9 @@ VoxelOctoTree *VoxelOctoTree::Insert(const pointWithVar &pv)
 
 void VoxelMapManager::StateEstimation(StatesGroup &state_propagat)
 {
+#ifdef ENABLE_LIO_DIAGNOSTICS
+  diagnostic_iterations_ = 0;
+#endif
   cross_mat_list_.clear();
   cross_mat_list_.reserve(feats_down_size_);
   body_cov_list_.clear();
@@ -400,6 +403,9 @@ void VoxelMapManager::StateEstimation(StatesGroup &state_propagat)
   bool flg_EKF_inited, flg_EKF_converged, EKF_stop_flg = 0;
   for (int iterCount = 0; iterCount < config_setting_.max_iterations_; iterCount++)
   {
+#ifdef ENABLE_LIO_DIAGNOSTICS
+    ++diagnostic_iterations_;
+#endif
     double total_residual = 0.0;
     pcl::PointCloud<pcl::PointXYZI>::Ptr world_lidar(new pcl::PointCloud<pcl::PointXYZI>);
     TransformLidar(state_.rot_end, state_.pos_end, feats_down_body_, world_lidar);
