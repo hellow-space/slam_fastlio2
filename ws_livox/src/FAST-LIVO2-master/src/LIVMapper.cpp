@@ -65,6 +65,9 @@ LIVMapper::LIVMapper(rclcpp::Node::SharedPtr &node, std::string node_name, const
   RCLCPP_INFO(this->node->get_logger(), "LIO diagnostics: %s (%s)", filename.c_str(),
               diagnostics->enabled() ? "enabled" : "disabled: output unavailable");
 #endif
+  LIO_DIAG_BEGIN(diag_broadcaster, "tf_broadcaster_create");
+  tf_broadcaster_ = std::make_shared<tf2_ros::TransformBroadcaster>(this->node);
+  LIO_DIAG_END(diag_broadcaster);
 }
 
 #ifdef ENABLE_LIO_DIAGNOSTICS
@@ -1657,10 +1660,6 @@ void LIVMapper::publish_odometry(const rclcpp::Publisher<nav_msgs::msg::Odometry
   odomAftMapped.header.stamp = this->node->get_clock()->now(); //.ros::Time()fromSec(last_timestamp_lidar);
   set_posestamp(odomAftMapped.pose.pose);
 
-  static std::shared_ptr<tf2_ros::TransformBroadcaster> br;
-  LIO_DIAG_BEGIN(diag_broadcaster, "tf_broadcaster_create");
-  br = std::make_shared<tf2_ros::TransformBroadcaster>(this->node);
-  LIO_DIAG_END(diag_broadcaster);
   tf2::Transform transform;
   tf2::Quaternion q;
   transform.setOrigin(tf2::Vector3(_state.pos_end(0), _state.pos_end(1), _state.pos_end(2)));
@@ -1670,7 +1669,7 @@ void LIVMapper::publish_odometry(const rclcpp::Publisher<nav_msgs::msg::Odometry
   q.setZ(geoQuat.z);
   transform.setRotation(q);
   LIO_DIAG_BEGIN(diag_tf_send, "tf_send");
-  br->sendTransform(geometry_msgs::msg::TransformStamped(createTransformStamped(transform, odomAftMapped.header.stamp, "camera_init", "aft_mapped")));
+  tf_broadcaster_->sendTransform(geometry_msgs::msg::TransformStamped(createTransformStamped(transform, odomAftMapped.header.stamp, "camera_init", "aft_mapped")));
   LIO_DIAG_END(diag_tf_send);
 #ifdef ENABLE_LIO_DIAGNOSTICS
   diag_function.row.ros_s = this->node->get_clock()->now().seconds();
