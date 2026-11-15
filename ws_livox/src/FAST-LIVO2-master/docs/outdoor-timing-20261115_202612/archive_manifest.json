@@ -1,0 +1,66 @@
+{
+  "source_code_commit": "16c38263b9b4016d9c20e71ce2b4cf33e2d2d82e",
+  "original_analysis_directory": "/home/nvidia/fastlivo_timing/outdoor_analysis_20261115_202612",
+  "artifacts": [
+    {
+      "name": "analyze.py",
+      "size": 13037,
+      "sha256": "632d687ba0bf5e44ad2a09e8f910e13a6fe0d76002c15316156d473ae5f3c6f2",
+      "original_sha256": "c2022a9148a3c3024189a81f946b29238c3a67d2e89a02330dd8fe638dfc3bb9",
+      "archive_adjustment": "CSV writer uses explicit LF terminator for reproducible Git-friendly output; analysis logic unchanged."
+    },
+    {
+      "name": "earlier_matched_odometry.csv",
+      "size": 27635,
+      "sha256": "931903e02318c3a2b80117280584dfd13581eeb69a0e4c04bd4cd52668468031",
+      "original_sha256": "d7b87398ac34eab97e42d0ebd7a9da1084861e7b421f043bfc9416d6e07d4137",
+      "archive_adjustment": "CRLF normalized to LF; parsed CSV rows verified identical."
+    },
+    {
+      "name": "earlier_metrics.json",
+      "size": 98845,
+      "sha256": "f4bf39801b6c9404bae73f743b43b24d600fee2291f69914dbabd0f006b45cd9",
+      "original_sha256": "f4bf39801b6c9404bae73f743b43b24d600fee2291f69914dbabd0f006b45cd9"
+    },
+    {
+      "name": "latest_matched_odometry.csv",
+      "size": 91883,
+      "sha256": "ae5151e45bad59673ea4a09ba1f2162911acdd46a1ddc9df124b5c7647e00256",
+      "original_sha256": "c136dbf8d2d5d83c1886b5abd5f66f2eb1294a8d2bf004ddf93d1457abeae46d",
+      "archive_adjustment": "CRLF normalized to LF; parsed CSV rows verified identical."
+    },
+    {
+      "name": "latest_metrics.json",
+      "size": 1303602,
+      "sha256": "808845619aaa37e0c5b072fe9f751dc97c5585d80f3d3c43e75efbaff3f13f5a",
+      "original_sha256": "808845619aaa37e0c5b072fe9f751dc97c5585d80f3d3c43e75efbaff3f13f5a"
+    },
+    {
+      "name": "phases.json",
+      "size": 66465,
+      "sha256": "2adecac5f7e55a9f2d5d2973b0fd82e5d4bb9d68110f0094c145951403f860c4",
+      "original_sha256": "2adecac5f7e55a9f2d5d2973b0fd82e5d4bb9d68110f0094c145951403f860c4"
+    },
+    {
+      "name": "phases.py",
+      "size": 3901,
+      "sha256": "faa81adf9fcca014313a9cf814a04044c0eec82bc43ca9fc6aa7a14aca5c5fbd",
+      "original_sha256": "faa81adf9fcca014313a9cf814a04044c0eec82bc43ca9fc6aa7a14aca5c5fbd"
+    },
+    {
+      "name": "timing_and_backlog.png",
+      "size": 372308,
+      "sha256": "54b5c4ae55c6edfa440bd284c6d294ec024c6c69dddf0ab43bedf946b2a5f550",
+      "original_sha256": "54b5c4ae55c6edfa440bd284c6d294ec024c6c69dddf0ab43bedf946b2a5f550"
+    },
+    {
+      "name": "verification.json",
+      "size": 942,
+      "sha256": "25798375f15c645a7a903a10b05b7287a8d4d6679862dac44410e13a1bdead82",
+      "original_sha256": "25798375f15c645a7a903a10b05b7287a8d4d6679862dac44410e13a1bdead82"
+    }
+  ],
+  "shared_parser_path": "/home/nvidia/MPPI_3dnavi/docs/analysis/indoor_imu_2026-11-12_210002/analyze.py",
+  "shared_parser_sha256": "a363d6612749d409c26a7a117c4837e999c3de87e354e38ad7c1a0fe1b8c1d3a",
+  "checks": "Python syntax, JSON parsing, markdown targets, shell snippet syntax and numerical conclusions verified. CSV rows unchanged after LF normalization; all other data artifacts byte-identical to original."
+}

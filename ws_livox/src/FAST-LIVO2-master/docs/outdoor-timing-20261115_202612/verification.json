@@ -1,0 +1,24 @@
+{
+  "checks": {
+    "latest": {
+      "all_recorded_inputs_and_outputs_matched_once": true,
+      "one_broadcaster_per_session": true,
+      "path_order_and_header": true,
+      "matched_tf_odom_pose_agrees": true,
+      "tf_count_as_observed": true,
+      "no_timestamp_rejection": true,
+      "inputs_unchanged": true,
+      "path_caps_at_2000": true
+    },
+    "earlier": {
+      "all_recorded_inputs_and_outputs_matched_once": true,
+      "one_broadcaster_per_session": true,
+      "path_order_and_header": true,
+      "matched_tf_odom_pose_agrees": true,
+      "tf_count_as_observed": true,
+      "no_timestamp_rejection": true,
+      "inputs_unchanged": true
+    }
+  },
+  "tf_note": "Latest: all 1239 odometry messages have matching camera_init->aft_mapped TF. Earlier: 381 of 382; only first odometry header precedes first recorded matching TF by 81.2335ms. Quaternion comparisons allow q and -q, which represent the same rotation."
+}

@@ -1,0 +1,4897 @@
+{
+  "bag": "/home/nvidia/fastlivo_timing/outdoor_bags/handheld_20261115_202254",
+  "csv": "/home/nvidia/fastlivo_timing/session_20261115_202200.3tiOmh/run_1794745325066431849_6334/events.csv",
+  "manifest": [
+    {
+      "path": "/home/nvidia/fastlivo_timing/outdoor_bags/handheld_20261115_202254/handheld_20261115_202254_0.db3",
+      "size": 160059392,
+      "mtime_ns": 1794745413292712531,
+      "sha256": "3286adf5127f0bc065c3591f8fd24fbdb0525d0a69adaa972712c53affc04df9"
+    },
+    {
+      "path": "/home/nvidia/fastlivo_timing/outdoor_bags/handheld_20261115_202254/metadata.yaml",
+      "size": 5680,
+      "mtime_ns": 1794745413296712617,
+      "sha256": "3036c718fbbce35e5ca105c6dfeee9d4824d0a5cb47c9b03e9c16aeaa68c837e"
+    },
+    {
+      "path": "/home/nvidia/fastlivo_timing/session_20261115_202200.3tiOmh/run_1794745325066431849_6334/events.csv",
+      "size": 15963083,
+      "mtime_ns": 1794745439421170925,
+      "sha256": "0289bdccaa2f94a1e1dec64b3171484444ce3f861b1ace2a65609b7cc5b11c7b"
+    }
+  ],
+  "bag_duration_s": 38.20677137374878,
+  "bag_start_s": 1794745375.0871284,
+  "bag_end_s": 1794745413.2938998,
+  "parser_ros_validations": 3,
+  "streams": {
+    "/livox/imu": {
+      "count": 7620,
+      "header_hz": 199.99575916194945,
+      "recorder_hz": 200.00561140237443,
+      "header_dt_ms": {
+        "count": 7619,
+        "mean": 5.0001060231993995,
+        "min": 0.0247955322265625,
+        "p50": 4.910469055175781,
+        "p95": 6.525754928588867,
+        "p99": 9.119749069213867,
+        "max": 21.265029907226562
+      },
+      "recorder_dt_ms": {
+        "count": 7619,
+        "mean": 4.999859718876508,
+        "min": 0.009059906005859375,
+        "p50": 4.900217056274414,
+        "p95": 7.620334625244141,
+        "p99": 11.17396354675293,
+        "max": 23.320436477661133
+      },
+      "recorder_header_age_ms": {
+        "count": 7620,
+        "mean": 0.7360365447096937,
+        "min": 0.14352798461914062,
+        "p50": 0.43773651123046875,
+        "p95": 2.256155014038086,
+        "p99": 5.891084671020508,
+        "max": 17.609119415283203
+      },
+      "header_nonincreasing": 0,
+      "header_gaps_over_10ms": 48,
+      "header_gaps_over_30ms": 0
+    },
+    "/aft_mapped_to_init": {
+      "count": 382,
+      "header_hz": 10.012515937647976,
+      "recorder_hz": 10.012305407458765,
+      "header_dt_ms": {
+        "count": 381,
+        "mean": 99.87499707639999,
+        "min": 40.72737693786621,
+        "p50": 100.16560554504395,
+        "p95": 119.77386474609375,
+        "p99": 162.57166862487793,
+        "max": 209.38897132873535
+      },
+      "recorder_dt_ms": {
+        "count": 381,
+        "mean": 99.87709716236185,
+        "min": 37.18852996826172,
+        "p50": 99.84636306762695,
+        "p95": 121.22130393981934,
+        "p99": 163.1162166595459,
+        "max": 219.4204330444336
+      },
+      "recorder_header_age_ms": {
+        "count": 382,
+        "mean": 1.5538674998657866,
+        "min": 0.3285408020019531,
+        "p50": 0.9827613830566406,
+        "p95": 3.826141357421875,
+        "p99": 9.270429611206055,
+        "max": 11.857032775878906
+      },
+      "header_nonincreasing": 0,
+      "header_gaps_over_10ms": 381,
+      "header_gaps_over_30ms": 381
+    },
+    "/livox/lidar": {
+      "count": 381,
+      "header_hz": 9.999700730897963,
+      "recorder_hz": 10.00260445999528,
+      "header_dt_ms": {
+        "count": 380,
+        "mean": 100.00299278058503,
+        "min": 92.80633926391602,
+        "p50": 99.99513626098633,
+        "p95": 101.90987586975098,
+        "p99": 104.51483726501465,
+        "max": 107.93495178222656
+      },
+      "recorder_dt_ms": {
+        "count": 380,
+        "mean": 99.97396218149285,
+        "min": 37.20903396606445,
+        "p50": 99.8539924621582,
+        "p95": 111.82522773742676,
+        "p99": 128.45373153686523,
+        "max": 170.0913906097412
+      },
+      "recorder_header_age_ms": {
+        "count": 381,
+        "mean": 128.88776849261106,
+        "min": 113.51585388183594,
+        "p50": 124.42994117736816,
+        "p95": 153.16176414489746,
+        "p99": 224.1513729095459,
+        "max": 259.46903228759766
+      },
+      "header_nonincreasing": 0,
+      "header_gaps_over_10ms": 380,
+      "header_gaps_over_30ms": 380
+    }
+  },
+  "matched": {
+    "/livox/imu": {
+      "matched": 7620,
+      "messages": 7620,
+      "unique_callbacks": 7620,
+      "stamp_error_us": {
+        "count": 7620,
+        "mean": 0.06598750437338521,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.2384185791015625,
+        "p99": 0.2384185791015625,
+        "max": 0.2384185791015625
+      },
+      "callback_header_age_ms": {
+        "count": 7620,
+        "mean": 49.31650793070867,
+        "min": 0.196457,
+        "p50": 12.580395,
+        "p95": 335.93773799999997,
+        "p99": 435.890675,
+        "max": 493.373632
+      },
+      "callback_gap_ms": {
+        "count": 7620,
+        "mean": 4.99765386535433,
+        "min": 0.144294,
+        "p50": 0.759393,
+        "p95": 19.430307,
+        "p99": 67.064174,
+        "max": 200.712949
+      },
+      "duration_ms": {
+        "count": 7620,
+        "mean": 0.2683959479002625,
+        "min": 0.054177,
+        "p50": 0.164357,
+        "p95": 0.713312,
+        "p99": 2.64208,
+        "max": 27.854116
+      },
+      "statuses": {
+        "1": 7620
+      }
+    },
+    "/livox/lidar": {
+      "matched": 381,
+      "messages": 381,
+      "unique_callbacks": 381,
+      "stamp_error_us": {
+        "count": 381,
+        "mean": 0.06445436652876886,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.2384185791015625,
+        "p99": 0.2384185791015625,
+        "max": 0.2384185791015625
+      },
+      "callback_header_age_ms": {
+        "count": 381,
+        "mean": 133.6690741496063,
+        "min": 114.57872400000001,
+        "p50": 126.757145,
+        "p95": 175.70233299999998,
+        "p99": 249.60875499999997,
+        "max": 295.926094
+      },
+      "callback_gap_ms": {
+        "count": 381,
+        "mean": 99.91165579527559,
+        "min": 16.134474,
+        "p50": 99.815056,
+        "p95": 114.979671,
+        "p99": 146.652633,
+        "max": 206.705782
+      },
+      "duration_ms": {
+        "count": 381,
+        "mean": 1.4288527926509187,
+        "min": 0.805395,
+        "p50": 1.052552,
+        "p95": 3.15154,
+        "p99": 5.657373,
+        "max": 14.200156
+      },
+      "statuses": {
+        "1": 381
+      }
+    },
+    "/aft_mapped_to_init": {
+      "matched": 382,
+      "messages": 382,
+      "unique_callbacks": 382,
+      "stamp_error_us": {
+        "count": 382,
+        "mean": 0.06366150541455334,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.2384185791015625,
+        "p99": 0.2384185791015625,
+        "max": 0.2384185791015625
+      },
+      "callback_header_age_ms": {
+        "count": 382,
+        "mean": 0.5442465890052356,
+        "min": 0.170231,
+        "p50": 0.30016899999999996,
+        "p95": 1.944304,
+        "p99": 3.9308069999999997,
+        "max": 8.172512
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "duration_ms": {
+        "count": 382,
+        "mean": 0.8338227146596859,
+        "min": 0.25918,
+        "p50": 0.486667,
+        "p95": 2.69533,
+        "p99": 5.61807,
+        "max": 9.094412
+      },
+      "statuses": {
+        "1": 382
+      }
+    }
+  },
+  "bag_stages": {
+    "sync_before": {
+      "duration_ms": {
+        "count": 382,
+        "mean": 0.0,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "max": 0.0
+      },
+      "statuses": {
+        "0": 382
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 382,
+        "mean": 25.392670157068064,
+        "min": 18.0,
+        "p50": 25.0,
+        "p95": 29.0,
+        "p99": 33.0,
+        "max": 42.0
+      },
+      "lidar_q": {
+        "count": 382,
+        "mean": 1.1910994764397906,
+        "min": 1.0,
+        "p50": 1.0,
+        "p95": 3.0,
+        "p99": 4.0,
+        "max": 4.0
+      },
+      "prop_imu_q": {
+        "count": 382,
+        "mean": 0.0,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "max": 0.0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "sync_after": {
+      "duration_ms": {
+        "count": 382,
+        "mean": 0.0,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "max": 0.0
+      },
+      "statuses": {
+        "1": 382
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 382,
+        "mean": 5.384816753926701,
+        "min": 1.0,
+        "p50": 5.0,
+        "p95": 9.0,
+        "p99": 12.0,
+        "max": 20.0
+      },
+      "lidar_q": {
+        "count": 382,
+        "mean": 0.19109947643979058,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 2.0,
+        "p99": 3.0,
+        "max": 3.0
+      },
+      "prop_imu_q": {
+        "count": 382,
+        "mean": 0.0,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "max": 0.0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "spin": {
+      "duration_ms": {
+        "count": 382,
+        "mean": 3.1104398089005234,
+        "min": 0.147718,
+        "p50": 2.76319,
+        "p95": 6.427908,
+        "p99": 8.21529,
+        "max": 15.836037
+      },
+      "statuses": {
+        "0": 382
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "sync": {
+      "duration_ms": {
+        "count": 382,
+        "mean": 0.026415955497382203,
+        "min": 0.008576,
+        "p50": 0.024545,
+        "p95": 0.033441,
+        "p99": 0.140677,
+        "max": 0.267592
+      },
+      "statuses": {
+        "0": 382
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "wait_window": {
+      "duration_ms": {
+        "count": 381,
+        "mean": 49.40861972440945,
+        "min": 5.148326,
+        "p50": 49.015415,
+        "p95": 79.552344,
+        "p99": 98.166717,
+        "max": 108.404182
+      },
+      "statuses": {
+        "0": 381
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 381,
+        "mean": 5.396325459317585,
+        "min": 1.0,
+        "p50": 5.0,
+        "p95": 9.0,
+        "p99": 12.0,
+        "max": 20.0
+      },
+      "lidar_q": {
+        "count": 381,
+        "mean": 0.19160104986876642,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 2.0,
+        "p99": 3.0,
+        "max": 3.0
+      },
+      "prop_imu_q": {
+        "count": 381,
+        "mean": 0.0,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "max": 0.0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "wait_spin": {
+      "duration_ms": {
+        "count": 381,
+        "mean": 34.40397237007874,
+        "min": 3.952687,
+        "p50": 33.986897,
+        "p95": 57.426158,
+        "p99": 76.260334,
+        "max": 95.933237
+      },
+      "statuses": {
+        "0": 381
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 381,
+        "mean": 5.396325459317585,
+        "min": 1.0,
+        "p50": 5.0,
+        "p95": 9.0,
+        "p99": 12.0,
+        "max": 20.0
+      },
+      "lidar_q": {
+        "count": 381,
+        "mean": 0.19160104986876642,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 2.0,
+        "p99": 3.0,
+        "max": 3.0
+      },
+      "prop_imu_q": {
+        "count": 381,
+        "mean": 0.0,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "max": 0.0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "wait_sync": {
+      "duration_ms": {
+        "count": 381,
+        "mean": 0.07782131233595802,
+        "min": 0.008032,
+        "p50": 0.06477,
+        "p95": 0.134785,
+        "p99": 0.301737,
+        "max": 1.446341
+      },
+      "statuses": {
+        "0": 381
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 381,
+        "mean": 5.396325459317585,
+        "min": 1.0,
+        "p50": 5.0,
+        "p95": 9.0,
+        "p99": 12.0,
+        "max": 20.0
+      },
+      "lidar_q": {
+        "count": 381,
+        "mean": 0.19160104986876642,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 2.0,
+        "p99": 3.0,
+        "max": 3.0
+      },
+      "prop_imu_q": {
+        "count": 381,
+        "mean": 0.0,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "max": 0.0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "wait_sleep": {
+      "duration_ms": {
+        "count": 381,
+        "mean": 11.719248650918637,
+        "min": 0.007136,
+        "p50": 11.979765,
+        "p95": 21.307921,
+        "p99": 25.838931,
+        "max": 33.287856
+      },
+      "statuses": {
+        "0": 381
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 381,
+        "mean": 5.396325459317585,
+        "min": 1.0,
+        "p50": 5.0,
+        "p95": 9.0,
+        "p99": 12.0,
+        "max": 20.0
+      },
+      "lidar_q": {
+        "count": 381,
+        "mean": 0.19160104986876642,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 2.0,
+        "p99": 3.0,
+        "max": 3.0
+      },
+      "prop_imu_q": {
+        "count": 381,
+        "mean": 0.0,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "max": 0.0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "wait_reason": {
+      "duration_ms": {
+        "count": 384,
+        "mean": 0.0,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "max": 0.0
+      },
+      "statuses": {
+        "1": 340,
+        "5": 44
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 384,
+        "mean": 5.361979166666667,
+        "min": 1.0,
+        "p50": 5.0,
+        "p95": 9.0,
+        "p99": 12.0,
+        "max": 20.0
+      },
+      "lidar_q": {
+        "count": 384,
+        "mean": 0.19010416666666666,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 2.0,
+        "p99": 3.0,
+        "max": 3.0
+      },
+      "prop_imu_q": {
+        "count": 384,
+        "mean": 0.0,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "max": 0.0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "sync_wait": {
+      "duration_ms": {
+        "count": 381,
+        "mean": 49.39264333595801,
+        "min": 5.147622,
+        "p50": 49.014583,
+        "p95": 79.550808,
+        "p99": 98.165245,
+        "max": 108.402646
+      },
+      "statuses": {
+        "0": 381
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "first_frame_setup": {
+      "duration_ms": {
+        "count": 382,
+        "mean": 0.00032008900523560206,
+        "min": 3.2e-05,
+        "p50": 0.00032,
+        "p95": 0.00064,
+        "p99": 0.000832,
+        "max": 0.001088
+      },
+      "statuses": {
+        "0": 382
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "process_imu": {
+      "duration_ms": {
+        "count": 382,
+        "mean": 2.5938078167539267,
+        "min": 0.751825,
+        "p50": 2.115963,
+        "p95": 5.058748,
+        "p99": 12.681301,
+        "max": 20.200174
+      },
+      "statuses": {
+        "0": 382
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "lio_preamble_io": {
+      "duration_ms": {
+        "count": 382,
+        "mean": 0.11743789790575916,
+        "min": 0.045377,
+        "p50": 0.083234,
+        "p95": 0.244617,
+        "p99": 0.986572,
+        "max": 1.495195
+      },
+      "statuses": {
+        "0": 382
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "handle_lio": {
+      "duration_ms": {
+        "count": 382,
+        "mean": 47.987350280104714,
+        "min": 9.319128,
+        "p50": 48.011076,
+        "p95": 73.325016,
+        "p99": 85.736055,
+        "max": 167.058173
+      },
+      "statuses": {
+        "0": 382
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "estimation_mapping": {
+      "duration_ms": {
+        "count": 382,
+        "mean": 48.004655709424085,
+        "min": 9.320504,
+        "p50": 48.012516,
+        "p95": 73.326712,
+        "p99": 85.737623,
+        "max": 167.060221
+      },
+      "statuses": {
+        "0": 382
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "full_cycle": {
+      "duration_ms": {
+        "count": 382,
+        "mean": 53.81989871204189,
+        "min": 12.701478,
+        "p50": 53.676338,
+        "p95": 80.076919,
+        "p99": 93.848822,
+        "max": 187.690977
+      },
+      "statuses": {
+        "1": 382
+      },
+      "age_s": {
+        "count": 382,
+        "mean": 0.11057519040052356,
+        "min": 0.036445379,
+        "p50": 0.083118439,
+        "p95": 0.369191885,
+        "p99": 0.456481218,
+        "max": 0.494902849
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 382,
+        "mean": 5.384816753926701,
+        "min": 1.0,
+        "p50": 5.0,
+        "p95": 9.0,
+        "p99": 12.0,
+        "max": 20.0
+      },
+      "lidar_q": {
+        "count": 382,
+        "mean": 0.19109947643979058,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 2.0,
+        "p99": 3.0,
+        "max": 3.0
+      },
+      "prop_imu_q": {
+        "count": 382,
+        "mean": 0.0,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "max": 0.0
+      },
+      "input_points": {
+        "count": 382,
+        "mean": 13440.570680628272,
+        "min": 3029.0,
+        "p50": 14417.0,
+        "p95": 16573.0,
+        "p99": 17222.0,
+        "max": 17788.0
+      },
+      "down_points": {
+        "count": 382,
+        "mean": 5572.151832460733,
+        "min": 1311.0,
+        "p50": 5978.0,
+        "p95": 7120.0,
+        "p99": 7382.0,
+        "max": 7591.0
+      },
+      "effective_points": {
+        "count": 382,
+        "mean": 5074.840314136126,
+        "min": 1216.0,
+        "p50": 5365.0,
+        "p95": 6368.0,
+        "p99": 6597.0,
+        "max": 6813.0
+      },
+      "map_voxels": {
+        "count": 382,
+        "mean": 2103.887434554974,
+        "min": 963.0,
+        "p50": 2370.0,
+        "p95": 2499.0,
+        "p99": 2499.0,
+        "max": 2499.0
+      },
+      "path_poses": {
+        "count": 382,
+        "mean": 701.5,
+        "min": 511.0,
+        "p50": 701.0,
+        "p95": 873.0,
+        "p99": 889.0,
+        "max": 892.0
+      },
+      "iterations": {
+        "count": 382,
+        "mean": 4.649214659685864,
+        "min": 3.0,
+        "p50": 5.0,
+        "p95": 5.0,
+        "p99": 5.0,
+        "max": 5.0
+      }
+    },
+    "frame_period": {
+      "duration_ms": {
+        "count": 382,
+        "mean": 99.97830405235602,
+        "min": 39.790546,
+        "p50": 100.40065,
+        "p95": 124.564345,
+        "p99": 164.881162,
+        "max": 222.678529
+      },
+      "statuses": {
+        "0": 382
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "downsample": {
+      "duration_ms": {
+        "count": 382,
+        "mean": 1.2319431701570682,
+        "min": 0.202277,
+        "p50": 1.004029,
+        "p95": 2.111902,
+        "p99": 9.241298,
+        "max": 12.781337
+      },
+      "statuses": {
+        "0": 382
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "downcloud_transform": {
+      "duration_ms": {
+        "count": 382,
+        "mean": 0.16998781937172777,
+        "min": 0.034368,
+        "p50": 0.140899,
+        "p95": 0.263851,
+        "p99": 0.5837,
+        "max": 5.415986
+      },
+      "statuses": {
+        "0": 382
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "state_estimation": {
+      "duration_ms": {
+        "count": 382,
+        "mean": 38.31475444240838,
+        "min": 7.291337,
+        "p50": 38.56945,
+        "p95": 57.328736,
+        "p99": 72.566558,
+        "max": 124.830151
+      },
+      "statuses": {
+        "0": 382
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "tf_send": {
+      "duration_ms": {
+        "count": 382,
+        "mean": 0.539257717277487,
+        "min": 0.167204,
+        "p50": 0.295175,
+        "p95": 1.93502,
+        "p99": 3.922394,
+        "max": 8.163073
+      },
+      "statuses": {
+        "0": 382
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "odom_send": {
+      "duration_ms": {
+        "count": 382,
+        "mean": 0.27127498167539266,
+        "min": 0.053315,
+        "p50": 0.086405,
+        "p95": 0.74275,
+        "p99": 2.546063,
+        "max": 8.714586
+      },
+      "statuses": {
+        "0": 382
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "odom_publish": {
+      "duration_ms": {
+        "count": 382,
+        "mean": 0.8338227146596859,
+        "min": 0.25918,
+        "p50": 0.486667,
+        "p95": 2.69533,
+        "p99": 5.61807,
+        "max": 9.094412
+      },
+      "statuses": {
+        "1": 382
+      },
+      "age_s": {
+        "count": 382,
+        "mean": 0.10341444437696337,
+        "min": 0.034982443,
+        "p50": 0.076417446,
+        "p95": 0.360026121,
+        "p99": 0.447060585,
+        "max": 0.484854698
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 382,
+        "mean": 5.384816753926701,
+        "min": 1.0,
+        "p50": 5.0,
+        "p95": 9.0,
+        "p99": 12.0,
+        "max": 20.0
+      },
+      "lidar_q": {
+        "count": 382,
+        "mean": 0.19109947643979058,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 2.0,
+        "p99": 3.0,
+        "max": 3.0
+      },
+      "prop_imu_q": {
+        "count": 382,
+        "mean": 0.0,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "max": 0.0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "state_copy_pose_io_and_odom": {
+      "duration_ms": {
+        "count": 382,
+        "mean": 1.2694365287958116,
+        "min": 0.427722,
+        "p50": 0.874398,
+        "p95": 3.212201,
+        "p99": 6.081581,
+        "max": 9.504895
+      },
+      "statuses": {
+        "0": 382
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "voxel_map_update": {
+      "duration_ms": {
+        "count": 382,
+        "mean": 1.613836727748691,
+        "min": 0.234853,
+        "p50": 1.413063,
+        "p95": 3.279222,
+        "p99": 8.131262,
+        "max": 14.668719
+      },
+      "statuses": {
+        "0": 382
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "map_covariance_and_update": {
+      "duration_ms": {
+        "count": 382,
+        "mean": 3.228293929319372,
+        "min": 0.434154,
+        "p50": 2.903731,
+        "p95": 5.83518,
+        "p99": 13.297713,
+        "max": 26.237778
+      },
+      "statuses": {
+        "0": 382
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "map_slide": {
+      "duration_ms": {
+        "count": 382,
+        "mean": 0.0005861465968586389,
+        "min": 9.6e-05,
+        "p50": 0.000512,
+        "p95": 0.001088,
+        "p99": 0.001376,
+        "max": 0.002016
+      },
+      "statuses": {
+        "0": 382
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "fullcloud_transform": {
+      "duration_ms": {
+        "count": 382,
+        "mean": 0.5107216282722512,
+        "min": 0.08605,
+        "p50": 0.469106,
+        "p95": 0.898495,
+        "p99": 1.853194,
+        "max": 3.274138
+      },
+      "statuses": {
+        "0": 382
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "cloud_publish_and_save": {
+      "duration_ms": {
+        "count": 382,
+        "mean": 1.9632189057591622,
+        "min": 0.41729,
+        "p50": 1.573275,
+        "p95": 4.56536,
+        "p99": 8.446883,
+        "max": 21.9128
+      },
+      "statuses": {
+        "0": 382
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "effect_publish": {
+      "duration_ms": {
+        "count": 382,
+        "mean": 0.5828076806282723,
+        "min": 0.07213,
+        "p50": 0.315112,
+        "p95": 2.472169,
+        "p99": 5.417324,
+        "max": 15.059415
+      },
+      "statuses": {
+        "0": 382
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "plane_publish": {
+      "duration_ms": {
+        "count": 382,
+        "mean": 0.0005205602094240838,
+        "min": 0.000128,
+        "p50": 0.000448,
+        "p95": 0.00096,
+        "p99": 0.00128,
+        "max": 0.001408
+      },
+      "statuses": {
+        "0": 382
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "path_publish": {
+      "duration_ms": {
+        "count": 382,
+        "mean": 0.15558789790575916,
+        "min": 0.00128,
+        "p50": 0.002464,
+        "p95": 1.118622,
+        "p99": 2.967413,
+        "max": 7.675049
+      },
+      "statuses": {
+        "0": 345,
+        "1": 37
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "mavros_publish": {
+      "duration_ms": {
+        "count": 382,
+        "mean": 0.02452925130890053,
+        "min": 0.012737,
+        "p50": 0.015265,
+        "p95": 0.032289,
+        "p99": 0.264038,
+        "max": 1.252879
+      },
+      "statuses": {
+        "0": 382
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "post_map_publications": {
+      "duration_ms": {
+        "count": 382,
+        "mean": 2.788596892670157,
+        "min": 0.50878,
+        "p50": 2.03293,
+        "p95": 7.136695,
+        "p99": 12.352404,
+        "max": 22.292047
+      },
+      "statuses": {
+        "0": 382
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "lio_tail_console_and_file_io": {
+      "duration_ms": {
+        "count": 382,
+        "mean": 0.2746822460732984,
+        "min": 0.120197,
+        "p50": 0.174374,
+        "p95": 0.444918,
+        "p99": 2.859147,
+        "max": 5.023379
+      },
+      "statuses": {
+        "0": 382
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "diagnostic_flush": {
+      "duration_ms": {
+        "count": 28,
+        "mean": 3.2182875357142855,
+        "min": 2.234129,
+        "p50": 2.634226,
+        "p95": 5.580143,
+        "p99": 7.448606,
+        "max": 7.448606
+      },
+      "statuses": {
+        "0": 28
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    }
+  },
+  "complete_session_stages": {
+    "sync_before": {
+      "duration_ms": {
+        "count": 1153,
+        "mean": 0.0,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "max": 0.0
+      },
+      "statuses": {
+        "0": 1153
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 1153,
+        "mean": 25.98438855160451,
+        "min": 18.0,
+        "p50": 25.0,
+        "p95": 29.0,
+        "p99": 33.0,
+        "max": 280.0
+      },
+      "lidar_q": {
+        "count": 1153,
+        "mean": 1.1491760624457936,
+        "min": 1.0,
+        "p50": 1.0,
+        "p95": 1.0,
+        "p99": 5.0,
+        "max": 10.0
+      },
+      "prop_imu_q": {
+        "count": 1153,
+        "mean": 0.0,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "max": 0.0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "sync_after": {
+      "duration_ms": {
+        "count": 1153,
+        "mean": 0.0,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "max": 0.0
+      },
+      "statuses": {
+        "1": 1153
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 1153,
+        "mean": 5.759757155247181,
+        "min": 1.0,
+        "p50": 5.0,
+        "p95": 9.0,
+        "p99": 12.0,
+        "max": 110.0
+      },
+      "lidar_q": {
+        "count": 1153,
+        "mean": 0.1491760624457936,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "p99": 4.0,
+        "max": 9.0
+      },
+      "prop_imu_q": {
+        "count": 1153,
+        "mean": 0.0,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "max": 0.0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "spin": {
+      "duration_ms": {
+        "count": 1153,
+        "mean": 2.9460218586296616,
+        "min": 0.114923,
+        "p50": 2.582985,
+        "p95": 5.690576,
+        "p99": 8.310056,
+        "max": 18.225195
+      },
+      "statuses": {
+        "0": 1153
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "sync": {
+      "duration_ms": {
+        "count": 1153,
+        "mean": 0.026060421509106674,
+        "min": 0.008576,
+        "p50": 0.022592,
+        "p95": 0.031169,
+        "p99": 0.093314,
+        "max": 1.162571
+      },
+      "statuses": {
+        "0": 1153
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "wait_window": {
+      "duration_ms": {
+        "count": 1147,
+        "mean": 58.573036964254584,
+        "min": 4.366597,
+        "p50": 62.238324,
+        "p95": 79.962176,
+        "p99": 87.771497,
+        "max": 108.404182
+      },
+      "statuses": {
+        "0": 1147
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 1147,
+        "mean": 5.553618134263296,
+        "min": 1.0,
+        "p50": 5.0,
+        "p95": 8.0,
+        "p99": 11.0,
+        "max": 110.0
+      },
+      "lidar_q": {
+        "count": 1147,
+        "mean": 0.14995640802092414,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "p99": 4.0,
+        "max": 9.0
+      },
+      "prop_imu_q": {
+        "count": 1147,
+        "mean": 0.0,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "max": 0.0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "wait_spin": {
+      "duration_ms": {
+        "count": 1147,
+        "mean": 41.10639708020924,
+        "min": 2.58441,
+        "p50": 43.003853,
+        "p95": 58.343844,
+        "p99": 65.344617,
+        "max": 95.933237
+      },
+      "statuses": {
+        "0": 1147
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 1147,
+        "mean": 5.553618134263296,
+        "min": 1.0,
+        "p50": 5.0,
+        "p95": 8.0,
+        "p99": 11.0,
+        "max": 110.0
+      },
+      "lidar_q": {
+        "count": 1147,
+        "mean": 0.14995640802092414,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "p99": 4.0,
+        "max": 9.0
+      },
+      "prop_imu_q": {
+        "count": 1147,
+        "mean": 0.0,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "max": 0.0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "wait_sync": {
+      "duration_ms": {
+        "count": 1147,
+        "mean": 0.09691089450741064,
+        "min": 0.006688,
+        "p50": 0.092192,
+        "p95": 0.148681,
+        "p99": 0.334565,
+        "max": 2.075184
+      },
+      "statuses": {
+        "0": 1147
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 1147,
+        "mean": 5.553618134263296,
+        "min": 1.0,
+        "p50": 5.0,
+        "p95": 8.0,
+        "p99": 11.0,
+        "max": 110.0
+      },
+      "lidar_q": {
+        "count": 1147,
+        "mean": 0.14995640802092414,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "p99": 4.0,
+        "max": 9.0
+      },
+      "prop_imu_q": {
+        "count": 1147,
+        "mean": 0.0,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "max": 0.0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "wait_sleep": {
+      "duration_ms": {
+        "count": 1147,
+        "mean": 14.306548882301657,
+        "min": 0.001984,
+        "p50": 14.969435,
+        "p95": 21.369563,
+        "p99": 24.605944,
+        "max": 33.556341
+      },
+      "statuses": {
+        "0": 1147
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 1147,
+        "mean": 5.553618134263296,
+        "min": 1.0,
+        "p50": 5.0,
+        "p95": 8.0,
+        "p99": 11.0,
+        "max": 110.0
+      },
+      "lidar_q": {
+        "count": 1147,
+        "mean": 0.14995640802092414,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "p99": 4.0,
+        "max": 9.0
+      },
+      "prop_imu_q": {
+        "count": 1147,
+        "mean": 0.0,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "max": 0.0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "wait_reason": {
+      "duration_ms": {
+        "count": 1150,
+        "mean": 0.0,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "max": 0.0
+      },
+      "statuses": {
+        "1": 1084,
+        "5": 66
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 1150,
+        "mean": 5.541739130434783,
+        "min": 1.0,
+        "p50": 5.0,
+        "p95": 8.0,
+        "p99": 11.0,
+        "max": 110.0
+      },
+      "lidar_q": {
+        "count": 1150,
+        "mean": 0.14956521739130435,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "p99": 4.0,
+        "max": 9.0
+      },
+      "prop_imu_q": {
+        "count": 1150,
+        "mean": 0.0,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "max": 0.0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "sync_wait": {
+      "duration_ms": {
+        "count": 1147,
+        "mean": 58.550078328683526,
+        "min": 4.365093,
+        "p50": 62.159289,
+        "p95": 79.961344,
+        "p99": 87.770697,
+        "max": 108.402646
+      },
+      "statuses": {
+        "0": 1147
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "first_frame_setup": {
+      "duration_ms": {
+        "count": 1153,
+        "mean": 0.0005550156114483956,
+        "min": 3.2e-05,
+        "p50": 0.00032,
+        "p95": 0.00064,
+        "p99": 0.000864,
+        "max": 0.280053
+      },
+      "statuses": {
+        "0": 1153
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "process_imu": {
+      "duration_ms": {
+        "count": 1153,
+        "mean": 2.2962529384215093,
+        "min": 0.751825,
+        "p50": 1.995721,
+        "p95": 4.134118,
+        "p99": 8.010972,
+        "max": 20.200174
+      },
+      "statuses": {
+        "0": 1153
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "lio_preamble_io": {
+      "duration_ms": {
+        "count": 1153,
+        "mean": 0.10602092194275801,
+        "min": 0.045377,
+        "p50": 0.07613,
+        "p95": 0.200676,
+        "p99": 0.975079,
+        "max": 1.800799
+      },
+      "statuses": {
+        "0": 1153
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "handle_lio": {
+      "duration_ms": {
+        "count": 1153,
+        "mean": 38.16833042237641,
+        "min": 9.319128,
+        "p50": 35.312459,
+        "p95": 63.057975,
+        "p99": 83.328908,
+        "max": 167.058173
+      },
+      "statuses": {
+        "0": 1153
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "estimation_mapping": {
+      "duration_ms": {
+        "count": 1153,
+        "mean": 38.17510479878578,
+        "min": 9.320504,
+        "p50": 35.313995,
+        "p95": 63.059447,
+        "p99": 83.330956,
+        "max": 167.060221
+      },
+      "statuses": {
+        "0": 1153
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "full_cycle": {
+      "duration_ms": {
+        "count": 1153,
+        "mean": 43.52534620815264,
+        "min": 12.701478,
+        "p50": 40.258391,
+        "p95": 68.987641,
+        "p99": 89.002089,
+        "max": 187.690977
+      },
+      "statuses": {
+        "1": 1153
+      },
+      "age_s": {
+        "count": 1153,
+        "mean": 0.11109143822636601,
+        "min": 0.036445379,
+        "p50": 0.068558931,
+        "p95": 0.246340275,
+        "p99": 2.137388468,
+        "max": 2.734490633
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 1153,
+        "mean": 5.759757155247181,
+        "min": 1.0,
+        "p50": 5.0,
+        "p95": 9.0,
+        "p99": 12.0,
+        "max": 110.0
+      },
+      "lidar_q": {
+        "count": 1153,
+        "mean": 0.1491760624457936,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "p99": 4.0,
+        "max": 9.0
+      },
+      "prop_imu_q": {
+        "count": 1153,
+        "mean": 0.0,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "max": 0.0
+      },
+      "input_points": {
+        "count": 1153,
+        "mean": 12423.008673026887,
+        "min": 3029.0,
+        "p50": 13309.0,
+        "p95": 15903.0,
+        "p99": 16835.0,
+        "max": 17788.0
+      },
+      "down_points": {
+        "count": 1153,
+        "mean": 5006.94275802255,
+        "min": 1311.0,
+        "p50": 5099.0,
+        "p95": 6737.0,
+        "p99": 7230.0,
+        "max": 7591.0
+      },
+      "effective_points": {
+        "count": 1153,
+        "mean": 4761.248915871639,
+        "min": 1216.0,
+        "p50": 5000.0,
+        "p95": 6037.0,
+        "p99": 6477.0,
+        "max": 6813.0
+      },
+      "map_voxels": {
+        "count": 1153,
+        "mean": 1662.2020815264527,
+        "min": 609.0,
+        "p50": 1662.0,
+        "p95": 2502.0,
+        "p99": 2505.0,
+        "max": 2505.0
+      },
+      "path_poses": {
+        "count": 1153,
+        "mean": 577.0,
+        "min": 1.0,
+        "p50": 577.0,
+        "p95": 1096.0,
+        "p99": 1142.0,
+        "max": 1153.0
+      },
+      "iterations": {
+        "count": 1153,
+        "mean": 4.291413703382481,
+        "min": 3.0,
+        "p50": 4.0,
+        "p95": 5.0,
+        "p99": 5.0,
+        "max": 5.0
+      }
+    },
+    "frame_period": {
+      "duration_ms": {
+        "count": 1153,
+        "mean": 98.83775996964441,
+        "min": 32.568359,
+        "p50": 99.509394,
+        "p95": 119.236998,
+        "p99": 144.602838,
+        "max": 222.678529
+      },
+      "statuses": {
+        "0": 1153
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "downsample": {
+      "duration_ms": {
+        "count": 1153,
+        "mean": 1.0223406357328708,
+        "min": 0.202277,
+        "p50": 0.884665,
+        "p95": 1.739966,
+        "p99": 4.388903,
+        "max": 12.781337
+      },
+      "statuses": {
+        "0": 1153
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "downcloud_transform": {
+      "duration_ms": {
+        "count": 1153,
+        "mean": 0.13970744405897656,
+        "min": 0.034368,
+        "p50": 0.11879,
+        "p95": 0.21441,
+        "p99": 0.472202,
+        "max": 5.415986
+      },
+      "statuses": {
+        "0": 1153
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "initial_map_build": {
+      "duration_ms": {
+        "count": 1,
+        "mean": 9.187698,
+        "min": 9.187698,
+        "p50": 9.187698,
+        "p95": 9.187698,
+        "p99": 9.187698,
+        "max": 9.187698
+      },
+      "statuses": {
+        "0": 1
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "state_estimation": {
+      "duration_ms": {
+        "count": 1153,
+        "mean": 30.55921022202949,
+        "min": 7.291337,
+        "p50": 28.414757,
+        "p95": 50.918716,
+        "p99": 62.089219,
+        "max": 124.830151
+      },
+      "statuses": {
+        "0": 1153
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "tf_send": {
+      "duration_ms": {
+        "count": 1153,
+        "mean": 0.38723192541196877,
+        "min": 0.053317,
+        "p50": 0.258856,
+        "p95": 0.890707,
+        "p99": 2.721648,
+        "max": 8.163073
+      },
+      "statuses": {
+        "0": 1153
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "odom_send": {
+      "duration_ms": {
+        "count": 1153,
+        "mean": 0.17137303902862097,
+        "min": 0.021858,
+        "p50": 0.071618,
+        "p95": 0.497517,
+        "p99": 2.192059,
+        "max": 8.714586
+      },
+      "statuses": {
+        "0": 1153
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "odom_publish": {
+      "duration_ms": {
+        "count": 1153,
+        "mean": 0.5892616079791847,
+        "min": 0.094282,
+        "p50": 0.369415,
+        "p95": 1.750878,
+        "p99": 3.323258,
+        "max": 9.094412
+      },
+      "statuses": {
+        "1": 1153
+      },
+      "age_s": {
+        "count": 1153,
+        "mean": 0.10553703406938422,
+        "min": 0.034982443,
+        "p50": 0.063840151,
+        "p95": 0.24214077,
+        "p99": 2.134176016,
+        "max": 2.716409922
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 1153,
+        "mean": 5.759757155247181,
+        "min": 1.0,
+        "p50": 5.0,
+        "p95": 9.0,
+        "p99": 12.0,
+        "max": 110.0
+      },
+      "lidar_q": {
+        "count": 1153,
+        "mean": 0.1491760624457936,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "p99": 4.0,
+        "max": 9.0
+      },
+      "prop_imu_q": {
+        "count": 1153,
+        "mean": 0.0,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "max": 0.0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "state_copy_pose_io_and_odom": {
+      "duration_ms": {
+        "count": 1153,
+        "mean": 0.9443464718126626,
+        "min": 0.392934,
+        "p50": 0.720022,
+        "p95": 2.544945,
+        "p99": 3.969242,
+        "max": 9.504895
+      },
+      "statuses": {
+        "0": 1153
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "voxel_map_update": {
+      "duration_ms": {
+        "count": 1153,
+        "mean": 1.1983148482220296,
+        "min": 0.234853,
+        "p50": 0.942643,
+        "p95": 2.360418,
+        "p99": 4.098793,
+        "max": 14.668719
+      },
+      "statuses": {
+        "0": 1153
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "map_covariance_and_update": {
+      "duration_ms": {
+        "count": 1153,
+        "mean": 2.474685492627927,
+        "min": 0.434154,
+        "p50": 2.016337,
+        "p95": 4.641573,
+        "p99": 7.776388,
+        "max": 26.237778
+      },
+      "statuses": {
+        "0": 1153
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "map_slide": {
+      "duration_ms": {
+        "count": 1153,
+        "mean": 0.000617784041630529,
+        "min": 9.6e-05,
+        "p50": 0.00048,
+        "p95": 0.000992,
+        "p99": 0.001248,
+        "max": 0.118754
+      },
+      "statuses": {
+        "0": 1153
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "fullcloud_transform": {
+      "duration_ms": {
+        "count": 1153,
+        "mean": 0.45971820555073717,
+        "min": 0.08605,
+        "p50": 0.426629,
+        "p95": 0.701589,
+        "p99": 1.75102,
+        "max": 6.328951
+      },
+      "statuses": {
+        "0": 1153
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "cloud_publish_and_save": {
+      "duration_ms": {
+        "count": 1153,
+        "mean": 1.5356647476149174,
+        "min": 0.191953,
+        "p50": 1.398835,
+        "p95": 3.644221,
+        "p99": 7.168465,
+        "max": 21.9128
+      },
+      "statuses": {
+        "0": 1153
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "effect_publish": {
+      "duration_ms": {
+        "count": 1153,
+        "mean": 0.43606183000867305,
+        "min": 0.07213,
+        "p50": 0.284167,
+        "p95": 1.093983,
+        "p99": 4.052011,
+        "max": 15.059415
+      },
+      "statuses": {
+        "0": 1153
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "plane_publish": {
+      "duration_ms": {
+        "count": 1153,
+        "mean": 0.0006947597571552472,
+        "min": 0.000128,
+        "p50": 0.000448,
+        "p95": 0.0008,
+        "p99": 0.001216,
+        "max": 0.250834
+      },
+      "statuses": {
+        "0": 1153
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "path_publish": {
+      "duration_ms": {
+        "count": 1153,
+        "mean": 0.10026964874241112,
+        "min": 0.00128,
+        "p50": 0.002432,
+        "p95": 0.907265,
+        "p99": 1.684987,
+        "max": 7.675049
+      },
+      "statuses": {
+        "1": 109,
+        "0": 1044
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "mavros_publish": {
+      "duration_ms": {
+        "count": 1153,
+        "mean": 0.019873218560277534,
+        "min": 0.012288,
+        "p50": 0.015008,
+        "p95": 0.02336,
+        "p99": 0.069345,
+        "max": 1.252879
+      },
+      "statuses": {
+        "0": 1153
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "post_map_publications": {
+      "duration_ms": {
+        "count": 1153,
+        "mean": 2.133540562012142,
+        "min": 0.408707,
+        "p50": 1.755305,
+        "p95": 5.130054,
+        "p99": 9.938056,
+        "max": 22.292047
+      },
+      "statuses": {
+        "0": 1153
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "lio_tail_console_and_file_io": {
+      "duration_ms": {
+        "count": 1153,
+        "mean": 0.24271552471812663,
+        "min": 0.107714,
+        "p50": 0.178086,
+        "p95": 0.438123,
+        "p99": 1.954118,
+        "max": 5.023379
+      },
+      "statuses": {
+        "0": 1153
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    },
+    "diagnostic_flush": {
+      "duration_ms": {
+        "count": 82,
+        "mean": 2.8558874634146343,
+        "min": 2.190541,
+        "p50": 2.577963,
+        "p95": 4.294197,
+        "p99": 7.448606,
+        "max": 7.448606
+      },
+      "statuses": {
+        "0": 82
+      },
+      "age_s": {
+        "count": 0
+      },
+      "callback_gap_ms": {
+        "count": 0
+      },
+      "imu_q": {
+        "count": 0
+      },
+      "lidar_q": {
+        "count": 0
+      },
+      "prop_imu_q": {
+        "count": 0
+      },
+      "input_points": {
+        "count": 0
+      },
+      "down_points": {
+        "count": 0
+      },
+      "effective_points": {
+        "count": 0
+      },
+      "map_voxels": {
+        "count": 0
+      },
+      "path_poses": {
+        "count": 0
+      },
+      "iterations": {
+        "count": 0
+      }
+    }
+  },
+  "bag_state_age": {
+    "count": 382,
+    "elapsed_s": 38.05237303499999,
+    "first_age_ms": 110.238552,
+    "last_age_ms": 50.365686,
+    "age_ms": {
+      "count": 382,
+      "mean": 103.41444437696336,
+      "min": 34.982443,
+      "p50": 76.417446,
+      "p95": 360.026121,
+      "p99": 447.060585,
+      "max": 484.854698
+    },
+    "slope_ms_per_minute": -254.8747951615823,
+    "first_20s_age_ms": {
+      "count": 201,
+      "mean": 134.33291185074629,
+      "min": 46.113968,
+      "p50": 83.186388,
+      "p95": 423.103571,
+      "p99": 450.299263,
+      "max": 484.854698
+    },
+    "last_20s_age_ms": {
+      "count": 201,
+      "mean": 69.99977784079601,
+      "min": 34.982443,
+      "p50": 70.938349,
+      "p95": 93.407393,
+      "p99": 108.152628,
+      "max": 110.168934
+    },
+    "windows_20s": [
+      {
+        "start_elapsed_s": 0,
+        "age_ms": {
+          "count": 201,
+          "mean": 134.33291185074629,
+          "min": 46.113968,
+          "p50": 83.186388,
+          "p95": 423.103571,
+          "p99": 450.299263,
+          "max": 484.854698
+        }
+      },
+      {
+        "start_elapsed_s": 20,
+        "age_ms": {
+          "count": 181,
+          "mean": 69.07957165745857,
+          "min": 34.982443,
+          "p50": 70.406675,
+          "p95": 91.945648,
+          "p99": 110.015392,
+          "max": 110.168934
+        }
+      }
+    ]
+  },
+  "complete_session_state_age": {
+    "count": 1153,
+    "elapsed_s": 113.85047346900001,
+    "first_age_ms": 2716.409922,
+    "last_age_ms": 67.78812400000001,
+    "age_ms": {
+      "count": 1153,
+      "mean": 105.53703406938422,
+      "min": 34.982443,
+      "p50": 63.840151,
+      "p95": 242.14077,
+      "p99": 2134.176016,
+      "max": 2716.409922
+    },
+    "slope_ms_per_minute": -96.31052749459998,
+    "first_20s_age_ms": {
+      "count": 214,
+      "mean": 226.8592197383178,
+      "min": 46.179533,
+      "p50": 61.882257,
+      "p95": 2201.1568549999997,
+      "p99": 2627.1946430000003,
+      "max": 2716.409922
+    },
+    "last_20s_age_ms": {
+      "count": 200,
+      "mean": 56.90409065,
+      "min": 38.287400999999996,
+      "p50": 56.067705000000004,
+      "p95": 73.24480999999999,
+      "p99": 82.425833,
+      "max": 95.301151
+    },
+    "windows_20s": [
+      {
+        "start_elapsed_s": 0,
+        "age_ms": {
+          "count": 214,
+          "mean": 226.8592197383178,
+          "min": 46.179533,
+          "p50": 61.882257,
+          "p95": 2201.1568549999997,
+          "p99": 2627.1946430000003,
+          "max": 2716.409922
+        }
+      },
+      {
+        "start_elapsed_s": 20,
+        "age_ms": {
+          "count": 200,
+          "mean": 64.02524591,
+          "min": 44.976473000000006,
+          "p50": 62.641144,
+          "p95": 83.02784000000001,
+          "p99": 88.71650700000001,
+          "max": 96.750259
+        }
+      },
+      {
+        "start_elapsed_s": 40,
+        "age_ms": {
+          "count": 200,
+          "mean": 130.14755009,
+          "min": 44.66176,
+          "p50": 79.78034000000001,
+          "p95": 423.103571,
+          "p99": 450.299263,
+          "max": 484.854698
+        }
+      },
+      {
+        "start_elapsed_s": 60,
+        "age_ms": {
+          "count": 200,
+          "mean": 76.60584924000001,
+          "min": 46.113968,
+          "p50": 74.660301,
+          "p95": 96.669197,
+          "p99": 110.168934,
+          "max": 119.97962
+        }
+      },
+      {
+        "start_elapsed_s": 80,
+        "age_ms": {
+          "count": 200,
+          "mean": 54.17605399,
+          "min": 34.982443,
+          "p50": 52.380323,
+          "p95": 76.489687,
+          "p99": 91.401339,
+          "max": 95.301151
+        }
+      },
+      {
+        "start_elapsed_s": 100,
+        "age_ms": {
+          "count": 139,
+          "mean": 58.59990943884892,
+          "min": 43.370247,
+          "p50": 58.12072800000001,
+          "p95": 74.775457,
+          "p99": 82.35955200000001,
+          "max": 82.869291
+        }
+      }
+    ]
+  },
+  "tf_broadcaster_creations": 1,
+  "full_cycle_over_100ms": 3,
+  "full_cycle_over_100ms_complete_session": 5,
+  "full_cycle_over_100ms_denominator": 382,
+  "complete_session_denominator": 1153,
+  "all_callback_statuses": {
+    "imu_callback": {
+      "-2": 38,
+      "1": 23386
+    },
+    "lidar_callback": {
+      "1": 1157
+    }
+  },
+  "lidar": {
+    "points": {
+      "count": 381,
+      "mean": 20002.51968503937,
+      "min": 18912.0,
+      "p50": 19968.0,
+      "p95": 20352.0,
+      "p99": 20928.0,
+      "max": 21120.0
+    },
+    "scan_span_ms": {
+      "count": 381,
+      "mean": 100.056996832021,
+      "min": 93.112993,
+      "p50": 100.244867,
+      "p95": 102.09158800000002,
+      "p99": 104.757208,
+      "max": 108.23898500000001
+    },
+    "recorder_scan_end_age_ms": {
+      "count": 381,
+      "mean": 28.830771660590056,
+      "min": 19.557690413330068,
+      "p50": 24.557368746948235,
+      "p95": 53.464018113647455,
+      "p99": 125.19700090954589,
+      "max": 159.34692528759763
+    },
+    "callback_scan_end_age_ms": {
+      "count": 381,
+      "mean": 33.61208167448876,
+      "min": 20.885920317504873,
+      "p50": 26.59049838562011,
+      "p95": 75.44156945031737,
+      "p99": 149.25410753027344,
+      "max": 195.80422547375485
+    }
+  },
+  "scan_dt_ms": {
+    "count": 381,
+    "mean": 100.03230953466861,
+    "min": 83.12082290649414,
+    "p50": 99.98488426208496,
+    "p95": 112.02025413513184,
+    "p99": 116.86038970947266,
+    "max": 117.43736267089844
+  },
+  "path": {
+    "messages": 37,
+    "poses": {
+      "count": 37,
+      "mean": 699.2972972972973,
+      "min": 512.0,
+      "p50": 700.0,
+      "p95": 877.0,
+      "p99": 888.0,
+      "max": 888.0
+    },
+    "all_ordered": true,
+    "all_header_equals_last_pose": true,
+    "header_dt_ms": {
+      "count": 36,
+      "mean": 1043.622334798177,
+      "min": 1000.4832744598389,
+      "p50": 1025.1531600952148,
+      "p95": 1097.9695320129395,
+      "p99": 1116.2559986114502,
+      "max": 1116.2559986114502
+    },
+    "actual_publication_ms": {
+      "count": 37,
+      "mean": 1.5820796486486486,
+      "min": 0.777987,
+      "p50": 1.127296,
+      "p95": 7.573486,
+      "p99": 7.675049,
+      "max": 7.675049
+    },
+    "complete_actual_publication_ms": {
+      "count": 109,
+      "mean": 1.0360864403669725,
+      "min": 0.028195,
+      "p50": 0.94618,
+      "p95": 1.893021,
+      "p99": 7.573486,
+      "max": 7.675049
+    }
+  },
+  "tf_chains": {
+    "aft_mapped->base_link": {
+      "count": 1,
+      "recorder_header_age_ms": {
+        "count": 1,
+        "mean": 50899.890184402466,
+        "min": 50899.890184402466,
+        "p50": 50899.890184402466,
+        "p95": 50899.890184402466,
+        "p99": 50899.890184402466,
+        "max": 50899.890184402466
+      },
+      "header_dt_ms": {
+        "count": 0
+      }
+    },
+    "base_link->line_frame": {
+      "count": 1,
+      "recorder_header_age_ms": {
+        "count": 1,
+        "mean": 50882.85207748413,
+        "min": 50882.85207748413,
+        "p50": 50882.85207748413,
+        "p95": 50882.85207748413,
+        "p99": 50882.85207748413,
+        "max": 50882.85207748413
+      },
+      "header_dt_ms": {
+        "count": 0
+      }
+    },
+    "line_frame->livox_frame": {
+      "count": 1,
+      "recorder_header_age_ms": {
+        "count": 1,
+        "mean": 50883.259296417236,
+        "min": 50883.259296417236,
+        "p50": 50883.259296417236,
+        "p95": 50883.259296417236,
+        "p99": 50883.259296417236,
+        "max": 50883.259296417236
+      },
+      "header_dt_ms": {
+        "count": 0
+      }
+    },
+    "map->camera_init": {
+      "count": 381,
+      "recorder_header_age_ms": {
+        "count": 381,
+        "mean": 2.01751491216224,
+        "min": 0.48851966857910156,
+        "p50": 1.1394023895263672,
+        "p95": 6.071329116821289,
+        "p99": 15.111923217773438,
+        "max": 25.888681411743164
+      },
+      "header_dt_ms": {
+        "count": 380,
+        "mean": 99.99945979369313,
+        "min": 73.07291030883789,
+        "p50": 100.01444816589355,
+        "p95": 104.47454452514648,
+        "p99": 111.91248893737793,
+        "max": 124.42612648010254
+      }
+    },
+    "camera_init->aft_mapped": {
+      "count": 381,
+      "recorder_header_age_ms": {
+        "count": 381,
+        "mean": 1.1467414265229634,
+        "min": 0.1819133758544922,
+        "p50": 0.7543563842773438,
+        "p95": 3.050565719604492,
+        "p99": 7.168769836425781,
+        "max": 10.832071304321289
+      },
+      "header_dt_ms": {
+        "count": 380,
+        "mean": 99.92405364387913,
+        "min": 40.72737693786621,
+        "p50": 100.16560554504395,
+        "p95": 119.77386474609375,
+        "p99": 162.57166862487793,
+        "max": 209.38897132873535
+      }
+    }
+  },
+  "warning_error_counts": {
+    "('elevation_mapping_node', 'Cloud TF map <- camera_init: using latest fallback 0.008s before observation')": 2,
+    "('elevation_mapping_node', 'Cloud TF map <- camera_init: using latest fallback 0.019s before observation')": 1,
+    "('controller_server', 'Control loop missed its desired rate of 20.0000Hz')": 3,
+    "('elevation_mapping_node', 'Cloud TF map <- camera_init: using latest fallback 0.057s before observation')": 1,
+    "('controller_server', 'Optimizer fail to compute path')": 15,
+    "('controller_server', '[follow_path] [ActionServer] Aborting handle.')": 15,
+    "('elevation_mapping_node', 'Cloud TF map <- camera_init: using latest fallback 0.036s before observation')": 1,
+    "('elevation_mapping_node', 'Cloud TF map <- camera_init: using latest fallback 0.027s before observation')": 2,
+    "('elevation_mapping_node', 'Cloud TF map <- camera_init: using latest fallback 0.015s before observation')": 1,
+    "('elevation_mapping_node', 'Cloud TF map <- camera_init: using latest fallback 0.047s before observation')": 1,
+    "('bt_navigator', '[navigate_to_pose] [ActionServer] Aborting handle.')": 1,
+    "('bt_navigator', 'Goal failed')": 1
+  },
+  "log_node_counts": {
+    "rosbag2_recorder": 12,
+    "elevation_mapping_node": 9,
+    "pointcloud_to_laserscan": 18,
+    "laserMapping": 8379,
+    "controller_server": 89,
+    "local_costmap.local_costmap": 9,
+    "global_costmap.global_costmap": 2,
+    "behavior_server": 11,
+    "bt_navigator": 2
+  },
+  "tf_odom_pose_comparison": {
+    "matched": 381,
+    "position_max_component_difference_m": {
+      "count": 381,
+      "mean": 0.0,
+      "min": 0.0,
+      "p50": 0.0,
+      "p95": 0.0,
+      "p99": 0.0,
+      "max": 0.0
+    },
+    "quaternion_sign_equivalent_max_component_difference": {
+      "count": 381,
+      "mean": 6.88863928352378e-17,
+      "min": 0.0,
+      "p50": 5.551115123125783e-17,
+      "p95": 1.1102230246251565e-16,
+      "p99": 2.220446049250313e-16,
+      "max": 4.440892098500626e-16
+    },
+    "opposite_quaternion_sign_count": 6,
+    "raw_components_before_quaternion_sign_equivalence": {
+      "count": 381,
+      "mean": 0.02764994098092778,
+      "min": 0.0,
+      "p50": 5.551115123125783e-17,
+      "p95": 1.1102230246251565e-16,
+      "p99": 1.7527192996112582,
+      "max": 1.855722768641642
+    }
+  },
+  "diagnostic_flush_ms": {
+    "count": 52,
+    "mean": 3.0678008269230768,
+    "min": 2.234129,
+    "p50": 2.625081,
+    "p95": 5.157735,
+    "p99": 7.448606,
+    "max": 7.448606
+  },
+  "queue_windows_20s": [
+    {
+      "elapsed_s": 0,
+      "sync_before": {
+        "imu_q": {
+          "count": 201,
+          "mean": 25.109452736318406,
+          "min": 18.0,
+          "p50": 25.0,
+          "p95": 30.0,
+          "p99": 33.0,
+          "max": 42.0
+        },
+        "lidar_q": {
+          "count": 201,
+          "mean": 1.36318407960199,
+          "min": 1.0,
+          "p50": 1.0,
+          "p95": 3.0,
+          "p99": 4.0,
+          "max": 4.0
+        }
+      },
+      "sync_after": {
+        "imu_q": {
+          "count": 201,
+          "mean": 5.099502487562189,
+          "min": 1.0,
+          "p50": 5.0,
+          "p95": 10.0,
+          "p99": 13.0,
+          "max": 20.0
+        },
+        "lidar_q": {
+          "count": 201,
+          "mean": 0.36318407960199006,
+          "min": 0.0,
+          "p50": 0.0,
+          "p95": 2.0,
+          "p99": 3.0,
+          "max": 3.0
+        }
+      },
+      "full_cycle": {
+        "imu_q": {
+          "count": 201,
+          "mean": 5.099502487562189,
+          "min": 1.0,
+          "p50": 5.0,
+          "p95": 10.0,
+          "p99": 13.0,
+          "max": 20.0
+        },
+        "lidar_q": {
+          "count": 201,
+          "mean": 0.36318407960199006,
+          "min": 0.0,
+          "p50": 0.0,
+          "p95": 2.0,
+          "p99": 3.0,
+          "max": 3.0
+        }
+      }
+    },
+    {
+      "elapsed_s": 20,
+      "sync_before": {
+        "imu_q": {
+          "count": 181,
+          "mean": 25.70718232044199,
+          "min": 19.0,
+          "p50": 25.0,
+          "p95": 28.0,
+          "p99": 30.0,
+          "max": 30.0
+        },
+        "lidar_q": {
+          "count": 181,
+          "mean": 1.0,
+          "min": 1.0,
+          "p50": 1.0,
+          "p95": 1.0,
+          "p99": 1.0,
+          "max": 1.0
+        }
+      },
+      "sync_after": {
+        "imu_q": {
+          "count": 181,
+          "mean": 5.701657458563536,
+          "min": 1.0,
+          "p50": 5.0,
+          "p95": 8.0,
+          "p99": 10.0,
+          "max": 12.0
+        },
+        "lidar_q": {
+          "count": 181,
+          "mean": 0.0,
+          "min": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "p99": 0.0,
+          "max": 0.0
+        }
+      },
+      "full_cycle": {
+        "imu_q": {
+          "count": 181,
+          "mean": 5.701657458563536,
+          "min": 1.0,
+          "p50": 5.0,
+          "p95": 8.0,
+          "p99": 10.0,
+          "max": 12.0
+        },
+        "lidar_q": {
+          "count": 181,
+          "mean": 0.0,
+          "min": 0.0,
+          "p50": 0.0,
+          "p95": 0.0,
+          "p99": 0.0,
+          "max": 0.0
+        }
+      }
+    }
+  ],
+  "slowest_frames": [
+    {
+      "frame_id": 538,
+      "elapsed_s": 2.3018521049999947,
+      "duration_ms": 187.690977,
+      "state_age_ms": 296.95939999999996,
+      "lidar_q": 0.0,
+      "stages_ms": {
+        "spin": 0.401204,
+        "sync": 0.013632,
+        "process_imu": 20.200174,
+        "state_estimation": 124.830151,
+        "voxel_map_update": 0.910796,
+        "odom_publish": 0.37781,
+        "path_publish": 0.002368,
+        "post_map_publications": 2.331888,
+        "lio_tail_console_and_file_io": 5.023379
+      }
+    },
+    {
+      "frame_id": 534,
+      "elapsed_s": 1.9016761560000077,
+      "duration_ms": 120.792805,
+      "state_age_ms": 219.502211,
+      "lidar_q": 0.0,
+      "stages_ms": {
+        "spin": 6.49369,
+        "sync": 0.027777,
+        "process_imu": 5.580462,
+        "state_estimation": 84.170398,
+        "voxel_map_update": 8.426007,
+        "odom_publish": 1.165176,
+        "path_publish": 0.002753,
+        "post_map_publications": 9.348483,
+        "lio_tail_console_and_file_io": 0.181961
+      }
+    },
+    {
+      "frame_id": 542,
+      "elapsed_s": 2.9347438929999896,
+      "duration_ms": 101.139284,
+      "state_age_ms": 433.713436,
+      "lidar_q": 2.0,
+      "stages_ms": {
+        "spin": 0.345168,
+        "sync": 0.013729,
+        "process_imu": 2.152805,
+        "state_estimation": 82.66712,
+        "voxel_map_update": 1.023824,
+        "odom_publish": 5.649898,
+        "path_publish": 0.002272,
+        "post_map_publications": 5.958424,
+        "lio_tail_console_and_file_io": 0.137894
+      }
+    },
+    {
+      "frame_id": 616,
+      "elapsed_s": 10.030775489999996,
+      "duration_ms": 93.848822,
+      "state_age_ms": 121.480942,
+      "lidar_q": 0.0,
+      "stages_ms": {
+        "spin": 2.412704,
+        "sync": 0.028225,
+        "process_imu": 8.010972,
+        "state_estimation": 53.027339,
+        "voxel_map_update": 1.636032,
+        "odom_publish": 0.462034,
+        "path_publish": 0.002048,
+        "post_map_publications": 22.292047,
+        "lio_tail_console_and_file_io": 0.142821
+      }
+    },
+    {
+      "frame_id": 535,
+      "elapsed_s": 2.0224711689999992,
+      "duration_ms": 93.835984,
+      "state_age_ms": 214.420795,
+      "lidar_q": 0.0,
+      "stages_ms": {
+        "spin": 7.006066,
+        "sync": 0.021409,
+        "process_imu": 16.229615,
+        "state_estimation": 43.534165,
+        "voxel_map_update": 1.357217,
+        "odom_publish": 3.085908,
+        "path_publish": 7.573486,
+        "post_map_publications": 12.352404,
+        "lio_tail_console_and_file_io": 0.172328
+      }
+    },
+    {
+      "frame_id": 559,
+      "elapsed_s": 4.560182918999999,
+      "duration_ms": 90.385678,
+      "state_age_ms": 347.444296,
+      "lidar_q": 2.0,
+      "stages_ms": {
+        "spin": 0.511959,
+        "sync": 0.013729,
+        "process_imu": 5.531837,
+        "state_estimation": 65.862539,
+        "voxel_map_update": 1.476548,
+        "odom_publish": 0.756067,
+        "path_publish": 0.002816,
+        "post_map_publications": 7.60646,
+        "lio_tail_console_and_file_io": 0.232523
+      }
+    },
+    {
+      "frame_id": 560,
+      "elapsed_s": 4.671498676999988,
+      "duration_ms": 89.571625,
+      "state_age_ms": 369.216442,
+      "lidar_q": 2.0,
+      "stages_ms": {
+        "spin": 0.379217,
+        "sync": 0.013601,
+        "process_imu": 3.586468,
+        "state_estimation": 72.566558,
+        "voxel_map_update": 1.547655,
+        "odom_publish": 0.781252,
+        "path_publish": 0.004097,
+        "post_map_publications": 2.903461,
+        "lio_tail_console_and_file_io": 0.15684
+      }
+    },
+    {
+      "frame_id": 561,
+      "elapsed_s": 4.863890403999989,
+      "duration_ms": 89.002089,
+      "state_age_ms": 450.82306900000003,
+      "lidar_q": 3.0,
+      "stages_ms": {
+        "spin": 0.190345,
+        "sync": 0.015104,
+        "process_imu": 5.456436,
+        "state_estimation": 70.432939,
+        "voxel_map_update": 1.380574,
+        "odom_publish": 0.827397,
+        "path_publish": 0.003552,
+        "post_map_publications": 2.300871,
+        "lio_tail_console_and_file_io": 0.204073
+      }
+    },
+    {
+      "frame_id": 564,
+      "elapsed_s": 5.184118600999994,
+      "duration_ms": 88.189156,
+      "state_age_ms": 480.619907,
+      "lidar_q": 3.0,
+      "stages_ms": {
+        "spin": 0.331535,
+        "sync": 0.013888,
+        "process_imu": 2.098302,
+        "state_estimation": 49.381375,
+        "voxel_map_update": 14.668719,
+        "odom_publish": 0.829349,
+        "path_publish": 0.777987,
+        "post_map_publications": 2.710297,
+        "lio_tail_console_and_file_io": 0.13751
+      }
+    },
+    {
+      "frame_id": 815,
+      "elapsed_s": 29.922229862999984,
+      "duration_ms": 87.956417,
+      "state_age_ms": 122.995853,
+      "lidar_q": 0.0,
+      "stages_ms": {
+        "spin": 5.101344,
+        "sync": 0.02592,
+        "process_imu": 4.282284,
+        "state_estimation": 61.046365,
+        "voxel_map_update": 2.567041,
+        "odom_publish": 0.612079,
+        "path_publish": 0.003008,
+        "post_map_publications": 8.782077,
+        "lio_tail_console_and_file_io": 0.198949
+      }
+    },
+    {
+      "frame_id": 554,
+      "elapsed_s": 4.096526722999982,
+      "duration_ms": 87.608911,
+      "state_age_ms": 389.25504700000005,
+      "lidar_q": 2.0,
+      "stages_ms": {
+        "spin": 0.395442,
+        "sync": 0.013025,
+        "process_imu": 3.27487,
+        "state_estimation": 61.044622,
+        "voxel_map_update": 1.011535,
+        "odom_publish": 0.384209,
+        "path_publish": 3.469471,
+        "post_map_publications": 8.559752,
+        "lio_tail_console_and_file_io": 0.143879
+      }
+    },
+    {
+      "frame_id": 558,
+      "elapsed_s": 4.44850989599999,
+      "duration_ms": 87.271424,
+      "state_age_ms": 334.12122700000003,
+      "lidar_q": 2.0,
+      "stages_ms": {
+        "spin": 0.611676,
+        "sync": 0.014401,
+        "process_imu": 2.753662,
+        "state_estimation": 70.537409,
+        "voxel_map_update": 1.763057,
+        "odom_publish": 0.464597,
+        "path_publish": 0.002496,
+        "post_map_publications": 4.312614,
+        "lio_tail_console_and_file_io": 0.150567
+      }
+    }
+  ],
+  "imu_long_callback_gaps": {
+    "count": 362,
+    "with_cycle_overlap": 362,
+    "cycle_covered_fraction": 0.955371612563155
+  }
+}
