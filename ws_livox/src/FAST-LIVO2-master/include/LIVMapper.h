@@ -13,6 +13,7 @@ which is included as part of this source code package.
 #ifndef LIV_MAPPER_H
 #define LIV_MAPPER_H
 
+#include <chrono>
 #include "IMU_Processing.h"
 #include "vio.h"
 #include "preprocess.h"
@@ -164,6 +165,10 @@ public:
   StatesGroup  state_propagat;
 
   nav_msgs::msg::Path path;
+  static constexpr std::size_t max_path_poses_ = 2000;
+  static constexpr std::chrono::seconds path_publish_period_{1};
+  std::chrono::steady_clock::time_point last_path_publish_{};
+  bool path_published_ = false;
   nav_msgs::msg::Odometry odomAftMapped;
   geometry_msgs::msg::Quaternion geoQuat;
   geometry_msgs::msg::PoseStamped msg_body_pose;

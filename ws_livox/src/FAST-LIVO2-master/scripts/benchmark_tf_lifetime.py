@@ -15,7 +15,7 @@ def observe(out):
     import rclpy
     from rclpy.qos import QoSProfile
     from tf2_msgs.msg import TFMessage
-    from nav_msgs.msg import Odometry
+    from nav_msgs.msg import Odometry, Path as PathMsg
     from sensor_msgs.msg import PointCloud2
     rclpy.init()
     node = rclpy.create_node('tf_lifetime_benchmark_observer')
@@ -43,6 +43,14 @@ def observe(out):
     def cloud(raw):
         counts['cloud_messages'] += 1
 
+    def save_path(msg):
+        stamps = [p.header.stamp.sec+p.header.stamp.nanosec*1e-9 for p in msg.poses]
+        stream.write(json.dumps(dict(event='path',steady_s=time.monotonic(),
+            stamp_s=msg.header.stamp.sec+msg.header.stamp.nanosec*1e-9,
+            size=len(msg.poses),first_pose_s=stamps[0] if stamps else None,
+            last_pose_s=stamps[-1] if stamps else None,
+            ordered=all(a<=b for a,b in zip(stamps,stamps[1:]))))+'\n')
+
     def endpoints():
         for publisher in node.get_publishers_info_by_topic('/tf'):
             if publisher.node_name == 'laserMapping':
@@ -51,6 +59,7 @@ def observe(out):
     node.create_subscription(TFMessage,'/tf',save_tf,QoSProfile(depth=100))
     node.create_subscription(Odometry,'/aft_mapped_to_init',save_odom,QoSProfile(depth=100))
     node.create_subscription(PointCloud2,'/cloud_registered',cloud,QoSProfile(depth=100),raw=True)
+    node.create_subscription(PathMsg,'/path',save_path,QoSProfile(depth=10))
     node.create_timer(.25,endpoints)
     (out/'observer_ready').touch()
     try:

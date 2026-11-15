@@ -1701,6 +1701,19 @@ void LIVMapper::publish_path(const rclcpp::Publisher<nav_msgs::msg::Path>::Share
   set_posestamp(msg_body_pose.pose);
   msg_body_pose.header.stamp = this->node->get_clock()->now();
   msg_body_pose.header.frame_id = "camera_init";
+  // Bound visualization history before append; retain chronological order.
+  if (path.poses.size() >= max_path_poses_)
+    path.poses.erase(path.poses.begin(), path.poses.begin() +
+        (path.poses.size() - max_path_poses_ + 1));
   path.poses.push_back(msg_body_pose);
+  const auto now = std::chrono::steady_clock::now();
+  if (path_published_ && now - last_path_publish_ < path_publish_period_)
+    return;
+  path.header.stamp = msg_body_pose.header.stamp;
   pubPath->publish(path);
+  last_path_publish_ = now;
+  path_published_ = true;
+#ifdef ENABLE_LIO_DIAGNOSTICS
+  diag_function.row.status = 1; // 0 = history update only, 1 = snapshot published.
+#endif
 }

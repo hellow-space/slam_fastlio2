@@ -1,0 +1,108 @@
+{
+  "red_probe": {
+    "steps": 2001,
+    "seed": 0,
+    "mean_ms": 1.14567,
+    "p95_ms": 2.12,
+    "max_ms": 3.07847,
+    "retained": 2001,
+    "received": 2001,
+    "max_received_size": 2001,
+    "minimum_header_gap_s": 0,
+    "elapsed_s": 2.69572,
+    "result": 2
+  },
+  "green_probe": {
+    "steps": 75000,
+    "seed": 0,
+    "mean_ms": 0.03025,
+    "p95_ms": 0.036706,
+    "max_ms": 5.15531,
+    "retained": 2000,
+    "received": 13,
+    "max_received_size": 2000,
+    "minimum_header_gap_s": 1.00002,
+    "elapsed_s": 12.6068,
+    "result": 0
+  },
+  "before_pressure": {
+    "steps": 30,
+    "seed": 74000,
+    "mean_ms": 153.926,
+    "p95_ms": 154.253,
+    "max_ms": 158.978,
+    "retained": 74031,
+    "received": 31,
+    "max_received_size": 74031,
+    "minimum_header_gap_s": 0,
+    "elapsed_s": 6.35879,
+    "result": 0,
+    "actual_publish_scope_ms": {
+      "count": 31,
+      "mean": 153.91877225806454,
+      "p95": 154.251559,
+      "max": 158.977058
+    }
+  },
+  "after_pressure": {
+    "steps": 30,
+    "seed": 74000,
+    "mean_ms": 0.695153,
+    "p95_ms": 5.61432,
+    "max_ms": 8.66638,
+    "retained": 2000,
+    "received": 4,
+    "max_received_size": 2000,
+    "minimum_header_gap_s": 1.00092,
+    "elapsed_s": 4.26307,
+    "result": 0,
+    "actual_publish_scope_ms": {
+      "count": 4,
+      "mean": 6.646606,
+      "p95": 8.664393,
+      "max": 8.664393
+    }
+  },
+  "replay_before": {
+    "imu": 5224,
+    "lidar": 262,
+    "tf": 258,
+    "odom": 258,
+    "path_messages": 258,
+    "path_max_poses": 258,
+    "path_call_ms": {
+      "count": 258,
+      "mean": 0.2843426666666667,
+      "p95": 0.481784,
+      "max": 1.279914
+    },
+    "full_cycle_ms": {
+      "count": 258,
+      "mean": 55.25772705426356,
+      "p95": 70.492405,
+      "max": 94.990632
+    },
+    "tf_odom_max_component_error": 2.220446049250313e-16
+  },
+  "replay_after": {
+    "imu": 5224,
+    "lidar": 262,
+    "tf": 258,
+    "odom": 258,
+    "path_messages": 25,
+    "path_max_poses": 255,
+    "path_call_ms": {
+      "count": 258,
+      "mean": 0.028878492248062007,
+      "p95": 0.258076,
+      "max": 0.53625
+    },
+    "full_cycle_ms": {
+      "count": 258,
+      "mean": 55.24460067054263,
+      "p95": 70.43402,
+      "max": 94.007801
+    },
+    "tf_odom_max_component_error": 2.220446049250313e-16
+  }
+}
