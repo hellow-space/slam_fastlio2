@@ -97,8 +97,11 @@ def run(args):
         'player':['ros2','bag','play',str(args.bag),'--topics','/livox/imu','/livox/lidar',
                   '--clock','200','--delay','2','--disable-keyboard-controls',
                   '--wait-for-all-acked','3000']}
+    if args.surf_filter is not None:
+        cmds['node'] += ['-p', 'preprocess.filter_size_surf:='+str(args.surf_filter)]
     (args.out/'commands.json').write_text(json.dumps(dict(commands=cmds,domain=args.domain,
-          wall_start_s=time.time(),rate=1,clock_hz=200),indent=2))
+          wall_start_s=time.time(),rate=1,clock_hz=200,surf_filter=args.surf_filter,
+          playback_timeout=args.playback_timeout,post_play_seconds=args.post_play_seconds),indent=2))
     processes={};logs=[]
     try:
         for name in ['observer','node']:
@@ -111,12 +114,18 @@ def run(args):
                 time.sleep(.1)
             else:raise RuntimeError(name+' startup timeout')
         time.sleep(2)
+        if args.surf_filter is not None:
+            query=subprocess.run(['ros2','param','get','/laserMapping','preprocess.filter_size_surf'],
+                env=env,capture_output=True,text=True,timeout=15,check=True)
+            (args.out/'effective_surf_filter.txt').write_text(query.stdout+query.stderr)
+            if not query.stdout.strip().endswith(str(args.surf_filter)):
+                raise RuntimeError('effective surf filter differs from requested value')
         log=(args.out/'player.log').open('w');logs.append(log)
         processes['player']=subprocess.Popen(cmds['player'],env=env,stdout=log,stderr=subprocess.STDOUT)
-        processes['player'].wait(timeout=65)
+        processes['player'].wait(timeout=args.playback_timeout)
         if processes['player'].returncode:raise RuntimeError('player failed')
         if processes['observer'].poll() is not None:raise RuntimeError('observer failed')
-        time.sleep(2)
+        time.sleep(args.post_play_seconds)
         stop(processes['node'])
         stop(processes['observer'])
     finally:
@@ -147,6 +156,9 @@ def main():
     bench.add_argument('--out',type=Path,required=True)
     bench.add_argument('--bag',type=Path,required=True)
     bench.add_argument('--domain',type=int,choices=[176],default=176)
+    bench.add_argument('--surf-filter',type=float,choices=[0.1,0.15],default=None)
+    bench.add_argument('--playback-timeout',type=float,default=65)
+    bench.add_argument('--post-play-seconds',type=float,default=2)
     args=parser.parse_args()
     if args.mode=='observe':observe(args.out)
     else:run(args)

@@ -1,0 +1,5903 @@
+{
+  "manifest": {
+    "bag": "/home/nvidia/fastlivo_timing/outdoor_bags/handheld_20261115_202612",
+    "bag_sha256": "6baa74f73e6f11a46ac422a8ec648ba787f39c2031d56b97fbd703435e9ba728",
+    "binary": "/home/nvidia/.cache/fastlivo_timing_install/on/lib/fast_livo/fastlivo_mapping",
+    "binary_sha256": "6e0aac40e99416ea24be80db34d35585edfd0ed8be2bbe263eb815b031cc2687",
+    "source_config_sha256": "6ea867e5e727e39a35929032f610327e79e19085e6e94a9a74a039cc1579ac36",
+    "source_commit": "4f7821b19983ab4515e50f56bcda6c477c659cdb",
+    "domain": 176,
+    "localhost_only": true,
+    "clock_hz": 200,
+    "rate": 1,
+    "order": [
+      "A1",
+      "B1",
+      "B2",
+      "A2"
+    ],
+    "A_filter_m": 0.1,
+    "B_filter_m": 0.15,
+    "bag_duration_s": 123.83788333800001,
+    "expected_messages": {
+      "/aft_mapped_to_init": 1239,
+      "/livox/imu": 24771,
+      "/livox/lidar": 1238,
+      "/path": 117,
+      "/rosout": 41350,
+      "/tf": 2478,
+      "/tf_static": 4
+    },
+    "original_log_sha256": {
+      "mat_pre.txt": "e45346d36538041abeb79f6c9833f19bdcad61fe603a232c71db22cdace356b0",
+      "imu.txt": "e8ac14453b9ea370a86b203e77a6251805e6912aa1f4e4b5761b713753864065",
+      "mat_out.txt": "2d8553ad34028dd0f3ffae2dae48c5081ce44eb53cc07b7e56b645ede2ceca13",
+      "PCD/all_raw_points5.pcd": "2894a28c64ed47bc35b9473f8ccde5ce2b7e0ac7aaac6d4228a25179c739bc8c",
+      "PCD/all_raw_points_ok2.pcd": "2891910f50ddf2546a7b564ee1923f72bfc859d0fdec57c5baf1ef638d54bfb6",
+      "PCD/all_raw_points4.pcd": "4e456dd64ff8c7f3e97b3c0870fed2e1ee4e86baf5ba4b1961f281de2ebb9b0c",
+      "PCD/all_raw_points_ok1.pcd": "15ffadda7f37f70f8d0cabe67828eb9a77105d2d9d1a7308bb7a34876c5fa3fc",
+      "PCD/all_raw_points.pcd": "ff0afc398869d179c576270eb3e14b2fd16df037d3652dd36c7c19dea3796346",
+      "PCD/all_raw_points_ok1.zip": "1ea0a1423b7f5791d8468c04c2535a48575d6e2bd1a720e44c7d81d139c55888",
+      "PCD/all_raw_points_ok2.zip": "eb580ea4d709dc7a23215e67fd4b24e22742627992b53cd18ce335a22a0ee42a"
+    },
+    "results": {
+      "A1": {
+        "filter": 0.1,
+        "elapsed_wall_s": 182.55386738899995,
+        "counts": {
+          "tf_broadcaster_create": 1,
+          "imu_prop_callback": 18392,
+          "wait_window": 1276,
+          "wait_spin": 1276,
+          "wait_sync": 1276,
+          "wait_sleep": 1276,
+          "wait_reason": 1281,
+          "diagnostic_flush": 176,
+          "imu_callback": 24771,
+          "lidar_message_copy": 1238,
+          "lidar_preprocess": 1238,
+          "lidar_callback": 1238,
+          "sync_before": 1238,
+          "sync_after": 1238,
+          "spin": 1238,
+          "sync": 1238,
+          "sync_wait": 1238,
+          "first_frame_setup": 1238,
+          "process_imu": 1238,
+          "lio_preamble_io": 1238,
+          "handle_lio": 1238,
+          "estimation_mapping": 1238,
+          "full_cycle": 1238,
+          "frame_period": 1237,
+          "downsample": 1235,
+          "downcloud_transform": 1235,
+          "initial_map_build": 1,
+          "state_estimation": 1235,
+          "tf_send": 1235,
+          "odom_send": 1235,
+          "odom_publish": 1235,
+          "state_copy_pose_io_and_odom": 1235,
+          "voxel_map_update": 1235,
+          "map_covariance_and_update": 1235,
+          "map_slide": 1235,
+          "fullcloud_transform": 1235,
+          "cloud_publish_and_save": 1235,
+          "effect_publish": 1235,
+          "plane_publish": 1235,
+          "path_publish": 1235,
+          "mavros_publish": 1235,
+          "post_map_publications": 1235,
+          "lio_tail_console_and_file_io": 1235
+        },
+        "imu_statuses": {
+          "-2": 8,
+          "1": 24763
+        }
+      },
+      "B1": {
+        "filter": 0.15,
+        "elapsed_wall_s": 178.9005962650001,
+        "counts": {
+          "tf_broadcaster_create": 1,
+          "imu_prop_callback": 21862,
+          "wait_window": 1275,
+          "wait_spin": 1275,
+          "wait_sync": 1275,
+          "wait_sleep": 1275,
+          "wait_reason": 1277,
+          "diagnostic_flush": 183,
+          "imu_callback": 24771,
+          "lidar_message_copy": 1238,
+          "lidar_preprocess": 1238,
+          "lidar_callback": 1238,
+          "sync_before": 1238,
+          "sync_after": 1238,
+          "spin": 1238,
+          "sync": 1238,
+          "sync_wait": 1238,
+          "first_frame_setup": 1238,
+          "process_imu": 1238,
+          "lio_preamble_io": 1238,
+          "handle_lio": 1238,
+          "estimation_mapping": 1238,
+          "full_cycle": 1238,
+          "frame_period": 1237,
+          "downsample": 1235,
+          "downcloud_transform": 1235,
+          "initial_map_build": 1,
+          "state_estimation": 1235,
+          "tf_send": 1235,
+          "odom_send": 1235,
+          "odom_publish": 1235,
+          "state_copy_pose_io_and_odom": 1235,
+          "voxel_map_update": 1235,
+          "map_covariance_and_update": 1235,
+          "map_slide": 1235,
+          "fullcloud_transform": 1235,
+          "cloud_publish_and_save": 1235,
+          "effect_publish": 1235,
+          "plane_publish": 1235,
+          "path_publish": 1235,
+          "mavros_publish": 1235,
+          "post_map_publications": 1235,
+          "lio_tail_console_and_file_io": 1235
+        },
+        "imu_statuses": {
+          "-2": 8,
+          "1": 24763
+        }
+      },
+      "B2": {
+        "filter": 0.15,
+        "elapsed_wall_s": 181.04180194900005,
+        "counts": {
+          "tf_broadcaster_create": 1,
+          "imu_prop_callback": 21280,
+          "wait_window": 1275,
+          "wait_spin": 1275,
+          "wait_sync": 1275,
+          "wait_sleep": 1275,
+          "wait_reason": 1276,
+          "diagnostic_flush": 182,
+          "imu_callback": 24771,
+          "lidar_message_copy": 1238,
+          "lidar_preprocess": 1238,
+          "lidar_callback": 1238,
+          "sync_before": 1238,
+          "sync_after": 1238,
+          "spin": 1238,
+          "sync": 1238,
+          "sync_wait": 1238,
+          "first_frame_setup": 1238,
+          "process_imu": 1238,
+          "lio_preamble_io": 1238,
+          "handle_lio": 1238,
+          "estimation_mapping": 1238,
+          "full_cycle": 1238,
+          "frame_period": 1237,
+          "downsample": 1235,
+          "downcloud_transform": 1235,
+          "initial_map_build": 1,
+          "state_estimation": 1235,
+          "tf_send": 1235,
+          "odom_send": 1235,
+          "odom_publish": 1235,
+          "state_copy_pose_io_and_odom": 1235,
+          "voxel_map_update": 1235,
+          "map_covariance_and_update": 1235,
+          "map_slide": 1235,
+          "fullcloud_transform": 1235,
+          "cloud_publish_and_save": 1235,
+          "effect_publish": 1235,
+          "plane_publish": 1235,
+          "path_publish": 1235,
+          "mavros_publish": 1235,
+          "post_map_publications": 1235,
+          "lio_tail_console_and_file_io": 1235
+        },
+        "imu_statuses": {
+          "-2": 9,
+          "1": 24762
+        }
+      },
+      "A2": {
+        "filter": 0.1,
+        "elapsed_wall_s": 180.69832154300002,
+        "counts": {
+          "tf_broadcaster_create": 1,
+          "imu_prop_callback": 17368,
+          "wait_window": 1275,
+          "wait_spin": 1275,
+          "wait_sync": 1275,
+          "wait_sleep": 1275,
+          "wait_reason": 1279,
+          "diagnostic_flush": 174,
+          "imu_callback": 24771,
+          "lidar_message_copy": 1238,
+          "lidar_preprocess": 1238,
+          "lidar_callback": 1238,
+          "sync_before": 1238,
+          "sync_after": 1238,
+          "spin": 1238,
+          "sync": 1238,
+          "sync_wait": 1238,
+          "first_frame_setup": 1238,
+          "process_imu": 1238,
+          "lio_preamble_io": 1238,
+          "handle_lio": 1238,
+          "estimation_mapping": 1238,
+          "full_cycle": 1238,
+          "frame_period": 1237,
+          "downsample": 1236,
+          "downcloud_transform": 1236,
+          "initial_map_build": 1,
+          "state_estimation": 1236,
+          "tf_send": 1236,
+          "odom_send": 1236,
+          "odom_publish": 1236,
+          "state_copy_pose_io_and_odom": 1236,
+          "voxel_map_update": 1236,
+          "map_covariance_and_update": 1236,
+          "map_slide": 1236,
+          "fullcloud_transform": 1236,
+          "cloud_publish_and_save": 1236,
+          "effect_publish": 1236,
+          "plane_publish": 1236,
+          "path_publish": 1236,
+          "mavros_publish": 1236,
+          "post_map_publications": 1236,
+          "lio_tail_console_and_file_io": 1236
+        },
+        "imu_statuses": {
+          "-2": 3,
+          "1": 24768
+        }
+      }
+    },
+    "original_logs_restored": true,
+    "source_config_unchanged": true,
+    "binary_unchanged": true,
+    "removed_redundant_unchanged_pcd_copies": [
+      "original_logs/PCD",
+      "A1/source_logs/PCD",
+      "B1/source_logs/PCD",
+      "B2/source_logs/PCD",
+      "A2/source_logs/PCD"
+    ],
+    "pcd_copy_note": "Removed only duplicate snapshots of pre-existing PCD outputs from this experiment directory after full source-log SHA256 restoration verification. Original source Log/PCD files remain intact; PCD saving was disabled in both groups."
+  },
+  "bag_start_s": 1794745573.3646455,
+  "bag_end_s": 1794745697.202529,
+  "skip_first_source_seconds": 5,
+  "common_scan_count": 1188,
+  "high_load_definition": "same source scans at bag start +40 through +100 seconds",
+  "high_load_scan_count": 600,
+  "runs": {
+    "A1": {
+      "all_common": {
+        "scans": 1188,
+        "stages_ms": {
+          "sync_before": {
+            "count": 1188,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "sync_after": {
+            "count": 1188,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "spin": {
+            "count": 1188,
+            "mean": 1.3061202272727273,
+            "p50": 0.186336,
+            "p95": 3.405169,
+            "p99": 4.843585,
+            "min": 0.123009,
+            "max": 11.69971
+          },
+          "sync": {
+            "count": 1188,
+            "mean": 0.017394954545454547,
+            "p50": 0.012704,
+            "p95": 0.031936,
+            "p99": 0.055616,
+            "min": 0.006816,
+            "max": 0.151489
+          },
+          "wait_window": {
+            "count": 1188,
+            "mean": 25.111276253367002,
+            "p50": 9.163176,
+            "p95": 65.723642,
+            "p99": 75.966837,
+            "min": 3.898851,
+            "max": 84.969209
+          },
+          "wait_spin": {
+            "count": 1188,
+            "mean": 17.582307728956227,
+            "p50": 7.980619,
+            "p95": 45.364239,
+            "p99": 53.011141,
+            "min": 2.828141,
+            "max": 64.552183
+          },
+          "wait_sync": {
+            "count": 1188,
+            "mean": 0.04280934427609428,
+            "p50": 0.019264,
+            "p95": 0.107106,
+            "p99": 0.131584,
+            "min": 0.003776,
+            "max": 0.931941
+          },
+          "wait_sleep": {
+            "count": 1188,
+            "mean": 6.103338015993266,
+            "p50": 1.023524,
+            "p95": 17.737036,
+            "p99": 21.245118,
+            "min": 0.15232,
+            "max": 28.113332
+          },
+          "wait_reason": {
+            "count": 1188,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "sync_wait": {
+            "count": 1188,
+            "mean": 25.081198686026934,
+            "p50": 9.129913,
+            "p95": 65.722586,
+            "p99": 75.966005,
+            "min": 3.897827,
+            "max": 84.968281
+          },
+          "first_frame_setup": {
+            "count": 1188,
+            "mean": 0.00023148989898989897,
+            "p50": 0.000256,
+            "p95": 0.000448,
+            "p99": 0.00064,
+            "min": 3.2e-05,
+            "max": 0.001856
+          },
+          "process_imu": {
+            "count": 1188,
+            "mean": 2.2364114377104376,
+            "p50": 2.131624,
+            "p95": 2.930496,
+            "p99": 4.382325,
+            "min": 1.37433,
+            "max": 8.189772
+          },
+          "lio_preamble_io": {
+            "count": 1188,
+            "mean": 0.08655123316498316,
+            "p50": 0.071808,
+            "p95": 0.130689,
+            "p99": 0.312001,
+            "min": 0.045986,
+            "max": 4.010966
+          },
+          "handle_lio": {
+            "count": 1188,
+            "mean": 72.54221821969698,
+            "p50": 57.113214,
+            "p95": 118.256459,
+            "p99": 130.693902,
+            "min": 18.151426,
+            "max": 170.579638
+          },
+          "estimation_mapping": {
+            "count": 1188,
+            "mean": 72.54600336447811,
+            "p50": 57.114686,
+            "p95": 118.257867,
+            "p99": 130.69531,
+            "min": 18.152898,
+            "max": 170.580982
+          },
+          "full_cycle": {
+            "count": 1188,
+            "mean": 76.19891528451178,
+            "p50": 62.025975,
+            "p95": 121.097603,
+            "p99": 133.091671,
+            "min": 22.238927,
+            "max": 172.836538
+          },
+          "frame_period": {
+            "count": 1188,
+            "mean": 99.96429187626262,
+            "p50": 103.768875,
+            "p95": 129.609388,
+            "p99": 141.995097,
+            "min": 28.637144,
+            "max": 180.615271
+          },
+          "downsample": {
+            "count": 1188,
+            "mean": 1.2683021607744107,
+            "p50": 1.226884,
+            "p95": 1.758305,
+            "p99": 2.848709,
+            "min": 0.545175,
+            "max": 4.922604
+          },
+          "downcloud_transform": {
+            "count": 1188,
+            "mean": 0.21297587542087543,
+            "p50": 0.183105,
+            "p95": 0.334273,
+            "p99": 0.519937,
+            "min": 0.07216,
+            "max": 1.687362
+          },
+          "initial_map_build": {
+            "count": 0
+          },
+          "state_estimation": {
+            "count": 1188,
+            "mean": 59.35028053282828,
+            "p50": 48.372281,
+            "p95": 96.477395,
+            "p99": 106.69258,
+            "min": 13.586816,
+            "max": 147.326449
+          },
+          "tf_send": {
+            "count": 1188,
+            "mean": 0.19897340488215487,
+            "p50": 0.180896,
+            "p95": 0.264032,
+            "p99": 0.430656,
+            "min": 0.096352,
+            "max": 10.037826
+          },
+          "odom_send": {
+            "count": 1188,
+            "mean": 0.06290889562289562,
+            "p50": 0.0512,
+            "p95": 0.084896,
+            "p99": 0.340353,
+            "min": 0.03904,
+            "max": 1.996673
+          },
+          "odom_publish": {
+            "count": 1188,
+            "mean": 0.29460814393939394,
+            "p50": 0.248962,
+            "p95": 0.388961,
+            "p99": 1.095438,
+            "min": 0.153889,
+            "max": 12.057955
+          },
+          "state_copy_pose_io_and_odom": {
+            "count": 1188,
+            "mean": 0.8440397171717172,
+            "p50": 0.757217,
+            "p95": 1.327969,
+            "p99": 2.673192,
+            "min": 0.350688,
+            "max": 12.506147
+          },
+          "voxel_map_update": {
+            "count": 1188,
+            "mean": 6.5085119309764305,
+            "p50": 3.213679,
+            "p95": 14.522425,
+            "p99": 16.747767,
+            "min": 0.64064,
+            "max": 50.405268
+          },
+          "map_covariance_and_update": {
+            "count": 1188,
+            "mean": 8.409659004208756,
+            "p50": 4.776438,
+            "p95": 17.396007,
+            "p99": 20.02763,
+            "min": 1.178177,
+            "max": 53.070106
+          },
+          "map_slide": {
+            "count": 1188,
+            "mean": 0.0006670185185185185,
+            "p50": 0.000672,
+            "p95": 0.001056,
+            "p99": 0.001248,
+            "min": 0.000256,
+            "max": 0.001473
+          },
+          "fullcloud_transform": {
+            "count": 1188,
+            "mean": 0.5067550723905724,
+            "p50": 0.489092,
+            "p95": 0.674337,
+            "p99": 1.0217,
+            "min": 0.26958,
+            "max": 1.677411
+          },
+          "cloud_publish_and_save": {
+            "count": 1188,
+            "mean": 1.0328966969696969,
+            "p50": 0.997222,
+            "p95": 1.332674,
+            "p99": 2.620193,
+            "min": 0.519606,
+            "max": 3.263946
+          },
+          "effect_publish": {
+            "count": 1188,
+            "mean": 0.42902613636363635,
+            "p50": 0.374178,
+            "p95": 0.680866,
+            "p99": 1.175298,
+            "min": 0.161568,
+            "max": 2.648199
+          },
+          "plane_publish": {
+            "count": 1188,
+            "mean": 0.0005214040404040404,
+            "p50": 0.00048,
+            "p95": 0.000832,
+            "p99": 0.001024,
+            "min": 0.000128,
+            "max": 0.001184
+          },
+          "path_publish": {
+            "count": 1188,
+            "mean": 0.08871896043771045,
+            "p50": 0.002368,
+            "p95": 0.866018,
+            "p99": 1.550632,
+            "min": 0.00128,
+            "max": 2.701953
+          },
+          "mavros_publish": {
+            "count": 1188,
+            "mean": 0.017385301346801347,
+            "p50": 0.016128,
+            "p95": 0.024832,
+            "p99": 0.044448,
+            "min": 0.011905,
+            "max": 0.070976
+          },
+          "post_map_publications": {
+            "count": 1188,
+            "mean": 1.6091730614478115,
+            "p50": 1.490273,
+            "p95": 2.716962,
+            "p99": 4.28906,
+            "min": 0.742495,
+            "max": 12.537192
+          },
+          "lio_tail_console_and_file_io": {
+            "count": 1188,
+            "mean": 0.1939706271043771,
+            "p50": 0.177505,
+            "p95": 0.256577,
+            "p99": 0.495392,
+            "min": 0.098624,
+            "max": 1.804257
+          },
+          "diagnostic_flush": {
+            "count": 83,
+            "mean": 2.944162228915663,
+            "p50": 2.860834,
+            "p95": 3.465,
+            "p99": 8.63575,
+            "min": 2.306402,
+            "max": 8.63575
+          }
+        },
+        "publish_age_ms": {
+          "count": 1188,
+          "mean": 3002.297268164983,
+          "p50": 1302.067995,
+          "p95": 9279.138565000001,
+          "p99": 9533.360958,
+          "min": 38.96904000000001,
+          "max": 9598.199368
+        },
+        "wall_mapped_publish_age_ms": {
+          "count": 1188,
+          "mean": 3002.51257881171,
+          "p50": 1301.9325733184814,
+          "p95": 9278.04446220398,
+          "p99": 9531.997680664062,
+          "min": 37.45913505554199,
+          "max": 9596.401453018188
+        },
+        "imu_q": {
+          "count": 1188,
+          "mean": 2.9957912457912457,
+          "p50": 1.0,
+          "p95": 8.0,
+          "p99": 10.0,
+          "min": 1.0,
+          "max": 16.0
+        },
+        "lidar_q": {
+          "count": 1188,
+          "mean": 28.78872053872054,
+          "p50": 11.0,
+          "p95": 91.0,
+          "p99": 94.0,
+          "min": 0.0,
+          "max": 94.0
+        },
+        "down_points": {
+          "count": 1188,
+          "mean": 8752.214646464647,
+          "p50": 7296.0,
+          "p95": 13518.0,
+          "p99": 13905.0,
+          "min": 3134.0,
+          "max": 14199.0
+        },
+        "effective_points": {
+          "count": 1188,
+          "mean": 7692.2356902356905,
+          "p50": 6320.0,
+          "p95": 12251.0,
+          "p99": 12551.0,
+          "min": 2524.0,
+          "max": 12743.0
+        },
+        "iterations": {
+          "count": 1188,
+          "mean": 4.965488215488215,
+          "p50": 5.0,
+          "p95": 5.0,
+          "p99": 5.0,
+          "min": 4.0,
+          "max": 5.0
+        },
+        "map_voxels": {
+          "count": 1188,
+          "mean": 63594.849326599324,
+          "p50": 85268.0,
+          "p95": 101327.0,
+          "p99": 101340.0,
+          "min": 1717.0,
+          "max": 101340.0
+        },
+        "path_poses": {
+          "count": 1188,
+          "mean": 641.5,
+          "p50": 641.0,
+          "p95": 1176.0,
+          "p99": 1224.0,
+          "min": 48.0,
+          "max": 1235.0
+        },
+        "cycles_over_100ms": 421,
+        "wall_output_interval_ms": {
+          "count": 1187,
+          "mean": 99.9713480522325,
+          "p50": 103.7881870001911,
+          "p95": 129.15389800014054,
+          "p99": 139.18377499999224,
+          "min": 28.933432000030734,
+          "max": 178.23834399996485
+        }
+      },
+      "high_load": {
+        "scans": 600,
+        "stages_ms": {
+          "sync_before": {
+            "count": 600,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "sync_after": {
+            "count": 600,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "spin": {
+            "count": 600,
+            "mean": 0.185778895,
+            "p50": 0.152992,
+            "p95": 0.238209,
+            "p99": 0.463809,
+            "min": 0.123009,
+            "max": 4.455012
+          },
+          "sync": {
+            "count": 600,
+            "mean": 0.011005571666666667,
+            "p50": 0.01024,
+            "p95": 0.013824,
+            "p99": 0.02608,
+            "min": 0.007328,
+            "max": 0.151489
+          },
+          "wait_window": {
+            "count": 600,
+            "mean": 7.41642716,
+            "p50": 6.876042,
+            "p95": 10.527968,
+            "p99": 13.056704,
+            "min": 3.898851,
+            "max": 37.676327
+          },
+          "wait_spin": {
+            "count": 600,
+            "mean": 6.3619474149999995,
+            "p50": 5.905573,
+            "p95": 9.440333,
+            "p99": 11.406288,
+            "min": 3.209155,
+            "max": 19.071795
+          },
+          "wait_sync": {
+            "count": 600,
+            "mean": 0.017542125000000002,
+            "p50": 0.016576,
+            "p95": 0.02224,
+            "p99": 0.040896,
+            "min": 0.0104,
+            "max": 0.137248
+          },
+          "wait_sleep": {
+            "count": 600,
+            "mean": 0.8131188083333334,
+            "p50": 0.728769,
+            "p95": 1.319109,
+            "p99": 1.862754,
+            "min": 0.162272,
+            "max": 26.215558
+          },
+          "wait_reason": {
+            "count": 600,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "sync_wait": {
+            "count": 600,
+            "mean": 7.396619816666666,
+            "p50": 6.868008,
+            "p95": 10.434581,
+            "p99": 13.05568,
+            "min": 3.897827,
+            "max": 37.675463
+          },
+          "first_frame_setup": {
+            "count": 600,
+            "mean": 0.00020885333333333335,
+            "p50": 0.000224,
+            "p95": 0.000416,
+            "p99": 0.000544,
+            "min": 3.2e-05,
+            "max": 0.00064
+          },
+          "process_imu": {
+            "count": 600,
+            "mean": 2.1987272083333336,
+            "p50": 2.110914,
+            "p95": 2.780363,
+            "p99": 4.621063,
+            "min": 1.631905,
+            "max": 5.133103
+          },
+          "lio_preamble_io": {
+            "count": 600,
+            "mean": 0.08464807166666667,
+            "p50": 0.074752,
+            "p95": 0.13056,
+            "p99": 0.280001,
+            "min": 0.048256,
+            "max": 0.770979
+          },
+          "handle_lio": {
+            "count": 600,
+            "mean": 94.97762455833333,
+            "p50": 107.580864,
+            "p95": 121.728644,
+            "p99": 144.264424,
+            "min": 21.479378,
+            "max": 170.579638
+          },
+          "estimation_mapping": {
+            "count": 600,
+            "mean": 94.97910530833333,
+            "p50": 107.582432,
+            "p95": 121.730052,
+            "p99": 144.265992,
+            "min": 21.48069,
+            "max": 170.580982
+          },
+          "full_cycle": {
+            "count": 600,
+            "mean": 97.45917837666667,
+            "p50": 110.238452,
+            "p95": 124.471935,
+            "p99": 149.517038,
+            "min": 23.499283,
+            "max": 172.836538
+          },
+          "frame_period": {
+            "count": 600,
+            "mean": 104.67125456166667,
+            "p50": 117.262218,
+            "p95": 132.794754,
+            "p99": 160.044571,
+            "min": 28.637144,
+            "max": 180.615271
+          },
+          "downsample": {
+            "count": 600,
+            "mean": 1.3725710866666667,
+            "p50": 1.281189,
+            "p95": 1.886983,
+            "p99": 3.206725,
+            "min": 0.999649,
+            "max": 4.922604
+          },
+          "downcloud_transform": {
+            "count": 600,
+            "mean": 0.26444116666666667,
+            "p50": 0.280673,
+            "p95": 0.37565,
+            "p99": 0.605825,
+            "min": 0.082688,
+            "max": 1.687362
+          },
+          "initial_map_build": {
+            "count": 0
+          },
+          "state_estimation": {
+            "count": 600,
+            "mean": 77.308003365,
+            "p50": 87.003655,
+            "p95": 99.048029,
+            "p99": 115.607909,
+            "min": 16.279054,
+            "max": 147.326449
+          },
+          "tf_send": {
+            "count": 600,
+            "mean": 0.18879986333333332,
+            "p50": 0.182144,
+            "p95": 0.252192,
+            "p99": 0.325889,
+            "min": 0.096352,
+            "max": 1.128962
+          },
+          "odom_send": {
+            "count": 600,
+            "mean": 0.05872309666666666,
+            "p50": 0.051104,
+            "p95": 0.082656,
+            "p99": 0.142464,
+            "min": 0.040384,
+            "max": 1.288321
+          },
+          "odom_publish": {
+            "count": 600,
+            "mean": 0.28806721166666666,
+            "p50": 0.25232,
+            "p95": 0.378721,
+            "p99": 1.260482,
+            "min": 0.153889,
+            "max": 3.834314
+          },
+          "state_copy_pose_io_and_odom": {
+            "count": 600,
+            "mean": 0.9880838316666666,
+            "p50": 0.980929,
+            "p95": 1.406177,
+            "p99": 2.712037,
+            "min": 0.371296,
+            "max": 5.246093
+          },
+          "voxel_map_update": {
+            "count": 600,
+            "mean": 10.025790585,
+            "p50": 11.508314,
+            "p95": 15.322267,
+            "p99": 17.343403,
+            "min": 0.929153,
+            "max": 50.405268
+          },
+          "map_covariance_and_update": {
+            "count": 600,
+            "mean": 12.436668616666665,
+            "p50": 14.199339,
+            "p95": 18.515822,
+            "p99": 20.838867,
+            "min": 1.639681,
+            "max": 53.070106
+          },
+          "map_slide": {
+            "count": 600,
+            "mean": 0.0007173349999999999,
+            "p50": 0.000704,
+            "p95": 0.001088,
+            "p99": 0.00128,
+            "min": 0.00032,
+            "max": 0.001472
+          },
+          "fullcloud_transform": {
+            "count": 600,
+            "mean": 0.5126895683333333,
+            "p50": 0.490337,
+            "p95": 0.672482,
+            "p99": 1.061924,
+            "min": 0.367393,
+            "max": 1.677411
+          },
+          "cloud_publish_and_save": {
+            "count": 600,
+            "mean": 1.0685221033333332,
+            "p50": 1.020545,
+            "p95": 1.352993,
+            "p99": 2.654246,
+            "min": 0.765184,
+            "max": 3.263946
+          },
+          "effect_publish": {
+            "count": 600,
+            "mean": 0.530279095,
+            "p50": 0.545858,
+            "p95": 0.780419,
+            "p99": 1.301538,
+            "min": 0.161568,
+            "max": 2.648199
+          },
+          "plane_publish": {
+            "count": 600,
+            "mean": 0.0005652833333333332,
+            "p50": 0.000512,
+            "p95": 0.000928,
+            "p99": 0.001056,
+            "min": 0.000224,
+            "max": 0.001184
+          },
+          "path_publish": {
+            "count": 600,
+            "mean": 0.099715515,
+            "p50": 0.002464,
+            "p95": 0.966882,
+            "p99": 1.225154,
+            "min": 0.001344,
+            "max": 1.647461
+          },
+          "mavros_publish": {
+            "count": 600,
+            "mean": 0.017874758333333334,
+            "p50": 0.016608,
+            "p95": 0.0256,
+            "p99": 0.044,
+            "min": 0.012512,
+            "max": 0.070976
+          },
+          "post_map_publications": {
+            "count": 600,
+            "mean": 1.74607675,
+            "p50": 1.605572,
+            "p95": 2.734084,
+            "p99": 4.28906,
+            "min": 0.961409,
+            "max": 6.066921
+          },
+          "lio_tail_console_and_file_io": {
+            "count": 600,
+            "mean": 0.19613037833333336,
+            "p50": 0.181313,
+            "p95": 0.261248,
+            "p99": 0.486593,
+            "min": 0.098624,
+            "max": 0.788898
+          },
+          "diagnostic_flush": {
+            "count": 42,
+            "mean": 2.9369295476190476,
+            "p50": 2.860834,
+            "p95": 3.352741,
+            "p99": 3.465,
+            "min": 2.72993,
+            "max": 3.465
+          }
+        },
+        "publish_age_ms": {
+          "count": 600,
+          "mean": 5693.562424571667,
+          "p50": 5957.7333929999995,
+          "p95": 9496.946573000001,
+          "p99": 9571.956396,
+          "min": 209.76567300000002,
+          "max": 9598.199368
+        },
+        "wall_mapped_publish_age_ms": {
+          "count": 600,
+          "mean": 5693.737226724625,
+          "p50": 5957.169055938721,
+          "p95": 9497.897386550903,
+          "p99": 9572.721242904663,
+          "min": 212.29887008666992,
+          "max": 9596.401453018188
+        },
+        "imu_q": {
+          "count": 600,
+          "mean": 1.0,
+          "p50": 1.0,
+          "p95": 1.0,
+          "p99": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "lidar_q": {
+          "count": 600,
+          "mean": 55.303333333333335,
+          "p50": 58.0,
+          "p95": 93.0,
+          "p99": 94.0,
+          "min": 0.0,
+          "max": 94.0
+        },
+        "down_points": {
+          "count": 600,
+          "mean": 11132.945,
+          "p50": 12719.0,
+          "p95": 13723.0,
+          "p99": 13971.0,
+          "min": 3346.0,
+          "max": 14199.0
+        },
+        "effective_points": {
+          "count": 600,
+          "mean": 9946.113333333333,
+          "p50": 11467.0,
+          "p95": 12422.0,
+          "p99": 12574.0,
+          "min": 2524.0,
+          "max": 12743.0
+        },
+        "iterations": {
+          "count": 600,
+          "mean": 4.998333333333333,
+          "p50": 5.0,
+          "p95": 5.0,
+          "p99": 5.0,
+          "min": 4.0,
+          "max": 5.0
+        },
+        "map_voxels": {
+          "count": 600,
+          "mean": 81039.245,
+          "p50": 89480.0,
+          "p95": 100552.0,
+          "p99": 100684.0,
+          "min": 32079.0,
+          "max": 100716.0
+        },
+        "path_poses": {
+          "count": 600,
+          "mean": 697.5,
+          "p50": 697.0,
+          "p95": 967.0,
+          "p99": 991.0,
+          "min": 398.0,
+          "max": 997.0
+        },
+        "cycles_over_100ms": 412,
+        "wall_output_interval_ms": {
+          "count": 599,
+          "mean": 104.66962004674473,
+          "p50": 117.36163299997315,
+          "p95": 132.9583660000253,
+          "p99": 159.08442500006004,
+          "min": 28.933432000030734,
+          "max": 178.23834399996485
+        }
+      },
+      "counts": {
+        "tf_broadcaster_create": 1,
+        "imu_prop_callback": 18392,
+        "wait_window": 1276,
+        "wait_spin": 1276,
+        "wait_sync": 1276,
+        "wait_sleep": 1276,
+        "wait_reason": 1281,
+        "diagnostic_flush": 176,
+        "imu_callback": 24771,
+        "lidar_message_copy": 1238,
+        "lidar_preprocess": 1238,
+        "lidar_callback": 1238,
+        "sync_before": 1238,
+        "sync_after": 1238,
+        "spin": 1238,
+        "sync": 1238,
+        "sync_wait": 1238,
+        "first_frame_setup": 1238,
+        "process_imu": 1238,
+        "lio_preamble_io": 1238,
+        "handle_lio": 1238,
+        "estimation_mapping": 1238,
+        "full_cycle": 1238,
+        "frame_period": 1237,
+        "downsample": 1235,
+        "downcloud_transform": 1235,
+        "initial_map_build": 1,
+        "state_estimation": 1235,
+        "tf_send": 1235,
+        "odom_send": 1235,
+        "odom_publish": 1235,
+        "state_copy_pose_io_and_odom": 1235,
+        "voxel_map_update": 1235,
+        "map_covariance_and_update": 1235,
+        "map_slide": 1235,
+        "fullcloud_transform": 1235,
+        "cloud_publish_and_save": 1235,
+        "effect_publish": 1235,
+        "plane_publish": 1235,
+        "path_publish": 1235,
+        "mavros_publish": 1235,
+        "post_map_publications": 1235,
+        "lio_tail_console_and_file_io": 1235
+      },
+      "imu_statuses": {
+        "-2": 8,
+        "1": 24763
+      },
+      "tf_creations": 1,
+      "tf_odom_position_difference_m": {
+        "count": 1235,
+        "mean": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "tf_odom_sign_equivalent_quat_difference": {
+        "count": 1235,
+        "mean": 1.0275272597118166e-16,
+        "p50": 1.1102230246251565e-16,
+        "p95": 3.3306690738754696e-16,
+        "p99": 4.440892098500626e-16,
+        "min": 0.0,
+        "max": 5.551115123125783e-16
+      },
+      "path_messages": 117,
+      "cpu_temperature_c": {
+        "count": 163,
+        "mean": 61.553901840490795,
+        "p50": 61.406,
+        "p95": 64.031,
+        "p99": 64.406,
+        "min": 58.125,
+        "max": 64.5
+      },
+      "cpu_frequency_mhz_samples": {
+        "count": 1304,
+        "mean": 1640.170245398773,
+        "p50": 1984.0,
+        "p95": 1984.0,
+        "p99": 1984.0,
+        "min": 729.0,
+        "max": 1984.0
+      },
+      "clock_mapping_offset_deviation_ms": {
+        "count": 24671,
+        "mean": -0.12594275168975178,
+        "p50": 0.0,
+        "p95": 2.0360946655273438,
+        "p99": 2.2573471069335938,
+        "min": -10.576963424682617,
+        "max": 2.4671554565429688
+      },
+      "returncodes": {
+        "observer": 0,
+        "node": 0,
+        "player": 0
+      },
+      "effective_surf_filter": "Double value is: 0.1\n1795005385.252409 [176]       ros2: selected interface \"lo\" is not multicast-capable: disabling multicast\n1795005386.017021 [176]       ros2: selected interface \"lo\" is not multicast-capable: disabling multicast\n"
+    },
+    "B1": {
+      "all_common": {
+        "scans": 1188,
+        "stages_ms": {
+          "sync_before": {
+            "count": 1188,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "sync_after": {
+            "count": 1188,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "spin": {
+            "count": 1188,
+            "mean": 1.8670830993265992,
+            "p50": 2.434893,
+            "p95": 4.013754,
+            "p99": 5.598161,
+            "min": 0.123364,
+            "max": 21.052042
+          },
+          "sync": {
+            "count": 1188,
+            "mean": 0.021654284511784513,
+            "p50": 0.021472,
+            "p95": 0.040609,
+            "p99": 0.056034,
+            "min": 0.006656,
+            "max": 0.410189
+          },
+          "wait_window": {
+            "count": 1188,
+            "mean": 37.60331966329966,
+            "p50": 48.757469,
+            "p95": 78.514249,
+            "p99": 85.584404,
+            "min": 3.907101,
+            "max": 91.060869
+          },
+          "wait_spin": {
+            "count": 1188,
+            "mean": 26.93131733670034,
+            "p50": 32.545699,
+            "p95": 58.18689,
+            "p99": 65.374755,
+            "min": 2.72941,
+            "max": 73.086688
+          },
+          "wait_sync": {
+            "count": 1188,
+            "mean": 0.06365385942760943,
+            "p50": 0.07178,
+            "p95": 0.140068,
+            "p99": 0.158949,
+            "min": 0.009696,
+            "max": 0.492843
+          },
+          "wait_sleep": {
+            "count": 1188,
+            "mean": 8.641357492424243,
+            "p50": 11.101158,
+            "p95": 18.745689,
+            "p99": 21.018345,
+            "min": 0.242982,
+            "max": 26.41366
+          },
+          "wait_reason": {
+            "count": 1188,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "sync_wait": {
+            "count": 1188,
+            "mean": 37.57065562289562,
+            "p50": 48.756701,
+            "p95": 78.512937,
+            "p99": 85.5829,
+            "min": 3.906333,
+            "max": 91.059461
+          },
+          "first_frame_setup": {
+            "count": 1188,
+            "mean": 0.00023493939393939397,
+            "p50": 0.000256,
+            "p95": 0.000481,
+            "p99": 0.00064,
+            "min": 3.2e-05,
+            "max": 0.001088
+          },
+          "process_imu": {
+            "count": 1188,
+            "mean": 2.319833154040404,
+            "p50": 2.186782,
+            "p95": 3.020065,
+            "p99": 4.451275,
+            "min": 1.432862,
+            "max": 6.915737
+          },
+          "lio_preamble_io": {
+            "count": 1188,
+            "mean": 0.07825927441077442,
+            "p50": 0.068226,
+            "p95": 0.123876,
+            "p99": 0.241637,
+            "min": 0.047233,
+            "max": 1.541102
+          },
+          "handle_lio": {
+            "count": 1188,
+            "mean": 60.00019098148149,
+            "p50": 42.7253,
+            "p95": 105.363093,
+            "p99": 116.318378,
+            "min": 11.137133,
+            "max": 149.87647
+          },
+          "estimation_mapping": {
+            "count": 1188,
+            "mean": 60.00607676094276,
+            "p50": 42.726964,
+            "p95": 105.364149,
+            "p99": 116.31969,
+            "min": 11.138349,
+            "max": 149.87791
+          },
+          "full_cycle": {
+            "count": 1188,
+            "mean": 64.28567097222222,
+            "p50": 48.524629,
+            "p95": 108.005441,
+            "p99": 118.881324,
+            "min": 16.345756,
+            "max": 152.124241
+          },
+          "frame_period": {
+            "count": 1188,
+            "mean": 99.97672867929293,
+            "p50": 102.226812,
+            "p95": 117.779818,
+            "p99": 129.962699,
+            "min": 31.759574,
+            "max": 159.381359
+          },
+          "downsample": {
+            "count": 1188,
+            "mean": 1.148012962121212,
+            "p50": 1.13734,
+            "p95": 1.58734,
+            "p99": 2.143041,
+            "min": 0.519691,
+            "max": 3.745921
+          },
+          "downcloud_transform": {
+            "count": 1188,
+            "mean": 0.16890021212121212,
+            "p50": 0.132164,
+            "p95": 0.277959,
+            "p99": 0.465516,
+            "min": 0.043617,
+            "max": 0.920571
+          },
+          "initial_map_build": {
+            "count": 0
+          },
+          "state_estimation": {
+            "count": 1188,
+            "mean": 48.12919796717171,
+            "p50": 34.727325,
+            "p95": 85.575788,
+            "p99": 91.92363,
+            "min": 7.697476,
+            "max": 110.526986
+          },
+          "tf_send": {
+            "count": 1188,
+            "mean": 0.17832831565656565,
+            "p50": 0.168676,
+            "p95": 0.241959,
+            "p99": 0.369194,
+            "min": 0.094882,
+            "max": 1.083843
+          },
+          "odom_send": {
+            "count": 1188,
+            "mean": 0.05604910858585859,
+            "p50": 0.050338,
+            "p95": 0.073794,
+            "p99": 0.138403,
+            "min": 0.039649,
+            "max": 0.768633
+          },
+          "odom_publish": {
+            "count": 1188,
+            "mean": 0.25372857912457913,
+            "p50": 0.234247,
+            "p95": 0.326665,
+            "p99": 0.71,
+            "min": 0.150916,
+            "max": 3.320288
+          },
+          "state_copy_pose_io_and_odom": {
+            "count": 1188,
+            "mean": 0.6741203594276095,
+            "p50": 0.581202,
+            "p95": 1.003098,
+            "p99": 1.493834,
+            "min": 0.288935,
+            "max": 3.983955
+          },
+          "voxel_map_update": {
+            "count": 1188,
+            "mean": 6.040944250841751,
+            "p50": 3.066107,
+            "p95": 13.531452,
+            "p99": 15.851046,
+            "min": 0.373288,
+            "max": 46.368669
+          },
+          "map_covariance_and_update": {
+            "count": 1188,
+            "mean": 7.491764398148148,
+            "p50": 4.133538,
+            "p95": 16.024461,
+            "p99": 18.284749,
+            "min": 0.693423,
+            "max": 48.46146
+          },
+          "map_slide": {
+            "count": 1188,
+            "mean": 0.0005742398989898991,
+            "p50": 0.000512,
+            "p95": 0.00096,
+            "p99": 0.00112,
+            "min": 0.00016,
+            "max": 0.021601
+          },
+          "fullcloud_transform": {
+            "count": 1188,
+            "mean": 0.5143074638047138,
+            "p50": 0.491978,
+            "p95": 0.694961,
+            "p99": 1.043997,
+            "min": 0.273734,
+            "max": 1.803255
+          },
+          "cloud_publish_and_save": {
+            "count": 1188,
+            "mean": 1.0388965244107744,
+            "p50": 0.986683,
+            "p95": 1.403981,
+            "p99": 2.126195,
+            "min": 0.521035,
+            "max": 6.977179
+          },
+          "effect_publish": {
+            "count": 1188,
+            "mean": 0.34763654629629626,
+            "p50": 0.284518,
+            "p95": 0.580913,
+            "p99": 0.870329,
+            "min": 0.11613,
+            "max": 2.266337
+          },
+          "plane_publish": {
+            "count": 1188,
+            "mean": 0.0005022079124579125,
+            "p50": 0.000448,
+            "p95": 0.000768,
+            "p99": 0.00096,
+            "min": 0.000128,
+            "max": 0.001312
+          },
+          "path_publish": {
+            "count": 1188,
+            "mean": 0.09661943181818182,
+            "p50": 0.002528,
+            "p95": 0.846774,
+            "p99": 1.682212,
+            "min": 0.00144,
+            "max": 3.411241
+          },
+          "mavros_publish": {
+            "count": 1188,
+            "mean": 0.017877607744107744,
+            "p50": 0.016864,
+            "p95": 0.023297,
+            "p99": 0.037186,
+            "min": 0.01328,
+            "max": 0.184646
+          },
+          "post_map_publications": {
+            "count": 1188,
+            "mean": 1.5371900799663298,
+            "p50": 1.393518,
+            "p95": 2.652938,
+            "p99": 4.298786,
+            "min": 0.685199,
+            "max": 7.798313
+          },
+          "lio_tail_console_and_file_io": {
+            "count": 1188,
+            "mean": 0.1902411515151515,
+            "p50": 0.177669,
+            "p95": 0.228741,
+            "p99": 0.509261,
+            "min": 0.10381,
+            "max": 1.059264
+          },
+          "diagnostic_flush": {
+            "count": 75,
+            "mean": 2.8933871866666667,
+            "p50": 2.876042,
+            "p95": 3.608217,
+            "p99": 4.10182,
+            "min": 2.182447,
+            "max": 4.10182
+          }
+        },
+        "publish_age_ms": {
+          "count": 1188,
+          "mean": 953.2696367828283,
+          "p50": 82.845211,
+          "p95": 3205.4266930000003,
+          "p99": 3420.333147,
+          "min": 35.694599000000004,
+          "max": 3449.369907
+        },
+        "wall_mapped_publish_age_ms": {
+          "count": 1188,
+          "mean": 953.4301195883189,
+          "p50": 82.76581764221191,
+          "p95": 3206.523656845093,
+          "p99": 3421.3147163391113,
+          "min": 37.3225212097168,
+          "max": 3448.0271339416504
+        },
+        "imu_q": {
+          "count": 1188,
+          "mean": 3.788720538720539,
+          "p50": 4.0,
+          "p95": 9.0,
+          "p99": 11.0,
+          "min": 1.0,
+          "max": 16.0
+        },
+        "lidar_q": {
+          "count": 1188,
+          "mean": 8.48063973063973,
+          "p50": 0.0,
+          "p95": 31.0,
+          "p99": 33.0,
+          "min": 0.0,
+          "max": 33.0
+        },
+        "down_points": {
+          "count": 1188,
+          "mean": 6887.849326599327,
+          "p50": 4927.0,
+          "p95": 11733.0,
+          "p99": 12190.0,
+          "min": 1966.0,
+          "max": 12540.0
+        },
+        "effective_points": {
+          "count": 1188,
+          "mean": 6090.386363636364,
+          "p50": 4315.0,
+          "p95": 10593.0,
+          "p99": 10894.0,
+          "min": 1645.0,
+          "max": 11127.0
+        },
+        "iterations": {
+          "count": 1188,
+          "mean": 4.9772727272727275,
+          "p50": 5.0,
+          "p95": 5.0,
+          "p99": 5.0,
+          "min": 3.0,
+          "max": 5.0
+        },
+        "map_voxels": {
+          "count": 1188,
+          "mean": 63489.09175084175,
+          "p50": 85020.0,
+          "p95": 101233.0,
+          "p99": 101246.0,
+          "min": 1701.0,
+          "max": 101246.0
+        },
+        "path_poses": {
+          "count": 1188,
+          "mean": 641.5,
+          "p50": 641.0,
+          "p95": 1176.0,
+          "p99": 1224.0,
+          "min": 48.0,
+          "max": 1235.0
+        },
+        "cycles_over_100ms": 217,
+        "wall_output_interval_ms": {
+          "count": 1187,
+          "mean": 99.98772410699242,
+          "p50": 102.06360699999095,
+          "p95": 117.57212699990305,
+          "p99": 128.22900700007267,
+          "min": 31.581201999870245,
+          "max": 145.37167299999965
+        }
+      },
+      "high_load": {
+        "scans": 600,
+        "stages_ms": {
+          "sync_before": {
+            "count": 600,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "sync_after": {
+            "count": 600,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "spin": {
+            "count": 600,
+            "mean": 0.6005284183333334,
+            "p50": 0.153508,
+            "p95": 3.345742,
+            "p99": 4.032798,
+            "min": 0.123364,
+            "max": 10.04606
+          },
+          "sync": {
+            "count": 600,
+            "mean": 0.013384146666666668,
+            "p50": 0.009569,
+            "p95": 0.034721,
+            "p99": 0.051873,
+            "min": 0.006656,
+            "max": 0.188005
+          },
+          "wait_window": {
+            "count": 600,
+            "mean": 15.799012893333332,
+            "p50": 6.89853,
+            "p95": 74.625102,
+            "p99": 83.814003,
+            "min": 3.907101,
+            "max": 91.060869
+          },
+          "wait_spin": {
+            "count": 600,
+            "mean": 12.21038458,
+            "p50": 5.829008,
+            "p95": 55.609432,
+            "p99": 62.388893,
+            "min": 2.72941,
+            "max": 73.086688
+          },
+          "wait_sync": {
+            "count": 600,
+            "mean": 0.03060856333333333,
+            "p50": 0.015936,
+            "p95": 0.13005,
+            "p99": 0.148645,
+            "min": 0.009921,
+            "max": 0.492843
+          },
+          "wait_sleep": {
+            "count": 600,
+            "mean": 2.885937995,
+            "p50": 0.864535,
+            "p95": 16.770857,
+            "p99": 19.11817,
+            "min": 0.242982,
+            "max": 24.871373
+          },
+          "wait_reason": {
+            "count": 600,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "sync_wait": {
+            "count": 600,
+            "mean": 15.760334103333335,
+            "p50": 6.895594,
+            "p95": 74.623566,
+            "p99": 83.812851,
+            "min": 3.906333,
+            "max": 91.059461
+          },
+          "first_frame_setup": {
+            "count": 600,
+            "mean": 0.00021210833333333332,
+            "p50": 0.000224,
+            "p95": 0.000448,
+            "p99": 0.000576,
+            "min": 3.2e-05,
+            "max": 0.001088
+          },
+          "process_imu": {
+            "count": 600,
+            "mean": 2.195851605,
+            "p50": 2.114748,
+            "p95": 2.704319,
+            "p99": 3.484671,
+            "min": 1.762793,
+            "max": 5.959784
+          },
+          "lio_preamble_io": {
+            "count": 600,
+            "mean": 0.07281292833333333,
+            "p50": 0.063522,
+            "p95": 0.121219,
+            "p99": 0.161636,
+            "min": 0.047233,
+            "max": 0.512525
+          },
+          "handle_lio": {
+            "count": 600,
+            "mean": 81.80387344666667,
+            "p50": 94.313884,
+            "p95": 108.564793,
+            "p99": 123.259051,
+            "min": 15.359914,
+            "max": 149.87647
+          },
+          "estimation_mapping": {
+            "count": 600,
+            "mean": 81.80531208666667,
+            "p50": 94.315228,
+            "p95": 108.566489,
+            "p99": 123.260331,
+            "min": 15.36129,
+            "max": 149.87791
+          },
+          "full_cycle": {
+            "count": 600,
+            "mean": 84.69994364833333,
+            "p50": 96.584811,
+            "p95": 111.223538,
+            "p99": 125.802569,
+            "min": 20.723592,
+            "max": 152.124241
+          },
+          "frame_period": {
+            "count": 600,
+            "mean": 99.85366105666667,
+            "p50": 104.667799,
+            "p95": 118.858834,
+            "p99": 132.55851,
+            "min": 31.759574,
+            "max": 159.381359
+          },
+          "downsample": {
+            "count": 600,
+            "mean": 1.2262840833333333,
+            "p50": 1.179455,
+            "p95": 1.661196,
+            "p99": 2.167741,
+            "min": 0.653392,
+            "max": 3.745921
+          },
+          "downcloud_transform": {
+            "count": 600,
+            "mean": 0.219635935,
+            "p50": 0.24087,
+            "p95": 0.32356,
+            "p99": 0.49902,
+            "min": 0.043617,
+            "max": 0.920571
+          },
+          "initial_map_build": {
+            "count": 0
+          },
+          "state_estimation": {
+            "count": 600,
+            "mean": 65.82616129499999,
+            "p50": 75.861527,
+            "p95": 87.90757,
+            "p99": 96.862489,
+            "min": 11.175719,
+            "max": 110.526986
+          },
+          "tf_send": {
+            "count": 600,
+            "mean": 0.16972832166666668,
+            "p50": 0.163813,
+            "p95": 0.233574,
+            "p99": 0.350345,
+            "min": 0.094882,
+            "max": 0.729841
+          },
+          "odom_send": {
+            "count": 600,
+            "mean": 0.05214993666666667,
+            "p50": 0.048833,
+            "p95": 0.073058,
+            "p99": 0.117698,
+            "min": 0.039649,
+            "max": 0.178468
+          },
+          "odom_publish": {
+            "count": 600,
+            "mean": 0.24566799333333336,
+            "p50": 0.226341,
+            "p95": 0.316872,
+            "p99": 0.473163,
+            "min": 0.150916,
+            "max": 3.320288
+          },
+          "state_copy_pose_io_and_odom": {
+            "count": 600,
+            "mean": 0.8001861766666667,
+            "p50": 0.846935,
+            "p95": 1.090013,
+            "p99": 1.374405,
+            "min": 0.295814,
+            "max": 3.983955
+          },
+          "voxel_map_update": {
+            "count": 600,
+            "mean": 9.310797618333332,
+            "p50": 10.776459,
+            "p95": 14.198162,
+            "p99": 16.130253,
+            "min": 0.653968,
+            "max": 46.368669
+          },
+          "map_covariance_and_update": {
+            "count": 600,
+            "mean": 11.247460365,
+            "p50": 12.980926,
+            "p95": 16.613467,
+            "p99": 19.379885,
+            "min": 0.989783,
+            "max": 48.46146
+          },
+          "map_slide": {
+            "count": 600,
+            "mean": 0.0006391099999999999,
+            "p50": 0.000608,
+            "p95": 0.000992,
+            "p99": 0.001152,
+            "min": 0.00016,
+            "max": 0.021601
+          },
+          "fullcloud_transform": {
+            "count": 600,
+            "mean": 0.5083266216666666,
+            "p50": 0.487533,
+            "p95": 0.658063,
+            "p99": 0.900757,
+            "min": 0.375049,
+            "max": 1.219453
+          },
+          "cloud_publish_and_save": {
+            "count": 600,
+            "mean": 1.03224757,
+            "p50": 0.984092,
+            "p95": 1.342465,
+            "p99": 1.901678,
+            "min": 0.732881,
+            "max": 2.973929
+          },
+          "effect_publish": {
+            "count": 600,
+            "mean": 0.4456003016666667,
+            "p50": 0.460748,
+            "p95": 0.645617,
+            "p99": 1.234493,
+            "min": 0.126563,
+            "max": 2.266337
+          },
+          "plane_publish": {
+            "count": 600,
+            "mean": 0.0005399616666666667,
+            "p50": 0.000512,
+            "p95": 0.000832,
+            "p99": 0.00096,
+            "min": 0.000128,
+            "max": 0.001312
+          },
+          "path_publish": {
+            "count": 600,
+            "mean": 0.10298326000000001,
+            "p50": 0.002689,
+            "p95": 0.949017,
+            "p99": 1.656455,
+            "min": 0.00144,
+            "max": 2.958983
+          },
+          "mavros_publish": {
+            "count": 600,
+            "mean": 0.017922795,
+            "p50": 0.0168,
+            "p95": 0.023872,
+            "p99": 0.042433,
+            "min": 0.01328,
+            "max": 0.068866
+          },
+          "post_map_publications": {
+            "count": 600,
+            "mean": 1.6320331383333333,
+            "p50": 1.481546,
+            "p95": 2.652938,
+            "p99": 4.255723,
+            "min": 0.902421,
+            "max": 7.798313
+          },
+          "lio_tail_console_and_file_io": {
+            "count": 600,
+            "mean": 0.18898805333333332,
+            "p50": 0.179845,
+            "p95": 0.229542,
+            "p99": 0.45278,
+            "min": 0.10381,
+            "max": 0.961208
+          },
+          "diagnostic_flush": {
+            "count": 40,
+            "mean": 2.925974625,
+            "p50": 2.876042,
+            "p95": 3.352095,
+            "p99": 3.608217,
+            "min": 2.730664,
+            "max": 3.608217
+          }
+        },
+        "publish_age_ms": {
+          "count": 600,
+          "mean": 1822.8188375583334,
+          "p50": 2009.6356869999997,
+          "p95": 3348.8059040000003,
+          "p99": 3427.092552,
+          "min": 40.462255,
+          "max": 3449.369907
+        },
+        "wall_mapped_publish_age_ms": {
+          "count": 600,
+          "mean": 1822.9516164461772,
+          "p50": 2009.80544090271,
+          "p95": 3348.9255905151367,
+          "p99": 3427.4916648864746,
+          "min": 40.026187896728516,
+          "max": 3448.0271339416504
+        },
+        "imu_q": {
+          "count": 600,
+          "mean": 1.7466666666666666,
+          "p50": 1.0,
+          "p95": 7.0,
+          "p99": 9.0,
+          "min": 1.0,
+          "max": 12.0
+        },
+        "lidar_q": {
+          "count": 600,
+          "mean": 16.791666666666668,
+          "p50": 19.0,
+          "p95": 32.0,
+          "p99": 33.0,
+          "min": 0.0,
+          "max": 33.0
+        },
+        "down_points": {
+          "count": 600,
+          "mean": 9330.668333333333,
+          "p50": 10937.0,
+          "p95": 11921.0,
+          "p99": 12310.0,
+          "min": 2162.0,
+          "max": 12540.0
+        },
+        "effective_points": {
+          "count": 600,
+          "mean": 8358.916666666666,
+          "p50": 9808.0,
+          "p95": 10765.0,
+          "p99": 10925.0,
+          "min": 1645.0,
+          "max": 11127.0
+        },
+        "iterations": {
+          "count": 600,
+          "mean": 4.995,
+          "p50": 5.0,
+          "p95": 5.0,
+          "p99": 5.0,
+          "min": 4.0,
+          "max": 5.0
+        },
+        "map_voxels": {
+          "count": 600,
+          "mean": 80907.93166666667,
+          "p50": 89247.0,
+          "p95": 100452.0,
+          "p99": 100604.0,
+          "min": 32091.0,
+          "max": 100635.0
+        },
+        "path_poses": {
+          "count": 600,
+          "mean": 697.5,
+          "p50": 697.0,
+          "p95": 967.0,
+          "p99": 991.0,
+          "min": 398.0,
+          "max": 997.0
+        },
+        "cycles_over_100ms": 214,
+        "wall_output_interval_ms": {
+          "count": 599,
+          "mean": 99.86726146410687,
+          "p50": 104.79013499980283,
+          "p95": 118.81663000008302,
+          "p99": 130.23493099990446,
+          "min": 31.581201999870245,
+          "max": 145.37167299999965
+        }
+      },
+      "counts": {
+        "tf_broadcaster_create": 1,
+        "imu_prop_callback": 21862,
+        "wait_window": 1275,
+        "wait_spin": 1275,
+        "wait_sync": 1275,
+        "wait_sleep": 1275,
+        "wait_reason": 1277,
+        "diagnostic_flush": 183,
+        "imu_callback": 24771,
+        "lidar_message_copy": 1238,
+        "lidar_preprocess": 1238,
+        "lidar_callback": 1238,
+        "sync_before": 1238,
+        "sync_after": 1238,
+        "spin": 1238,
+        "sync": 1238,
+        "sync_wait": 1238,
+        "first_frame_setup": 1238,
+        "process_imu": 1238,
+        "lio_preamble_io": 1238,
+        "handle_lio": 1238,
+        "estimation_mapping": 1238,
+        "full_cycle": 1238,
+        "frame_period": 1237,
+        "downsample": 1235,
+        "downcloud_transform": 1235,
+        "initial_map_build": 1,
+        "state_estimation": 1235,
+        "tf_send": 1235,
+        "odom_send": 1235,
+        "odom_publish": 1235,
+        "state_copy_pose_io_and_odom": 1235,
+        "voxel_map_update": 1235,
+        "map_covariance_and_update": 1235,
+        "map_slide": 1235,
+        "fullcloud_transform": 1235,
+        "cloud_publish_and_save": 1235,
+        "effect_publish": 1235,
+        "plane_publish": 1235,
+        "path_publish": 1235,
+        "mavros_publish": 1235,
+        "post_map_publications": 1235,
+        "lio_tail_console_and_file_io": 1235
+      },
+      "imu_statuses": {
+        "-2": 8,
+        "1": 24763
+      },
+      "tf_creations": 1,
+      "tf_odom_position_difference_m": {
+        "count": 1235,
+        "mean": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "tf_odom_sign_equivalent_quat_difference": {
+        "count": 1235,
+        "mean": 1.0328935117803099e-16,
+        "p50": 1.1102230246251565e-16,
+        "p95": 3.3306690738754696e-16,
+        "p99": 4.440892098500626e-16,
+        "min": 0.0,
+        "max": 6.661338147750939e-16
+      },
+      "path_messages": 117,
+      "cpu_temperature_c": {
+        "count": 162,
+        "mean": 61.26041358024691,
+        "p50": 61.343,
+        "p95": 62.375,
+        "p99": 62.781,
+        "min": 59.843,
+        "max": 62.781
+      },
+      "cpu_frequency_mhz_samples": {
+        "count": 1296,
+        "mean": 1459.476851851852,
+        "p50": 1574.0,
+        "p95": 1984.0,
+        "p99": 1984.0,
+        "min": 729.0,
+        "max": 1984.0
+      },
+      "clock_mapping_offset_deviation_ms": {
+        "count": 24671,
+        "mean": -0.08495263433694153,
+        "p50": 0.0,
+        "p95": 2.0592212677001953,
+        "p99": 2.260446548461914,
+        "min": -8.164644241333008,
+        "max": 2.4542808532714844
+      },
+      "returncodes": {
+        "observer": 0,
+        "node": 0,
+        "player": 0
+      },
+      "effective_surf_filter": "Double value is: 0.15\n1795005567.609691 [176]       ros2: selected interface \"lo\" is not multicast-capable: disabling multicast\n"
+    },
+    "B2": {
+      "all_common": {
+        "scans": 1188,
+        "stages_ms": {
+          "sync_before": {
+            "count": 1188,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "sync_after": {
+            "count": 1188,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "spin": {
+            "count": 1188,
+            "mean": 1.7996682643097641,
+            "p50": 2.308451,
+            "p95": 4.039533,
+            "p99": 5.527137,
+            "min": 0.125057,
+            "max": 12.870835
+          },
+          "sync": {
+            "count": 1188,
+            "mean": 0.020809135521885524,
+            "p50": 0.019776,
+            "p95": 0.043745,
+            "p99": 0.066209,
+            "min": 0.00688,
+            "max": 0.560295
+          },
+          "wait_window": {
+            "count": 1188,
+            "mean": 35.67006624579124,
+            "p50": 42.194626,
+            "p95": 78.079044,
+            "p99": 85.470473,
+            "min": 3.613067,
+            "max": 96.073204
+          },
+          "wait_spin": {
+            "count": 1188,
+            "mean": 25.53215412794613,
+            "p50": 27.148662,
+            "p95": 57.316059,
+            "p99": 66.015121,
+            "min": 2.524934,
+            "max": 73.536606
+          },
+          "wait_sync": {
+            "count": 1188,
+            "mean": 0.06370593939393938,
+            "p50": 0.059521,
+            "p95": 0.1409,
+            "p99": 0.166498,
+            "min": 0.0032,
+            "max": 1.816128
+          },
+          "wait_sleep": {
+            "count": 1188,
+            "mean": 8.178034064814815,
+            "p50": 9.311245,
+            "p95": 19.235091,
+            "p99": 22.639645,
+            "min": 0.173763,
+            "max": 25.541292
+          },
+          "wait_reason": {
+            "count": 1188,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "sync_wait": {
+            "count": 1188,
+            "mean": 35.64142847390573,
+            "p50": 42.193634,
+            "p95": 78.077476,
+            "p99": 85.469065,
+            "min": 3.612427,
+            "max": 96.07218
+          },
+          "first_frame_setup": {
+            "count": 1188,
+            "mean": 0.0004065513468013468,
+            "p50": 0.000384,
+            "p95": 0.000736,
+            "p99": 0.00096,
+            "min": 3.2e-05,
+            "max": 0.017632
+          },
+          "process_imu": {
+            "count": 1188,
+            "mean": 2.2987129402356903,
+            "p50": 2.163679,
+            "p95": 2.961137,
+            "p99": 4.20605,
+            "min": 1.378287,
+            "max": 8.714443
+          },
+          "lio_preamble_io": {
+            "count": 1188,
+            "mean": 0.07742918602693602,
+            "p50": 0.067937,
+            "p95": 0.130273,
+            "p99": 0.212706,
+            "min": 0.045344,
+            "max": 0.892618
+          },
+          "handle_lio": {
+            "count": 1188,
+            "mean": 61.92069232070707,
+            "p50": 43.889926,
+            "p95": 108.691639,
+            "p99": 118.097939,
+            "min": 11.960291,
+            "max": 157.048672
+          },
+          "estimation_mapping": {
+            "count": 1188,
+            "mean": 61.92220972979798,
+            "p50": 43.891718,
+            "p95": 108.693047,
+            "p99": 118.099443,
+            "min": 11.961859,
+            "max": 157.049664
+          },
+          "full_cycle": {
+            "count": 1188,
+            "mean": 66.13277960606061,
+            "p50": 49.725939,
+            "p95": 111.160931,
+            "p99": 120.582999,
+            "min": 17.425983,
+            "max": 159.241824
+          },
+          "frame_period": {
+            "count": 1188,
+            "mean": 99.9796916026936,
+            "p50": 103.266281,
+            "p95": 119.758533,
+            "p99": 128.918695,
+            "min": 26.877476,
+            "max": 166.96907
+          },
+          "downsample": {
+            "count": 1188,
+            "mean": 1.1570855008417509,
+            "p50": 1.147473,
+            "p95": 1.597681,
+            "p99": 2.289724,
+            "min": 0.538406,
+            "max": 3.952691
+          },
+          "downcloud_transform": {
+            "count": 1188,
+            "mean": 0.17745060101010102,
+            "p50": 0.136962,
+            "p95": 0.292964,
+            "p99": 0.44631,
+            "min": 0.04608,
+            "max": 0.945164
+          },
+          "initial_map_build": {
+            "count": 0
+          },
+          "state_estimation": {
+            "count": 1188,
+            "mean": 49.97974438383839,
+            "p50": 36.319265,
+            "p95": 87.893734,
+            "p99": 95.087798,
+            "min": 8.411965,
+            "max": 124.447663
+          },
+          "tf_send": {
+            "count": 1188,
+            "mean": 0.18558182912457913,
+            "p50": 0.172322,
+            "p95": 0.244196,
+            "p99": 0.439461,
+            "min": 0.096353,
+            "max": 2.677599
+          },
+          "odom_send": {
+            "count": 1188,
+            "mean": 0.06045416666666667,
+            "p50": 0.053985,
+            "p95": 0.080097,
+            "p99": 0.176642,
+            "min": 0.042145,
+            "max": 1.648025
+          },
+          "odom_publish": {
+            "count": 1188,
+            "mean": 0.2713158627946128,
+            "p50": 0.24202,
+            "p95": 0.337125,
+            "p99": 0.791177,
+            "min": 0.155778,
+            "max": 4.026909
+          },
+          "state_copy_pose_io_and_odom": {
+            "count": 1188,
+            "mean": 0.6904666683501683,
+            "p50": 0.592201,
+            "p95": 1.063535,
+            "p99": 1.769014,
+            "min": 0.271139,
+            "max": 4.282977
+          },
+          "voxel_map_update": {
+            "count": 1188,
+            "mean": 6.090141865319866,
+            "p50": 3.058766,
+            "p95": 13.726247,
+            "p99": 16.895777,
+            "min": 0.389988,
+            "max": 45.960036
+          },
+          "map_covariance_and_update": {
+            "count": 1188,
+            "mean": 7.557014266835016,
+            "p50": 4.103087,
+            "p95": 16.2315,
+            "p99": 19.737511,
+            "min": 0.724584,
+            "max": 49.846775
+          },
+          "map_slide": {
+            "count": 1188,
+            "mean": 0.0011305185185185185,
+            "p50": 0.00064,
+            "p95": 0.001024,
+            "p99": 0.001216,
+            "min": 0.000128,
+            "max": 0.572969
+          },
+          "fullcloud_transform": {
+            "count": 1188,
+            "mean": 0.5125519915824917,
+            "p50": 0.495719,
+            "p95": 0.704841,
+            "p99": 0.887146,
+            "min": 0.276163,
+            "max": 1.41944
+          },
+          "cloud_publish_and_save": {
+            "count": 1188,
+            "mean": 1.0322779427609428,
+            "p50": 0.998765,
+            "p95": 1.31685,
+            "p99": 1.786777,
+            "min": 0.596358,
+            "max": 7.670229
+          },
+          "effect_publish": {
+            "count": 1188,
+            "mean": 0.34593941414141416,
+            "p50": 0.286148,
+            "p95": 0.570793,
+            "p99": 0.822124,
+            "min": 0.121858,
+            "max": 1.70006
+          },
+          "plane_publish": {
+            "count": 1188,
+            "mean": 0.000544276936026936,
+            "p50": 0.00048,
+            "p95": 0.000896,
+            "p99": 0.00112,
+            "min": 0.00016,
+            "max": 0.001408
+          },
+          "path_publish": {
+            "count": 1188,
+            "mean": 0.09453461784511784,
+            "p50": 0.002592,
+            "p95": 0.8259,
+            "p99": 1.681587,
+            "min": 0.001568,
+            "max": 3.738797
+          },
+          "mavros_publish": {
+            "count": 1188,
+            "mean": 0.01688300925925926,
+            "p50": 0.015712,
+            "p95": 0.022625,
+            "p99": 0.0392,
+            "min": 0.011776,
+            "max": 0.113314
+          },
+          "post_map_publications": {
+            "count": 1188,
+            "mean": 1.5181738198653199,
+            "p50": 1.410231,
+            "p95": 2.539231,
+            "p99": 4.220403,
+            "min": 0.736392,
+            "max": 7.910488
+          },
+          "lio_tail_console_and_file_io": {
+            "count": 1188,
+            "mean": 0.1861775286195286,
+            "p50": 0.175139,
+            "p95": 0.222755,
+            "p99": 0.467879,
+            "min": 0.103297,
+            "max": 1.098924
+          },
+          "diagnostic_flush": {
+            "count": 82,
+            "mean": 2.9530923780487806,
+            "p50": 2.926181,
+            "p95": 3.635252,
+            "p99": 4.102802,
+            "min": 2.385124,
+            "max": 4.102802
+          }
+        },
+        "publish_age_ms": {
+          "count": 1188,
+          "mean": 1447.163247300505,
+          "p50": 89.117289,
+          "p95": 4828.974724,
+          "p99": 5099.459887,
+          "min": 33.822298,
+          "max": 5146.366596
+        },
+        "wall_mapped_publish_age_ms": {
+          "count": 1188,
+          "mean": 1447.3288332171712,
+          "p50": 88.7765884399414,
+          "p95": 4828.923225402832,
+          "p99": 5098.827362060547,
+          "min": 33.988237380981445,
+          "max": 5148.477792739868
+        },
+        "imu_q": {
+          "count": 1188,
+          "mean": 3.601010101010101,
+          "p50": 4.0,
+          "p95": 8.0,
+          "p99": 10.0,
+          "min": 1.0,
+          "max": 16.0
+        },
+        "lidar_q": {
+          "count": 1188,
+          "mean": 13.378787878787879,
+          "p50": 0.0,
+          "p95": 47.0,
+          "p99": 49.0,
+          "min": 0.0,
+          "max": 50.0
+        },
+        "down_points": {
+          "count": 1188,
+          "mean": 6887.662457912458,
+          "p50": 4928.0,
+          "p95": 11735.0,
+          "p99": 12181.0,
+          "min": 1966.0,
+          "max": 12537.0
+        },
+        "effective_points": {
+          "count": 1188,
+          "mean": 6089.311447811448,
+          "p50": 4315.0,
+          "p95": 10593.0,
+          "p99": 10863.0,
+          "min": 1647.0,
+          "max": 11126.0
+        },
+        "iterations": {
+          "count": 1188,
+          "mean": 4.97979797979798,
+          "p50": 5.0,
+          "p95": 5.0,
+          "p99": 5.0,
+          "min": 3.0,
+          "max": 5.0
+        },
+        "map_voxels": {
+          "count": 1188,
+          "mean": 63429.099326599324,
+          "p50": 84965.0,
+          "p95": 101088.0,
+          "p99": 101101.0,
+          "min": 1701.0,
+          "max": 101101.0
+        },
+        "path_poses": {
+          "count": 1188,
+          "mean": 641.5,
+          "p50": 641.0,
+          "p95": 1176.0,
+          "p99": 1224.0,
+          "min": 48.0,
+          "max": 1235.0
+        },
+        "cycles_over_100ms": 328,
+        "wall_output_interval_ms": {
+          "count": 1187,
+          "mean": 99.98661995703448,
+          "p50": 103.24134799998319,
+          "p95": 119.24858700012919,
+          "p99": 130.28843300003246,
+          "min": 26.73692899998059,
+          "max": 155.4903149999518
+        }
+      },
+      "high_load": {
+        "scans": 600,
+        "stages_ms": {
+          "sync_before": {
+            "count": 600,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "sync_after": {
+            "count": 600,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "spin": {
+            "count": 600,
+            "mean": 0.45856674499999994,
+            "p50": 0.155042,
+            "p95": 3.304488,
+            "p99": 4.181137,
+            "min": 0.125698,
+            "max": 9.371664
+          },
+          "sync": {
+            "count": 600,
+            "mean": 0.012536483333333332,
+            "p50": 0.009536,
+            "p95": 0.027681,
+            "p99": 0.061409,
+            "min": 0.00688,
+            "max": 0.16797
+          },
+          "wait_window": {
+            "count": 600,
+            "mean": 12.704088834999999,
+            "p50": 6.914368,
+            "p95": 73.4579,
+            "p99": 80.857644,
+            "min": 3.613067,
+            "max": 96.073204
+          },
+          "wait_spin": {
+            "count": 600,
+            "mean": 10.171624553333332,
+            "p50": 5.923473,
+            "p95": 54.176487,
+            "p99": 60.657046,
+            "min": 2.700287,
+            "max": 68.277516
+          },
+          "wait_sync": {
+            "count": 600,
+            "mean": 0.026340805,
+            "p50": 0.016224,
+            "p95": 0.130305,
+            "p99": 0.151137,
+            "min": 0.010592,
+            "max": 0.168065
+          },
+          "wait_sleep": {
+            "count": 600,
+            "mean": 2.0087710783333335,
+            "p50": 0.805578,
+            "p95": 14.303207,
+            "p99": 18.349232,
+            "min": 0.173763,
+            "max": 23.38879
+          },
+          "wait_reason": {
+            "count": 600,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "sync_wait": {
+            "count": 600,
+            "mean": 12.693546248333334,
+            "p50": 6.913024,
+            "p95": 73.4563,
+            "p99": 80.856492,
+            "min": 3.612427,
+            "max": 96.07218
+          },
+          "first_frame_setup": {
+            "count": 600,
+            "mean": 0.00040086,
+            "p50": 0.000352,
+            "p95": 0.000672,
+            "p99": 0.000864,
+            "min": 3.2e-05,
+            "max": 0.017632
+          },
+          "process_imu": {
+            "count": 600,
+            "mean": 2.1682906033333333,
+            "p50": 2.10185,
+            "p95": 2.636544,
+            "p99": 3.362248,
+            "min": 1.670356,
+            "max": 4.899295
+          },
+          "lio_preamble_io": {
+            "count": 600,
+            "mean": 0.07165362666666666,
+            "p50": 0.061888,
+            "p95": 0.116738,
+            "p99": 0.166818,
+            "min": 0.045344,
+            "max": 0.41495
+          },
+          "handle_lio": {
+            "count": 600,
+            "mean": 84.76952417999999,
+            "p50": 98.511271,
+            "p95": 111.173211,
+            "p99": 120.893922,
+            "min": 15.330936,
+            "max": 157.048672
+          },
+          "estimation_mapping": {
+            "count": 600,
+            "mean": 84.77102308333333,
+            "p50": 98.512743,
+            "p95": 111.175035,
+            "p99": 120.895458,
+            "min": 15.33212,
+            "max": 157.049664
+          },
+          "full_cycle": {
+            "count": 600,
+            "mean": 87.492709565,
+            "p50": 100.816598,
+            "p95": 113.417431,
+            "p99": 123.205988,
+            "min": 19.487178,
+            "max": 159.241824
+          },
+          "frame_period": {
+            "count": 600,
+            "mean": 99.74239209000001,
+            "p50": 107.878916,
+            "p95": 122.096808,
+            "p99": 130.948515,
+            "min": 26.877476,
+            "max": 166.96907
+          },
+          "downsample": {
+            "count": 600,
+            "mean": 1.245691725,
+            "p50": 1.189903,
+            "p95": 1.743768,
+            "p99": 2.305249,
+            "min": 0.632455,
+            "max": 3.952691
+          },
+          "downcloud_transform": {
+            "count": 600,
+            "mean": 0.2310838133333333,
+            "p50": 0.253571,
+            "p95": 0.324484,
+            "p99": 0.504647,
+            "min": 0.050529,
+            "max": 0.945164
+          },
+          "initial_map_build": {
+            "count": 0
+          },
+          "state_estimation": {
+            "count": 600,
+            "mean": 68.66145211833334,
+            "p50": 79.919742,
+            "p95": 90.425617,
+            "p99": 98.415174,
+            "min": 11.425224,
+            "max": 124.447663
+          },
+          "tf_send": {
+            "count": 600,
+            "mean": 0.17687139,
+            "p50": 0.165602,
+            "p95": 0.241315,
+            "p99": 0.411749,
+            "min": 0.096353,
+            "max": 0.910604
+          },
+          "odom_send": {
+            "count": 600,
+            "mean": 0.056880038333333334,
+            "p50": 0.053025,
+            "p95": 0.076545,
+            "p99": 0.143682,
+            "min": 0.042145,
+            "max": 0.265828
+          },
+          "odom_publish": {
+            "count": 600,
+            "mean": 0.2642169133333333,
+            "p50": 0.233412,
+            "p95": 0.332324,
+            "p99": 0.723818,
+            "min": 0.155778,
+            "max": 3.595435
+          },
+          "state_copy_pose_io_and_odom": {
+            "count": 600,
+            "mean": 0.8274801,
+            "p50": 0.849771,
+            "p95": 1.172688,
+            "p99": 1.769014,
+            "min": 0.273955,
+            "max": 3.844245
+          },
+          "voxel_map_update": {
+            "count": 600,
+            "mean": 9.380289551666666,
+            "p50": 10.790541,
+            "p95": 14.434788,
+            "p99": 17.555437,
+            "min": 0.690184,
+            "max": 45.960036
+          },
+          "map_covariance_and_update": {
+            "count": 600,
+            "mean": 11.34943907,
+            "p50": 13.076949,
+            "p95": 17.09142,
+            "p99": 20.075953,
+            "min": 1.025869,
+            "max": 49.846775
+          },
+          "map_slide": {
+            "count": 600,
+            "mean": 0.0007219816666666667,
+            "p50": 0.000672,
+            "p95": 0.001088,
+            "p99": 0.001248,
+            "min": 0.000128,
+            "max": 0.01872
+          },
+          "fullcloud_transform": {
+            "count": 600,
+            "mean": 0.5149592866666667,
+            "p50": 0.496263,
+            "p95": 0.705002,
+            "p99": 0.87233,
+            "min": 0.374212,
+            "max": 1.41944
+          },
+          "cloud_publish_and_save": {
+            "count": 600,
+            "mean": 1.038078445,
+            "p50": 1.006413,
+            "p95": 1.26757,
+            "p99": 1.633174,
+            "min": 0.735529,
+            "max": 5.793776
+          },
+          "effect_publish": {
+            "count": 600,
+            "mean": 0.434416545,
+            "p50": 0.464422,
+            "p95": 0.645288,
+            "p99": 0.844909,
+            "min": 0.131746,
+            "max": 0.990669
+          },
+          "plane_publish": {
+            "count": 600,
+            "mean": 0.0005828333333333333,
+            "p50": 0.000512,
+            "p95": 0.000928,
+            "p99": 0.00112,
+            "min": 0.00016,
+            "max": 0.001313
+          },
+          "path_publish": {
+            "count": 600,
+            "mean": 0.10086652833333333,
+            "p50": 0.002752,
+            "p95": 0.931757,
+            "p99": 1.296784,
+            "min": 0.001856,
+            "max": 3.738797
+          },
+          "mavros_publish": {
+            "count": 600,
+            "mean": 0.017207664999999997,
+            "p50": 0.015905,
+            "p95": 0.023648,
+            "p99": 0.0392,
+            "min": 0.01296,
+            "max": 0.113314
+          },
+          "post_map_publications": {
+            "count": 600,
+            "mean": 1.625361105,
+            "p50": 1.504789,
+            "p95": 2.539231,
+            "p99": 4.411803,
+            "min": 0.894923,
+            "max": 6.290039
+          },
+          "lio_tail_console_and_file_io": {
+            "count": 600,
+            "mean": 0.18809052333333334,
+            "p50": 0.177347,
+            "p95": 0.226563,
+            "p99": 0.459462,
+            "min": 0.103297,
+            "max": 0.604583
+          },
+          "diagnostic_flush": {
+            "count": 39,
+            "mean": 3.0280699230769232,
+            "p50": 2.937317,
+            "p95": 3.635252,
+            "p99": 4.102802,
+            "min": 2.812292,
+            "max": 4.102802
+          }
+        },
+        "publish_age_ms": {
+          "count": 600,
+          "mean": 2798.7418675433332,
+          "p50": 2847.9352,
+          "p95": 5029.820919,
+          "p99": 5124.184847,
+          "min": 43.422699,
+          "max": 5146.366596
+        },
+        "wall_mapped_publish_age_ms": {
+          "count": 600,
+          "mean": 2798.87623667717,
+          "p50": 2850.465774536133,
+          "p95": 5030.72452545166,
+          "p99": 5123.688459396362,
+          "min": 42.971134185791016,
+          "max": 5148.477792739868
+        },
+        "imu_q": {
+          "count": 600,
+          "mean": 1.4333333333333333,
+          "p50": 1.0,
+          "p95": 5.0,
+          "p99": 8.0,
+          "min": 1.0,
+          "max": 10.0
+        },
+        "lidar_q": {
+          "count": 600,
+          "mean": 26.49,
+          "p50": 27.0,
+          "p95": 49.0,
+          "p99": 50.0,
+          "min": 0.0,
+          "max": 50.0
+        },
+        "down_points": {
+          "count": 600,
+          "mean": 9330.338333333333,
+          "p50": 10933.0,
+          "p95": 11923.0,
+          "p99": 12308.0,
+          "min": 2161.0,
+          "max": 12537.0
+        },
+        "effective_points": {
+          "count": 600,
+          "mean": 8357.045,
+          "p50": 9811.0,
+          "p95": 10754.0,
+          "p99": 10941.0,
+          "min": 1647.0,
+          "max": 11126.0
+        },
+        "iterations": {
+          "count": 600,
+          "mean": 5.0,
+          "p50": 5.0,
+          "p95": 5.0,
+          "p99": 5.0,
+          "min": 5.0,
+          "max": 5.0
+        },
+        "map_voxels": {
+          "count": 600,
+          "mean": 80845.94333333333,
+          "p50": 89196.0,
+          "p95": 100317.0,
+          "p99": 100463.0,
+          "min": 32064.0,
+          "max": 100493.0
+        },
+        "path_poses": {
+          "count": 600,
+          "mean": 697.5,
+          "p50": 697.0,
+          "p95": 967.0,
+          "p99": 991.0,
+          "min": 398.0,
+          "max": 997.0
+        },
+        "cycles_over_100ms": 323,
+        "wall_output_interval_ms": {
+          "count": 599,
+          "mean": 99.74933764774642,
+          "p50": 108.05428599996958,
+          "p95": 122.50077499993495,
+          "p99": 133.46945800003596,
+          "min": 26.73692899998059,
+          "max": 155.4903149999518
+        }
+      },
+      "counts": {
+        "tf_broadcaster_create": 1,
+        "imu_prop_callback": 21280,
+        "wait_window": 1275,
+        "wait_spin": 1275,
+        "wait_sync": 1275,
+        "wait_sleep": 1275,
+        "wait_reason": 1276,
+        "diagnostic_flush": 182,
+        "imu_callback": 24771,
+        "lidar_message_copy": 1238,
+        "lidar_preprocess": 1238,
+        "lidar_callback": 1238,
+        "sync_before": 1238,
+        "sync_after": 1238,
+        "spin": 1238,
+        "sync": 1238,
+        "sync_wait": 1238,
+        "first_frame_setup": 1238,
+        "process_imu": 1238,
+        "lio_preamble_io": 1238,
+        "handle_lio": 1238,
+        "estimation_mapping": 1238,
+        "full_cycle": 1238,
+        "frame_period": 1237,
+        "downsample": 1235,
+        "downcloud_transform": 1235,
+        "initial_map_build": 1,
+        "state_estimation": 1235,
+        "tf_send": 1235,
+        "odom_send": 1235,
+        "odom_publish": 1235,
+        "state_copy_pose_io_and_odom": 1235,
+        "voxel_map_update": 1235,
+        "map_covariance_and_update": 1235,
+        "map_slide": 1235,
+        "fullcloud_transform": 1235,
+        "cloud_publish_and_save": 1235,
+        "effect_publish": 1235,
+        "plane_publish": 1235,
+        "path_publish": 1235,
+        "mavros_publish": 1235,
+        "post_map_publications": 1235,
+        "lio_tail_console_and_file_io": 1235
+      },
+      "imu_statuses": {
+        "-2": 9,
+        "1": 24762
+      },
+      "tf_creations": 1,
+      "tf_odom_position_difference_m": {
+        "count": 1235,
+        "mean": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "tf_odom_sign_equivalent_quat_difference": {
+        "count": 1235,
+        "mean": 1.1018639136649429e-16,
+        "p50": 1.1102230246251565e-16,
+        "p95": 3.3306690738754696e-16,
+        "p99": 4.440892098500626e-16,
+        "min": 0.0,
+        "max": 5.551115123125783e-16
+      },
+      "path_messages": 117,
+      "cpu_temperature_c": {
+        "count": 163,
+        "mean": 61.82151533742331,
+        "p50": 62.031,
+        "p95": 63.125,
+        "p99": 63.5,
+        "min": 60.156,
+        "max": 63.687
+      },
+      "cpu_frequency_mhz_samples": {
+        "count": 1304,
+        "mean": 1486.8588957055215,
+        "p50": 1651.0,
+        "p95": 1984.0,
+        "p99": 1984.0,
+        "min": 729.0,
+        "max": 1984.0
+      },
+      "clock_mapping_offset_deviation_ms": {
+        "count": 24671,
+        "mean": -0.11797344808782206,
+        "p50": 0.0,
+        "p95": 2.0689964294433594,
+        "p99": 2.2802352905273438,
+        "min": -11.567115783691406,
+        "max": 2.467632293701172
+      },
+      "returncodes": {
+        "observer": 0,
+        "node": 0,
+        "player": 0
+      },
+      "effective_surf_filter": "Double value is: 0.15\n1795005746.533087 [176]       ros2: selected interface \"lo\" is not multicast-capable: disabling multicast\n"
+    },
+    "A2": {
+      "all_common": {
+        "scans": 1188,
+        "stages_ms": {
+          "sync_before": {
+            "count": 1188,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "sync_after": {
+            "count": 1188,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "spin": {
+            "count": 1188,
+            "mean": 1.191007803872054,
+            "p50": 0.169122,
+            "p95": 3.381467,
+            "p99": 4.249476,
+            "min": 0.125153,
+            "max": 5.842896
+          },
+          "sync": {
+            "count": 1188,
+            "mean": 0.016198260942760945,
+            "p50": 0.010976,
+            "p95": 0.030496,
+            "p99": 0.051104,
+            "min": 0.006688,
+            "max": 0.273442
+          },
+          "wait_window": {
+            "count": 1188,
+            "mean": 22.34670944949495,
+            "p50": 8.471129,
+            "p95": 64.410992,
+            "p99": 73.091333,
+            "min": 3.760823,
+            "max": 82.001523
+          },
+          "wait_spin": {
+            "count": 1188,
+            "mean": 15.741624806397306,
+            "p50": 7.337714,
+            "p95": 44.718663,
+            "p99": 51.680651,
+            "min": 2.798517,
+            "max": 62.895356
+          },
+          "wait_sync": {
+            "count": 1188,
+            "mean": 0.03803142929292929,
+            "p50": 0.0184,
+            "p95": 0.102688,
+            "p99": 0.125952,
+            "min": 0.003712,
+            "max": 0.456836
+          },
+          "wait_sleep": {
+            "count": 1188,
+            "mean": 5.305845230639731,
+            "p50": 0.938823,
+            "p95": 16.645665,
+            "p99": 18.909402,
+            "min": 0.003104,
+            "max": 22.78801
+          },
+          "wait_reason": {
+            "count": 1188,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "sync_wait": {
+            "count": 1188,
+            "mean": 22.318337078282827,
+            "p50": 8.417852,
+            "p95": 64.409904,
+            "p99": 73.090245,
+            "min": 3.760055,
+            "max": 82.000371
+          },
+          "first_frame_setup": {
+            "count": 1188,
+            "mean": 0.00022909175084175084,
+            "p50": 0.000224,
+            "p95": 0.00048,
+            "p99": 0.000608,
+            "min": 3.2e-05,
+            "max": 0.000896
+          },
+          "process_imu": {
+            "count": 1188,
+            "mean": 2.177736446969697,
+            "p50": 2.109968,
+            "p95": 2.770584,
+            "p99": 3.28198,
+            "min": 1.383528,
+            "max": 5.922507
+          },
+          "lio_preamble_io": {
+            "count": 1188,
+            "mean": 0.07137774158249158,
+            "p50": 0.064064,
+            "p95": 0.116128,
+            "p99": 0.168449,
+            "min": 0.045344,
+            "max": 0.74967
+          },
+          "handle_lio": {
+            "count": 1188,
+            "mean": 75.36673530387205,
+            "p50": 61.084313,
+            "p95": 123.165675,
+            "p99": 130.43699,
+            "min": 22.78157,
+            "max": 165.134891
+          },
+          "estimation_mapping": {
+            "count": 1188,
+            "mean": 75.37247018602694,
+            "p50": 61.085881,
+            "p95": 123.166763,
+            "p99": 130.438814,
+            "min": 22.782946,
+            "max": 165.136363
+          },
+          "full_cycle": {
+            "count": 1188,
+            "mean": 78.83498556818182,
+            "p50": 66.165242,
+            "p95": 125.660232,
+            "p99": 132.78571,
+            "min": 27.217211,
+            "max": 167.464347
+          },
+          "frame_period": {
+            "count": 1188,
+            "mean": 99.96953631986533,
+            "p50": 103.644932,
+            "p95": 133.441059,
+            "p99": 144.515868,
+            "min": 33.490124,
+            "max": 174.059432
+          },
+          "downsample": {
+            "count": 1188,
+            "mean": 1.207510835016835,
+            "p50": 1.179623,
+            "p95": 1.603562,
+            "p99": 2.17646,
+            "min": 0.578212,
+            "max": 4.586629
+          },
+          "downcloud_transform": {
+            "count": 1188,
+            "mean": 0.21312969444444446,
+            "p50": 0.181505,
+            "p95": 0.328706,
+            "p99": 0.492227,
+            "min": 0.074817,
+            "max": 1.433772
+          },
+          "initial_map_build": {
+            "count": 0
+          },
+          "state_estimation": {
+            "count": 1188,
+            "mean": 62.79545664141414,
+            "p50": 52.31071,
+            "p95": 102.417091,
+            "p99": 106.511775,
+            "min": 18.937164,
+            "max": 135.174394
+          },
+          "tf_send": {
+            "count": 1188,
+            "mean": 0.18350155723905726,
+            "p50": 0.173025,
+            "p95": 0.24429,
+            "p99": 0.341379,
+            "min": 0.101953,
+            "max": 2.115725
+          },
+          "odom_send": {
+            "count": 1188,
+            "mean": 0.05566678535353536,
+            "p50": 0.049825,
+            "p95": 0.074337,
+            "p99": 0.171265,
+            "min": 0.040128,
+            "max": 1.196136
+          },
+          "odom_publish": {
+            "count": 1188,
+            "mean": 0.2627643771043771,
+            "p50": 0.238754,
+            "p95": 0.342466,
+            "p99": 0.644646,
+            "min": 0.151937,
+            "max": 3.331925
+          },
+          "state_copy_pose_io_and_odom": {
+            "count": 1188,
+            "mean": 0.7992429436026937,
+            "p50": 0.70842,
+            "p95": 1.163881,
+            "p99": 2.91909,
+            "min": 0.336578,
+            "max": 4.45856
+          },
+          "voxel_map_update": {
+            "count": 1188,
+            "mean": 6.15941685016835,
+            "p50": 3.153619,
+            "p95": 13.724665,
+            "p99": 16.109945,
+            "min": 0.596068,
+            "max": 51.197567
+          },
+          "map_covariance_and_update": {
+            "count": 1188,
+            "mean": 7.99009035942761,
+            "p50": 4.675901,
+            "p95": 16.513694,
+            "p99": 18.837807,
+            "min": 1.169222,
+            "max": 54.01909
+          },
+          "map_slide": {
+            "count": 1188,
+            "mean": 0.0005466439393939395,
+            "p50": 0.00048,
+            "p95": 0.00096,
+            "p99": 0.001088,
+            "min": 6.4e-05,
+            "max": 0.001696
+          },
+          "fullcloud_transform": {
+            "count": 1188,
+            "mean": 0.5043772112794612,
+            "p50": 0.489187,
+            "p95": 0.682757,
+            "p99": 0.961511,
+            "min": 0.285442,
+            "max": 1.865677
+          },
+          "cloud_publish_and_save": {
+            "count": 1188,
+            "mean": 0.9939638973063972,
+            "p50": 0.96567,
+            "p95": 1.26753,
+            "p99": 1.707179,
+            "min": 0.603972,
+            "max": 2.812596
+          },
+          "effect_publish": {
+            "count": 1188,
+            "mean": 0.409205484006734,
+            "p50": 0.355171,
+            "p95": 0.636421,
+            "p99": 1.064327,
+            "min": 0.155617,
+            "max": 2.008049
+          },
+          "plane_publish": {
+            "count": 1188,
+            "mean": 0.000494736531986532,
+            "p50": 0.000448,
+            "p95": 0.000704,
+            "p99": 0.000896,
+            "min": 0.000128,
+            "max": 0.015232
+          },
+          "path_publish": {
+            "count": 1188,
+            "mean": 0.08924328956228957,
+            "p50": 0.002496,
+            "p95": 0.841254,
+            "p99": 1.537546,
+            "min": 0.001344,
+            "max": 2.491663
+          },
+          "mavros_publish": {
+            "count": 1188,
+            "mean": 0.017572898148148147,
+            "p50": 0.016224,
+            "p95": 0.023328,
+            "p99": 0.040512,
+            "min": 0.013408,
+            "max": 0.44893
+          },
+          "post_map_publications": {
+            "count": 1188,
+            "mean": 1.5444667171717172,
+            "p50": 1.426313,
+            "p95": 2.57832,
+            "p99": 3.837825,
+            "min": 0.870021,
+            "max": 5.206252
+          },
+          "lio_tail_console_and_file_io": {
+            "count": 1188,
+            "mean": 0.1831247483164983,
+            "p50": 0.174785,
+            "p95": 0.218113,
+            "p99": 0.425986,
+            "min": 0.099584,
+            "max": 1.231082
+          },
+          "diagnostic_flush": {
+            "count": 82,
+            "mean": 2.863757012195122,
+            "p50": 2.835956,
+            "p95": 3.305108,
+            "p99": 4.499782,
+            "min": 2.317651,
+            "max": 4.499782
+          }
+        },
+        "publish_age_ms": {
+          "count": 1188,
+          "mean": 3685.724176544613,
+          "p50": 2175.252676,
+          "p95": 10652.119875,
+          "p99": 10985.624075,
+          "min": 43.502569,
+          "max": 11012.948274999999
+        },
+        "wall_mapped_publish_age_ms": {
+          "count": 1188,
+          "mean": 3685.7086325735354,
+          "p50": 2175.377130508423,
+          "p95": 10654.185056686401,
+          "p99": 10983.630657196045,
+          "min": 43.573856353759766,
+          "max": 11011.323690414429
+        },
+        "imu_q": {
+          "count": 1188,
+          "mean": 2.824074074074074,
+          "p50": 1.0,
+          "p95": 8.0,
+          "p99": 10.0,
+          "min": 1.0,
+          "max": 16.0
+        },
+        "lidar_q": {
+          "count": 1188,
+          "mean": 35.57070707070707,
+          "p50": 20.0,
+          "p95": 105.0,
+          "p99": 108.0,
+          "min": 0.0,
+          "max": 109.0
+        },
+        "down_points": {
+          "count": 1188,
+          "mean": 8752.058080808081,
+          "p50": 7304.0,
+          "p95": 13516.0,
+          "p99": 13909.0,
+          "min": 3135.0,
+          "max": 14200.0
+        },
+        "effective_points": {
+          "count": 1188,
+          "mean": 7702.632996632997,
+          "p50": 6317.0,
+          "p95": 12248.0,
+          "p99": 12540.0,
+          "min": 2441.0,
+          "max": 12782.0
+        },
+        "iterations": {
+          "count": 1188,
+          "mean": 4.97979797979798,
+          "p50": 5.0,
+          "p95": 5.0,
+          "p99": 5.0,
+          "min": 4.0,
+          "max": 5.0
+        },
+        "map_voxels": {
+          "count": 1188,
+          "mean": 63751.055555555555,
+          "p50": 85462.0,
+          "p95": 101631.0,
+          "p99": 101644.0,
+          "min": 1721.0,
+          "max": 101644.0
+        },
+        "path_poses": {
+          "count": 1188,
+          "mean": 642.5,
+          "p50": 642.0,
+          "p95": 1177.0,
+          "p99": 1225.0,
+          "min": 49.0,
+          "max": 1236.0
+        },
+        "cycles_over_100ms": 425,
+        "wall_output_interval_ms": {
+          "count": 1187,
+          "mean": 99.97708297219883,
+          "p50": 103.72656200001984,
+          "p95": 133.12380100001064,
+          "p99": 142.35927699996864,
+          "min": 33.1139949998942,
+          "max": 166.2354840000262
+        }
+      },
+      "high_load": {
+        "scans": 600,
+        "stages_ms": {
+          "sync_before": {
+            "count": 600,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "sync_after": {
+            "count": 600,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "spin": {
+            "count": 600,
+            "mean": 0.16676778166666667,
+            "p50": 0.151201,
+            "p95": 0.207681,
+            "p99": 0.340194,
+            "min": 0.125281,
+            "max": 2.958036
+          },
+          "sync": {
+            "count": 600,
+            "mean": 0.00978914,
+            "p50": 0.009216,
+            "p95": 0.012576,
+            "p99": 0.016736,
+            "min": 0.006816,
+            "max": 0.097984
+          },
+          "wait_window": {
+            "count": 600,
+            "mean": 7.294907346666667,
+            "p50": 6.780267,
+            "p95": 10.10519,
+            "p99": 12.869627,
+            "min": 3.896152,
+            "max": 37.083375
+          },
+          "wait_spin": {
+            "count": 600,
+            "mean": 6.263435566666667,
+            "p50": 5.803494,
+            "p95": 8.902083,
+            "p99": 11.056559,
+            "min": 2.954994,
+            "max": 30.560863
+          },
+          "wait_sync": {
+            "count": 600,
+            "mean": 0.016846616666666668,
+            "p50": 0.016352,
+            "p95": 0.021312,
+            "p99": 0.025216,
+            "min": 0.010432,
+            "max": 0.064096
+          },
+          "wait_sleep": {
+            "count": 600,
+            "mean": 0.8162528516666666,
+            "p50": 0.79031,
+            "p95": 1.146187,
+            "p99": 1.501035,
+            "min": 0.003104,
+            "max": 6.285518
+          },
+          "wait_reason": {
+            "count": 600,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "sync_wait": {
+            "count": 600,
+            "mean": 7.280092905,
+            "p50": 6.776684,
+            "p95": 10.078245,
+            "p99": 12.868379,
+            "min": 3.895224,
+            "max": 37.082063
+          },
+          "first_frame_setup": {
+            "count": 600,
+            "mean": 0.00021786833333333334,
+            "p50": 0.000224,
+            "p95": 0.000416,
+            "p99": 0.000576,
+            "min": 3.2e-05,
+            "max": 0.000704
+          },
+          "process_imu": {
+            "count": 600,
+            "mean": 2.1251563,
+            "p50": 2.091437,
+            "p95": 2.51736,
+            "p99": 3.196179,
+            "min": 1.552489,
+            "max": 5.922507
+          },
+          "lio_preamble_io": {
+            "count": 600,
+            "mean": 0.06792397166666667,
+            "p50": 0.061536,
+            "p95": 0.107648,
+            "p99": 0.149345,
+            "min": 0.045344,
+            "max": 0.274178
+          },
+          "handle_lio": {
+            "count": 600,
+            "mean": 97.85051913000001,
+            "p50": 111.38365,
+            "p95": 126.361495,
+            "p99": 137.111344,
+            "min": 25.579965,
+            "max": 165.134891
+          },
+          "estimation_mapping": {
+            "count": 600,
+            "mean": 97.85655282166667,
+            "p50": 111.38525,
+            "p95": 126.362871,
+            "p99": 137.112784,
+            "min": 25.581373,
+            "max": 165.136363
+          },
+          "full_cycle": {
+            "count": 600,
+            "mean": 100.22416473166666,
+            "p50": 113.738465,
+            "p95": 128.800002,
+            "p99": 139.379457,
+            "min": 27.542921,
+            "max": 167.464347
+          },
+          "frame_period": {
+            "count": 600,
+            "mean": 107.36418655333334,
+            "p50": 121.261115,
+            "p95": 136.933952,
+            "p99": 149.418561,
+            "min": 33.490124,
+            "max": 174.059432
+          },
+          "downsample": {
+            "count": 600,
+            "mean": 1.2604422849999999,
+            "p50": 1.203432,
+            "p95": 1.725004,
+            "p99": 2.206574,
+            "min": 0.723557,
+            "max": 2.959411
+          },
+          "downcloud_transform": {
+            "count": 600,
+            "mean": 0.2667729066666667,
+            "p50": 0.286785,
+            "p95": 0.380994,
+            "p99": 0.527747,
+            "min": 0.08112,
+            "max": 0.991271
+          },
+          "initial_map_build": {
+            "count": 0
+          },
+          "state_estimation": {
+            "count": 600,
+            "mean": 81.1327075,
+            "p50": 92.420965,
+            "p95": 104.433723,
+            "p99": 110.938845,
+            "min": 20.199995,
+            "max": 135.174394
+          },
+          "tf_send": {
+            "count": 600,
+            "mean": 0.18337367666666668,
+            "p50": 0.169537,
+            "p95": 0.24429,
+            "p99": 0.369379,
+            "min": 0.101953,
+            "max": 2.115725
+          },
+          "odom_send": {
+            "count": 600,
+            "mean": 0.056922885,
+            "p50": 0.049344,
+            "p95": 0.076256,
+            "p99": 0.207617,
+            "min": 0.040608,
+            "max": 1.196136
+          },
+          "odom_publish": {
+            "count": 600,
+            "mean": 0.25978292166666667,
+            "p50": 0.234146,
+            "p95": 0.342466,
+            "p99": 0.651844,
+            "min": 0.151937,
+            "max": 3.331925
+          },
+          "state_copy_pose_io_and_odom": {
+            "count": 600,
+            "mean": 0.9398347783333333,
+            "p50": 0.953831,
+            "p95": 1.260297,
+            "p99": 2.024461,
+            "min": 0.35917,
+            "max": 4.45856
+          },
+          "voxel_map_update": {
+            "count": 600,
+            "mean": 9.414464259999999,
+            "p50": 10.787529,
+            "p95": 14.647855,
+            "p99": 16.399068,
+            "min": 0.943462,
+            "max": 51.197567
+          },
+          "map_covariance_and_update": {
+            "count": 600,
+            "mean": 11.7519932,
+            "p50": 13.442207,
+            "p95": 17.386648,
+            "p99": 19.233074,
+            "min": 1.521418,
+            "max": 54.01909
+          },
+          "map_slide": {
+            "count": 600,
+            "mean": 0.000613285,
+            "p50": 0.000608,
+            "p95": 0.000992,
+            "p99": 0.001312,
+            "min": 6.4e-05,
+            "max": 0.001696
+          },
+          "fullcloud_transform": {
+            "count": 600,
+            "mean": 0.5115760266666666,
+            "p50": 0.490371,
+            "p95": 0.683557,
+            "p99": 0.933127,
+            "min": 0.364418,
+            "max": 1.865677
+          },
+          "cloud_publish_and_save": {
+            "count": 600,
+            "mean": 1.0227282183333333,
+            "p50": 0.991623,
+            "p95": 1.283144,
+            "p99": 1.670442,
+            "min": 0.739749,
+            "max": 2.812596
+          },
+          "effect_publish": {
+            "count": 600,
+            "mean": 0.5014633016666666,
+            "p50": 0.529956,
+            "p95": 0.699653,
+            "p99": 1.102759,
+            "min": 0.155617,
+            "max": 1.784269
+          },
+          "plane_publish": {
+            "count": 600,
+            "mean": 0.0005275750000000001,
+            "p50": 0.000448,
+            "p95": 0.000768,
+            "p99": 0.000928,
+            "min": 0.000128,
+            "max": 0.015232
+          },
+          "path_publish": {
+            "count": 600,
+            "mean": 0.10072296833333333,
+            "p50": 0.002624,
+            "p95": 0.943046,
+            "p99": 1.25812,
+            "min": 0.001408,
+            "max": 1.761738
+          },
+          "mavros_publish": {
+            "count": 600,
+            "mean": 0.017492341666666668,
+            "p50": 0.016321,
+            "p95": 0.024576,
+            "p99": 0.038912,
+            "min": 0.013632,
+            "max": 0.078112
+          },
+          "post_map_publications": {
+            "count": 600,
+            "mean": 1.6711690433333333,
+            "p50": 1.558155,
+            "p95": 2.58162,
+            "p99": 3.467673,
+            "min": 0.915942,
+            "max": 4.393597
+          },
+          "lio_tail_console_and_file_io": {
+            "count": 600,
+            "mean": 0.18374683,
+            "p50": 0.177345,
+            "p95": 0.218145,
+            "p99": 0.409251,
+            "min": 0.103008,
+            "max": 0.657476
+          },
+          "diagnostic_flush": {
+            "count": 42,
+            "mean": 2.9031623333333334,
+            "p50": 2.835956,
+            "p95": 3.194295,
+            "p99": 4.015512,
+            "min": 2.72389,
+            "max": 4.015512
+          }
+        },
+        "publish_age_ms": {
+          "count": 600,
+          "mean": 6776.750675841667,
+          "p50": 7143.702507,
+          "p95": 10914.301395,
+          "p99": 11004.585266,
+          "min": 371.445179,
+          "max": 11012.948274999999
+        },
+        "wall_mapped_publish_age_ms": {
+          "count": 600,
+          "mean": 6776.682886282603,
+          "p50": 7145.53165435791,
+          "p95": 10915.91191291809,
+          "p99": 11003.192663192749,
+          "min": 371.1390495300293,
+          "max": 11011.323690414429
+        },
+        "imu_q": {
+          "count": 600,
+          "mean": 1.0,
+          "p50": 1.0,
+          "p95": 1.0,
+          "p99": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "lidar_q": {
+          "count": 600,
+          "mean": 66.09833333333333,
+          "p50": 70.0,
+          "p95": 108.0,
+          "p99": 108.0,
+          "min": 2.0,
+          "max": 109.0
+        },
+        "down_points": {
+          "count": 600,
+          "mean": 11132.946666666667,
+          "p50": 12721.0,
+          "p95": 13723.0,
+          "p99": 13963.0,
+          "min": 3352.0,
+          "max": 14200.0
+        },
+        "effective_points": {
+          "count": 600,
+          "mean": 9955.305,
+          "p50": 11470.0,
+          "p95": 12440.0,
+          "p99": 12591.0,
+          "min": 2441.0,
+          "max": 12782.0
+        },
+        "iterations": {
+          "count": 600,
+          "mean": 4.998333333333333,
+          "p50": 5.0,
+          "p95": 5.0,
+          "p99": 5.0,
+          "min": 4.0,
+          "max": 5.0
+        },
+        "map_voxels": {
+          "count": 600,
+          "mean": 81228.57,
+          "p50": 89707.0,
+          "p95": 100862.0,
+          "p99": 101000.0,
+          "min": 32133.0,
+          "max": 101028.0
+        },
+        "path_poses": {
+          "count": 600,
+          "mean": 698.5,
+          "p50": 698.0,
+          "p95": 968.0,
+          "p99": 992.0,
+          "min": 399.0,
+          "max": 998.0
+        },
+        "cycles_over_100ms": 414,
+        "wall_output_interval_ms": {
+          "count": 599,
+          "mean": 107.35309900166935,
+          "p50": 121.3479410000673,
+          "p95": 136.45524600019598,
+          "p99": 147.51531799993245,
+          "min": 33.1139949998942,
+          "max": 166.2354840000262
+        }
+      },
+      "counts": {
+        "tf_broadcaster_create": 1,
+        "imu_prop_callback": 17368,
+        "wait_window": 1275,
+        "wait_spin": 1275,
+        "wait_sync": 1275,
+        "wait_sleep": 1275,
+        "wait_reason": 1279,
+        "diagnostic_flush": 174,
+        "imu_callback": 24771,
+        "lidar_message_copy": 1238,
+        "lidar_preprocess": 1238,
+        "lidar_callback": 1238,
+        "sync_before": 1238,
+        "sync_after": 1238,
+        "spin": 1238,
+        "sync": 1238,
+        "sync_wait": 1238,
+        "first_frame_setup": 1238,
+        "process_imu": 1238,
+        "lio_preamble_io": 1238,
+        "handle_lio": 1238,
+        "estimation_mapping": 1238,
+        "full_cycle": 1238,
+        "frame_period": 1237,
+        "downsample": 1236,
+        "downcloud_transform": 1236,
+        "initial_map_build": 1,
+        "state_estimation": 1236,
+        "tf_send": 1236,
+        "odom_send": 1236,
+        "odom_publish": 1236,
+        "state_copy_pose_io_and_odom": 1236,
+        "voxel_map_update": 1236,
+        "map_covariance_and_update": 1236,
+        "map_slide": 1236,
+        "fullcloud_transform": 1236,
+        "cloud_publish_and_save": 1236,
+        "effect_publish": 1236,
+        "plane_publish": 1236,
+        "path_publish": 1236,
+        "mavros_publish": 1236,
+        "post_map_publications": 1236,
+        "lio_tail_console_and_file_io": 1236
+      },
+      "imu_statuses": {
+        "-2": 3,
+        "1": 24768
+      },
+      "tf_creations": 1,
+      "tf_odom_position_difference_m": {
+        "count": 1236,
+        "mean": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "tf_odom_sign_equivalent_quat_difference": {
+        "count": 1236,
+        "mean": 1.037632355869602e-16,
+        "p50": 1.1102230246251565e-16,
+        "p95": 3.3306690738754696e-16,
+        "p99": 4.440892098500626e-16,
+        "min": 0.0,
+        "max": 5.551115123125783e-16
+      },
+      "path_messages": 118,
+      "cpu_temperature_c": {
+        "count": 162,
+        "mean": 61.09373456790123,
+        "p50": 61.312,
+        "p95": 62.062,
+        "p99": 62.718,
+        "min": 59.0,
+        "max": 63.125
+      },
+      "cpu_frequency_mhz_samples": {
+        "count": 1296,
+        "mean": 1470.1427469135801,
+        "p50": 1651.0,
+        "p95": 1984.0,
+        "p99": 1984.0,
+        "min": 729.0,
+        "max": 1984.0
+      },
+      "clock_mapping_offset_deviation_ms": {
+        "count": 24672,
+        "mean": -0.023461878299713135,
+        "p50": 0.0,
+        "p95": 2.2144317626953125,
+        "p99": 2.4023056030273438,
+        "min": -5.606174468994141,
+        "max": 2.5475025177001953
+      },
+      "returncodes": {
+        "observer": 0,
+        "node": 0,
+        "player": 0
+      },
+      "effective_surf_filter": "Double value is: 0.1\n1795005927.208064 [176]       ros2: selected interface \"lo\" is not multicast-capable: disabling multicast\n"
+    }
+  },
+  "pooled": {
+    "A": {
+      "all_common": {
+        "scans": 2376,
+        "stages_ms": {
+          "sync_before": {
+            "count": 2376,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "sync_after": {
+            "count": 2376,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "spin": {
+            "count": 2376,
+            "mean": 1.2485640155723905,
+            "p50": 0.177504,
+            "p95": 3.393524,
+            "p99": 4.628607,
+            "min": 0.123009,
+            "max": 11.69971
+          },
+          "sync": {
+            "count": 2376,
+            "mean": 0.016796607744107746,
+            "p50": 0.011904,
+            "p95": 0.030848,
+            "p99": 0.052448,
+            "min": 0.006688,
+            "max": 0.273442
+          },
+          "wait_window": {
+            "count": 2376,
+            "mean": 23.728992851430974,
+            "p50": 8.731739,
+            "p95": 65.123017,
+            "p99": 75.01198,
+            "min": 3.760823,
+            "max": 84.969209
+          },
+          "wait_spin": {
+            "count": 2376,
+            "mean": 16.661966267676767,
+            "p50": 7.555248,
+            "p95": 45.134514,
+            "p99": 52.718245,
+            "min": 2.798517,
+            "max": 64.552183
+          },
+          "wait_sync": {
+            "count": 2376,
+            "mean": 0.040420386784511785,
+            "p50": 0.01888,
+            "p95": 0.105408,
+            "p99": 0.12832,
+            "min": 0.003712,
+            "max": 0.931941
+          },
+          "wait_sleep": {
+            "count": 2376,
+            "mean": 5.704591623316499,
+            "p50": 0.970023,
+            "p95": 17.08304,
+            "p99": 20.02221,
+            "min": 0.003104,
+            "max": 28.113332
+          },
+          "wait_reason": {
+            "count": 2376,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "sync_wait": {
+            "count": 2376,
+            "mean": 23.69976788215488,
+            "p50": 8.704311,
+            "p95": 65.093781,
+            "p99": 75.010508,
+            "min": 3.760055,
+            "max": 84.968281
+          },
+          "first_frame_setup": {
+            "count": 2376,
+            "mean": 0.0002302908249158249,
+            "p50": 0.000256,
+            "p95": 0.00048,
+            "p99": 0.00064,
+            "min": 3.2e-05,
+            "max": 0.001856
+          },
+          "process_imu": {
+            "count": 2376,
+            "mean": 2.2070739423400676,
+            "p50": 2.120753,
+            "p95": 2.835287,
+            "p99": 4.230504,
+            "min": 1.37433,
+            "max": 8.189772
+          },
+          "lio_preamble_io": {
+            "count": 2376,
+            "mean": 0.07896448737373737,
+            "p50": 0.067872,
+            "p95": 0.124576,
+            "p99": 0.272417,
+            "min": 0.045344,
+            "max": 4.010966
+          },
+          "handle_lio": {
+            "count": 2376,
+            "mean": 73.9544767617845,
+            "p50": 59.385985,
+            "p95": 121.223188,
+            "p99": 130.43699,
+            "min": 18.151426,
+            "max": 170.579638
+          },
+          "estimation_mapping": {
+            "count": 2376,
+            "mean": 73.95923677525253,
+            "p50": 59.387585,
+            "p95": 121.224596,
+            "p99": 130.438814,
+            "min": 18.152898,
+            "max": 170.580982
+          },
+          "full_cycle": {
+            "count": 2376,
+            "mean": 77.5169504263468,
+            "p50": 64.465279,
+            "p95": 123.64157,
+            "p99": 132.78571,
+            "min": 22.238927,
+            "max": 172.836538
+          },
+          "frame_period": {
+            "count": 2376,
+            "mean": 99.96691409806398,
+            "p50": 103.706013,
+            "p95": 131.890424,
+            "p99": 142.309392,
+            "min": 28.637144,
+            "max": 180.615271
+          },
+          "downsample": {
+            "count": 2376,
+            "mean": 1.237906497895623,
+            "p50": 1.198854,
+            "p95": 1.679916,
+            "p99": 2.311043,
+            "min": 0.545175,
+            "max": 4.922604
+          },
+          "downcloud_transform": {
+            "count": 2376,
+            "mean": 0.21305278493265992,
+            "p50": 0.181888,
+            "p95": 0.331746,
+            "p99": 0.497156,
+            "min": 0.07216,
+            "max": 1.687362
+          },
+          "initial_map_build": {
+            "count": 0
+          },
+          "state_estimation": {
+            "count": 2376,
+            "mean": 61.072868587121214,
+            "p50": 50.579603,
+            "p95": 100.137077,
+            "p99": 106.511775,
+            "min": 13.586816,
+            "max": 147.326449
+          },
+          "tf_send": {
+            "count": 2376,
+            "mean": 0.19123748106060606,
+            "p50": 0.176192,
+            "p95": 0.255233,
+            "p99": 0.404033,
+            "min": 0.096352,
+            "max": 10.037826
+          },
+          "odom_send": {
+            "count": 2376,
+            "mean": 0.05928784048821549,
+            "p50": 0.050464,
+            "p95": 0.07856,
+            "p99": 0.207617,
+            "min": 0.03904,
+            "max": 1.996673
+          },
+          "odom_publish": {
+            "count": 2376,
+            "mean": 0.2786862605218855,
+            "p50": 0.243393,
+            "p95": 0.357889,
+            "p99": 0.84554,
+            "min": 0.151937,
+            "max": 12.057955
+          },
+          "state_copy_pose_io_and_odom": {
+            "count": 2376,
+            "mean": 0.8216413303872053,
+            "p50": 0.730304,
+            "p95": 1.232296,
+            "p99": 2.673192,
+            "min": 0.336578,
+            "max": 12.506147
+          },
+          "voxel_map_update": {
+            "count": 2376,
+            "mean": 6.33396439057239,
+            "p50": 3.200826,
+            "p95": 14.191911,
+            "p99": 16.389313,
+            "min": 0.596068,
+            "max": 51.197567
+          },
+          "map_covariance_and_update": {
+            "count": 2376,
+            "mean": 8.199874681818182,
+            "p50": 4.711925,
+            "p95": 17.058911,
+            "p99": 19.321134,
+            "min": 1.169222,
+            "max": 54.01909
+          },
+          "map_slide": {
+            "count": 2376,
+            "mean": 0.000606831228956229,
+            "p50": 0.000576,
+            "p95": 0.001024,
+            "p99": 0.001216,
+            "min": 6.4e-05,
+            "max": 0.001696
+          },
+          "fullcloud_transform": {
+            "count": 2376,
+            "mean": 0.5055661418350169,
+            "p50": 0.489155,
+            "p95": 0.68186,
+            "p99": 0.990945,
+            "min": 0.26958,
+            "max": 1.865677
+          },
+          "cloud_publish_and_save": {
+            "count": 2376,
+            "mean": 1.013430297138047,
+            "p50": 0.981192,
+            "p95": 1.306186,
+            "p99": 2.042952,
+            "min": 0.519606,
+            "max": 3.263946
+          },
+          "effect_publish": {
+            "count": 2376,
+            "mean": 0.4191158101851852,
+            "p50": 0.367043,
+            "p95": 0.658529,
+            "p99": 1.109,
+            "min": 0.155617,
+            "max": 2.648199
+          },
+          "plane_publish": {
+            "count": 2376,
+            "mean": 0.0005080702861952861,
+            "p50": 0.000448,
+            "p95": 0.000768,
+            "p99": 0.000992,
+            "min": 0.000128,
+            "max": 0.015232
+          },
+          "path_publish": {
+            "count": 2376,
+            "mean": 0.088981125,
+            "p50": 0.002432,
+            "p95": 0.858278,
+            "p99": 1.537546,
+            "min": 0.00128,
+            "max": 2.701953
+          },
+          "mavros_publish": {
+            "count": 2376,
+            "mean": 0.017479099747474747,
+            "p50": 0.01616,
+            "p95": 0.024192,
+            "p99": 0.040576,
+            "min": 0.011905,
+            "max": 0.44893
+          },
+          "post_map_publications": {
+            "count": 2376,
+            "mean": 1.5768198893097642,
+            "p50": 1.454346,
+            "p95": 2.640642,
+            "p99": 4.038552,
+            "min": 0.742495,
+            "max": 12.537192
+          },
+          "lio_tail_console_and_file_io": {
+            "count": 2376,
+            "mean": 0.1885476877104377,
+            "p50": 0.175937,
+            "p95": 0.227553,
+            "p99": 0.470945,
+            "min": 0.098624,
+            "max": 1.804257
+          },
+          "diagnostic_flush": {
+            "count": 165,
+            "mean": 2.9042032727272726,
+            "p50": 2.84802,
+            "p95": 3.443477,
+            "p99": 4.499782,
+            "min": 2.306402,
+            "max": 8.63575
+          }
+        },
+        "publish_age_ms": {
+          "count": 2376,
+          "mean": 3344.010722354798,
+          "p50": 1729.6526430000001,
+          "p95": 9988.828420999998,
+          "p99": 10956.84576,
+          "min": 38.96904000000001,
+          "max": 11012.948274999999
+        },
+        "wall_mapped_publish_age_ms": {
+          "count": 2376,
+          "mean": 3344.110605692623,
+          "p50": 1729.3028831481934,
+          "p95": 9990.434646606445,
+          "p99": 10956.29358291626,
+          "min": 37.45913505554199,
+          "max": 11011.323690414429
+        },
+        "imu_q": {
+          "count": 2376,
+          "mean": 2.90993265993266,
+          "p50": 1.0,
+          "p95": 8.0,
+          "p99": 10.0,
+          "min": 1.0,
+          "max": 16.0
+        },
+        "lidar_q": {
+          "count": 2376,
+          "mean": 32.179713804713806,
+          "p50": 16.0,
+          "p95": 98.0,
+          "p99": 108.0,
+          "min": 0.0,
+          "max": 109.0
+        },
+        "down_points": {
+          "count": 2376,
+          "mean": 8752.136363636364,
+          "p50": 7304.0,
+          "p95": 13518.0,
+          "p99": 13905.0,
+          "min": 3134.0,
+          "max": 14200.0
+        },
+        "effective_points": {
+          "count": 2376,
+          "mean": 7697.434343434344,
+          "p50": 6320.0,
+          "p95": 12251.0,
+          "p99": 12542.0,
+          "min": 2441.0,
+          "max": 12782.0
+        },
+        "iterations": {
+          "count": 2376,
+          "mean": 4.972643097643098,
+          "p50": 5.0,
+          "p95": 5.0,
+          "p99": 5.0,
+          "min": 4.0,
+          "max": 5.0
+        },
+        "map_voxels": {
+          "count": 2376,
+          "mean": 63672.95244107744,
+          "p50": 85378.0,
+          "p95": 101557.0,
+          "p99": 101643.0,
+          "min": 1717.0,
+          "max": 101644.0
+        },
+        "path_poses": {
+          "count": 2376,
+          "mean": 642.0,
+          "p50": 642.0,
+          "p95": 1177.0,
+          "p99": 1224.0,
+          "min": 48.0,
+          "max": 1236.0
+        },
+        "cycles_over_100ms": 846,
+        "wall_output_interval_ms": {
+          "count": 2375,
+          "mean": 277.8309040951579,
+          "p50": 103.7881870001911,
+          "p95": 131.62352299991653,
+          "p99": 141.917340999953,
+          "min": 28.933432000030734,
+          "max": 422509.60959999997
+        }
+      },
+      "high_load": {
+        "scans": 1200,
+        "stages_ms": {
+          "sync_before": {
+            "count": 1200,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "sync_after": {
+            "count": 1200,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "spin": {
+            "count": 1200,
+            "mean": 0.17627333833333333,
+            "p50": 0.152001,
+            "p95": 0.221793,
+            "p99": 0.440897,
+            "min": 0.123009,
+            "max": 4.455012
+          },
+          "sync": {
+            "count": 1200,
+            "mean": 0.010397355833333333,
+            "p50": 0.009728,
+            "p95": 0.013568,
+            "p99": 0.017216,
+            "min": 0.006816,
+            "max": 0.151489
+          },
+          "wait_window": {
+            "count": 1200,
+            "mean": 7.3556672533333325,
+            "p50": 6.838009,
+            "p95": 10.290656,
+            "p99": 13.037081,
+            "min": 3.896152,
+            "max": 37.676327
+          },
+          "wait_spin": {
+            "count": 1200,
+            "mean": 6.312691490833333,
+            "p50": 5.857607,
+            "p95": 9.122472,
+            "p99": 11.347272,
+            "min": 2.954994,
+            "max": 30.560863
+          },
+          "wait_sync": {
+            "count": 1200,
+            "mean": 0.017194370833333333,
+            "p50": 0.016416,
+            "p95": 0.02144,
+            "p99": 0.035008,
+            "min": 0.0104,
+            "max": 0.137248
+          },
+          "wait_sleep": {
+            "count": 1200,
+            "mean": 0.81468583,
+            "p50": 0.759461,
+            "p95": 1.235398,
+            "p99": 1.850789,
+            "min": 0.003104,
+            "max": 26.215558
+          },
+          "wait_reason": {
+            "count": 1200,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "sync_wait": {
+            "count": 1200,
+            "mean": 7.338356360833333,
+            "p50": 6.827188,
+            "p95": 10.21569,
+            "p99": 13.036185,
+            "min": 3.895224,
+            "max": 37.675463
+          },
+          "first_frame_setup": {
+            "count": 1200,
+            "mean": 0.00021336083333333333,
+            "p50": 0.000224,
+            "p95": 0.000416,
+            "p99": 0.000544,
+            "min": 3.2e-05,
+            "max": 0.000704
+          },
+          "process_imu": {
+            "count": 1200,
+            "mean": 2.1619417541666666,
+            "p50": 2.102029,
+            "p95": 2.620233,
+            "p99": 4.230504,
+            "min": 1.552489,
+            "max": 5.922507
+          },
+          "lio_preamble_io": {
+            "count": 1200,
+            "mean": 0.07628602166666668,
+            "p50": 0.0688,
+            "p95": 0.121281,
+            "p99": 0.245984,
+            "min": 0.045344,
+            "max": 0.770979
+          },
+          "handle_lio": {
+            "count": 1200,
+            "mean": 96.41407184416667,
+            "p50": 109.107812,
+            "p95": 125.126642,
+            "p99": 138.708397,
+            "min": 21.479378,
+            "max": 170.579638
+          },
+          "estimation_mapping": {
+            "count": 1200,
+            "mean": 96.417829065,
+            "p50": 109.109252,
+            "p95": 125.128082,
+            "p99": 138.709837,
+            "min": 21.48069,
+            "max": 170.580982
+          },
+          "full_cycle": {
+            "count": 1200,
+            "mean": 98.84167155416667,
+            "p50": 111.630814,
+            "p95": 127.375875,
+            "p99": 140.95682,
+            "min": 23.499283,
+            "max": 172.836538
+          },
+          "frame_period": {
+            "count": 1200,
+            "mean": 106.0177205575,
+            "p50": 119.498015,
+            "p95": 135.518208,
+            "p99": 153.009992,
+            "min": 28.637144,
+            "max": 180.615271
+          },
+          "downsample": {
+            "count": 1200,
+            "mean": 1.3165066858333334,
+            "p50": 1.242274,
+            "p95": 1.802797,
+            "p99": 2.68324,
+            "min": 0.723557,
+            "max": 4.922604
+          },
+          "downcloud_transform": {
+            "count": 1200,
+            "mean": 0.2656070366666667,
+            "p50": 0.283296,
+            "p95": 0.378912,
+            "p99": 0.583172,
+            "min": 0.08112,
+            "max": 1.687362
+          },
+          "initial_map_build": {
+            "count": 0
+          },
+          "state_estimation": {
+            "count": 1200,
+            "mean": 79.2203554325,
+            "p50": 89.212173,
+            "p95": 103.257897,
+            "p99": 111.156011,
+            "min": 16.279054,
+            "max": 147.326449
+          },
+          "tf_send": {
+            "count": 1200,
+            "mean": 0.18608677,
+            "p50": 0.175232,
+            "p95": 0.250273,
+            "p99": 0.340033,
+            "min": 0.096352,
+            "max": 2.115725
+          },
+          "odom_send": {
+            "count": 1200,
+            "mean": 0.05782299083333334,
+            "p50": 0.05024,
+            "p95": 0.079712,
+            "p99": 0.171265,
+            "min": 0.040384,
+            "max": 1.288321
+          },
+          "odom_publish": {
+            "count": 1200,
+            "mean": 0.27392506666666666,
+            "p50": 0.241858,
+            "p95": 0.351491,
+            "p99": 0.80397,
+            "min": 0.151937,
+            "max": 3.834314
+          },
+          "state_copy_pose_io_and_odom": {
+            "count": 1200,
+            "mean": 0.963959305,
+            "p50": 0.96506,
+            "p95": 1.353443,
+            "p99": 2.712037,
+            "min": 0.35917,
+            "max": 5.246093
+          },
+          "voxel_map_update": {
+            "count": 1200,
+            "mean": 9.7201274225,
+            "p50": 11.154475,
+            "p95": 15.101466,
+            "p99": 17.313547,
+            "min": 0.929153,
+            "max": 51.197567
+          },
+          "map_covariance_and_update": {
+            "count": 1200,
+            "mean": 12.094330908333333,
+            "p50": 13.816438,
+            "p95": 17.964646,
+            "p99": 20.39013,
+            "min": 1.521418,
+            "max": 54.01909
+          },
+          "map_slide": {
+            "count": 1200,
+            "mean": 0.00066531,
+            "p50": 0.000672,
+            "p95": 0.001056,
+            "p99": 0.00128,
+            "min": 6.4e-05,
+            "max": 0.001696
+          },
+          "fullcloud_transform": {
+            "count": 1200,
+            "mean": 0.5121327975,
+            "p50": 0.490371,
+            "p95": 0.676613,
+            "p99": 1.011108,
+            "min": 0.364418,
+            "max": 1.865677
+          },
+          "cloud_publish_and_save": {
+            "count": 1200,
+            "mean": 1.0456251608333333,
+            "p50": 1.006372,
+            "p95": 1.318533,
+            "p99": 2.133648,
+            "min": 0.739749,
+            "max": 3.263946
+          },
+          "effect_publish": {
+            "count": 1200,
+            "mean": 0.5158711983333333,
+            "p50": 0.536484,
+            "p95": 0.740741,
+            "p99": 1.212578,
+            "min": 0.155617,
+            "max": 2.648199
+          },
+          "plane_publish": {
+            "count": 1200,
+            "mean": 0.0005464291666666667,
+            "p50": 0.00048,
+            "p95": 0.000832,
+            "p99": 0.001056,
+            "min": 0.000128,
+            "max": 0.015232
+          },
+          "path_publish": {
+            "count": 1200,
+            "mean": 0.10021924166666667,
+            "p50": 0.002528,
+            "p95": 0.956199,
+            "p99": 1.25812,
+            "min": 0.001344,
+            "max": 1.761738
+          },
+          "mavros_publish": {
+            "count": 1200,
+            "mean": 0.01768355,
+            "p50": 0.016512,
+            "p95": 0.0248,
+            "p99": 0.041088,
+            "min": 0.012512,
+            "max": 0.078112
+          },
+          "post_map_publications": {
+            "count": 1200,
+            "mean": 1.7086228966666666,
+            "p50": 1.584235,
+            "p95": 2.696978,
+            "p99": 4.028473,
+            "min": 0.915942,
+            "max": 6.066921
+          },
+          "lio_tail_console_and_file_io": {
+            "count": 1200,
+            "mean": 0.18993860416666666,
+            "p50": 0.178913,
+            "p95": 0.233569,
+            "p99": 0.46157,
+            "min": 0.098624,
+            "max": 0.788898
+          },
+          "diagnostic_flush": {
+            "count": 84,
+            "mean": 2.9200459404761907,
+            "p50": 2.851875,
+            "p95": 3.352741,
+            "p99": 4.015512,
+            "min": 2.72389,
+            "max": 4.015512
+          }
+        },
+        "publish_age_ms": {
+          "count": 1200,
+          "mean": 6235.156550206667,
+          "p50": 6547.015667000001,
+          "p95": 10633.936644,
+          "p99": 10985.480309,
+          "min": 209.76567300000002,
+          "max": 11012.948274999999
+        },
+        "wall_mapped_publish_age_ms": {
+          "count": 1200,
+          "mean": 6235.2100565036135,
+          "p50": 6549.204587936401,
+          "p95": 10633.80241394043,
+          "p99": 10983.588695526123,
+          "min": 212.29887008666992,
+          "max": 11011.323690414429
+        },
+        "imu_q": {
+          "count": 1200,
+          "mean": 1.0,
+          "p50": 1.0,
+          "p95": 1.0,
+          "p99": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "lidar_q": {
+          "count": 1200,
+          "mean": 60.700833333333335,
+          "p50": 64.0,
+          "p95": 105.0,
+          "p99": 108.0,
+          "min": 0.0,
+          "max": 109.0
+        },
+        "down_points": {
+          "count": 1200,
+          "mean": 11132.945833333333,
+          "p50": 12720.0,
+          "p95": 13723.0,
+          "p99": 13971.0,
+          "min": 3346.0,
+          "max": 14200.0
+        },
+        "effective_points": {
+          "count": 1200,
+          "mean": 9950.709166666667,
+          "p50": 11470.0,
+          "p95": 12435.0,
+          "p99": 12579.0,
+          "min": 2441.0,
+          "max": 12782.0
+        },
+        "iterations": {
+          "count": 1200,
+          "mean": 4.998333333333333,
+          "p50": 5.0,
+          "p95": 5.0,
+          "p99": 5.0,
+          "min": 4.0,
+          "max": 5.0
+        },
+        "map_voxels": {
+          "count": 1200,
+          "mean": 81133.9075,
+          "p50": 89575.0,
+          "p95": 100751.0,
+          "p99": 100966.0,
+          "min": 32079.0,
+          "max": 101028.0
+        },
+        "path_poses": {
+          "count": 1200,
+          "mean": 698.0,
+          "p50": 698.0,
+          "p95": 968.0,
+          "p99": 992.0,
+          "min": 398.0,
+          "max": 998.0
+        },
+        "cycles_over_100ms": 826,
+        "wall_output_interval_ms": {
+          "count": 1199,
+          "mean": 505.12218929357795,
+          "p50": 119.20403199997054,
+          "p95": 135.50790800002233,
+          "p99": 156.35633399995186,
+          "min": 28.933432000030734,
+          "max": 478639.89625299996
+        }
+      }
+    },
+    "B": {
+      "all_common": {
+        "scans": 2376,
+        "stages_ms": {
+          "sync_before": {
+            "count": 2376,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "sync_after": {
+            "count": 2376,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "spin": {
+            "count": 2376,
+            "mean": 1.833375681818182,
+            "p50": 2.388398,
+            "p95": 4.029589,
+            "p99": 5.547898,
+            "min": 0.123364,
+            "max": 21.052042
+          },
+          "sync": {
+            "count": 2376,
+            "mean": 0.021231710016835017,
+            "p50": 0.020769,
+            "p95": 0.042305,
+            "p99": 0.062561,
+            "min": 0.006656,
+            "max": 0.560295
+          },
+          "wait_window": {
+            "count": 2376,
+            "mean": 36.63669295454545,
+            "p50": 45.848259,
+            "p95": 78.233074,
+            "p99": 85.49203,
+            "min": 3.613067,
+            "max": 96.073204
+          },
+          "wait_spin": {
+            "count": 2376,
+            "mean": 26.23173573232323,
+            "p50": 30.713758,
+            "p95": 57.709687,
+            "p99": 65.702762,
+            "min": 2.524934,
+            "max": 73.536606
+          },
+          "wait_sync": {
+            "count": 2376,
+            "mean": 0.06367989941077441,
+            "p50": 0.067779,
+            "p95": 0.140289,
+            "p99": 0.163233,
+            "min": 0.0032,
+            "max": 1.816128
+          },
+          "wait_sleep": {
+            "count": 2376,
+            "mean": 8.409695778619529,
+            "p50": 10.494327,
+            "p95": 19.056982,
+            "p99": 21.67042,
+            "min": 0.173763,
+            "max": 26.41366
+          },
+          "wait_reason": {
+            "count": 2376,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "sync_wait": {
+            "count": 2376,
+            "mean": 36.606042048400674,
+            "p50": 45.847363,
+            "p95": 78.231634,
+            "p99": 85.490718,
+            "min": 3.612427,
+            "max": 96.07218
+          },
+          "first_frame_setup": {
+            "count": 2376,
+            "mean": 0.0003207453703703704,
+            "p50": 0.000288,
+            "p95": 0.000672,
+            "p99": 0.000864,
+            "min": 3.2e-05,
+            "max": 0.017632
+          },
+          "process_imu": {
+            "count": 2376,
+            "mean": 2.3092730471380474,
+            "p50": 2.174743,
+            "p95": 2.986433,
+            "p99": 4.21337,
+            "min": 1.378287,
+            "max": 8.714443
+          },
+          "lio_preamble_io": {
+            "count": 2376,
+            "mean": 0.07784423021885521,
+            "p50": 0.068035,
+            "p95": 0.125091,
+            "p99": 0.212706,
+            "min": 0.045344,
+            "max": 1.541102
+          },
+          "handle_lio": {
+            "count": 2376,
+            "mean": 60.96044165109427,
+            "p50": 43.431961,
+            "p95": 107.141396,
+            "p99": 117.453004,
+            "min": 11.137133,
+            "max": 157.048672
+          },
+          "estimation_mapping": {
+            "count": 2376,
+            "mean": 60.96414324537037,
+            "p50": 43.433433,
+            "p95": 107.142932,
+            "p99": 117.454476,
+            "min": 11.138349,
+            "max": 157.049664
+          },
+          "full_cycle": {
+            "count": 2376,
+            "mean": 65.20922528914141,
+            "p50": 49.195874,
+            "p95": 109.712403,
+            "p99": 119.827788,
+            "min": 16.345756,
+            "max": 159.241824
+          },
+          "frame_period": {
+            "count": 2376,
+            "mean": 99.97821014099326,
+            "p50": 102.641748,
+            "p95": 119.184429,
+            "p99": 129.360508,
+            "min": 26.877476,
+            "max": 166.96907
+          },
+          "downsample": {
+            "count": 2376,
+            "mean": 1.1525492314814816,
+            "p50": 1.143759,
+            "p95": 1.592468,
+            "p99": 2.148431,
+            "min": 0.519691,
+            "max": 3.952691
+          },
+          "downcloud_transform": {
+            "count": 2376,
+            "mean": 0.17317540656565655,
+            "p50": 0.134565,
+            "p95": 0.288553,
+            "p99": 0.448334,
+            "min": 0.043617,
+            "max": 0.945164
+          },
+          "initial_map_build": {
+            "count": 0
+          },
+          "state_estimation": {
+            "count": 2376,
+            "mean": 49.05447117550505,
+            "p50": 35.558722,
+            "p95": 86.967838,
+            "p99": 94.282207,
+            "min": 7.697476,
+            "max": 124.447663
+          },
+          "tf_send": {
+            "count": 2376,
+            "mean": 0.18195507239057238,
+            "p50": 0.170598,
+            "p95": 0.243428,
+            "p99": 0.382631,
+            "min": 0.094882,
+            "max": 2.677599
+          },
+          "odom_send": {
+            "count": 2376,
+            "mean": 0.05825163762626263,
+            "p50": 0.052224,
+            "p95": 0.077539,
+            "p99": 0.15853,
+            "min": 0.039649,
+            "max": 1.648025
+          },
+          "odom_publish": {
+            "count": 2376,
+            "mean": 0.26252222095959593,
+            "p50": 0.237218,
+            "p95": 0.332324,
+            "p99": 0.723818,
+            "min": 0.150916,
+            "max": 4.026909
+          },
+          "state_copy_pose_io_and_odom": {
+            "count": 2376,
+            "mean": 0.6822935138888888,
+            "p50": 0.584423,
+            "p95": 1.041678,
+            "p99": 1.711544,
+            "min": 0.271139,
+            "max": 4.282977
+          },
+          "voxel_map_update": {
+            "count": 2376,
+            "mean": 6.065543058080808,
+            "p50": 3.066107,
+            "p95": 13.689664,
+            "p99": 16.113223,
+            "min": 0.373288,
+            "max": 46.368669
+          },
+          "map_covariance_and_update": {
+            "count": 2376,
+            "mean": 7.524389332491583,
+            "p50": 4.124889,
+            "p95": 16.096648,
+            "p99": 18.825095,
+            "min": 0.693423,
+            "max": 49.846775
+          },
+          "map_slide": {
+            "count": 2376,
+            "mean": 0.0008523792087542087,
+            "p50": 0.000544,
+            "p95": 0.000992,
+            "p99": 0.001216,
+            "min": 0.000128,
+            "max": 0.572969
+          },
+          "fullcloud_transform": {
+            "count": 2376,
+            "mean": 0.5134297276936026,
+            "p50": 0.493992,
+            "p95": 0.697355,
+            "p99": 1.000303,
+            "min": 0.273734,
+            "max": 1.803255
+          },
+          "cloud_publish_and_save": {
+            "count": 2376,
+            "mean": 1.0355872335858587,
+            "p50": 0.993422,
+            "p95": 1.351125,
+            "p99": 1.905998,
+            "min": 0.521035,
+            "max": 7.670229
+          },
+          "effect_publish": {
+            "count": 2376,
+            "mean": 0.3467879802188552,
+            "p50": 0.285958,
+            "p95": 0.573007,
+            "p99": 0.840119,
+            "min": 0.11613,
+            "max": 2.266337
+          },
+          "plane_publish": {
+            "count": 2376,
+            "mean": 0.0005232424242424242,
+            "p50": 0.00048,
+            "p95": 0.000864,
+            "p99": 0.001056,
+            "min": 0.000128,
+            "max": 0.001408
+          },
+          "path_publish": {
+            "count": 2376,
+            "mean": 0.09557702483164983,
+            "p50": 0.00256,
+            "p95": 0.845399,
+            "p99": 1.681587,
+            "min": 0.00144,
+            "max": 3.738797
+          },
+          "mavros_publish": {
+            "count": 2376,
+            "mean": 0.017380308501683504,
+            "p50": 0.01632,
+            "p95": 0.022912,
+            "p99": 0.038945,
+            "min": 0.011776,
+            "max": 0.184646
+          },
+          "post_map_publications": {
+            "count": 2376,
+            "mean": 1.527681949915825,
+            "p50": 1.403173,
+            "p95": 2.610782,
+            "p99": 4.288787,
+            "min": 0.685199,
+            "max": 7.910488
+          },
+          "lio_tail_console_and_file_io": {
+            "count": 2376,
+            "mean": 0.18820934006734005,
+            "p50": 0.176323,
+            "p95": 0.227013,
+            "p99": 0.477864,
+            "min": 0.103297,
+            "max": 1.098924
+          },
+          "diagnostic_flush": {
+            "count": 157,
+            "mean": 2.9245707898089175,
+            "p50": 2.899486,
+            "p95": 3.614855,
+            "p99": 4.10182,
+            "min": 2.182447,
+            "max": 4.102802
+          }
+        },
+        "publish_age_ms": {
+          "count": 2376,
+          "mean": 1200.2164420416666,
+          "p50": 85.178614,
+          "p95": 4399.529934,
+          "p99": 5058.784008,
+          "min": 33.822298,
+          "max": 5146.366596
+        },
+        "wall_mapped_publish_age_ms": {
+          "count": 2376,
+          "mean": 1200.379476402745,
+          "p50": 85.07871627807617,
+          "p95": 4401.546239852905,
+          "p99": 5058.88295173645,
+          "min": 33.988237380981445,
+          "max": 5148.477792739868
+        },
+        "imu_q": {
+          "count": 2376,
+          "mean": 3.69486531986532,
+          "p50": 4.0,
+          "p95": 8.0,
+          "p99": 11.0,
+          "min": 1.0,
+          "max": 16.0
+        },
+        "lidar_q": {
+          "count": 2376,
+          "mean": 10.929713804713804,
+          "p50": 0.0,
+          "p95": 42.0,
+          "p99": 49.0,
+          "min": 0.0,
+          "max": 50.0
+        },
+        "down_points": {
+          "count": 2376,
+          "mean": 6887.755892255892,
+          "p50": 4928.0,
+          "p95": 11735.0,
+          "p99": 12183.0,
+          "min": 1966.0,
+          "max": 12540.0
+        },
+        "effective_points": {
+          "count": 2376,
+          "mean": 6089.848905723906,
+          "p50": 4315.0,
+          "p95": 10593.0,
+          "p99": 10868.0,
+          "min": 1645.0,
+          "max": 11127.0
+        },
+        "iterations": {
+          "count": 2376,
+          "mean": 4.978535353535354,
+          "p50": 5.0,
+          "p95": 5.0,
+          "p99": 5.0,
+          "min": 3.0,
+          "max": 5.0
+        },
+        "map_voxels": {
+          "count": 2376,
+          "mean": 63459.09553872054,
+          "p50": 85020.0,
+          "p95": 101154.0,
+          "p99": 101245.0,
+          "min": 1701.0,
+          "max": 101246.0
+        },
+        "path_poses": {
+          "count": 2376,
+          "mean": 641.5,
+          "p50": 641.0,
+          "p95": 1176.0,
+          "p99": 1224.0,
+          "min": 48.0,
+          "max": 1235.0
+        },
+        "cycles_over_100ms": 545,
+        "wall_output_interval_ms": {
+          "count": 2375,
+          "mean": 125.30988323663155,
+          "p50": 102.65329499998188,
+          "p95": 118.53408600018156,
+          "p99": 128.99915399998463,
+          "min": 26.73692899998059,
+          "max": 60241.42628300001
+        }
+      },
+      "high_load": {
+        "scans": 1200,
+        "stages_ms": {
+          "sync_before": {
+            "count": 1200,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "sync_after": {
+            "count": 1200,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "spin": {
+            "count": 1200,
+            "mean": 0.5295475816666666,
+            "p50": 0.15437,
+            "p95": 3.345742,
+            "p99": 4.154994,
+            "min": 0.123364,
+            "max": 10.04606
+          },
+          "sync": {
+            "count": 1200,
+            "mean": 0.012960315,
+            "p50": 0.009568,
+            "p95": 0.031328,
+            "p99": 0.05757,
+            "min": 0.006656,
+            "max": 0.188005
+          },
+          "wait_window": {
+            "count": 1200,
+            "mean": 14.251550864166665,
+            "p50": 6.903096,
+            "p95": 73.854891,
+            "p99": 83.814003,
+            "min": 3.613067,
+            "max": 96.073204
+          },
+          "wait_spin": {
+            "count": 1200,
+            "mean": 11.191004566666667,
+            "p50": 5.873339,
+            "p95": 55.200028,
+            "p99": 61.47718,
+            "min": 2.700287,
+            "max": 73.086688
+          },
+          "wait_sync": {
+            "count": 1200,
+            "mean": 0.028474684166666667,
+            "p50": 0.016065,
+            "p95": 0.130305,
+            "p99": 0.150529,
+            "min": 0.009921,
+            "max": 0.492843
+          },
+          "wait_sleep": {
+            "count": 1200,
+            "mean": 2.447354536666667,
+            "p50": 0.838966,
+            "p95": 15.856166,
+            "p99": 18.755425,
+            "min": 0.173763,
+            "max": 24.871373
+          },
+          "wait_reason": {
+            "count": 1200,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "sync_wait": {
+            "count": 1200,
+            "mean": 14.226940175833333,
+            "p50": 6.900598,
+            "p95": 73.853579,
+            "p99": 83.812851,
+            "min": 3.612427,
+            "max": 96.07218
+          },
+          "first_frame_setup": {
+            "count": 1200,
+            "mean": 0.0003064841666666667,
+            "p50": 0.000288,
+            "p95": 0.00064,
+            "p99": 0.0008,
+            "min": 3.2e-05,
+            "max": 0.017632
+          },
+          "process_imu": {
+            "count": 1200,
+            "mean": 2.182071104166667,
+            "p50": 2.109243,
+            "p95": 2.686976,
+            "p99": 3.484671,
+            "min": 1.670356,
+            "max": 5.959784
+          },
+          "lio_preamble_io": {
+            "count": 1200,
+            "mean": 0.0722332775,
+            "p50": 0.062466,
+            "p95": 0.120835,
+            "p99": 0.166818,
+            "min": 0.045344,
+            "max": 0.512525
+          },
+          "handle_lio": {
+            "count": 1200,
+            "mean": 83.28669881333335,
+            "p50": 96.471612,
+            "p95": 110.196742,
+            "p99": 123.259051,
+            "min": 15.330936,
+            "max": 157.048672
+          },
+          "estimation_mapping": {
+            "count": 1200,
+            "mean": 83.288167585,
+            "p50": 96.472956,
+            "p95": 110.198278,
+            "p99": 123.260331,
+            "min": 15.33212,
+            "max": 157.049664
+          },
+          "full_cycle": {
+            "count": 1200,
+            "mean": 86.09632660666666,
+            "p50": 98.824006,
+            "p95": 112.576871,
+            "p99": 125.802569,
+            "min": 19.487178,
+            "max": 159.241824
+          },
+          "frame_period": {
+            "count": 1200,
+            "mean": 99.79802657333333,
+            "p50": 106.573749,
+            "p95": 120.716874,
+            "p99": 132.55851,
+            "min": 26.877476,
+            "max": 166.96907
+          },
+          "downsample": {
+            "count": 1200,
+            "mean": 1.2359879041666666,
+            "p50": 1.186094,
+            "p95": 1.696119,
+            "p99": 2.305249,
+            "min": 0.632455,
+            "max": 3.952691
+          },
+          "downcloud_transform": {
+            "count": 1200,
+            "mean": 0.22535987416666667,
+            "p50": 0.246919,
+            "p95": 0.324484,
+            "p99": 0.502253,
+            "min": 0.043617,
+            "max": 0.945164
+          },
+          "initial_map_build": {
+            "count": 0
+          },
+          "state_estimation": {
+            "count": 1200,
+            "mean": 67.24380670666666,
+            "p50": 78.021081,
+            "p95": 89.111633,
+            "p99": 98.219588,
+            "min": 11.175719,
+            "max": 124.447663
+          },
+          "tf_send": {
+            "count": 1200,
+            "mean": 0.17329985583333332,
+            "p50": 0.164132,
+            "p95": 0.239174,
+            "p99": 0.367274,
+            "min": 0.094882,
+            "max": 0.910604
+          },
+          "odom_send": {
+            "count": 1200,
+            "mean": 0.0545149875,
+            "p50": 0.050785,
+            "p95": 0.076161,
+            "p99": 0.128387,
+            "min": 0.039649,
+            "max": 0.265828
+          },
+          "odom_publish": {
+            "count": 1200,
+            "mean": 0.2549424533333333,
+            "p50": 0.228807,
+            "p95": 0.324261,
+            "p99": 0.545448,
+            "min": 0.150916,
+            "max": 3.595435
+          },
+          "state_copy_pose_io_and_odom": {
+            "count": 1200,
+            "mean": 0.8138331383333334,
+            "p50": 0.84897,
+            "p95": 1.112591,
+            "p99": 1.711544,
+            "min": 0.273955,
+            "max": 3.983955
+          },
+          "voxel_map_update": {
+            "count": 1200,
+            "mean": 9.345543585,
+            "p50": 10.780714,
+            "p95": 14.309214,
+            "p99": 17.14849,
+            "min": 0.653968,
+            "max": 46.368669
+          },
+          "map_covariance_and_update": {
+            "count": 1200,
+            "mean": 11.298449717499999,
+            "p50": 13.02659,
+            "p95": 16.837506,
+            "p99": 20.075953,
+            "min": 0.989783,
+            "max": 49.846775
+          },
+          "map_slide": {
+            "count": 1200,
+            "mean": 0.0006805458333333334,
+            "p50": 0.000672,
+            "p95": 0.001024,
+            "p99": 0.001248,
+            "min": 0.000128,
+            "max": 0.021601
+          },
+          "fullcloud_transform": {
+            "count": 1200,
+            "mean": 0.5116429541666666,
+            "p50": 0.491815,
+            "p95": 0.670672,
+            "p99": 0.885432,
+            "min": 0.374212,
+            "max": 1.41944
+          },
+          "cloud_publish_and_save": {
+            "count": 1200,
+            "mean": 1.0351630075,
+            "p50": 0.997487,
+            "p95": 1.291521,
+            "p99": 1.780778,
+            "min": 0.732881,
+            "max": 5.793776
+          },
+          "effect_publish": {
+            "count": 1200,
+            "mean": 0.4400084233333333,
+            "p50": 0.46334,
+            "p95": 0.645617,
+            "p99": 0.925451,
+            "min": 0.126563,
+            "max": 2.266337
+          },
+          "plane_publish": {
+            "count": 1200,
+            "mean": 0.0005613975,
+            "p50": 0.000512,
+            "p95": 0.000896,
+            "p99": 0.00112,
+            "min": 0.000128,
+            "max": 0.001313
+          },
+          "path_publish": {
+            "count": 1200,
+            "mean": 0.10192489416666667,
+            "p50": 0.00272,
+            "p95": 0.949017,
+            "p99": 1.505138,
+            "min": 0.00144,
+            "max": 3.738797
+          },
+          "mavros_publish": {
+            "count": 1200,
+            "mean": 0.017565229999999998,
+            "p50": 0.016385,
+            "p95": 0.023776,
+            "p99": 0.041697,
+            "min": 0.01296,
+            "max": 0.113314
+          },
+          "post_map_publications": {
+            "count": 1200,
+            "mean": 1.6286971216666666,
+            "p50": 1.496488,
+            "p95": 2.591969,
+            "p99": 4.288787,
+            "min": 0.894923,
+            "max": 7.798313
+          },
+          "lio_tail_console_and_file_io": {
+            "count": 1200,
+            "mean": 0.18853928833333333,
+            "p50": 0.178339,
+            "p95": 0.227717,
+            "p99": 0.459462,
+            "min": 0.103297,
+            "max": 0.961208
+          },
+          "diagnostic_flush": {
+            "count": 79,
+            "mean": 2.976376101265823,
+            "p50": 2.902211,
+            "p95": 3.582479,
+            "p99": 4.102802,
+            "min": 2.730664,
+            "max": 4.102802
+          }
+        },
+        "publish_age_ms": {
+          "count": 1200,
+          "mean": 2310.7803525508334,
+          "p50": 2353.1913759999998,
+          "p95": 4818.759918,
+          "p99": 5093.923807,
+          "min": 40.462255,
+          "max": 5146.366596
+        },
+        "wall_mapped_publish_age_ms": {
+          "count": 1200,
+          "mean": 2310.9139265616736,
+          "p50": 2351.811170578003,
+          "p95": 4817.391633987427,
+          "p99": 5095.613479614258,
+          "min": 40.026187896728516,
+          "max": 5148.477792739868
+        },
+        "imu_q": {
+          "count": 1200,
+          "mean": 1.59,
+          "p50": 1.0,
+          "p95": 6.0,
+          "p99": 9.0,
+          "min": 1.0,
+          "max": 12.0
+        },
+        "lidar_q": {
+          "count": 1200,
+          "mean": 21.640833333333333,
+          "p50": 22.0,
+          "p95": 47.0,
+          "p99": 49.0,
+          "min": 0.0,
+          "max": 50.0
+        },
+        "down_points": {
+          "count": 1200,
+          "mean": 9330.503333333334,
+          "p50": 10935.0,
+          "p95": 11923.0,
+          "p99": 12310.0,
+          "min": 2161.0,
+          "max": 12540.0
+        },
+        "effective_points": {
+          "count": 1200,
+          "mean": 8357.980833333333,
+          "p50": 9811.0,
+          "p95": 10761.0,
+          "p99": 10941.0,
+          "min": 1645.0,
+          "max": 11127.0
+        },
+        "iterations": {
+          "count": 1200,
+          "mean": 4.9975,
+          "p50": 5.0,
+          "p95": 5.0,
+          "p99": 5.0,
+          "min": 4.0,
+          "max": 5.0
+        },
+        "map_voxels": {
+          "count": 1200,
+          "mean": 80876.9375,
+          "p50": 89226.0,
+          "p95": 100412.0,
+          "p99": 100565.0,
+          "min": 32064.0,
+          "max": 100635.0
+        },
+        "path_poses": {
+          "count": 1200,
+          "mean": 697.5,
+          "p50": 697.0,
+          "p95": 967.0,
+          "p99": 991.0,
+          "min": 398.0,
+          "max": 997.0
+        },
+        "cycles_over_100ms": 537,
+        "wall_output_interval_ms": {
+          "count": 1199,
+          "mean": 199.11537721851556,
+          "p50": 106.50974999998652,
+          "p95": 120.60624700006883,
+          "p99": 133.46945800003596,
+          "min": 26.73692899998059,
+          "max": 119168.99441700002
+        }
+      }
+    }
+  },
+  "differences": {
+    "all_common": {
+      "full_cycle": {
+        "mean": -15.877463018749227,
+        "p95": -11.26576361008681,
+        "max": -7.86564817677613
+      },
+      "state_estimation": {
+        "mean": -19.678783213648742,
+        "p95": -13.151211713519462,
+        "max": -15.529313409298284
+      },
+      "process_imu": {
+        "mean": 4.63052473401151,
+        "p95": 5.330888901194131,
+        "max": 6.406417663397712
+      },
+      "voxel_map_update": {
+        "mean": -4.237809307723717,
+        "p95": -3.5389666691117094,
+        "max": -9.431889605222842
+      }
+    },
+    "high_load": {
+      "full_cycle": {
+        "mean": -12.894708018485268,
+        "p95": -11.61837278841068,
+        "max": -7.86564817677613
+      },
+      "state_estimation": {
+        "mean": -15.118019428779261,
+        "p95": -13.699934252970502,
+        "max": -15.529313409298284
+      },
+      "process_imu": {
+        "mean": 0.9310773503127701,
+        "p95": 2.547216220847548,
+        "max": 0.629412510614169
+      },
+      "voxel_map_update": {
+        "mean": -3.8536926649018866,
+        "p95": -5.24619265440851,
+        "max": -9.431889605222842
+      }
+    }
+  },
+  "trajectory_comparisons_without_ground_truth": {
+    "A1_B1": {
+      "position_difference_m": {
+        "count": 1188,
+        "mean": 0.06548534079261288,
+        "p50": 0.0575512671843588,
+        "p95": 0.14391308942525557,
+        "p99": 0.15109556925670745,
+        "min": 0.000338337808585747,
+        "max": 0.15293224571207573
+      },
+      "orientation_difference_deg": {
+        "count": 1188,
+        "mean": 0.21213800253633824,
+        "p50": 0.22796563657608576,
+        "p95": 0.32088174383619983,
+        "p99": 0.4151953348839693,
+        "min": 0.03811335001584917,
+        "max": 0.6139150166666495
+      }
+    },
+    "A2_B2": {
+      "position_difference_m": {
+        "count": 1188,
+        "mean": 0.04375311025263356,
+        "p50": 0.03512887583284846,
+        "p95": 0.10564695522079162,
+        "p99": 0.11094609188856708,
+        "min": 0.001601553716031232,
+        "max": 0.1131481959632865
+      },
+      "orientation_difference_deg": {
+        "count": 1188,
+        "mean": 0.16506742701994517,
+        "p50": 0.17071524426781395,
+        "p95": 0.23627301520240906,
+        "p99": 0.289720713508956,
+        "min": 0.014980028235598936,
+        "max": 0.4085393101998571
+      }
+    },
+    "A1_A2": {
+      "position_difference_m": {
+        "count": 1188,
+        "mean": 0.04522487657267494,
+        "p50": 0.04187614798993835,
+        "p95": 0.1016450842689711,
+        "p99": 0.10819315661917475,
+        "min": 0.0004458895072045101,
+        "max": 0.11183350594611366
+      },
+      "orientation_difference_deg": {
+        "count": 1188,
+        "mean": 0.1465969785399527,
+        "p50": 0.14255894758877083,
+        "p95": 0.2327089357313562,
+        "p99": 0.34437282892499327,
+        "min": 0.023975335806020924,
+        "max": 0.48822132729299617
+      }
+    },
+    "B1_B2": {
+      "position_difference_m": {
+        "count": 1188,
+        "mean": 0.006519927487000087,
+        "p50": 0.004333542288063344,
+        "p95": 0.02143661625902566,
+        "p99": 0.024402284399838086,
+        "min": 4.685516751161654e-05,
+        "max": 0.026386528021887484
+      },
+      "orientation_difference_deg": {
+        "count": 1188,
+        "mean": 0.03618326727828508,
+        "p50": 0.03882873365010707,
+        "p95": 0.07097756361516802,
+        "p99": 0.0957798359163642,
+        "min": 0.0007835186391138713,
+        "max": 0.17720116465280028
+      }
+    }
+  }
+}
