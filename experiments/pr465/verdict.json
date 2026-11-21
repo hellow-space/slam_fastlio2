@@ -1,0 +1,13 @@
+{
+  "scope": "PR465 performance commit25a774f only",
+  "performance_mean_target_pass": true,
+  "performance_p95_target_pass": false,
+  "outdoor_mean_improvement_percent": 18.67558532003557,
+  "frozen_equivalence_gate_pass": false,
+  "experimenter_verdict": "REJECT for frozen equivalence gates; performance mean target passed",
+  "root_recommendation": "RETEST before adoption; mean processing target achieved, equivalent initialization/repeatability unresolved",
+  "reason": "Outdoor startup IMU rejected before first LiDAR differs 7 vs15; matched pose differs up to4.12cm. Do not relax frozen gates or infer absolute accuracy degradation without controlled initialization/ground truth.",
+  "production_promoted": false,
+  "successful_pairs_per_dataset": 1,
+  "original_workspace_runtime_source_changed": false
+}

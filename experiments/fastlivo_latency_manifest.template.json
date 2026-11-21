@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "status": "blocked",
+  "purpose": "FAST-LIVO2 odometry state-age investigation; manual review template, not an executable runner",
+  "approval": {
+    "user_authorization_reference": null,
+    "parent_permission_mode_verified": null,
+    "root_contract_review": null,
+    "allowed_commands": [],
+    "physical_robot_plan": null
+  },
+  "hypothesis": null,
+  "evidence_references": [],
+  "approved_change": {"mechanism": null, "files": [], "tf_timestamp_impact": null},
+  "dataset": {
+    "dataset_id": null,
+    "bag_directory": null,
+    "file_hashes": [],
+    "topics_and_types": [],
+    "raw_lidar_and_imu_verified": null,
+    "historical_output_topics_excluded": null,
+    "clock_domain_evidence": null,
+    "ground_truth": {"availability": "missing", "path": null, "hash": null, "reason": null}
+  },
+  "runtime": {
+    "ros_distro": "humble",
+    "package": "fast_livo",
+    "executable": "fastlivo_mapping",
+    "launch_path_and_hash": null,
+    "resolved_package_prefix": null,
+    "effective_parameter_files_and_hashes": [],
+    "effective_sensor_mode": null,
+    "extrinsics_and_time_offsets": null,
+    "rmw_and_qos": null,
+    "tf_publishers_and_frame_contract": null,
+    "diagnostics_build_and_runtime_verified": null,
+    "map": {"applicability": null, "effective_path": null, "sha256": null, "reason": null}
+  },
+  "baseline": {
+    "git_sha": null,
+    "dirty_diff_path_and_hash": null,
+    "untracked_source_snapshot_and_hash": null,
+    "source_manifest_path_and_hash": null,
+    "executable_path_and_sha256": null,
+    "dynamic_dependency_manifest": null,
+    "build_flags": null,
+    "workspace_or_worktree": null
+  },
+  "candidate": {
+    "git_sha": null,
+    "dirty_diff_path_and_hash": null,
+    "untracked_source_snapshot_and_hash": null,
+    "source_manifest_path_and_hash": null,
+    "executable_path_and_sha256": null,
+    "dynamic_dependency_manifest": null,
+    "build_flags": null,
+    "workspace_or_worktree": null
+  },
+  "hardware": {
+    "machine_and_cpu_gpu": null,
+    "power_mode": null,
+    "cpu_affinity_and_threads": null,
+    "frequency_governor_and_observed_clocks": null,
+    "temperature_and_throttling": null,
+    "background_load": null
+  },
+  "protocol": {
+    "analysis_or_replay": null,
+    "use_sim_time": null,
+    "clock_source": null,
+    "replay_rate": null,
+    "input_start_end": null,
+    "warmup_seconds": null,
+    "evaluation_windows": [],
+    "repetitions": null,
+    "paired_run_order": null,
+    "seeds_or_not_applicable_reason": null,
+    "ros_domain_isolation": null,
+    "invalid_sample_rules": null,
+    "minimum_valid_samples": null
+  },
+  "evaluation": {
+    "raw_event_schema_path_and_hash": null,
+    "summarizer_path_and_hash": null,
+    "adapter_path_and_hash_or_manual_provenance": null,
+    "quantile_method": "nearest_rank",
+    "primary_metric": "odom_publish.age_s p95 converted to ms, valid aligned-clock samples only",
+    "primary_minimum_improvement_ms": null,
+    "state_age_trend_limit_ms_per_s": null,
+    "frame_period_regression_limit_ms": null,
+    "precision_evaluator_and_version": null,
+    "precision_regression_limit": null,
+    "drop_stale_and_continuity_evidence": null,
+    "tf_timestamp_regression_checks": null,
+    "stop_criteria": []
+  },
+  "outputs": {
+    "raw_logs_directory": null,
+    "raw_events_and_hashes": [],
+    "summaries_and_hashes": [],
+    "measured_metrics_csv": null,
+    "comparison_report": null
+  },
+  "blocking_reasons": [
+    "No algorithm change or benchmark is authorized by the framework-only task.",
+    "Dataset, executable identity, timing domain, paired protocol and regression thresholds are not frozen.",
+    "No reviewed FAST-LIVO2 long-table adapter or per-row manual provenance has been supplied."
+  ]
+}

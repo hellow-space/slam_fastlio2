@@ -1,0 +1,70 @@
+START baseline_indoor
+{"csv": "/home/nvidia/wsnew/experiments/pr465/paired_runs_v2/baseline_indoor/timing/run_1795241399633147087_51817/events.csv", "full_cycles": 262, "odom_events": 258, "tf_creations": 1}
+Raw evidence: /home/nvidia/wsnew/experiments/runs/20261121T060958Z_pr465-baseline_indoor_51781
+DONE baseline_indoor
+START candidate_indoor
+{"csv": "/home/nvidia/wsnew/experiments/pr465/paired_runs_v2/candidate_indoor/timing/run_1795241465251368910_52704/events.csv", "full_cycles": 262, "odom_events": 258, "tf_creations": 1}
+Raw evidence: /home/nvidia/wsnew/experiments/runs/20261121T061104Z_pr465-candidate_indoor_52661
+DONE candidate_indoor
+START baseline_outdoor
+{"csv": "/home/nvidia/wsnew/experiments/pr465/paired_runs_v2/baseline_outdoor/timing/run_1795241530701692739_53592/events.csv", "full_cycles": 1238, "odom_events": 1235, "tf_creations": 1}
+Raw evidence: /home/nvidia/wsnew/experiments/runs/20261121T061209Z_pr465-baseline_outdoor_53547
+DONE baseline_outdoor
+START candidate_outdoor
+{"csv": "/home/nvidia/wsnew/experiments/pr465/paired_runs_v2/candidate_outdoor/timing/run_1795241694765194300_55685/events.csv", "full_cycles": 1238, "odom_events": 1235, "tf_creations": 1}
+Raw evidence: /home/nvidia/wsnew/experiments/runs/20261121T061453Z_pr465-candidate_outdoor_55642
+DONE candidate_outdoor
+{
+  "indoor": {
+    "all_after_5s": {
+      "baseline": {
+        "count": 211,
+        "mean": 39.95253573933649,
+        "p50": 39.822247,
+        "p95": 50.884116,
+        "max": 73.025646
+      },
+      "candidate": {
+        "count": 211,
+        "mean": 31.619765786729857,
+        "p50": 31.26188,
+        "p95": 41.525233,
+        "max": 66.922969
+      }
+    }
+  },
+  "outdoor": {
+    "all_after_5s": {
+      "baseline": {
+        "count": 1188,
+        "mean": 62.17423934511785,
+        "p50": 48.284596,
+        "p95": 104.025758,
+        "max": 134.917388
+      },
+      "candidate": {
+        "count": 1188,
+        "mean": 49.5601056969697,
+        "p50": 38.298501,
+        "p95": 83.645673,
+        "max": 145.700583
+      }
+    },
+    "high_load_40_100s": {
+      "baseline": {
+        "count": 600,
+        "mean": 81.037273615,
+        "p50": 91.228167,
+        "p95": 107.676407,
+        "max": 134.917388
+      },
+      "candidate": {
+        "count": 600,
+        "mean": 65.90308844,
+        "p50": 73.782086,
+        "p95": 87.086002,
+        "max": 145.700583
+      }
+    }
+  }
+}

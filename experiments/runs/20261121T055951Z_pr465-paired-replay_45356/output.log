@@ -1,0 +1,24 @@
+START baseline_indoor
+{"csv": "/home/nvidia/wsnew/experiments/pr465/paired_runs/baseline_indoor/timing/run_1795240794498355118_45488/events.csv", "full_cycles": 262, "odom_events": 258, "tf_creations": 1}
+Raw evidence: /home/nvidia/wsnew/experiments/runs/20261121T055953Z_pr465-baseline_indoor_45442
+DONE baseline_indoor
+START candidate_indoor
+{"csv": "/home/nvidia/wsnew/experiments/pr465/paired_runs/candidate_indoor/timing/run_1795240860148642855_46417/events.csv", "full_cycles": 262, "odom_events": 258, "tf_creations": 1}
+Raw evidence: /home/nvidia/wsnew/experiments/runs/20261121T060059Z_pr465-candidate_indoor_46371
+DONE candidate_indoor
+START baseline_outdoor
+Traceback (most recent call last):
+  File "/home/nvidia/wsnew/ws_livox/src/FAST-LIVO2-master/scripts/benchmark_tf_lifetime.py", line 168, in <module>
+    main()
+  File "/home/nvidia/wsnew/ws_livox/src/FAST-LIVO2-master/scripts/benchmark_tf_lifetime.py", line 164, in main
+    else:run(args)
+  File "/home/nvidia/wsnew/ws_livox/src/FAST-LIVO2-master/scripts/benchmark_tf_lifetime.py", line 140, in run
+    if processes['node'].returncode != 0:raise RuntimeError('localization node failed; inspect node.log')
+RuntimeError: localization node failed; inspect node.log
+Raw evidence: /home/nvidia/wsnew/experiments/runs/20261121T060204Z_pr465-baseline_outdoor_47271
+Traceback (most recent call last):
+  File "/home/nvidia/wsnew/scripts/run_pr465_ab.py", line 86, in <module>
+    main()
+  File "/home/nvidia/wsnew/scripts/run_pr465_ab.py", line 75, in main
+    raise RuntimeError(name + ' failed; inspect saved raw logs')
+RuntimeError: baseline_outdoor failed; inspect saved raw logs

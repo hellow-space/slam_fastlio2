@@ -1,0 +1,330 @@
+[
+  {
+    "sha": "25a774f787d2b8922ba4d216c175eb29258f7ada",
+    "node_id": "C_kwDOV0R-BdoAKDI1YTc3NGY3ODdkMmI4OTIyYmE0ZDIxNmMxNzVlYjI5MjU4ZjdhZGE",
+    "commit": {
+      "author": {
+        "name": "VictorKuang25",
+        "email": "119861875+VictorKuang25@users.noreply.github.com",
+        "date": "2026-11-19T13:06:21Z"
+      },
+      "committer": {
+        "name": "VictorKuang25",
+        "email": "119861875+VictorKuang25@users.noreply.github.com",
+        "date": "2026-11-20T09:37:59Z"
+      },
+      "message": "[Enh] Replace vector<bool> with uint8_t to remove per-point mutex in BuildResidualListOMP\n\nIn BuildResidualListOMP, every iteration of the #pragma omp parallel for loop previously acquired a shared per-call std::mutex (mylock) to write useful_ptpl[i] and all_ptpl_list[i], serializing parallel residual construction.\n\nBecause voxel_map_ and octree nodes are accessed read-only and build_single_residual only writes to stack locals and pv_list[i].normal, each index i is independent once bit-packed std::vector<bool> (which cannot be written concurrently at adjacent indices without locking) is replaced by std::vector<uint8_t>(pv_list.size(), 0).\n\nAlso value-initialize PointToPlane single_ptpl{} so copying single_ptpl into all_ptpl_list[i] does not load uninitialized bool is_valid_ (which triggers UBSan invalid-bool-load UB without modifying include/voxel_map.h).\n\nOutput is bit-for-bit identical: the main thread still collects results sequentially in i = 0 .. N-1 order.",
+      "tree": {
+        "sha": "6c9f2cd103aea274ce5407df33eebc2a1e8d3dc1",
+        "url": "https://api.github.com/repos/hku-mars/FAST-LIVO2/git/trees/6c9f2cd103aea274ce5407df33eebc2a1e8d3dc1"
+      },
+      "url": "https://api.github.com/repos/hku-mars/FAST-LIVO2/git/commits/25a774f787d2b8922ba4d216c175eb29258f7ada",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/hku-mars/FAST-LIVO2/commits/25a774f787d2b8922ba4d216c175eb29258f7ada",
+    "html_url": "https://github.com/hku-mars/FAST-LIVO2/commit/25a774f787d2b8922ba4d216c175eb29258f7ada",
+    "comments_url": "https://api.github.com/repos/hku-mars/FAST-LIVO2/commits/25a774f787d2b8922ba4d216c175eb29258f7ada/comments",
+    "author": {
+      "login": "VictorKuang25",
+      "id": 119861875,
+      "node_id": "U_kgDOByTycw",
+      "avatar_url": "https://avatars.githubusercontent.com/u/119861875?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/VictorKuang25",
+      "html_url": "https://github.com/VictorKuang25",
+      "followers_url": "https://api.github.com/users/VictorKuang25/followers",
+      "following_url": "https://api.github.com/users/VictorKuang25/following{/other_user}",
+      "gists_url": "https://api.github.com/users/VictorKuang25/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/VictorKuang25/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/VictorKuang25/subscriptions",
+      "organizations_url": "https://api.github.com/users/VictorKuang25/orgs",
+      "repos_url": "https://api.github.com/users/VictorKuang25/repos",
+      "events_url": "https://api.github.com/users/VictorKuang25/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/VictorKuang25/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "VictorKuang25",
+      "id": 119861875,
+      "node_id": "U_kgDOByTycw",
+      "avatar_url": "https://avatars.githubusercontent.com/u/119861875?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/VictorKuang25",
+      "html_url": "https://github.com/VictorKuang25",
+      "followers_url": "https://api.github.com/users/VictorKuang25/followers",
+      "following_url": "https://api.github.com/users/VictorKuang25/following{/other_user}",
+      "gists_url": "https://api.github.com/users/VictorKuang25/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/VictorKuang25/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/VictorKuang25/subscriptions",
+      "organizations_url": "https://api.github.com/users/VictorKuang25/orgs",
+      "repos_url": "https://api.github.com/users/VictorKuang25/repos",
+      "events_url": "https://api.github.com/users/VictorKuang25/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/VictorKuang25/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "0d2c0346107b75b59934975adec9a6eeeb913c64",
+        "url": "https://api.github.com/repos/hku-mars/FAST-LIVO2/commits/0d2c0346107b75b59934975adec9a6eeeb913c64",
+        "html_url": "https://github.com/hku-mars/FAST-LIVO2/commit/0d2c0346107b75b59934975adec9a6eeeb913c64"
+      }
+    ]
+  },
+  {
+    "sha": "507d29e3a46dcf793f586195daa4a6801ce83198",
+    "node_id": "C_kwDOV0R-BdoAKDUwN2QyOWUzYTQ2ZGNmNzkzZjU4NjE5NWRhYTRhNjgwMWNlODMxOTg",
+    "commit": {
+      "author": {
+        "name": "VictorKuang25",
+        "email": "119861875+VictorKuang25@users.noreply.github.com",
+        "date": "2026-11-19T13:12:31Z"
+      },
+      "committer": {
+        "name": "VictorKuang25",
+        "email": "119861875+VictorKuang25@users.noreply.github.com",
+        "date": "2026-11-20T09:38:07Z"
+      },
+      "message": "[Fix] Fix heap leak, null/uninitialized pointers, and stale G in VIO\n\nOutput-preserving memory-safety and defensive fixes in VIO:\n\n- visual_point.cpp (VisualPoint::VisualPoint): initialize ref_patch to nullptr\n  in the constructor so deleteFeatureRef() and precomputeReferencePatches()\n  never inspect an uninitialized member pointer.\n- vio.cpp (updateVisualMapPoints): move new float[patch_size_total] and\n  getImagePatch() inside if (add_flag); previously patch_temp (256 B for 8x8)\n  was leaked every frame for every tracked point where add_flag was false.\n- vio.cpp (precomputeReferencePatches): check pt == nullptr,\n  pt->ref_patch == nullptr, and img.empty() before dereferencing\n  pt->ref_patch->img_.\n- vio.cpp (retrieveFromVisualSparseMap): initialize Feature *ref_ftr = nullptr,\n  defensively skip candidates with count == 0 before dividing by count, and\n  skip dereferencing when ref_ftr is null.\n- vio.cpp (computeJacobianAndUpdateEKF): call G.setZero() before the pyramid\n  loop so state->cov -= G * state->cov cannot reuse a stale or uninitialized G\n  if no pyramid level accepts an update.\n- vio.cpp (updateStateInverse): cleanup matching updateState by materializing\n  solution as MD(DIM_STATE, 1) instead of auto to avoid redundant Eigen\n  expression re-evaluation.",
+      "tree": {
+        "sha": "25d52ceb0deb9580f3d7bd5e977b268a13686540",
+        "url": "https://api.github.com/repos/hku-mars/FAST-LIVO2/git/trees/25d52ceb0deb9580f3d7bd5e977b268a13686540"
+      },
+      "url": "https://api.github.com/repos/hku-mars/FAST-LIVO2/git/commits/507d29e3a46dcf793f586195daa4a6801ce83198",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/hku-mars/FAST-LIVO2/commits/507d29e3a46dcf793f586195daa4a6801ce83198",
+    "html_url": "https://github.com/hku-mars/FAST-LIVO2/commit/507d29e3a46dcf793f586195daa4a6801ce83198",
+    "comments_url": "https://api.github.com/repos/hku-mars/FAST-LIVO2/commits/507d29e3a46dcf793f586195daa4a6801ce83198/comments",
+    "author": {
+      "login": "VictorKuang25",
+      "id": 119861875,
+      "node_id": "U_kgDOByTycw",
+      "avatar_url": "https://avatars.githubusercontent.com/u/119861875?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/VictorKuang25",
+      "html_url": "https://github.com/VictorKuang25",
+      "followers_url": "https://api.github.com/users/VictorKuang25/followers",
+      "following_url": "https://api.github.com/users/VictorKuang25/following{/other_user}",
+      "gists_url": "https://api.github.com/users/VictorKuang25/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/VictorKuang25/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/VictorKuang25/subscriptions",
+      "organizations_url": "https://api.github.com/users/VictorKuang25/orgs",
+      "repos_url": "https://api.github.com/users/VictorKuang25/repos",
+      "events_url": "https://api.github.com/users/VictorKuang25/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/VictorKuang25/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "VictorKuang25",
+      "id": 119861875,
+      "node_id": "U_kgDOByTycw",
+      "avatar_url": "https://avatars.githubusercontent.com/u/119861875?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/VictorKuang25",
+      "html_url": "https://github.com/VictorKuang25",
+      "followers_url": "https://api.github.com/users/VictorKuang25/followers",
+      "following_url": "https://api.github.com/users/VictorKuang25/following{/other_user}",
+      "gists_url": "https://api.github.com/users/VictorKuang25/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/VictorKuang25/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/VictorKuang25/subscriptions",
+      "organizations_url": "https://api.github.com/users/VictorKuang25/orgs",
+      "repos_url": "https://api.github.com/users/VictorKuang25/repos",
+      "events_url": "https://api.github.com/users/VictorKuang25/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/VictorKuang25/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "25a774f787d2b8922ba4d216c175eb29258f7ada",
+        "url": "https://api.github.com/repos/hku-mars/FAST-LIVO2/commits/25a774f787d2b8922ba4d216c175eb29258f7ada",
+        "html_url": "https://github.com/hku-mars/FAST-LIVO2/commit/25a774f787d2b8922ba4d216c175eb29258f7ada"
+      }
+    ]
+  },
+  {
+    "sha": "6dae34d3ce88ac1fa79634471a0f301edf84299b",
+    "node_id": "C_kwDOV0R-BdoAKDZkYWUzNGQzY2U4OGFjMWZhNzk2MzQ0NzFhMGYzMDFlZGY4NDI5OWI",
+    "commit": {
+      "author": {
+        "name": "VictorKuang25",
+        "email": "119861875+VictorKuang25@users.noreply.github.com",
+        "date": "2026-11-19T13:16:47Z"
+      },
+      "committer": {
+        "name": "VictorKuang25",
+        "email": "119861875+VictorKuang25@users.noreply.github.com",
+        "date": "2026-11-20T09:38:07Z"
+      },
+      "message": "[Fix] Fix uninitialized means, unreset NCC, and OOB image reads in VIO\n\nFixes active undefined behavior and out-of-bounds memory accesses in VIO\n(these fixes intentionally alter outputs that were previously corrupted by\nuninitialized memory reads, accumulated NCC state, or OOB pixels):\n\n- updateReferencePatch:\n  * Initialize ref_mean and other_mean from cached Feature::mean_. Previously\n    both were uninitialized locals only assigned when abs(mean_) < 1e-6; since\n    the inner loop of the first outer iteration caches mean_ for all other\n    observations, every outer iteration from the 2nd onward read uninitialized\n    stack garbage on every call.\n  * Move NCC_up, NCC_down1, NCC_down2 inside the inner pair loop so each pair\n    starts from 0.0 rather than accumulating across previous pairs.\n  * Guard sqrt(NCC_down1 * NCC_down2) > 1e-6f and count > 0 against div-by-zero.\n- updateState, updateStateInverse, precomputeReferencePatches,\n  updateVisualMapPoints:\n  * Add file-local helpers isPatchInBounds() and isRefPatchValid() (no vio.h\n    changes) enforcing exact pixel access bounds ([0, +scale] for bilinear-only,\n    [-scale, +2*scale] for central-difference gradients) plus range/finiteness\n    checks before float-to-int conversion and pf[2] <= 0 guards. With default\n    patch_size=8 and patch_pyrimid_level=3, border=40 px while updateState can\n    reach scale=1<<(2+2)=16 (80 px footprint), triggering heap-buffer-overflow\n    near image borders.\n  * Share isRefPatchValid() between precomputeReferencePatches() and\n    updateStateInverse() so skipped points are consistent and do not dilute\n    error / n_meas with zero-Jacobian residuals.\n  * Reset z and H_sub at the start of each iteration to prevent stale rows\n    when points are skipped on later iterations, and restore old_state + break\n    when n_meas == 0 before dividing error / n_meas.",
+      "tree": {
+        "sha": "cad23ca2049a58ca26f4af772c4ce7f32e309bcc",
+        "url": "https://api.github.com/repos/hku-mars/FAST-LIVO2/git/trees/cad23ca2049a58ca26f4af772c4ce7f32e309bcc"
+      },
+      "url": "https://api.github.com/repos/hku-mars/FAST-LIVO2/git/commits/6dae34d3ce88ac1fa79634471a0f301edf84299b",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/hku-mars/FAST-LIVO2/commits/6dae34d3ce88ac1fa79634471a0f301edf84299b",
+    "html_url": "https://github.com/hku-mars/FAST-LIVO2/commit/6dae34d3ce88ac1fa79634471a0f301edf84299b",
+    "comments_url": "https://api.github.com/repos/hku-mars/FAST-LIVO2/commits/6dae34d3ce88ac1fa79634471a0f301edf84299b/comments",
+    "author": {
+      "login": "VictorKuang25",
+      "id": 119861875,
+      "node_id": "U_kgDOByTycw",
+      "avatar_url": "https://avatars.githubusercontent.com/u/119861875?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/VictorKuang25",
+      "html_url": "https://github.com/VictorKuang25",
+      "followers_url": "https://api.github.com/users/VictorKuang25/followers",
+      "following_url": "https://api.github.com/users/VictorKuang25/following{/other_user}",
+      "gists_url": "https://api.github.com/users/VictorKuang25/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/VictorKuang25/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/VictorKuang25/subscriptions",
+      "organizations_url": "https://api.github.com/users/VictorKuang25/orgs",
+      "repos_url": "https://api.github.com/users/VictorKuang25/repos",
+      "events_url": "https://api.github.com/users/VictorKuang25/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/VictorKuang25/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "VictorKuang25",
+      "id": 119861875,
+      "node_id": "U_kgDOByTycw",
+      "avatar_url": "https://avatars.githubusercontent.com/u/119861875?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/VictorKuang25",
+      "html_url": "https://github.com/VictorKuang25",
+      "followers_url": "https://api.github.com/users/VictorKuang25/followers",
+      "following_url": "https://api.github.com/users/VictorKuang25/following{/other_user}",
+      "gists_url": "https://api.github.com/users/VictorKuang25/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/VictorKuang25/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/VictorKuang25/subscriptions",
+      "organizations_url": "https://api.github.com/users/VictorKuang25/orgs",
+      "repos_url": "https://api.github.com/users/VictorKuang25/repos",
+      "events_url": "https://api.github.com/users/VictorKuang25/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/VictorKuang25/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "507d29e3a46dcf793f586195daa4a6801ce83198",
+        "url": "https://api.github.com/repos/hku-mars/FAST-LIVO2/commits/507d29e3a46dcf793f586195daa4a6801ce83198",
+        "html_url": "https://github.com/hku-mars/FAST-LIVO2/commit/507d29e3a46dcf793f586195daa4a6801ce83198"
+      }
+    ]
+  },
+  {
+    "sha": "b3dd11fc4aa4a0514b9c170d8d2c4d5b5c43e4c8",
+    "node_id": "C_kwDOV0R-BdoAKGIzZGQxMWZjNGFhNGEwNTE0YjljMTcwZDhkMmM0ZDViNWM0M2U0Yzg",
+    "commit": {
+      "author": {
+        "name": "VictorKuang25",
+        "email": "119861875+VictorKuang25@users.noreply.github.com",
+        "date": "2026-11-19T13:17:26Z"
+      },
+      "committer": {
+        "name": "VictorKuang25",
+        "email": "119861875+VictorKuang25@users.noreply.github.com",
+        "date": "2026-11-20T09:38:07Z"
+      },
+      "message": "[Fix] Prevent repeated motion compensation of first point in ImuProcess::UndistortPcl\n\nThe inner backward-propagation loop breaks upon reaching pcl_wait_proc.points.begin(),\nbut does not exit the outer IMUpose loop. Whenever\npoints[0].curvature / 1000.0 > IMUpose[1].offset_time (i.e., the first retained\npoint is later than the first IMU measurement in the scan, e.g., after blind-range\nor point_filter_num culling or scan splitting), points[0] satisfies\ncurvature / 1000.0 > head->offset_time again on every earlier IMU interval and gets\nmotion-compensated multiple times.\n\nTrack completion with all_done to break both loops once points.begin() is processed.",
+      "tree": {
+        "sha": "95e8b40b0d199b423251cd15a010b97098fb6d05",
+        "url": "https://api.github.com/repos/hku-mars/FAST-LIVO2/git/trees/95e8b40b0d199b423251cd15a010b97098fb6d05"
+      },
+      "url": "https://api.github.com/repos/hku-mars/FAST-LIVO2/git/commits/b3dd11fc4aa4a0514b9c170d8d2c4d5b5c43e4c8",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/hku-mars/FAST-LIVO2/commits/b3dd11fc4aa4a0514b9c170d8d2c4d5b5c43e4c8",
+    "html_url": "https://github.com/hku-mars/FAST-LIVO2/commit/b3dd11fc4aa4a0514b9c170d8d2c4d5b5c43e4c8",
+    "comments_url": "https://api.github.com/repos/hku-mars/FAST-LIVO2/commits/b3dd11fc4aa4a0514b9c170d8d2c4d5b5c43e4c8/comments",
+    "author": {
+      "login": "VictorKuang25",
+      "id": 119861875,
+      "node_id": "U_kgDOByTycw",
+      "avatar_url": "https://avatars.githubusercontent.com/u/119861875?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/VictorKuang25",
+      "html_url": "https://github.com/VictorKuang25",
+      "followers_url": "https://api.github.com/users/VictorKuang25/followers",
+      "following_url": "https://api.github.com/users/VictorKuang25/following{/other_user}",
+      "gists_url": "https://api.github.com/users/VictorKuang25/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/VictorKuang25/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/VictorKuang25/subscriptions",
+      "organizations_url": "https://api.github.com/users/VictorKuang25/orgs",
+      "repos_url": "https://api.github.com/users/VictorKuang25/repos",
+      "events_url": "https://api.github.com/users/VictorKuang25/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/VictorKuang25/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "VictorKuang25",
+      "id": 119861875,
+      "node_id": "U_kgDOByTycw",
+      "avatar_url": "https://avatars.githubusercontent.com/u/119861875?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/VictorKuang25",
+      "html_url": "https://github.com/VictorKuang25",
+      "followers_url": "https://api.github.com/users/VictorKuang25/followers",
+      "following_url": "https://api.github.com/users/VictorKuang25/following{/other_user}",
+      "gists_url": "https://api.github.com/users/VictorKuang25/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/VictorKuang25/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/VictorKuang25/subscriptions",
+      "organizations_url": "https://api.github.com/users/VictorKuang25/orgs",
+      "repos_url": "https://api.github.com/users/VictorKuang25/repos",
+      "events_url": "https://api.github.com/users/VictorKuang25/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/VictorKuang25/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "6dae34d3ce88ac1fa79634471a0f301edf84299b",
+        "url": "https://api.github.com/repos/hku-mars/FAST-LIVO2/commits/6dae34d3ce88ac1fa79634471a0f301edf84299b",
+        "html_url": "https://github.com/hku-mars/FAST-LIVO2/commit/6dae34d3ce88ac1fa79634471a0f301edf84299b"
+      }
+    ]
+  }
+]

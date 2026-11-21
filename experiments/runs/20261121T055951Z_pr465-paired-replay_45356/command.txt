@@ -1,0 +1,1 @@
+bash -lc source\ /opt/ros/humble/setup.bash\ \&\&\ source\ /home/nvidia/wsnew/ws_livox/install/setup.bash\ \&\&\ python3\ /home/nvidia/wsnew/scripts/run_pr465_ab.py\ --baseline\ /tmp/fastlivo_pr465_build_baseline/fastlivo_mapping\ --candidate\ /tmp/fastlivo_pr465_build_candidate/fastlivo_mapping\ --out\ /home/nvidia/wsnew/experiments/pr465/paired_runs 

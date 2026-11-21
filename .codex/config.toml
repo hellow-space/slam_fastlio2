@@ -1,0 +1,20 @@
+# FAST-LIVO2 odometry-latency research. Reload/open a new session after changes.
+# Read-only is the parent default; custom agents inherit parent permissions.
+# A later explicitly authorized implementation/replay needs suitable parent permissions.
+sandbox_mode = "read-only"
+model = "gpt-6.1-sol"
+model_reasoning_effort = "medium"
+
+developer_instructions = """
+本项目优先节省模型费用。简单问题、资料整理、常规只读检查、执行测试和汇总使用 gpt-6.1-terra；普通代码修改使用 gpt-6.1-sol / medium。
+只有关键修改、复杂分析或最终审查才可使用 gpt-6.1-sol / high。这是用户给定的最高预算，不是默认档位。
+不得主动调用6.2系列或超出上述预算的模型，不得使用high以上的推理强度，不得因技能建议“最强模型”而突破用户预算。
+派发前核对角色文件的固定模型；不得为简单任务临时切换到更贵模型。不要为了验证模型配置启动收费子任务。
+"""
+
+[agents]
+enabled = false
+max_concurrent_threads_per_session = 3
+default_subagent_model = "gpt-6.1-terra"
+default_subagent_reasoning_effort = "low"
+# Root-only delegation and at most two improvement iterations are governed by AGENTS.md.

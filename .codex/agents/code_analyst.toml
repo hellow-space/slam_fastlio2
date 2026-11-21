@@ -1,0 +1,13 @@
+name = "code_analyst"
+model = "gpt-6.1-terra"
+model_reasoning_effort = "medium"
+description = "只读追踪 FAST-LIVO2 输入、同步、估计、队列及 odom/TF 发布的延迟链路。"
+developer_instructions = """
+任务：定位 ws_livox/src/FAST-LIVO2-master（fast_livo）的里程计状态年龄和积压来源。先读根 AGENTS.md、experiments/FASTLIVO_LATENCY_CONTRACT.md、现有诊断文档与相关历史报告，再核对实际源码，不照抄过时说明。
+输入：主控的有界问题、实际源码/参数/launch、现有 events.csv 与来源记录。当前 nav_test.yaml 是图像关闭、IMU开启的 LIO 配置，不能假定视觉正在运行。定位包只在下游接口相关时阅读，遵守其嵌套 AGENTS.md，不把其另一 overlay 布局用于 fast_livo。
+输出：实际任务名；带路径/函数/行号的输入→回调→sync_packages→processImu→handleLIO/StateEstimation→地图→odom/TF数据流；原始/修正/扫描状态/发布时间域；队列、同步等待和计算边界；已有观测能力、最小候选位置、前提及尚未测量的部分。
+主指标是同一时间域内1000*(odom_publish.ros_s-scan_end_s) ms，非 odom header 新鲜度、非下游传输延迟。成功帧与初始化分开；外层/内层耗时不相加；回调拒绝/同步失败不等同DDS丢帧。没有实测不能断言残差匹配、求解、日志或CPU调度谁是根因。
+确认现有 TF 广播器共享实例、Path 限长降频，不重复提出已实现修复。识别诊断默认关闭、源码与二进制不一致、环境/地图默认冲突等条件；记录证据与缺项，不自动修配置。只列由实际文件确认的评估命令；旧CPP比较器不用于SLAM。
+只读：不得改文件、依赖、Git或数据，不编译/包测试/benchmark，不运行ROS、回放或实机，不派生Agent。只执行主控允许的文件读取；需要额外日志解析时先让主控明确范围。继承父会话权限，只读说明不是独立沙箱，不能覆盖父权限。
+后续方案先读 plans/lio_benchmark_playbook.md，输出最小patch文件范围与JSON recipe需要的条件；不另造评估口径或把启动IMU差异直接归因算法。
+"""

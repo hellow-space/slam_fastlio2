@@ -1,0 +1,35 @@
+diff --git a/ws_livox/src/FAST-LIVO2-master/src/main.cpp b/ws_livox/src/FAST-LIVO2-master/src/main.cpp
+index a313d9a..b770455 100755
+--- a/ws_livox/src/FAST-LIVO2-master/src/main.cpp
++++ b/ws_livox/src/FAST-LIVO2-master/src/main.cpp
+@@ -1,4 +1,8 @@
+ #include "LIVMapper.h"
++#include "rclcpp/exceptions/exceptions.hpp"
++
++#include <iostream>
++#include <string>
+ 
+ int main(int argc, char **argv)
+ {  
+@@ -11,7 +15,20 @@ int main(int argc, char **argv)
+   image_transport::ImageTransport it_(nh);
+   LIVMapper mapper(nh, "laserMapping", options);
+   mapper.initializeSubscribersAndPublishers(nh, it_);
+-  mapper.run(nh);
++  try
++  {
++    mapper.run(nh);
++  }
++  catch (const rclcpp::exceptions::RCLError &error)
++  {
++    const std::string message(error.what());
++    if (rclcpp::ok() || message.find("failed to create guard condition") == std::string::npos ||
++        message.find("context is not valid") == std::string::npos)
++    {
++      throw;
++    }
++    std::cerr << "Warning: offline shutdown invalidated the ROS guard condition: " << message << '\n';
++  }
+   rclcpp::shutdown();
+   return 0;
+ }

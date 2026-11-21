@@ -1,0 +1,1 @@
+python3 -m unittest discover -s /tmp/fastlivo_pr465_candidate/ws_livox/src/FAST-LIVO2-master/tests -v 

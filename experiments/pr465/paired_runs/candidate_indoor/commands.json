@@ -1,0 +1,47 @@
+{
+  "commands": {
+    "observer": [
+      "/usr/bin/python3",
+      "/home/nvidia/wsnew/ws_livox/src/FAST-LIVO2-master/scripts/benchmark_tf_lifetime.py",
+      "observe",
+      "/home/nvidia/wsnew/experiments/pr465/paired_runs/candidate_indoor"
+    ],
+    "node": [
+      "/tmp/fastlivo_pr465_build_candidate/fastlivo_mapping",
+      "--ros-args",
+      "-r",
+      "__node:=laserMapping",
+      "--params-file",
+      "/home/nvidia/wsnew/ws_livox/src/FAST-LIVO2-master/config/nav_test.yaml",
+      "--params-file",
+      "/home/nvidia/wsnew/ws_livox/src/FAST-LIVO2-master/config/camera_pinhole.yaml",
+      "-p",
+      "use_sim_time:=true",
+      "-p",
+      "preprocess.filter_size_surf:=0.15"
+    ],
+    "player": [
+      "ros2",
+      "bag",
+      "play",
+      "/home/nvidia/fastlivo_timing/imu_debug_20261112_210002",
+      "--topics",
+      "/livox/imu",
+      "/livox/lidar",
+      "--clock",
+      "200",
+      "--delay",
+      "2",
+      "--disable-keyboard-controls",
+      "--wait-for-all-acked",
+      "3000"
+    ]
+  },
+  "domain": 176,
+  "wall_start_s": 1795240859.198701,
+  "rate": 1,
+  "clock_hz": 200,
+  "surf_filter": 0.15,
+  "playback_timeout": 116.125393411,
+  "post_play_seconds": 30.0
+}

@@ -1,0 +1,14 @@
+{
+  "between_variants": [
+    "ws_livox/src/FAST-LIVO2-master/src/voxel_map.cpp"
+  ],
+  "vs_original": {
+    "baseline": [
+      "ws_livox/src/FAST-LIVO2-master/src/main.cpp"
+    ],
+    "candidate": [
+      "ws_livox/src/FAST-LIVO2-master/src/main.cpp",
+      "ws_livox/src/FAST-LIVO2-master/src/voxel_map.cpp"
+    ]
+  }
+}

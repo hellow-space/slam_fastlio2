@@ -1,0 +1,1067 @@
+{
+  "contract": {
+    "scheme_id": "001-reproduction",
+    "reference": "https://github.com/hku-mars/FAST-LIVO2/pull/465",
+    "hypothesis": "\u53bb\u9664\u9010\u70b9\u9501\u540e\u540c\u6761\u4ef6\u5ba4\u591640\u2013100\u79d2\u6210\u529f\u5e27mean\u226480ms\uff0c\u540c\u65f6\u72ec\u7acb\u62a5\u544aP95\u3001\u957f\u5c3e\u53ca\u56de\u5f52\uff1b\u590d\u73b0001\u65b9\u6848\u5de5\u5177\u51c6\u5907\uff0c\u4e0d\u4ee3\u8868\u65b0\u7b97\u6cd5\u65b9\u6848",
+    "patch": "/home/nvidia/wsnew/experiments/pr465/candidate.patch",
+    "allowed_files": [
+      "ws_livox/src/FAST-LIVO2-master/src/voxel_map.cpp"
+    ],
+    "baseline_ref": "5a506e73827609c6814969648ac94f274c39c167",
+    "output_root": "/home/nvidia/wsnew/experiments/automation_checks/final_prepare",
+    "common_patch": "/home/nvidia/wsnew/experiments/pr465/offline_shutdown_common.patch",
+    "ros_setup": "/opt/ros/humble/setup.bash",
+    "overlay_setup": "/home/nvidia/wsnew/ws_livox/install/setup.bash",
+    "build_jobs": 2,
+    "repetitions": 1,
+    "minimum_successful_pairs": 2,
+    "target_ms": 80,
+    "warmup_seconds": 5,
+    "high_load_start_s": 40,
+    "high_load_end_s": 100,
+    "post_play_seconds": 30,
+    "surf_filter": 0.15,
+    "bags": {
+      "indoor": {
+        "path": "/home/nvidia/fastlivo_timing/imu_debug_20261112_210002",
+        "start_s": 1794488403.5314271,
+        "duration_s": 26.125393411,
+        "input_counts": {
+          "/livox/imu": 5224,
+          "/livox/lidar": 262
+        },
+        "input_types": {
+          "/livox/imu": "sensor_msgs/msg/Imu",
+          "/livox/lidar": "livox_ros_driver2/msg/CustomMsg"
+        },
+        "sha256": {
+          "metadata.yaml": "741a27c21c7c7973333d5527d780e204e409b0def0819545eeaf8a6794be6556",
+          "imu_debug_20261112_210002_0.db3": "63114f7095097ada4859bf57d4a4d4665f42ad6d0e32aade25ce348e023e2fec"
+        }
+      },
+      "outdoor": {
+        "path": "/home/nvidia/fastlivo_timing/outdoor_bags/handheld_20261115_202612",
+        "start_s": 1794745573.3646455,
+        "duration_s": 123.837883338,
+        "input_counts": {
+          "/livox/imu": 24771,
+          "/livox/lidar": 1238
+        },
+        "input_types": {
+          "/livox/imu": "sensor_msgs/msg/Imu",
+          "/livox/lidar": "livox_ros_driver2/msg/CustomMsg"
+        },
+        "sha256": {
+          "metadata.yaml": "5d4ab87dffd74f5272e9d4b14277f839dc98ae6da561519c9ad3c3e506f514c1",
+          "handheld_20261115_202612_0.db3": "6baa74f73e6f11a46ac422a8ec648ba787f39c2031d56b97fbd703435e9ba728"
+        }
+      }
+    },
+    "regression_gates": {
+      "successful_source_scan_sets": "identical after source warmup5s; duplicate keys forbidden",
+      "inputs": "all recorded lidar/imu callbacks present; full_cycle count >= lidar messages-1; publish/diagnostic/successful cycle counts equal",
+      "tf_odom_position_max_m": 1e-12,
+      "tf_odom_quaternion_component_max": 1e-12,
+      "paired_pose_max_m": 1e-09,
+      "paired_quaternion_component_max": 1e-12,
+      "outdoor_high_load_wall_mapped_age_p95_candidate_max": "baseline p95 + 5 ms",
+      "outdoor_high_load_lidar_q_max_candidate_max": "baseline max + 1",
+      "wall_output_interval_p95_candidate_max": "baseline p95 + 5 ms",
+      "state_age_validity": "Audit nonfinite/negative raw ages and /clock EOF; use existing steady-mapped age for tail, not frozen clock freshness",
+      "absolute_accuracy": "unmeasured; no accuracy certification",
+      "performance_claim": "mean <=80ms is average only; p95 <=80ms is 95-percent budget; baseline reproduction reported separately"
+    },
+    "record_ledger": false,
+    "source_sha": "5a506e73827609c6814969648ac94f274c39c167",
+    "diagnostics": true,
+    "ros_domain_id": 176,
+    "localhost_only": true,
+    "replay_rate": 1,
+    "clock_hz": 200,
+    "ground_truth": "missing",
+    "rmw": "rmw_cyclonedds_cpp",
+    "windows": {
+      "warmup_seconds": 5,
+      "outdoor_high_load_start_s": 40,
+      "outdoor_high_load_end_s": 100
+    },
+    "frozen_files_sha256": {
+      "scripts/lio_benchmark_report.py": "65e0a1f47ede3ba88ec2b0b6232f863534e9f70b8ee072ede9f6edeae0985127",
+      "scripts/summarize_pr465_ab.py": "b114b7a6eaf743751d930d167fa73d636129bf96d4c31a4ac6d87b8c0641a93c",
+      "ws_livox/src/FAST-LIVO2-master/scripts/summarize_surf_filter_ab.py": "24194fa405d3d77a624af735d4c5ac945567eaaf2101c8cf52e1a468b7fdb5e5"
+    }
+  },
+  "source_snapshot": "source/initial_source.json",
+  "frozen_files_sha256": {
+    "/home/nvidia/wsnew/experiments/automation_checks/verification/final_recipe.json": "400288947784875d9e4bd4c59f6d784bfc1e9106b2704bfe179cd12c63c37b5e",
+    "/home/nvidia/wsnew/experiments/pr465/candidate.patch": "2b4ee32d6104c819e9ce1e4e8815dd87cee29132e0b9b6a9cb1a3278a067ce46",
+    "/home/nvidia/wsnew/experiments/pr465/offline_shutdown_common.patch": "6e60a9446d12841af5038a4568cd80b26a387144638aa8b4289315097aa3051c",
+    "/opt/ros/humble/setup.bash": "12556a2725a823c3841f8fbab50892c8b8c69df9654d2a74761407226ecca4df",
+    "/home/nvidia/wsnew/ws_livox/install/setup.bash": "2ee4dd4476d986a18711877bdee8c77dc87b58d882943c00a94c84f566c29781",
+    "/home/nvidia/wsnew/scripts/lio_benchmark.py": "af4851d595a17c361124fc0665b958bcaad9f585879993a1aa4bb26fa189cc47",
+    "/home/nvidia/wsnew/scripts/lio_benchmark_report.py": "65e0a1f47ede3ba88ec2b0b6232f863534e9f70b8ee072ede9f6edeae0985127",
+    "/home/nvidia/wsnew/scripts/summarize_pr465_ab.py": "b114b7a6eaf743751d930d167fa73d636129bf96d4c31a4ac6d87b8c0641a93c",
+    "/home/nvidia/wsnew/ws_livox/src/FAST-LIVO2-master/scripts/summarize_surf_filter_ab.py": "24194fa405d3d77a624af735d4c5ac945567eaaf2101c8cf52e1a468b7fdb5e5",
+    "/usr/bin/git": "700a0e79e3d11d025c5fd77f931fe65352414996b07f5aadb7d55b20572f6f50",
+    "/usr/bin/cmake": "9994c5f3629c4d54811be84a77eb21df7e0807b2e6510f1ba5aefe4f8b7e4de0",
+    "/usr/bin/bash": "c5f8a98c674631609902846fae6df219b3b16d97db58cf1c1334f8eb14962bde",
+    "/usr/bin/ldd": "a69ee6e72bc51c2a296d2e17b1c5e5c1dad52782bea15f3056f3abdc1348e570",
+    "/usr/bin/aarch64-linux-gnu-g++-11": "2aafdb1e153fc490fbd510d352572eee55ecdd29dd95eca239b4460c1afe3a12",
+    "/usr/bin/tegrastats": "9d81b65cccd4b982fe0b11b1aa107022ecabe0ae6ce1927bd506b9cff303db82",
+    "/usr/bin/python3.10": "06dbbe8641183e6db09f8540e7e69c9507304ee469dd9992cc5d20a13466aa3b",
+    "/opt/ros/humble/bin/ros2": "c3b1349dfa33e63922a27d7078181a9176736a27a71976281a19f98133cc05b3",
+    "/opt/ros/humble/lib/librmw_cyclonedds_cpp.so": "3337e88fa26dc39edc2de83d8b4d31890db5cc8a11e46ad964fe28566e29357e",
+    "/home/nvidia/wsnew/experiments/automation_checks/final_prepare/001-reproduction/source/patch.patch": "2b4ee32d6104c819e9ce1e4e8815dd87cee29132e0b9b6a9cb1a3278a067ce46",
+    "/home/nvidia/wsnew/experiments/automation_checks/final_prepare/001-reproduction/source/baseline_dirty.patch": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/home/nvidia/wsnew/experiments/automation_checks/final_prepare/001-reproduction/source/initial_source.json": "6fae76878c23f9c05ea4ec4d7aab00c0d803ae67eeff006f17030e5e447b10fb",
+    "/home/nvidia/wsnew/experiments/automation_checks/final_prepare/001-reproduction/source/common_patch.patch": "6e60a9446d12841af5038a4568cd80b26a387144638aa8b4289315097aa3051c",
+    "/home/nvidia/wsnew/experiments/automation_checks/final_prepare/001-reproduction/source/git_status.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "machine_identity": {
+    "uname": [
+      "Linux",
+      "nvidia-desktop",
+      "5.15.148-tegra",
+      "#1 SMP PREEMPT Tue Jan 7 17:14:38 PST 2025",
+      "aarch64"
+    ],
+    "cpu_affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "settings": {
+      "/etc/nvpmodel.conf": "#\n# Copyright (c) 2024, NVIDIA CORPORATION.  All rights reserved.\n#\n# NVIDIA CORPORATION and its licensors retain all intellectual property\n# and proprietary rights in and to this software, related documentation\n# and any modifications thereto.  Any use, reproduction, disclosure or\n# distribution of this software and related documentation without an express\n# license agreement from NVIDIA CORPORATION is strictly prohibited.\n#\n# FORMAT:\n# < PARAM TYPE=PARAM_TYPE NAME=PARAM_NAME >\n# ARG1_NAME ARG1_PATH_VAL\n# ARG2_NAME ARG2_PATH_VAL\n# ...\n# This starts a section of PARAM definitions, in which each line\n# has the syntax below:\n# ARG_NAME ARG_PATH_VAL\n# ARG_NAME is a macro name for argument value ARG_PATH_VAL.\n# PARAM_TYPE can be FILE, or CLOCK.\n#\n# < POWER_MODEL ID=id_num NAME=mode_name >\n# PARAM1_NAME ARG11_NAME ARG11_VAL\n# PARAM1_NAME ARG12_NAME ARG12_VAL\n# PARAM2_NAME ARG21_NAME ARG21_VAL\n# ...\n# This starts a section of POWER_MODEL configurations, followed by\n# lines with parameter settings as the format below:\n# PARAM_NAME ARG_NAME ARG_VAL\n# PARAM_NAME and ARG_NAME are defined in PARAM definition sections.\n# ARG_VAL is an integer for PARAM_TYPE of CLOCK, and -1 is taken\n# as INT_MAX. ARG_VAL is a string for PARAM_TYPE of FILE.\n# This file must contain at least one POWER_MODEL section.\n#\n# < PM_CONFIG DEFAULT=default_mode >\n# This is a mandatory section to specify one of the defined power\n# model as the default.\n\n###########################\n#                         #\n# PARAM DEFINITIONS       #\n#                         #\n###########################\n\n< PARAM TYPE=FILE NAME=CPU_ONLINE >\nCORE_0 /sys/devices/system/cpu/cpu0/online\nCORE_1 /sys/devices/system/cpu/cpu1/online\nCORE_2 /sys/devices/system/cpu/cpu2/online\nCORE_3 /sys/devices/system/cpu/cpu3/online\nCORE_4 /sys/devices/system/cpu/cpu4/online\nCORE_5 /sys/devices/system/cpu/cpu5/online\n\n< PARAM TYPE=FILE NAME=FBP_POWER_GATING >\nFBP_PG_MASK /sys/devices/gpu.0/fbp_pg_mask\nFBP_PG_MASK_KNEXT /sys/devices/platform/gpu.0/fbp_pg_mask\n\n< PARAM TYPE=FILE NAME=TPC_POWER_GATING >\nTPC_PG_MASK /sys/devices/gpu.0/tpc_pg_mask\nTPC_PG_MASK_KNEXT /sys/devices/platform/gpu.0/tpc_pg_mask\n\n< PARAM TYPE=FILE NAME=GPU_POWER_CONTROL_ENABLE >\nGPU_PWR_CNTL_EN /sys/devices/gpu.0/power/control\nGPU_PWR_CNTL_EN_KNEXT /sys/devices/platform/gpu.0/power/control\n\n< PARAM TYPE=FILE NAME=GPU_POWER_CONTROL_DISABLE >\nGPU_PWR_CNTL_DIS /sys/devices/gpu.0/power/control\nGPU_PWR_CNTL_DIS_KNEXT /sys/devices/platform/gpu.0/power/control\n\n< PARAM TYPE=CLOCK NAME=CPU_A78_0 >\nFREQ_TABLE /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies\nMAX_FREQ /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq\nMIN_FREQ /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq\nFREQ_TABLE_KNEXT /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies\nMAX_FREQ_KNEXT /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq\nMIN_FREQ_KNEXT /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq\n\n< PARAM TYPE=CLOCK NAME=CPU_A78_1 >\nFREQ_TABLE /sys/devices/system/cpu/cpu1/cpufreq/scaling_available_frequencies\nMAX_FREQ /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq\nMIN_FREQ /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq\nFREQ_TABLE_KNEXT /sys/devices/system/cpu/cpu1/cpufreq/scaling_available_frequencies\nMAX_FREQ_KNEXT /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq\nMIN_FREQ_KNEXT /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq\n\n< PARAM TYPE=CLOCK NAME=CPU_A78_2 >\nFREQ_TABLE /sys/devices/system/cpu/cpu2/cpufreq/scaling_available_frequencies\nMAX_FREQ /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq\nMIN_FREQ /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq\nFREQ_TABLE_KNEXT /sys/devices/system/cpu/cpu2/cpufreq/scaling_available_frequencies\nMAX_FREQ_KNEXT /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq\nMIN_FREQ_KNEXT /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq\n\n< PARAM TYPE=CLOCK NAME=CPU_A78_3 >\nFREQ_TABLE /sys/devices/system/cpu/cpu3/cpufreq/scaling_available_frequencies\nMAX_FREQ /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq\nMIN_FREQ /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq\nFREQ_TABLE_KNEXT /sys/devices/system/cpu/cpu3/cpufreq/scaling_available_frequencies\nMAX_FREQ_KNEXT /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq\nMIN_FREQ_KNEXT /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq\n\n< PARAM TYPE=CLOCK NAME=CPU_A78_4 >\nFREQ_TABLE /sys/devices/system/cpu/cpu4/cpufreq/scaling_available_frequencies\nMAX_FREQ /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq\nMIN_FREQ /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq\nFREQ_TABLE_KNEXT /sys/devices/system/cpu/cpu4/cpufreq/scaling_available_frequencies\nMAX_FREQ_KNEXT /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq\nMIN_FREQ_KNEXT /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq\n\n< PARAM TYPE=CLOCK NAME=CPU_A78_5 >\nFREQ_TABLE /sys/devices/system/cpu/cpu5/cpufreq/scaling_available_frequencies\nMAX_FREQ /sys/devices/system/cpu/cpu5/cpufreq/scaling_max_freq\nMIN_FREQ /sys/devices/system/cpu/cpu5/cpufreq/scaling_min_freq\nFREQ_TABLE_KNEXT /sys/devices/system/cpu/cpu5/cpufreq/scaling_available_frequencies\nMAX_FREQ_KNEXT /sys/devices/system/cpu/cpu5/cpufreq/scaling_max_freq\nMIN_FREQ_KNEXT /sys/devices/system/cpu/cpu5/cpufreq/scaling_min_freq\n\n< PARAM TYPE=CLOCK NAME=GPU >\nFREQ_TABLE /sys/devices/17000000.ga10b/devfreq/17000000.ga10b/available_frequencies\nMAX_FREQ /sys/devices/17000000.ga10b/devfreq/17000000.ga10b/max_freq\nMIN_FREQ /sys/devices/17000000.ga10b/devfreq/17000000.ga10b/min_freq\nFREQ_TABLE_KNEXT /sys/devices/platform/17000000.gpu/devfreq_dev/available_frequencies\nMAX_FREQ_KNEXT /sys/devices/platform/17000000.gpu/devfreq_dev/max_freq\nMIN_FREQ_KNEXT /sys/devices/platform/17000000.gpu/devfreq_dev/min_freq\n\n<PARAM TYPE=CLOCK NAME=EMC >\nMAX_FREQ /sys/kernel/nvpmodel_emc_cap/emc_iso_cap\nMAX_FREQ_KNEXT /sys/kernel/nvpmodel_clk_cap/emc\n\n< PARAM TYPE=CLOCK NAME=DLA0_CORE >\nMAX_FREQ /sys/devices/platform/13e40000.host1x/15880000.nvdla0/acm/clk_cap/dla0_core\nMAX_FREQ_KNEXT /sys/devices/platform/bus@0/13e00000.host1x/15880000.nvdla0/clk_cap/dla0_core\n\n< PARAM TYPE=CLOCK NAME=DLA0_FALCON >\nMAX_FREQ /sys/devices/platform/13e40000.host1x/15880000.nvdla0/acm/clk_cap/dla0_falcon\nMAX_FREQ_KNEXT /sys/devices/platform/bus@0/13e00000.host1x/15880000.nvdla0/clk_cap/dla0_falcon\n\n< PARAM TYPE=CLOCK NAME=DLA1_CORE >\nMAX_FREQ /sys/devices/platform/13e40000.host1x/158c0000.nvdla1/acm/clk_cap/dla1_core\nMAX_FREQ_KNEXT /sys/devices/platform/bus@0/13e00000.host1x/158c0000.nvdla1/clk_cap/dla1_core\n\n< PARAM TYPE=CLOCK NAME=DLA1_FALCON >\nMAX_FREQ /sys/devices/platform/13e40000.host1x/158c0000.nvdla1/acm/clk_cap/dla1_falcon\nMAX_FREQ_KNEXT /sys/devices/platform/bus@0/13e00000.host1x/158c0000.nvdla1/clk_cap/dla1_falcon\n\n< PARAM TYPE=CLOCK NAME=PVA0_VPS >\nMAX_FREQ /sys/devices/platform/13e40000.host1x/16000000.pva0/acm/clk_cap/pva0_vps\nMAX_FREQ_KNEXT /sys/devices/platform/bus@0/13e00000.host1x/16000000.pva0/clk_cap/pva0_vps\n\n< PARAM TYPE=CLOCK NAME=PVA0_AXI >\nMAX_FREQ /sys/devices/platform/13e40000.host1x/16000000.pva0/acm/clk_cap/pva0_cpu_axi\nMAX_FREQ_KNEXT /sys/devices/platform/bus@0/13e00000.host1x/16000000.pva0/clk_cap/pva0_cpu_axi\n\n###########################\n#                         #\n# POWER_MODEL DEFINITIONS #\n#                         #\n###########################\n\n# MAXN_SUPER is the NONE power model to release all constraints\n< POWER_MODEL ID=0 NAME=MAXN_SUPER >\nCPU_ONLINE CORE_0 1\nCPU_ONLINE CORE_1 1\nCPU_ONLINE CORE_2 1\nCPU_ONLINE CORE_3 1\nCPU_ONLINE CORE_4 1\nCPU_ONLINE CORE_5 1\nFBP_POWER_GATING FBP_PG_MASK 2\nTPC_POWER_GATING TPC_PG_MASK 240\nGPU_POWER_CONTROL_ENABLE GPU_PWR_CNTL_EN on\nCPU_A78_0 MIN_FREQ 729600\nCPU_A78_0 MAX_FREQ -1\nCPU_A78_1 MIN_FREQ 729600\nCPU_A78_1 MAX_FREQ -1\nCPU_A78_2 MIN_FREQ 729600\nCPU_A78_2 MAX_FREQ -1\nCPU_A78_3 MIN_FREQ 729600\nCPU_A78_3 MAX_FREQ -1\nCPU_A78_4 MIN_FREQ 729600\nCPU_A78_4 MAX_FREQ -1\nCPU_A78_5 MIN_FREQ 729600\nCPU_A78_5 MAX_FREQ -1\nGPU MIN_FREQ 0\nGPU MAX_FREQ -1\nGPU_POWER_CONTROL_DISABLE GPU_PWR_CNTL_DIS auto\nEMC MAX_FREQ -1\nDLA0_CORE MAX_FREQ -1\nDLA1_CORE MAX_FREQ -1\nDLA0_FALCON MAX_FREQ -1\nDLA1_FALCON MAX_FREQ -1\nPVA0_VPS MAX_FREQ -1\nPVA0_AXI MAX_FREQ -1\n\n< POWER_MODEL ID=1 NAME=10W >\nCPU_ONLINE CORE_0 1\nCPU_ONLINE CORE_1 1\nCPU_ONLINE CORE_2 1\nCPU_ONLINE CORE_3 1\nCPU_ONLINE CORE_4 0\nCPU_ONLINE CORE_5 0\nFBP_POWER_GATING FBP_PG_MASK 2\nTPC_POWER_GATING TPC_PG_MASK 252\nGPU_POWER_CONTROL_ENABLE GPU_PWR_CNTL_EN on\nCPU_A78_0 MIN_FREQ 729600\nCPU_A78_0 MAX_FREQ 1190400\nCPU_A78_1 MIN_FREQ 729600\nCPU_A78_1 MAX_FREQ 1190400\nCPU_A78_2 MIN_FREQ 729600\nCPU_A78_2 MAX_FREQ 1190400\nCPU_A78_3 MIN_FREQ 729600\nCPU_A78_3 MAX_FREQ 1190400\nGPU MIN_FREQ 0\nGPU MAX_FREQ 612000000\nGPU_POWER_CONTROL_DISABLE GPU_PWR_CNTL_DIS auto\nEMC MAX_FREQ 2133000000\nDLA0_CORE MAX_FREQ 153600000\nDLA1_CORE MAX_FREQ 153600000\nDLA0_FALCON MAX_FREQ 115000000\nDLA1_FALCON MAX_FREQ 115000000\nPVA0_VPS MAX_FREQ 115000000\nPVA0_AXI MAX_FREQ 115000000\n\n< POWER_MODEL ID=2 NAME=15W >\nCPU_ONLINE CORE_0 1\nCPU_ONLINE CORE_1 1\nCPU_ONLINE CORE_2 1\nCPU_ONLINE CORE_3 1\nCPU_ONLINE CORE_4 0\nCPU_ONLINE CORE_5 0\nFBP_POWER_GATING FBP_PG_MASK 2\nTPC_POWER_GATING TPC_PG_MASK 252\nGPU_POWER_CONTROL_ENABLE GPU_PWR_CNTL_EN on\nCPU_A78_0 MIN_FREQ 729600\nCPU_A78_0 MAX_FREQ 1420800\nCPU_A78_1 MIN_FREQ 729600\nCPU_A78_1 MAX_FREQ 1420800\nCPU_A78_2 MIN_FREQ 729600\nCPU_A78_2 MAX_FREQ 1420800\nCPU_A78_3 MIN_FREQ 729600\nCPU_A78_3 MAX_FREQ 1420800\nGPU MIN_FREQ 0\nGPU MAX_FREQ 612000000\nGPU_POWER_CONTROL_DISABLE GPU_PWR_CNTL_DIS auto\nEMC MAX_FREQ -1\nDLA0_CORE MAX_FREQ 614400000\nDLA1_CORE MAX_FREQ 614400000\nDLA0_FALCON MAX_FREQ 294400000\nDLA1_FALCON MAX_FREQ 294400000\nPVA0_VPS MAX_FREQ 115000000\nPVA0_AXI MAX_FREQ 115000000\n\n< POWER_MODEL ID=3 NAME=20W >\nCPU_ONLINE CORE_0 1\nCPU_ONLINE CORE_1 1\nCPU_ONLINE CORE_2 1\nCPU_ONLINE CORE_3 1\nCPU_ONLINE CORE_4 1\nCPU_ONLINE CORE_5 1\nFBP_POWER_GATING FBP_PG_MASK 2\nTPC_POWER_GATING TPC_PG_MASK 240\nGPU_POWER_CONTROL_ENABLE GPU_PWR_CNTL_EN on\nCPU_A78_0 MIN_FREQ 729600\nCPU_A78_0 MAX_FREQ 1497600\nCPU_A78_1 MIN_FREQ 729600\nCPU_A78_1 MAX_FREQ 1497600\nCPU_A78_2 MIN_FREQ 729600\nCPU_A78_2 MAX_FREQ 1497600\nCPU_A78_3 MIN_FREQ 729600\nCPU_A78_3 MAX_FREQ 1497600\nCPU_A78_4 MIN_FREQ 729600\nCPU_A78_4 MAX_FREQ 1497600\nCPU_A78_5 MIN_FREQ 729600\nCPU_A78_5 MAX_FREQ 1497600\nGPU MIN_FREQ 0\nGPU MAX_FREQ 408000000\nGPU_POWER_CONTROL_DISABLE GPU_PWR_CNTL_DIS auto\nEMC MAX_FREQ -1\nDLA0_CORE MAX_FREQ 614400000\nDLA1_CORE MAX_FREQ 614400000\nDLA0_FALCON MAX_FREQ 294400000\nDLA1_FALCON MAX_FREQ 294400000\nPVA0_VPS MAX_FREQ 512000000\nPVA0_AXI MAX_FREQ 358400000\n\n< POWER_MODEL ID=4 NAME=40W >\nCPU_ONLINE CORE_0 1\nCPU_ONLINE CORE_1 1\nCPU_ONLINE CORE_2 1\nCPU_ONLINE CORE_3 1\nCPU_ONLINE CORE_4 1\nCPU_ONLINE CORE_5 1\nFBP_POWER_GATING FBP_PG_MASK 2\nTPC_POWER_GATING TPC_PG_MASK 240\nGPU_POWER_CONTROL_ENABLE GPU_PWR_CNTL_EN on\nCPU_A78_0 MIN_FREQ 729600\nCPU_A78_0 MAX_FREQ 1984000\nCPU_A78_1 MIN_FREQ 729600\nCPU_A78_1 MAX_FREQ 1984000\nCPU_A78_2 MIN_FREQ 729600\nCPU_A78_2 MAX_FREQ 1984000\nCPU_A78_3 MIN_FREQ 729600\nCPU_A78_3 MAX_FREQ 1984000\nCPU_A78_4 MIN_FREQ 729600\nCPU_A78_4 MAX_FREQ 1984000\nCPU_A78_5 MIN_FREQ 729600\nCPU_A78_5 MAX_FREQ 1984000\nGPU MIN_FREQ 0\nGPU MAX_FREQ 1173000000\nGPU_POWER_CONTROL_DISABLE GPU_PWR_CNTL_DIS auto\nEMC MAX_FREQ -1\nDLA0_CORE MAX_FREQ 1203200000\nDLA1_CORE MAX_FREQ 1203200000\nDLA0_FALCON MAX_FREQ 640000000\nDLA1_FALCON MAX_FREQ 640000000\nPVA0_VPS MAX_FREQ 704000000\nPVA0_AXI MAX_FREQ 486400000\n\n# mandatory section to configure the default power mode\n< PM_CONFIG DEFAULT=4 >\n",
+      "/var/lib/nvpmodel/status": "pmode:0000",
+      "/sys/devices/system/cpu/online": "0-7\n",
+      "/sys/devices/system/cpu/cpufreq/policy4/scaling_governor": "schedutil\n",
+      "/sys/devices/system/cpu/cpufreq/policy0/scaling_governor": "schedutil\n",
+      "/sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq": "1984000\n",
+      "/sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq": "1984000\n"
+    },
+    "inherited_thread_env": {
+      "OMP_NUM_THREADS": null,
+      "OMP_DYNAMIC": null,
+      "OMP_THREAD_LIMIT": null,
+      "OMP_PROC_BIND": null,
+      "OMP_PLACES": null,
+      "GOMP_CPU_AFFINITY": null,
+      "OPENBLAS_NUM_THREADS": null,
+      "MKL_NUM_THREADS": null
+    }
+  },
+  "environment": {
+    "uname": [
+      "Linux",
+      "nvidia-desktop",
+      "5.15.148-tegra",
+      "#1 SMP PREEMPT Tue Jan 7 17:14:38 PST 2025",
+      "aarch64"
+    ],
+    "cpu_affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "settings": {
+      "/etc/nvpmodel.conf": "#\n# Copyright (c) 2024, NVIDIA CORPORATION.  All rights reserved.\n#\n# NVIDIA CORPORATION and its licensors retain all intellectual property\n# and proprietary rights in and to this software, related documentation\n# and any modifications thereto.  Any use, reproduction, disclosure or\n# distribution of this software and related documentation without an express\n# license agreement from NVIDIA CORPORATION is strictly prohibited.\n#\n# FORMAT:\n# < PARAM TYPE=PARAM_TYPE NAME=PARAM_NAME >\n# ARG1_NAME ARG1_PATH_VAL\n# ARG2_NAME ARG2_PATH_VAL\n# ...\n# This starts a section of PARAM definitions, in which each line\n# has the syntax below:\n# ARG_NAME ARG_PATH_VAL\n# ARG_NAME is a macro name for argument value ARG_PATH_VAL.\n# PARAM_TYPE can be FILE, or CLOCK.\n#\n# < POWER_MODEL ID=id_num NAME=mode_name >\n# PARAM1_NAME ARG11_NAME ARG11_VAL\n# PARAM1_NAME ARG12_NAME ARG12_VAL\n# PARAM2_NAME ARG21_NAME ARG21_VAL\n# ...\n# This starts a section of POWER_MODEL configurations, followed by\n# lines with parameter settings as the format below:\n# PARAM_NAME ARG_NAME ARG_VAL\n# PARAM_NAME and ARG_NAME are defined in PARAM definition sections.\n# ARG_VAL is an integer for PARAM_TYPE of CLOCK, and -1 is taken\n# as INT_MAX. ARG_VAL is a string for PARAM_TYPE of FILE.\n# This file must contain at least one POWER_MODEL section.\n#\n# < PM_CONFIG DEFAULT=default_mode >\n# This is a mandatory section to specify one of the defined power\n# model as the default.\n\n###########################\n#                         #\n# PARAM DEFINITIONS       #\n#                         #\n###########################\n\n< PARAM TYPE=FILE NAME=CPU_ONLINE >\nCORE_0 /sys/devices/system/cpu/cpu0/online\nCORE_1 /sys/devices/system/cpu/cpu1/online\nCORE_2 /sys/devices/system/cpu/cpu2/online\nCORE_3 /sys/devices/system/cpu/cpu3/online\nCORE_4 /sys/devices/system/cpu/cpu4/online\nCORE_5 /sys/devices/system/cpu/cpu5/online\n\n< PARAM TYPE=FILE NAME=FBP_POWER_GATING >\nFBP_PG_MASK /sys/devices/gpu.0/fbp_pg_mask\nFBP_PG_MASK_KNEXT /sys/devices/platform/gpu.0/fbp_pg_mask\n\n< PARAM TYPE=FILE NAME=TPC_POWER_GATING >\nTPC_PG_MASK /sys/devices/gpu.0/tpc_pg_mask\nTPC_PG_MASK_KNEXT /sys/devices/platform/gpu.0/tpc_pg_mask\n\n< PARAM TYPE=FILE NAME=GPU_POWER_CONTROL_ENABLE >\nGPU_PWR_CNTL_EN /sys/devices/gpu.0/power/control\nGPU_PWR_CNTL_EN_KNEXT /sys/devices/platform/gpu.0/power/control\n\n< PARAM TYPE=FILE NAME=GPU_POWER_CONTROL_DISABLE >\nGPU_PWR_CNTL_DIS /sys/devices/gpu.0/power/control\nGPU_PWR_CNTL_DIS_KNEXT /sys/devices/platform/gpu.0/power/control\n\n< PARAM TYPE=CLOCK NAME=CPU_A78_0 >\nFREQ_TABLE /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies\nMAX_FREQ /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq\nMIN_FREQ /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq\nFREQ_TABLE_KNEXT /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies\nMAX_FREQ_KNEXT /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq\nMIN_FREQ_KNEXT /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq\n\n< PARAM TYPE=CLOCK NAME=CPU_A78_1 >\nFREQ_TABLE /sys/devices/system/cpu/cpu1/cpufreq/scaling_available_frequencies\nMAX_FREQ /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq\nMIN_FREQ /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq\nFREQ_TABLE_KNEXT /sys/devices/system/cpu/cpu1/cpufreq/scaling_available_frequencies\nMAX_FREQ_KNEXT /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq\nMIN_FREQ_KNEXT /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq\n\n< PARAM TYPE=CLOCK NAME=CPU_A78_2 >\nFREQ_TABLE /sys/devices/system/cpu/cpu2/cpufreq/scaling_available_frequencies\nMAX_FREQ /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq\nMIN_FREQ /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq\nFREQ_TABLE_KNEXT /sys/devices/system/cpu/cpu2/cpufreq/scaling_available_frequencies\nMAX_FREQ_KNEXT /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq\nMIN_FREQ_KNEXT /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq\n\n< PARAM TYPE=CLOCK NAME=CPU_A78_3 >\nFREQ_TABLE /sys/devices/system/cpu/cpu3/cpufreq/scaling_available_frequencies\nMAX_FREQ /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq\nMIN_FREQ /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq\nFREQ_TABLE_KNEXT /sys/devices/system/cpu/cpu3/cpufreq/scaling_available_frequencies\nMAX_FREQ_KNEXT /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq\nMIN_FREQ_KNEXT /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq\n\n< PARAM TYPE=CLOCK NAME=CPU_A78_4 >\nFREQ_TABLE /sys/devices/system/cpu/cpu4/cpufreq/scaling_available_frequencies\nMAX_FREQ /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq\nMIN_FREQ /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq\nFREQ_TABLE_KNEXT /sys/devices/system/cpu/cpu4/cpufreq/scaling_available_frequencies\nMAX_FREQ_KNEXT /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq\nMIN_FREQ_KNEXT /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq\n\n< PARAM TYPE=CLOCK NAME=CPU_A78_5 >\nFREQ_TABLE /sys/devices/system/cpu/cpu5/cpufreq/scaling_available_frequencies\nMAX_FREQ /sys/devices/system/cpu/cpu5/cpufreq/scaling_max_freq\nMIN_FREQ /sys/devices/system/cpu/cpu5/cpufreq/scaling_min_freq\nFREQ_TABLE_KNEXT /sys/devices/system/cpu/cpu5/cpufreq/scaling_available_frequencies\nMAX_FREQ_KNEXT /sys/devices/system/cpu/cpu5/cpufreq/scaling_max_freq\nMIN_FREQ_KNEXT /sys/devices/system/cpu/cpu5/cpufreq/scaling_min_freq\n\n< PARAM TYPE=CLOCK NAME=GPU >\nFREQ_TABLE /sys/devices/17000000.ga10b/devfreq/17000000.ga10b/available_frequencies\nMAX_FREQ /sys/devices/17000000.ga10b/devfreq/17000000.ga10b/max_freq\nMIN_FREQ /sys/devices/17000000.ga10b/devfreq/17000000.ga10b/min_freq\nFREQ_TABLE_KNEXT /sys/devices/platform/17000000.gpu/devfreq_dev/available_frequencies\nMAX_FREQ_KNEXT /sys/devices/platform/17000000.gpu/devfreq_dev/max_freq\nMIN_FREQ_KNEXT /sys/devices/platform/17000000.gpu/devfreq_dev/min_freq\n\n<PARAM TYPE=CLOCK NAME=EMC >\nMAX_FREQ /sys/kernel/nvpmodel_emc_cap/emc_iso_cap\nMAX_FREQ_KNEXT /sys/kernel/nvpmodel_clk_cap/emc\n\n< PARAM TYPE=CLOCK NAME=DLA0_CORE >\nMAX_FREQ /sys/devices/platform/13e40000.host1x/15880000.nvdla0/acm/clk_cap/dla0_core\nMAX_FREQ_KNEXT /sys/devices/platform/bus@0/13e00000.host1x/15880000.nvdla0/clk_cap/dla0_core\n\n< PARAM TYPE=CLOCK NAME=DLA0_FALCON >\nMAX_FREQ /sys/devices/platform/13e40000.host1x/15880000.nvdla0/acm/clk_cap/dla0_falcon\nMAX_FREQ_KNEXT /sys/devices/platform/bus@0/13e00000.host1x/15880000.nvdla0/clk_cap/dla0_falcon\n\n< PARAM TYPE=CLOCK NAME=DLA1_CORE >\nMAX_FREQ /sys/devices/platform/13e40000.host1x/158c0000.nvdla1/acm/clk_cap/dla1_core\nMAX_FREQ_KNEXT /sys/devices/platform/bus@0/13e00000.host1x/158c0000.nvdla1/clk_cap/dla1_core\n\n< PARAM TYPE=CLOCK NAME=DLA1_FALCON >\nMAX_FREQ /sys/devices/platform/13e40000.host1x/158c0000.nvdla1/acm/clk_cap/dla1_falcon\nMAX_FREQ_KNEXT /sys/devices/platform/bus@0/13e00000.host1x/158c0000.nvdla1/clk_cap/dla1_falcon\n\n< PARAM TYPE=CLOCK NAME=PVA0_VPS >\nMAX_FREQ /sys/devices/platform/13e40000.host1x/16000000.pva0/acm/clk_cap/pva0_vps\nMAX_FREQ_KNEXT /sys/devices/platform/bus@0/13e00000.host1x/16000000.pva0/clk_cap/pva0_vps\n\n< PARAM TYPE=CLOCK NAME=PVA0_AXI >\nMAX_FREQ /sys/devices/platform/13e40000.host1x/16000000.pva0/acm/clk_cap/pva0_cpu_axi\nMAX_FREQ_KNEXT /sys/devices/platform/bus@0/13e00000.host1x/16000000.pva0/clk_cap/pva0_cpu_axi\n\n###########################\n#                         #\n# POWER_MODEL DEFINITIONS #\n#                         #\n###########################\n\n# MAXN_SUPER is the NONE power model to release all constraints\n< POWER_MODEL ID=0 NAME=MAXN_SUPER >\nCPU_ONLINE CORE_0 1\nCPU_ONLINE CORE_1 1\nCPU_ONLINE CORE_2 1\nCPU_ONLINE CORE_3 1\nCPU_ONLINE CORE_4 1\nCPU_ONLINE CORE_5 1\nFBP_POWER_GATING FBP_PG_MASK 2\nTPC_POWER_GATING TPC_PG_MASK 240\nGPU_POWER_CONTROL_ENABLE GPU_PWR_CNTL_EN on\nCPU_A78_0 MIN_FREQ 729600\nCPU_A78_0 MAX_FREQ -1\nCPU_A78_1 MIN_FREQ 729600\nCPU_A78_1 MAX_FREQ -1\nCPU_A78_2 MIN_FREQ 729600\nCPU_A78_2 MAX_FREQ -1\nCPU_A78_3 MIN_FREQ 729600\nCPU_A78_3 MAX_FREQ -1\nCPU_A78_4 MIN_FREQ 729600\nCPU_A78_4 MAX_FREQ -1\nCPU_A78_5 MIN_FREQ 729600\nCPU_A78_5 MAX_FREQ -1\nGPU MIN_FREQ 0\nGPU MAX_FREQ -1\nGPU_POWER_CONTROL_DISABLE GPU_PWR_CNTL_DIS auto\nEMC MAX_FREQ -1\nDLA0_CORE MAX_FREQ -1\nDLA1_CORE MAX_FREQ -1\nDLA0_FALCON MAX_FREQ -1\nDLA1_FALCON MAX_FREQ -1\nPVA0_VPS MAX_FREQ -1\nPVA0_AXI MAX_FREQ -1\n\n< POWER_MODEL ID=1 NAME=10W >\nCPU_ONLINE CORE_0 1\nCPU_ONLINE CORE_1 1\nCPU_ONLINE CORE_2 1\nCPU_ONLINE CORE_3 1\nCPU_ONLINE CORE_4 0\nCPU_ONLINE CORE_5 0\nFBP_POWER_GATING FBP_PG_MASK 2\nTPC_POWER_GATING TPC_PG_MASK 252\nGPU_POWER_CONTROL_ENABLE GPU_PWR_CNTL_EN on\nCPU_A78_0 MIN_FREQ 729600\nCPU_A78_0 MAX_FREQ 1190400\nCPU_A78_1 MIN_FREQ 729600\nCPU_A78_1 MAX_FREQ 1190400\nCPU_A78_2 MIN_FREQ 729600\nCPU_A78_2 MAX_FREQ 1190400\nCPU_A78_3 MIN_FREQ 729600\nCPU_A78_3 MAX_FREQ 1190400\nGPU MIN_FREQ 0\nGPU MAX_FREQ 612000000\nGPU_POWER_CONTROL_DISABLE GPU_PWR_CNTL_DIS auto\nEMC MAX_FREQ 2133000000\nDLA0_CORE MAX_FREQ 153600000\nDLA1_CORE MAX_FREQ 153600000\nDLA0_FALCON MAX_FREQ 115000000\nDLA1_FALCON MAX_FREQ 115000000\nPVA0_VPS MAX_FREQ 115000000\nPVA0_AXI MAX_FREQ 115000000\n\n< POWER_MODEL ID=2 NAME=15W >\nCPU_ONLINE CORE_0 1\nCPU_ONLINE CORE_1 1\nCPU_ONLINE CORE_2 1\nCPU_ONLINE CORE_3 1\nCPU_ONLINE CORE_4 0\nCPU_ONLINE CORE_5 0\nFBP_POWER_GATING FBP_PG_MASK 2\nTPC_POWER_GATING TPC_PG_MASK 252\nGPU_POWER_CONTROL_ENABLE GPU_PWR_CNTL_EN on\nCPU_A78_0 MIN_FREQ 729600\nCPU_A78_0 MAX_FREQ 1420800\nCPU_A78_1 MIN_FREQ 729600\nCPU_A78_1 MAX_FREQ 1420800\nCPU_A78_2 MIN_FREQ 729600\nCPU_A78_2 MAX_FREQ 1420800\nCPU_A78_3 MIN_FREQ 729600\nCPU_A78_3 MAX_FREQ 1420800\nGPU MIN_FREQ 0\nGPU MAX_FREQ 612000000\nGPU_POWER_CONTROL_DISABLE GPU_PWR_CNTL_DIS auto\nEMC MAX_FREQ -1\nDLA0_CORE MAX_FREQ 614400000\nDLA1_CORE MAX_FREQ 614400000\nDLA0_FALCON MAX_FREQ 294400000\nDLA1_FALCON MAX_FREQ 294400000\nPVA0_VPS MAX_FREQ 115000000\nPVA0_AXI MAX_FREQ 115000000\n\n< POWER_MODEL ID=3 NAME=20W >\nCPU_ONLINE CORE_0 1\nCPU_ONLINE CORE_1 1\nCPU_ONLINE CORE_2 1\nCPU_ONLINE CORE_3 1\nCPU_ONLINE CORE_4 1\nCPU_ONLINE CORE_5 1\nFBP_POWER_GATING FBP_PG_MASK 2\nTPC_POWER_GATING TPC_PG_MASK 240\nGPU_POWER_CONTROL_ENABLE GPU_PWR_CNTL_EN on\nCPU_A78_0 MIN_FREQ 729600\nCPU_A78_0 MAX_FREQ 1497600\nCPU_A78_1 MIN_FREQ 729600\nCPU_A78_1 MAX_FREQ 1497600\nCPU_A78_2 MIN_FREQ 729600\nCPU_A78_2 MAX_FREQ 1497600\nCPU_A78_3 MIN_FREQ 729600\nCPU_A78_3 MAX_FREQ 1497600\nCPU_A78_4 MIN_FREQ 729600\nCPU_A78_4 MAX_FREQ 1497600\nCPU_A78_5 MIN_FREQ 729600\nCPU_A78_5 MAX_FREQ 1497600\nGPU MIN_FREQ 0\nGPU MAX_FREQ 408000000\nGPU_POWER_CONTROL_DISABLE GPU_PWR_CNTL_DIS auto\nEMC MAX_FREQ -1\nDLA0_CORE MAX_FREQ 614400000\nDLA1_CORE MAX_FREQ 614400000\nDLA0_FALCON MAX_FREQ 294400000\nDLA1_FALCON MAX_FREQ 294400000\nPVA0_VPS MAX_FREQ 512000000\nPVA0_AXI MAX_FREQ 358400000\n\n< POWER_MODEL ID=4 NAME=40W >\nCPU_ONLINE CORE_0 1\nCPU_ONLINE CORE_1 1\nCPU_ONLINE CORE_2 1\nCPU_ONLINE CORE_3 1\nCPU_ONLINE CORE_4 1\nCPU_ONLINE CORE_5 1\nFBP_POWER_GATING FBP_PG_MASK 2\nTPC_POWER_GATING TPC_PG_MASK 240\nGPU_POWER_CONTROL_ENABLE GPU_PWR_CNTL_EN on\nCPU_A78_0 MIN_FREQ 729600\nCPU_A78_0 MAX_FREQ 1984000\nCPU_A78_1 MIN_FREQ 729600\nCPU_A78_1 MAX_FREQ 1984000\nCPU_A78_2 MIN_FREQ 729600\nCPU_A78_2 MAX_FREQ 1984000\nCPU_A78_3 MIN_FREQ 729600\nCPU_A78_3 MAX_FREQ 1984000\nCPU_A78_4 MIN_FREQ 729600\nCPU_A78_4 MAX_FREQ 1984000\nCPU_A78_5 MIN_FREQ 729600\nCPU_A78_5 MAX_FREQ 1984000\nGPU MIN_FREQ 0\nGPU MAX_FREQ 1173000000\nGPU_POWER_CONTROL_DISABLE GPU_PWR_CNTL_DIS auto\nEMC MAX_FREQ -1\nDLA0_CORE MAX_FREQ 1203200000\nDLA1_CORE MAX_FREQ 1203200000\nDLA0_FALCON MAX_FREQ 640000000\nDLA1_FALCON MAX_FREQ 640000000\nPVA0_VPS MAX_FREQ 704000000\nPVA0_AXI MAX_FREQ 486400000\n\n# mandatory section to configure the default power mode\n< PM_CONFIG DEFAULT=4 >\n",
+      "/var/lib/nvpmodel/status": "pmode:0000",
+      "/sys/devices/system/cpu/online": "0-7\n",
+      "/sys/devices/system/cpu/cpufreq/policy4/scaling_governor": "schedutil\n",
+      "/sys/devices/system/cpu/cpufreq/policy0/scaling_governor": "schedutil\n",
+      "/sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq": "1984000\n",
+      "/sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq": "1984000\n"
+    },
+    "inherited_thread_env": {
+      "OMP_NUM_THREADS": null,
+      "OMP_DYNAMIC": null,
+      "OMP_THREAD_LIMIT": null,
+      "OMP_PROC_BIND": null,
+      "OMP_PLACES": null,
+      "GOMP_CPU_AFFINITY": null,
+      "OPENBLAS_NUM_THREADS": null,
+      "MKL_NUM_THREADS": null
+    },
+    "load_average": [
+      1.61865234375,
+      2.28271484375,
+      2.02880859375
+    ]
+  },
+  "runs": {},
+  "prepared_sources": {
+    "baseline": {
+      "checkout": "/tmp/lio-benchmark-vnihkzf0/baseline",
+      "files": {
+        "ws_livox/src/FAST-LIVO2-master/.gitignore": {
+          "sha256": "396a91c2d5ff824e54c1e4020dff11f90fd910693161ec5756c7cf8f7e6e0d76",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/CMakeLists.txt": {
+          "sha256": "f03fdd156cf82ce007383f316002fed935b18c76c09be0111aed8602fd416a13",
+          "mode": 493
+        },
+        "ws_livox/src/FAST-LIVO2-master/LICENSE": {
+          "sha256": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/README.md": {
+          "sha256": "4b7ac9e745c46e78c3d77c2d0923dba9c833d4997452f944ce08a3166818835f",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/Supplementary/LIVO2_supplementary.pdf": {
+          "sha256": "93bf9c03a1c80e06d0845d82fdc95a1d4a7b7873205b0840f10b61d0f2897aff",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/config/MARS_LVIG.yaml": {
+          "sha256": "f76f2dca850e1b77197ee50c99da89b9f58ab8ad9b09bdfca78dc076034834a2",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/config/avia.yaml": {
+          "sha256": "cf985c4b4979fe841f4ad42f2745ef80ccb1288b5ff8ef5d38da7a739f5b3e0a",
+          "mode": 493
+        },
+        "ws_livox/src/FAST-LIVO2-master/config/camera_MARS_LVIG.yaml": {
+          "sha256": "2ab5bb16e09f7cfcf2d18aa5ab89f45b9b08cd5a7e0b75435b90bf27959cc963",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/config/camera_pinhole.yaml": {
+          "sha256": "a90b90cf6e7658ba4fb110ea0a2c76c0c53de895ba640917030e0bb7cd2d649c",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/config/nav_test.yaml": {
+          "sha256": "cc6ebab7bdefb8f1dfa5cbd47d1dabdd5459565bd71312473e0091ce423a6f0e",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/config/test.yaml": {
+          "sha256": "13c0739f076a2d23ac6228ff875dd513f5505bfa3d6a3b299e242b27d660c3a7",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/diagnostics-plan.md": {
+          "sha256": "2f39b06211c9fda078178cb335c3287548372aa1a62f5897fbc2f81a0e760187",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/diagnostics-verification.md": {
+          "sha256": "41f388f939b006fad6d66ecbf4e7e1e90df1ac5c372a1704bed99f88ba78d5d4",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/outdoor-timing-20261115_202612/analyze.py": {
+          "sha256": "632d687ba0bf5e44ad2a09e8f910e13a6fe0d76002c15316156d473ae5f3c6f2",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/outdoor-timing-20261115_202612/archive_manifest.json": {
+          "sha256": "9054e7accf3d938fd98cec71c1af27696ccbe19c578efe295996d8ce971a3402",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/outdoor-timing-20261115_202612/earlier_matched_odometry.csv": {
+          "sha256": "931903e02318c3a2b80117280584dfd13581eeb69a0e4c04bd4cd52668468031",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/outdoor-timing-20261115_202612/earlier_metrics.json": {
+          "sha256": "f4bf39801b6c9404bae73f743b43b24d600fee2291f69914dbabd0f006b45cd9",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/outdoor-timing-20261115_202612/latest_matched_odometry.csv": {
+          "sha256": "ae5151e45bad59673ea4a09ba1f2162911acdd46a1ddc9df124b5c7647e00256",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/outdoor-timing-20261115_202612/latest_metrics.json": {
+          "sha256": "808845619aaa37e0c5b072fe9f751dc97c5585d80f3d3c43e75efbaff3f13f5a",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/outdoor-timing-20261115_202612/phases.json": {
+          "sha256": "2adecac5f7e55a9f2d5d2973b0fd82e5d4bb9d68110f0094c145951403f860c4",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/outdoor-timing-20261115_202612/phases.py": {
+          "sha256": "faa81adf9fcca014313a9cf814a04044c0eec82bc43ca9fc6aa7a14aca5c5fbd",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/outdoor-timing-20261115_202612/timing_and_backlog.png": {
+          "sha256": "54b5c4ae55c6edfa440bd284c6d294ec024c6c69dddf0ab43bedf946b2a5f550",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/outdoor-timing-20261115_202612/verification.json": {
+          "sha256": "25798375f15c645a7a903a10b05b7287a8d4d6679862dac44410e13a1bdead82",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/path-publication-minimal.md": {
+          "sha256": "cb0d690857a7e32fd9f8300da5b7441d906ab47ca5f7f7ca4b06cfa5728d4df2",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/path-publication-results-20261115.json": {
+          "sha256": "4143a751b10dad7a789de54efcd67e92e991c62cab5a9e0d60fc1f9a13641d44",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/A1/commands.json": {
+          "sha256": "7aef095a3ddf16b228484c592aa79bf59188d431b0878a973d80584929da9170",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/A1/effective_surf_filter.txt": {
+          "sha256": "c68b6889b3307fa13223c80c8758ec568dff4fc9540dc1a245ba7ead40ce9576",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/A1/observer_counts.json": {
+          "sha256": "65b2461ed8f1b87a84ccfd26ed5998f647a1621d0a3db8452e9313d221d571e2",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/A1/returncodes.json": {
+          "sha256": "e0c7bb164ef60a66d0f804b7a7f7d6e86df72ed89e232fc34838dae5c6e3709b",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/A1/run_summary.json": {
+          "sha256": "e8de6cab263739da7743c77c4118ddf3314a879a71d5e5471dfbbdbd25a9c2dd",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/A1/tegrastats.log": {
+          "sha256": "087484fb8ee12a63734db4d9adc137b9de941080b13679ed3741300cf6bc3aad",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/A2/commands.json": {
+          "sha256": "943f0d097117cc32a282c44080e35ebffc6b84f817e29d2a0a9f1d85ccb5eec7",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/A2/effective_surf_filter.txt": {
+          "sha256": "3425045266fdfe2b82ac454bee668745c7909e0c4232d2b4225aa62b10ec210b",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/A2/observer_counts.json": {
+          "sha256": "5741aa50a74cc23b7c3cab1cdf4782487a72e99b5e455877e510a6e7d3166a7e",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/A2/returncodes.json": {
+          "sha256": "e0c7bb164ef60a66d0f804b7a7f7d6e86df72ed89e232fc34838dae5c6e3709b",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/A2/run_summary.json": {
+          "sha256": "2f8176a2baf88c2c8bec50d902891814ec57b3fd0b2473b2195082fd983029fd",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/A2/tegrastats.log": {
+          "sha256": "cb8e6b620a08118cf92e84e2638e79a8f6a6728d6df7cca3c183fd0959060a3c",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/B1/commands.json": {
+          "sha256": "2d0f694a1d55a55ddff4528414edf79a3404fef77244c9ddd6e01d821b0e1372",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/B1/effective_surf_filter.txt": {
+          "sha256": "aa6758ef497123db7c287141589a6f5f1d7fd9592db341b49db1dc8471025092",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/B1/observer_counts.json": {
+          "sha256": "4dec951d3c2b766e7d3db02df18e12de313c80da113e97b717ac3216fd83fd31",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/B1/returncodes.json": {
+          "sha256": "e0c7bb164ef60a66d0f804b7a7f7d6e86df72ed89e232fc34838dae5c6e3709b",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/B1/run_summary.json": {
+          "sha256": "15442fc6f65923bbcc442b5a37143d925f44c391cad6b62610a68315d3d9b67d",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/B1/tegrastats.log": {
+          "sha256": "e353c145428748e9893d328991f3f088f3221f0608d6efc340b961cf433b454f",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/B2/commands.json": {
+          "sha256": "6fd4ffc9e8e0d4a9a05f7a7ec5c2167bcb7d285880b0b7c89bf1c2e9dc7f1f75",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/B2/effective_surf_filter.txt": {
+          "sha256": "966f03163daf8d77dd982e4b4529d5e65b897de17ecc6bd1a58512bb89a32813",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/B2/observer_counts.json": {
+          "sha256": "594b5623a150c39ed50823a54d7f318f29508c45a4c14269d684ef55fcd6cdf4",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/B2/returncodes.json": {
+          "sha256": "e0c7bb164ef60a66d0f804b7a7f7d6e86df72ed89e232fc34838dae5c6e3709b",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/B2/run_summary.json": {
+          "sha256": "15805edd4b4e13432caaca1be0e160f3e12b830e75d4336c39fcb0bfb2a8ae1f",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/B2/tegrastats.log": {
+          "sha256": "6c3222f95694bfe7a40ea5cfd49f071bdcadc9eb55fad9adb96df1ee6febf2b8",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/camera_pinhole.yaml": {
+          "sha256": "a90b90cf6e7658ba4fb110ea0a2c76c0c53de895ba640917030e0bb7cd2d649c",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/comparison.json": {
+          "sha256": "38cf8128e74568a83239670de7cb8f7ed0f38774b581c3a19eb2287dd9d8b0db",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/comparison.png": {
+          "sha256": "cd9d2d458e007dc3d52a9372101fe4f629f5d8a40212e1d8d4c67100f30910be",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/manifest.json": {
+          "sha256": "7dac3da5a343074cdc81e9036152f5afa62e733cf8798c8f2c7e455adb16719f",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/matched_frames.csv": {
+          "sha256": "682ff6f9c59d679ccf6076aff3180fa7f0c7084b066b1ef0a7597c1480a99324",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/source_nav_test.yaml": {
+          "sha256": "6ea867e5e727e39a35929032f610327e79e19085e6e94a9a74a039cc1579ac36",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/verification.json": {
+          "sha256": "d56f28706d6805860c1cfe4d60ad3f6d15beadb89d695d266d62a8a9592d62ac",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118.md": {
+          "sha256": "ec6434b9f1fb801d108ec7224a17d1bee35ad999136b167bdcb778e63b06fa32",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/tf-broadcaster-lifetime-plan.md": {
+          "sha256": "5f300269e3f9eb2b0bab55563c545b6cfb06898b2fd942d99056aee1a47844a7",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/tf-broadcaster-lifetime-results-20261113.md": {
+          "sha256": "4b54f816f4c697ed3dad9dc6bc1fe50394a9229e64af48b65ab4dcb51e0c81d9",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/tf-lifetime-ab-20261113-metrics.json": {
+          "sha256": "c933289ffeed3f97368292da15fdbc84b2339727c8840893184bdf8aec39aa03",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/tf-lifetime-ab-20261113.png": {
+          "sha256": "dbd0794b78af1ce65eb40a617eb3d93901e570ecc2652bff2c0b6c423d91c27e",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/timing-diagnostics.md": {
+          "sha256": "ce613aab5f838b7c4ca9738d1dcf10af403fa88c254aaf4e6ed6f51472582945",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/include/IMU_Processing.h": {
+          "sha256": "78f5b0bf7664856d7adf86292998c4534614f0dfe59bb2317f7f8e29ab313896",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/include/LIVMapper.h": {
+          "sha256": "b7dfdffaa766ef5c64354304a428f11c8a336db36782510e1f3153326fb18ff4",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/include/common_lib.h": {
+          "sha256": "774609e40c961eece8384b8df694f001ff94449a5d2ea4fc16b3b37a4aed121c",
+          "mode": 493
+        },
+        "ws_livox/src/FAST-LIVO2-master/include/feature.h": {
+          "sha256": "27eaea6a52e4d0edc9aa04a770a5f436eb129b4c4fbfc7bf9812c5fd3f644799",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/include/frame.h": {
+          "sha256": "91a7ff427c0fb1e12220d4e60ac0ea9ed0785c1ae73c8da98c14ebe2f9782fa6",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/include/preprocess.h": {
+          "sha256": "2e324a5517a86dd73170fe92ce600bc68a75840865efb52c1af58f47566a4169",
+          "mode": 493
+        },
+        "ws_livox/src/FAST-LIVO2-master/include/timing_diagnostics.h": {
+          "sha256": "de9fa2fdff6356d90ccb38d27e62bac51fa259dd0cca51b1634a86d48dbd180b",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/include/utils/color.h": {
+          "sha256": "a8dca85646b18e26432f453993cf2da8de8e6b6e3184228b9fb92651c4a8f2ef",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/include/utils/so3_math.h": {
+          "sha256": "fa815b3bc8dc157a2ab8d692b0dd604b369680a7e711fef666f4e12d4ab33c37",
+          "mode": 493
+        },
+        "ws_livox/src/FAST-LIVO2-master/include/utils/types.h": {
+          "sha256": "ade63d344d8d4cdec2dd8ec0fd6ea7930cb007c9c41ba83500bc7ea79d874d45",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/include/utils/utils.h": {
+          "sha256": "53e212cc56c9f7627bc9a58cae906b9fe9bb334184b28a1b6f8a2821e2ebf3e8",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/include/vio.h": {
+          "sha256": "a8eee18edf253e37ac073fc8559536e250ed9e1bf70265e79e4328d976f35915",
+          "mode": 493
+        },
+        "ws_livox/src/FAST-LIVO2-master/include/visual_point.h": {
+          "sha256": "c528be4967454ff79f6aac0c5322d62b19ec34c7e8c248b49981d1b3a7f1888d",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/include/voxel_map.h": {
+          "sha256": "daa75c3357de9b87a275c111d2f85938cf0258086c13a63258ef8f639dc234be",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/launch/mapping_avia.launch.py": {
+          "sha256": "12bdb12ce7c8773ca5bb76fd4e3deed88da4e1ce46578477585ba15c1a7f46da",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/launch/mapping_avia_marslvig.launch.py": {
+          "sha256": "6e0d174df460bd72a661a2b1d2074d71da43f1263244a104787223030931b4b9",
+          "mode": 493
+        },
+        "ws_livox/src/FAST-LIVO2-master/launch/nav_test.py": {
+          "sha256": "02e977b2c96ba2667295cf8acdb0a05835e246f02fb5d5ed9f2c8d8a2992ef83",
+          "mode": 509
+        },
+        "ws_livox/src/FAST-LIVO2-master/launch/test.py": {
+          "sha256": "59243f0cebff3f7e16e80056d1b988a9c82086730f394a1eed34bd68276f6e38",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/launch/test1.py": {
+          "sha256": "749dbd8c4fa77c835ee174f5eac840de6bc16545965427d1f32b1737e46a3b82",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/package.xml": {
+          "sha256": "5ebef10a5c189be6df7f430392a1d4341b4a33de7dee33984eb19a19cb196f8c",
+          "mode": 493
+        },
+        "ws_livox/src/FAST-LIVO2-master/pics/Framework.png": {
+          "sha256": "53eae5f32174cfd8bc4be8094883e7f667ac972feb8a13ee3bc7d6fb28993029",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/pics/debug_error.png": {
+          "sha256": "b8a53a3148e74e4eb30ba2492d29ca31c6d8126004b6212126a1acc4531db048",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/pics/rosgraph.png": {
+          "sha256": "21378308e630caba16227b74931d282221e88a5d1b14110dc7de893dd33d8941",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/rviz_cfg/M300.rviz": {
+          "sha256": "e105d66215c46d6ec0683e8822dc9532fa818afab97b4ec3c889f00ec49aae2a",
+          "mode": 493
+        },
+        "ws_livox/src/FAST-LIVO2-master/rviz_cfg/fast_livo2.rviz": {
+          "sha256": "7ab648e254601f057fa173fc627b385800711fbd49afadc2f56fa8c09eee2fdc",
+          "mode": 493
+        },
+        "ws_livox/src/FAST-LIVO2-master/scripts/benchmark_tf_lifetime.py": {
+          "sha256": "f4ec86f87cc610ee192f677b0726961e81b1caf48fcb85f6c8b360b48560b683",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/scripts/colmap_output.sh": {
+          "sha256": "4fce0add323e4087f30e44162b3035e2fcbd108c9807336cf5a2f13fd890582d",
+          "mode": 493
+        },
+        "ws_livox/src/FAST-LIVO2-master/scripts/mesh.py": {
+          "sha256": "7b7ad6d4dc8b448378dc8e4b32da599bc6aa6b5052138808d2ee6b2d2c3c4cd6",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/scripts/pcd_to_occupancy_grid.py": {
+          "sha256": "07bfedcdfb8d781898092d575577b686aa4fc83723ce6d8ec8e7489f71c0faa8",
+          "mode": 511
+        },
+        "ws_livox/src/FAST-LIVO2-master/scripts/run_surf_filter_ab.py": {
+          "sha256": "4d6fbb101386dd8f9c7b7706fb4916be4c88b7cff66073e8e3e2b1b626ca1d93",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/scripts/summarize_surf_filter_ab.py": {
+          "sha256": "24194fa405d3d77a624af735d4c5ac945567eaaf2101c8cf52e1a468b7fdb5e5",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/scripts/summarize_tf_lifetime_ab.py": {
+          "sha256": "735193ad2b0ed1e138b955fffc4b0b6f522df40623de705455363c3ce39e8e41",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/scripts/summarize_timing.py": {
+          "sha256": "4ec8acc29ac4e870e41d8475480925d61a1d30de3a42247f8c2136f69a1a6151",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/src/IMU_Processing.cpp": {
+          "sha256": "2558005b624e44df9b98fc9b43ed6d02dd25db1fea8499076c7dafa04d816291",
+          "mode": 493
+        },
+        "ws_livox/src/FAST-LIVO2-master/src/LIVMapper.cpp": {
+          "sha256": "514e109818a3b74cd9ccc4253213ff238a9961b3c8ffeb42b1ebfbb4c6a09999",
+          "mode": 493
+        },
+        "ws_livox/src/FAST-LIVO2-master/src/frame.cpp": {
+          "sha256": "d45bb8ab1edf065089515940d0c7d6ff2c08fe460143778f62f09547e63f489a",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/src/main.cpp": {
+          "sha256": "3b7469f957897a945d41201b256cf0c4819a964c8a76475572f377abfb59d2d9",
+          "mode": 509
+        },
+        "ws_livox/src/FAST-LIVO2-master/src/preprocess.cpp": {
+          "sha256": "547164e4fceb87168074ff6d0fcd603b6d6594c2e425cb5647248b242397109a",
+          "mode": 493
+        },
+        "ws_livox/src/FAST-LIVO2-master/src/utils.cpp": {
+          "sha256": "3e0aeaccaf94d7a5e44af952027ddda88f8e3787580b942af5b2db66ff0705d3",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/src/vio.cpp": {
+          "sha256": "5786aeca9a26c796953430d471d5428279a5590c084b07dc945647aa88048911",
+          "mode": 493
+        },
+        "ws_livox/src/FAST-LIVO2-master/src/visual_point.cpp": {
+          "sha256": "d067e2b05445835cbbb4c8a159519bf4a01a271b96d06cc3a32419092b3fcc6e",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/src/voxel_map.cpp": {
+          "sha256": "2812be21f3bc5f577d158320738bb863ce2773ce57cb429dacbb3c6e02b99d97",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/tests/path_publication_probe.cpp": {
+          "sha256": "ac4efab5355a78331d28f6877ea89621cb0e170e017d4d39b26674c6bf4946dd",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/tests/test_timing_diagnostics.py": {
+          "sha256": "4b108b2a1f42aa8f608c106b5852e1ba4bec16ac4124cdb1d0875cbf8b38a4b9",
+          "mode": 436
+        }
+      }
+    },
+    "candidate": {
+      "checkout": "/tmp/lio-benchmark-vnihkzf0/candidate",
+      "files": {
+        "ws_livox/src/FAST-LIVO2-master/.gitignore": {
+          "sha256": "396a91c2d5ff824e54c1e4020dff11f90fd910693161ec5756c7cf8f7e6e0d76",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/CMakeLists.txt": {
+          "sha256": "f03fdd156cf82ce007383f316002fed935b18c76c09be0111aed8602fd416a13",
+          "mode": 493
+        },
+        "ws_livox/src/FAST-LIVO2-master/LICENSE": {
+          "sha256": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/README.md": {
+          "sha256": "4b7ac9e745c46e78c3d77c2d0923dba9c833d4997452f944ce08a3166818835f",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/Supplementary/LIVO2_supplementary.pdf": {
+          "sha256": "93bf9c03a1c80e06d0845d82fdc95a1d4a7b7873205b0840f10b61d0f2897aff",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/config/MARS_LVIG.yaml": {
+          "sha256": "f76f2dca850e1b77197ee50c99da89b9f58ab8ad9b09bdfca78dc076034834a2",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/config/avia.yaml": {
+          "sha256": "cf985c4b4979fe841f4ad42f2745ef80ccb1288b5ff8ef5d38da7a739f5b3e0a",
+          "mode": 493
+        },
+        "ws_livox/src/FAST-LIVO2-master/config/camera_MARS_LVIG.yaml": {
+          "sha256": "2ab5bb16e09f7cfcf2d18aa5ab89f45b9b08cd5a7e0b75435b90bf27959cc963",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/config/camera_pinhole.yaml": {
+          "sha256": "a90b90cf6e7658ba4fb110ea0a2c76c0c53de895ba640917030e0bb7cd2d649c",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/config/nav_test.yaml": {
+          "sha256": "cc6ebab7bdefb8f1dfa5cbd47d1dabdd5459565bd71312473e0091ce423a6f0e",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/config/test.yaml": {
+          "sha256": "13c0739f076a2d23ac6228ff875dd513f5505bfa3d6a3b299e242b27d660c3a7",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/diagnostics-plan.md": {
+          "sha256": "2f39b06211c9fda078178cb335c3287548372aa1a62f5897fbc2f81a0e760187",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/diagnostics-verification.md": {
+          "sha256": "41f388f939b006fad6d66ecbf4e7e1e90df1ac5c372a1704bed99f88ba78d5d4",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/outdoor-timing-20261115_202612/analyze.py": {
+          "sha256": "632d687ba0bf5e44ad2a09e8f910e13a6fe0d76002c15316156d473ae5f3c6f2",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/outdoor-timing-20261115_202612/archive_manifest.json": {
+          "sha256": "9054e7accf3d938fd98cec71c1af27696ccbe19c578efe295996d8ce971a3402",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/outdoor-timing-20261115_202612/earlier_matched_odometry.csv": {
+          "sha256": "931903e02318c3a2b80117280584dfd13581eeb69a0e4c04bd4cd52668468031",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/outdoor-timing-20261115_202612/earlier_metrics.json": {
+          "sha256": "f4bf39801b6c9404bae73f743b43b24d600fee2291f69914dbabd0f006b45cd9",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/outdoor-timing-20261115_202612/latest_matched_odometry.csv": {
+          "sha256": "ae5151e45bad59673ea4a09ba1f2162911acdd46a1ddc9df124b5c7647e00256",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/outdoor-timing-20261115_202612/latest_metrics.json": {
+          "sha256": "808845619aaa37e0c5b072fe9f751dc97c5585d80f3d3c43e75efbaff3f13f5a",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/outdoor-timing-20261115_202612/phases.json": {
+          "sha256": "2adecac5f7e55a9f2d5d2973b0fd82e5d4bb9d68110f0094c145951403f860c4",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/outdoor-timing-20261115_202612/phases.py": {
+          "sha256": "faa81adf9fcca014313a9cf814a04044c0eec82bc43ca9fc6aa7a14aca5c5fbd",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/outdoor-timing-20261115_202612/timing_and_backlog.png": {
+          "sha256": "54b5c4ae55c6edfa440bd284c6d294ec024c6c69dddf0ab43bedf946b2a5f550",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/outdoor-timing-20261115_202612/verification.json": {
+          "sha256": "25798375f15c645a7a903a10b05b7287a8d4d6679862dac44410e13a1bdead82",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/path-publication-minimal.md": {
+          "sha256": "cb0d690857a7e32fd9f8300da5b7441d906ab47ca5f7f7ca4b06cfa5728d4df2",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/path-publication-results-20261115.json": {
+          "sha256": "4143a751b10dad7a789de54efcd67e92e991c62cab5a9e0d60fc1f9a13641d44",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/A1/commands.json": {
+          "sha256": "7aef095a3ddf16b228484c592aa79bf59188d431b0878a973d80584929da9170",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/A1/effective_surf_filter.txt": {
+          "sha256": "c68b6889b3307fa13223c80c8758ec568dff4fc9540dc1a245ba7ead40ce9576",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/A1/observer_counts.json": {
+          "sha256": "65b2461ed8f1b87a84ccfd26ed5998f647a1621d0a3db8452e9313d221d571e2",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/A1/returncodes.json": {
+          "sha256": "e0c7bb164ef60a66d0f804b7a7f7d6e86df72ed89e232fc34838dae5c6e3709b",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/A1/run_summary.json": {
+          "sha256": "e8de6cab263739da7743c77c4118ddf3314a879a71d5e5471dfbbdbd25a9c2dd",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/A1/tegrastats.log": {
+          "sha256": "087484fb8ee12a63734db4d9adc137b9de941080b13679ed3741300cf6bc3aad",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/A2/commands.json": {
+          "sha256": "943f0d097117cc32a282c44080e35ebffc6b84f817e29d2a0a9f1d85ccb5eec7",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/A2/effective_surf_filter.txt": {
+          "sha256": "3425045266fdfe2b82ac454bee668745c7909e0c4232d2b4225aa62b10ec210b",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/A2/observer_counts.json": {
+          "sha256": "5741aa50a74cc23b7c3cab1cdf4782487a72e99b5e455877e510a6e7d3166a7e",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/A2/returncodes.json": {
+          "sha256": "e0c7bb164ef60a66d0f804b7a7f7d6e86df72ed89e232fc34838dae5c6e3709b",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/A2/run_summary.json": {
+          "sha256": "2f8176a2baf88c2c8bec50d902891814ec57b3fd0b2473b2195082fd983029fd",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/A2/tegrastats.log": {
+          "sha256": "cb8e6b620a08118cf92e84e2638e79a8f6a6728d6df7cca3c183fd0959060a3c",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/B1/commands.json": {
+          "sha256": "2d0f694a1d55a55ddff4528414edf79a3404fef77244c9ddd6e01d821b0e1372",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/B1/effective_surf_filter.txt": {
+          "sha256": "aa6758ef497123db7c287141589a6f5f1d7fd9592db341b49db1dc8471025092",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/B1/observer_counts.json": {
+          "sha256": "4dec951d3c2b766e7d3db02df18e12de313c80da113e97b717ac3216fd83fd31",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/B1/returncodes.json": {
+          "sha256": "e0c7bb164ef60a66d0f804b7a7f7d6e86df72ed89e232fc34838dae5c6e3709b",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/B1/run_summary.json": {
+          "sha256": "15442fc6f65923bbcc442b5a37143d925f44c391cad6b62610a68315d3d9b67d",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/B1/tegrastats.log": {
+          "sha256": "e353c145428748e9893d328991f3f088f3221f0608d6efc340b961cf433b454f",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/B2/commands.json": {
+          "sha256": "6fd4ffc9e8e0d4a9a05f7a7ec5c2167bcb7d285880b0b7c89bf1c2e9dc7f1f75",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/B2/effective_surf_filter.txt": {
+          "sha256": "966f03163daf8d77dd982e4b4529d5e65b897de17ecc6bd1a58512bb89a32813",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/B2/observer_counts.json": {
+          "sha256": "594b5623a150c39ed50823a54d7f318f29508c45a4c14269d684ef55fcd6cdf4",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/B2/returncodes.json": {
+          "sha256": "e0c7bb164ef60a66d0f804b7a7f7d6e86df72ed89e232fc34838dae5c6e3709b",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/B2/run_summary.json": {
+          "sha256": "15805edd4b4e13432caaca1be0e160f3e12b830e75d4336c39fcb0bfb2a8ae1f",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/B2/tegrastats.log": {
+          "sha256": "6c3222f95694bfe7a40ea5cfd49f071bdcadc9eb55fad9adb96df1ee6febf2b8",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/camera_pinhole.yaml": {
+          "sha256": "a90b90cf6e7658ba4fb110ea0a2c76c0c53de895ba640917030e0bb7cd2d649c",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/comparison.json": {
+          "sha256": "38cf8128e74568a83239670de7cb8f7ed0f38774b581c3a19eb2287dd9d8b0db",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/comparison.png": {
+          "sha256": "cd9d2d458e007dc3d52a9372101fe4f629f5d8a40212e1d8d4c67100f30910be",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/manifest.json": {
+          "sha256": "7dac3da5a343074cdc81e9036152f5afa62e733cf8798c8f2c7e455adb16719f",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/matched_frames.csv": {
+          "sha256": "682ff6f9c59d679ccf6076aff3180fa7f0c7084b066b1ef0a7597c1480a99324",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/source_nav_test.yaml": {
+          "sha256": "6ea867e5e727e39a35929032f610327e79e19085e6e94a9a74a039cc1579ac36",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118/verification.json": {
+          "sha256": "d56f28706d6805860c1cfe4d60ad3f6d15beadb89d695d266d62a8a9592d62ac",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/surf-filter-ab-20261118.md": {
+          "sha256": "ec6434b9f1fb801d108ec7224a17d1bee35ad999136b167bdcb778e63b06fa32",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/tf-broadcaster-lifetime-plan.md": {
+          "sha256": "5f300269e3f9eb2b0bab55563c545b6cfb06898b2fd942d99056aee1a47844a7",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/tf-broadcaster-lifetime-results-20261113.md": {
+          "sha256": "4b54f816f4c697ed3dad9dc6bc1fe50394a9229e64af48b65ab4dcb51e0c81d9",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/tf-lifetime-ab-20261113-metrics.json": {
+          "sha256": "c933289ffeed3f97368292da15fdbc84b2339727c8840893184bdf8aec39aa03",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/tf-lifetime-ab-20261113.png": {
+          "sha256": "dbd0794b78af1ce65eb40a617eb3d93901e570ecc2652bff2c0b6c423d91c27e",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/docs/timing-diagnostics.md": {
+          "sha256": "ce613aab5f838b7c4ca9738d1dcf10af403fa88c254aaf4e6ed6f51472582945",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/include/IMU_Processing.h": {
+          "sha256": "78f5b0bf7664856d7adf86292998c4534614f0dfe59bb2317f7f8e29ab313896",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/include/LIVMapper.h": {
+          "sha256": "b7dfdffaa766ef5c64354304a428f11c8a336db36782510e1f3153326fb18ff4",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/include/common_lib.h": {
+          "sha256": "774609e40c961eece8384b8df694f001ff94449a5d2ea4fc16b3b37a4aed121c",
+          "mode": 493
+        },
+        "ws_livox/src/FAST-LIVO2-master/include/feature.h": {
+          "sha256": "27eaea6a52e4d0edc9aa04a770a5f436eb129b4c4fbfc7bf9812c5fd3f644799",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/include/frame.h": {
+          "sha256": "91a7ff427c0fb1e12220d4e60ac0ea9ed0785c1ae73c8da98c14ebe2f9782fa6",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/include/preprocess.h": {
+          "sha256": "2e324a5517a86dd73170fe92ce600bc68a75840865efb52c1af58f47566a4169",
+          "mode": 493
+        },
+        "ws_livox/src/FAST-LIVO2-master/include/timing_diagnostics.h": {
+          "sha256": "de9fa2fdff6356d90ccb38d27e62bac51fa259dd0cca51b1634a86d48dbd180b",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/include/utils/color.h": {
+          "sha256": "a8dca85646b18e26432f453993cf2da8de8e6b6e3184228b9fb92651c4a8f2ef",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/include/utils/so3_math.h": {
+          "sha256": "fa815b3bc8dc157a2ab8d692b0dd604b369680a7e711fef666f4e12d4ab33c37",
+          "mode": 493
+        },
+        "ws_livox/src/FAST-LIVO2-master/include/utils/types.h": {
+          "sha256": "ade63d344d8d4cdec2dd8ec0fd6ea7930cb007c9c41ba83500bc7ea79d874d45",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/include/utils/utils.h": {
+          "sha256": "53e212cc56c9f7627bc9a58cae906b9fe9bb334184b28a1b6f8a2821e2ebf3e8",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/include/vio.h": {
+          "sha256": "a8eee18edf253e37ac073fc8559536e250ed9e1bf70265e79e4328d976f35915",
+          "mode": 493
+        },
+        "ws_livox/src/FAST-LIVO2-master/include/visual_point.h": {
+          "sha256": "c528be4967454ff79f6aac0c5322d62b19ec34c7e8c248b49981d1b3a7f1888d",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/include/voxel_map.h": {
+          "sha256": "daa75c3357de9b87a275c111d2f85938cf0258086c13a63258ef8f639dc234be",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/launch/mapping_avia.launch.py": {
+          "sha256": "12bdb12ce7c8773ca5bb76fd4e3deed88da4e1ce46578477585ba15c1a7f46da",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/launch/mapping_avia_marslvig.launch.py": {
+          "sha256": "6e0d174df460bd72a661a2b1d2074d71da43f1263244a104787223030931b4b9",
+          "mode": 493
+        },
+        "ws_livox/src/FAST-LIVO2-master/launch/nav_test.py": {
+          "sha256": "02e977b2c96ba2667295cf8acdb0a05835e246f02fb5d5ed9f2c8d8a2992ef83",
+          "mode": 509
+        },
+        "ws_livox/src/FAST-LIVO2-master/launch/test.py": {
+          "sha256": "59243f0cebff3f7e16e80056d1b988a9c82086730f394a1eed34bd68276f6e38",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/launch/test1.py": {
+          "sha256": "749dbd8c4fa77c835ee174f5eac840de6bc16545965427d1f32b1737e46a3b82",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/package.xml": {
+          "sha256": "5ebef10a5c189be6df7f430392a1d4341b4a33de7dee33984eb19a19cb196f8c",
+          "mode": 493
+        },
+        "ws_livox/src/FAST-LIVO2-master/pics/Framework.png": {
+          "sha256": "53eae5f32174cfd8bc4be8094883e7f667ac972feb8a13ee3bc7d6fb28993029",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/pics/debug_error.png": {
+          "sha256": "b8a53a3148e74e4eb30ba2492d29ca31c6d8126004b6212126a1acc4531db048",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/pics/rosgraph.png": {
+          "sha256": "21378308e630caba16227b74931d282221e88a5d1b14110dc7de893dd33d8941",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/rviz_cfg/M300.rviz": {
+          "sha256": "e105d66215c46d6ec0683e8822dc9532fa818afab97b4ec3c889f00ec49aae2a",
+          "mode": 493
+        },
+        "ws_livox/src/FAST-LIVO2-master/rviz_cfg/fast_livo2.rviz": {
+          "sha256": "7ab648e254601f057fa173fc627b385800711fbd49afadc2f56fa8c09eee2fdc",
+          "mode": 493
+        },
+        "ws_livox/src/FAST-LIVO2-master/scripts/benchmark_tf_lifetime.py": {
+          "sha256": "f4ec86f87cc610ee192f677b0726961e81b1caf48fcb85f6c8b360b48560b683",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/scripts/colmap_output.sh": {
+          "sha256": "4fce0add323e4087f30e44162b3035e2fcbd108c9807336cf5a2f13fd890582d",
+          "mode": 493
+        },
+        "ws_livox/src/FAST-LIVO2-master/scripts/mesh.py": {
+          "sha256": "7b7ad6d4dc8b448378dc8e4b32da599bc6aa6b5052138808d2ee6b2d2c3c4cd6",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/scripts/pcd_to_occupancy_grid.py": {
+          "sha256": "07bfedcdfb8d781898092d575577b686aa4fc83723ce6d8ec8e7489f71c0faa8",
+          "mode": 511
+        },
+        "ws_livox/src/FAST-LIVO2-master/scripts/run_surf_filter_ab.py": {
+          "sha256": "4d6fbb101386dd8f9c7b7706fb4916be4c88b7cff66073e8e3e2b1b626ca1d93",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/scripts/summarize_surf_filter_ab.py": {
+          "sha256": "24194fa405d3d77a624af735d4c5ac945567eaaf2101c8cf52e1a468b7fdb5e5",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/scripts/summarize_tf_lifetime_ab.py": {
+          "sha256": "735193ad2b0ed1e138b955fffc4b0b6f522df40623de705455363c3ce39e8e41",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/scripts/summarize_timing.py": {
+          "sha256": "4ec8acc29ac4e870e41d8475480925d61a1d30de3a42247f8c2136f69a1a6151",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/src/IMU_Processing.cpp": {
+          "sha256": "2558005b624e44df9b98fc9b43ed6d02dd25db1fea8499076c7dafa04d816291",
+          "mode": 493
+        },
+        "ws_livox/src/FAST-LIVO2-master/src/LIVMapper.cpp": {
+          "sha256": "514e109818a3b74cd9ccc4253213ff238a9961b3c8ffeb42b1ebfbb4c6a09999",
+          "mode": 493
+        },
+        "ws_livox/src/FAST-LIVO2-master/src/frame.cpp": {
+          "sha256": "d45bb8ab1edf065089515940d0c7d6ff2c08fe460143778f62f09547e63f489a",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/src/main.cpp": {
+          "sha256": "3b7469f957897a945d41201b256cf0c4819a964c8a76475572f377abfb59d2d9",
+          "mode": 509
+        },
+        "ws_livox/src/FAST-LIVO2-master/src/preprocess.cpp": {
+          "sha256": "547164e4fceb87168074ff6d0fcd603b6d6594c2e425cb5647248b242397109a",
+          "mode": 493
+        },
+        "ws_livox/src/FAST-LIVO2-master/src/utils.cpp": {
+          "sha256": "3e0aeaccaf94d7a5e44af952027ddda88f8e3787580b942af5b2db66ff0705d3",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/src/vio.cpp": {
+          "sha256": "5786aeca9a26c796953430d471d5428279a5590c084b07dc945647aa88048911",
+          "mode": 493
+        },
+        "ws_livox/src/FAST-LIVO2-master/src/visual_point.cpp": {
+          "sha256": "d067e2b05445835cbbb4c8a159519bf4a01a271b96d06cc3a32419092b3fcc6e",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/src/voxel_map.cpp": {
+          "sha256": "e13e96dd8305bd8c7f15b7f6b7db7be28751f7bb3508b9c3853bf1c8fd4f37cb",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/tests/path_publication_probe.cpp": {
+          "sha256": "ac4efab5355a78331d28f6877ea89621cb0e170e017d4d39b26674c6bf4946dd",
+          "mode": 436
+        },
+        "ws_livox/src/FAST-LIVO2-master/tests/test_timing_diagnostics.py": {
+          "sha256": "4b108b2a1f42aa8f608c106b5852e1ba4bec16ac4124cdb1d0875cbf8b38a4b9",
+          "mode": 436
+        }
+      }
+    }
+  },
+  "configs_sha256": {
+    "scripts/benchmark_tf_lifetime.py": "f4ec86f87cc610ee192f677b0726961e81b1caf48fcb85f6c8b360b48560b683",
+    "config/nav_test.yaml": "cc6ebab7bdefb8f1dfa5cbd47d1dabdd5459565bd71312473e0091ce423a6f0e",
+    "config/camera_pinhole.yaml": "a90b90cf6e7658ba4fb110ea0a2c76c0c53de895ba640917030e0bb7cd2d649c"
+  }
+}

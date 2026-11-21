@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/home/nvidia/wsnew/ws_livox/src/FAST-LIVO2-master/scripts/benchmark_tf_lifetime.py", line 168, in <module>
+    main()
+  File "/home/nvidia/wsnew/ws_livox/src/FAST-LIVO2-master/scripts/benchmark_tf_lifetime.py", line 164, in main
+    else:run(args)
+  File "/home/nvidia/wsnew/ws_livox/src/FAST-LIVO2-master/scripts/benchmark_tf_lifetime.py", line 140, in run
+    if processes['node'].returncode != 0:raise RuntimeError('localization node failed; inspect node.log')
+RuntimeError: localization node failed; inspect node.log

@@ -12,3 +12,4 @@ ros2 launch livox_ros_driver2 rviz_MID360_launch.py
     消息类型：geometry_msgs/PoseWithCovarianceStamped
     发布频率：由 pose_publish_frequency 参数控制（你的配置里是 20Hz）。
     内容：包含了当前位姿的 位置 (x, y, z) 和朝向 (四元数)，以及表示不确定性的协方差矩阵
+    dadada

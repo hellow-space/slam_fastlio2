@@ -1,0 +1,16 @@
+{
+  "verdict": "RETEST",
+  "reasons": [
+    "bag file hashes were recorded but not verified for this analysis",
+    "outdoor pair 1: initialization IMU acceptance fingerprints differ",
+    "indoor: 1 successful paired runs; 2 required",
+    "outdoor: 1 successful paired runs; 2 required",
+    "indoor pair 1: paired_pose_max_m (paired) exceeds the frozen regression limit",
+    "indoor pair 1: paired_quaternion_component_max (paired) exceeds the frozen regression limit",
+    "outdoor pair 1: paired_pose_max_m (paired) exceeds the frozen regression limit",
+    "outdoor pair 1: paired_quaternion_component_max (paired) exceeds the frozen regression limit"
+  ],
+  "performance_mean_pass": true,
+  "performance_p95_pass": false,
+  "repeatability_verified": false
+}

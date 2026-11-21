@@ -1,0 +1,34 @@
+test_broken_replay_evidence_keeps_stage_retryable (test_lio_benchmark.PipelineTest) ... ok
+test_command_exit_and_argv_are_saved (test_lio_benchmark.PipelineTest) ... ok
+test_existing_output_and_live_lock (test_lio_benchmark.PipelineTest) ... ok
+test_failed_stage_retries_in_new_directory_and_done_stage_skips (test_lio_benchmark.PipelineTest) ... ok
+test_manifest_runs_are_rebuilt_from_done_state_with_verified_hashes (test_lio_benchmark.PipelineTest) ... ok
+test_non_head_ref_is_rejected_before_worktree_creation (test_lio_benchmark.PipelineTest) ... ok
+test_patch_scope_rejects_undeclared_and_special_paths (test_lio_benchmark.PipelineTest) ... ok
+test_pipeline_rejects_changed_manifest_gates_before_dispatch (test_lio_benchmark.PipelineTest) ... ok
+test_report_failure_keeps_attempt_and_success_can_publish (test_lio_benchmark.PipelineTest) ... ok
+test_resume_checks_frozen_files_before_dispatching_steps (test_lio_benchmark.PipelineTest) ... ok
+test_resume_rejects_changed_cpu_affinity_or_openmp_environment (test_lio_benchmark.PipelineTest) ... ok
+test_resume_rejects_changed_identity (test_lio_benchmark.PipelineTest) ... ok
+test_snapshot_keeps_staged_and_unstaged_changes_and_untracked_source (test_lio_benchmark.PipelineTest) ... ok
+test_common_missing_scan_rejected (test_lio_benchmark_report.ReportTests) ... ok
+test_complete_comparable_repeats_can_pass (test_lio_benchmark_report.ReportTests) ... ok
+test_duplicate_scan_rejected (test_lio_benchmark_report.ReportTests) ... ok
+test_existing_historical_comparison_is_protected (test_lio_benchmark_report.ReportTests) ... ok
+test_failed_exit_is_not_treated_as_measurement (test_lio_benchmark_report.ReportTests) ... ok
+test_malformed_manifest_exports_retest (test_lio_benchmark_report.ReportTests) ... ok
+test_manifest_must_freeze_all_required_evidence_files (test_lio_benchmark_report.ReportTests) ... ok
+test_missing_planned_repeat_requires_retest (test_lio_benchmark_report.ReportTests) ... ok
+test_missing_retest_has_no_fake_accuracy (test_lio_benchmark_report.ReportTests) ... ok
+test_nan_header_fails_closed (test_lio_benchmark_report.ReportTests) ... ok
+test_negative_or_nonfinite_processing_is_invalid (test_lio_benchmark_report.ReportTests) ... ok
+test_outdoor_only_measurements_cannot_pass_adoption (test_lio_benchmark_report.ReportTests) ... ok
+test_startup_difference_requires_retest_after_repeats (test_lio_benchmark_report.ReportTests) ... ok
+test_strict_thresholds_and_independent_p95_result (test_lio_benchmark_report.ReportTests) ... ok
+test_unfrozen_regression_threshold_requires_retest (test_lio_benchmark_report.ReportTests) ... ok
+test_valid_csv_duration_modified_after_freeze_is_rejected (test_lio_benchmark_report.ReportTests) ... ok
+
+----------------------------------------------------------------------
+Ran 29 tests in 1.277s
+
+OK

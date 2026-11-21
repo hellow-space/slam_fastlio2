@@ -1,0 +1,38 @@
+Consolidate compiler generated dependencies of target utils
+[ 12%] Built target utils
+Consolidate compiler generated dependencies of target vio
+Consolidate compiler generated dependencies of target pre
+[ 37%] Built target vio
+[ 50%] Built target pre
+Consolidate compiler generated dependencies of target imu_proc
+Consolidate compiler generated dependencies of target laser_mapping
+[ 62%] Built target imu_proc
+[ 75%] Built target laser_mapping
+Consolidate compiler generated dependencies of target lio
+[ 87%] Built target lio
+Consolidate compiler generated dependencies of target fastlivo_mapping
+[ 93%] Building CXX object CMakeFiles/fastlivo_mapping.dir/src/main.cpp.o
+[100%] Linking CXX executable fastlivo_mapping
+/usr/bin/ld: warning: libopencv_imgcodecs.so.4.5d, needed by /opt/ros/humble/lib/libcv_bridge.so, may conflict with libopencv_imgcodecs.so.410
+/usr/bin/ld: warning: libopencv_imgproc.so.4.5d, needed by /opt/ros/humble/lib/libcv_bridge.so, may conflict with libopencv_imgproc.so.410
+/usr/bin/ld: warning: libopencv_core.so.4.5d, needed by /opt/ros/humble/lib/libcv_bridge.so, may conflict with libopencv_core.so.410
+[100%] Built target fastlivo_mapping
+Consolidate compiler generated dependencies of target utils
+[ 12%] Built target utils
+Consolidate compiler generated dependencies of target vio
+Consolidate compiler generated dependencies of target pre
+[ 37%] Built target vio
+[ 50%] Built target pre
+Consolidate compiler generated dependencies of target imu_proc
+Consolidate compiler generated dependencies of target laser_mapping
+[ 62%] Built target imu_proc
+Consolidate compiler generated dependencies of target lio
+[ 75%] Built target laser_mapping
+[ 87%] Built target lio
+Consolidate compiler generated dependencies of target fastlivo_mapping
+[ 93%] Building CXX object CMakeFiles/fastlivo_mapping.dir/src/main.cpp.o
+[100%] Linking CXX executable fastlivo_mapping
+/usr/bin/ld: warning: libopencv_imgcodecs.so.4.5d, needed by /opt/ros/humble/lib/libcv_bridge.so, may conflict with libopencv_imgcodecs.so.410
+/usr/bin/ld: warning: libopencv_imgproc.so.4.5d, needed by /opt/ros/humble/lib/libcv_bridge.so, may conflict with libopencv_imgproc.so.410
+/usr/bin/ld: warning: libopencv_core.so.4.5d, needed by /opt/ros/humble/lib/libcv_bridge.so, may conflict with libopencv_core.so.410
+[100%] Built target fastlivo_mapping
