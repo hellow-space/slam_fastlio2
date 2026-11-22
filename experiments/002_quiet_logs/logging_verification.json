@@ -1,0 +1,82 @@
+[
+  {
+    "dataset": "indoor",
+    "variant": "baseline",
+    "node_log": "experiments/lio_runs/002/attempts/replay-baseline_indoor_r1/001/replay/node.log",
+    "node_log_sha256": "e59c504847e13b223cb109a1ea3665a532e2a84105568e18ddfe1a2347c411d7",
+    "node_log_bytes": 1055215,
+    "imu_info_count": 5224,
+    "locked_imu_cout_count": 5224,
+    "iteration_output_count": 1283,
+    "timing_table_count": 258,
+    "imu_debug_file": "experiments/lio_runs/002/attempts/replay-baseline_indoor_r1/001/replay/source_logs/imu.txt",
+    "imu_debug_file_exists": true,
+    "imu_debug_file_bytes": 378519,
+    "imu_debug_file_rows": 5160,
+    "returncodes": {
+      "observer": 0,
+      "node": 0,
+      "player": 0
+    }
+  },
+  {
+    "dataset": "indoor",
+    "variant": "candidate",
+    "node_log": "experiments/lio_runs/002/attempts/replay-candidate_indoor_r1/001/replay/node.log",
+    "node_log_sha256": "0ffd1da15d87c728411486f6581521a204c9b882b531a4439e04483d934b6782",
+    "node_log_bytes": 24525,
+    "imu_info_count": 0,
+    "locked_imu_cout_count": 0,
+    "iteration_output_count": 0,
+    "timing_table_count": 0,
+    "imu_debug_file": "experiments/lio_runs/002/attempts/replay-candidate_indoor_r1/001/replay/source_logs/imu.txt",
+    "imu_debug_file_exists": false,
+    "imu_debug_file_bytes": null,
+    "imu_debug_file_rows": null,
+    "returncodes": {
+      "observer": 0,
+      "node": 0,
+      "player": 0
+    }
+  },
+  {
+    "dataset": "outdoor",
+    "variant": "baseline",
+    "node_log": "experiments/lio_runs/002/attempts/replay-baseline_outdoor_r1/001/replay/node.log",
+    "node_log_sha256": "6ac95a9daf5efdedfd32ecc5b8394ac511b741e103101b9f75554e512fe9a574",
+    "node_log_bytes": 5896152,
+    "imu_info_count": 24764,
+    "locked_imu_cout_count": 24764,
+    "iteration_output_count": 6125,
+    "timing_table_count": 1235,
+    "imu_debug_file": "experiments/lio_runs/002/attempts/replay-baseline_outdoor_r1/001/replay/source_logs/imu.txt",
+    "imu_debug_file_exists": true,
+    "imu_debug_file_bytes": 1822007,
+    "imu_debug_file_rows": 24700,
+    "returncodes": {
+      "observer": 0,
+      "node": 0,
+      "player": 0
+    }
+  },
+  {
+    "dataset": "outdoor",
+    "variant": "candidate",
+    "node_log": "experiments/lio_runs/002/attempts/replay-candidate_outdoor_r1/001/replay/node.log",
+    "node_log_sha256": "8ee827513c12bdac50989e8525afd1318907054e15e5d779bc4480ffefa057d2",
+    "node_log_bytes": 1025058,
+    "imu_info_count": 0,
+    "locked_imu_cout_count": 0,
+    "iteration_output_count": 0,
+    "timing_table_count": 0,
+    "imu_debug_file": "experiments/lio_runs/002/attempts/replay-candidate_outdoor_r1/001/replay/source_logs/imu.txt",
+    "imu_debug_file_exists": false,
+    "imu_debug_file_bytes": null,
+    "imu_debug_file_rows": null,
+    "returncodes": {
+      "observer": 0,
+      "node": 0,
+      "player": 0
+    }
+  }
+]

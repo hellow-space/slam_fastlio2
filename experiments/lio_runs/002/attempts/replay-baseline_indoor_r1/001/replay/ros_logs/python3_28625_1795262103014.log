@@ -1,0 +1,4 @@
+[INFO] [1795262103.038294876] [rosbag2_storage]: Opened database '/home/nvidia/fastlivo_timing/imu_debug_20261112_210002/imu_debug_20261112_210002_0.db3' for READ_ONLY.
+[INFO] [1795262103.038426270] [rosbag2_player]: Set rate to 1
+[INFO] [1795262103.046508470] [rosbag2_player]: Sleep 2000000000 ns
+[INFO] [1795262105.047873004] [rosbag2_storage]: Opened database '/home/nvidia/fastlivo_timing/imu_debug_20261112_210002/imu_debug_20261112_210002_0.db3' for READ_ONLY.

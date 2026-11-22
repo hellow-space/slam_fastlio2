@@ -1,0 +1,13 @@
+{
+  "verdict": "RETEST",
+  "reasons": [
+    "indoor: 1 successful paired runs; 2 required",
+    "outdoor: 1 successful paired runs; 2 required",
+    "outdoor pair 1: candidate full_cycle mean exceeds 80 ms",
+    "outdoor pair 1: outdoor_high_load_wall_mapped_age_p95_candidate_max (candidate) exceeds the frozen regression limit",
+    "outdoor pair 1: outdoor_high_load_lidar_q_max_candidate_max (candidate) exceeds the frozen regression limit"
+  ],
+  "performance_mean_pass": false,
+  "performance_p95_pass": false,
+  "repeatability_verified": false
+}

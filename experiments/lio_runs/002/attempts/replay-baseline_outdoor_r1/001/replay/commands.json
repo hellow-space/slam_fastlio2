@@ -1,0 +1,47 @@
+{
+  "commands": {
+    "observer": [
+      "/usr/bin/python3.10",
+      "/tmp/lio-benchmark-dexffe53/baseline/ws_livox/src/FAST-LIVO2-master/scripts/benchmark_tf_lifetime.py",
+      "observe",
+      "/home/nvidia/wsnew/experiments/lio_runs/002/attempts/replay-baseline_outdoor_r1/001/replay"
+    ],
+    "node": [
+      "/tmp/lio-benchmark-dexffe53/baseline-001-build/fastlivo_mapping",
+      "--ros-args",
+      "-r",
+      "__node:=laserMapping",
+      "--params-file",
+      "/tmp/lio-benchmark-dexffe53/baseline/ws_livox/src/FAST-LIVO2-master/config/nav_test.yaml",
+      "--params-file",
+      "/tmp/lio-benchmark-dexffe53/baseline/ws_livox/src/FAST-LIVO2-master/config/camera_pinhole.yaml",
+      "-p",
+      "use_sim_time:=true",
+      "-p",
+      "preprocess.filter_size_surf:=0.15"
+    ],
+    "player": [
+      "ros2",
+      "bag",
+      "play",
+      "/home/nvidia/fastlivo_timing/outdoor_bags/handheld_20261115_202612",
+      "--topics",
+      "/livox/imu",
+      "/livox/lidar",
+      "--clock",
+      "200",
+      "--delay",
+      "2",
+      "--disable-keyboard-controls",
+      "--wait-for-all-acked",
+      "3000"
+    ]
+  },
+  "domain": 176,
+  "wall_start_s": 1795262233.4563663,
+  "rate": 1,
+  "clock_hz": 200,
+  "surf_filter": 0.15,
+  "playback_timeout": 213.83788333799998,
+  "post_play_seconds": 30.0
+}

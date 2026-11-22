@@ -1,0 +1,9 @@
+{
+  "argv": [
+    "/usr/bin/tegrastats",
+    "--interval",
+    "1000"
+  ],
+  "cwd": "/home/nvidia/wsnew/experiments/lio_runs/002-cumulative/attempts/replay-baseline_indoor_r1/001",
+  "exit_code": -15
+}

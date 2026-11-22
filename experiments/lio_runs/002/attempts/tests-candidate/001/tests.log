@@ -1,0 +1,8 @@
+test_capture_and_summary (test_timing_diagnostics.TimingDiagnosticsTest) ... ok
+test_empty_and_nonfinite_statistics (test_timing_diagnostics.TimingDiagnosticsTest) ... ok
+test_status_groups_and_nested_event_order (test_timing_diagnostics.TimingDiagnosticsTest) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 1.654s
+
+OK

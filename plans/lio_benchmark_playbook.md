@@ -1,8 +1,12 @@
 # FAST-LIVO2 里程计延迟：方案001经验与后续标准流程
 
+新话题先读 [START_HERE.md](START_HERE.md) 查看当前累计版本和最新结果；本文件说明固定操作流程。
+
 ## 用户只需要给什么
 
 给出方案描述或 PR 链接，并要求按这套流程验证。Codex负责核对原始改动、选最小机制、生成补丁及本方案JSON、登记方案；之后交给统一脚本执行。无需每次重新设计框架或重复确认已经授权的离线步骤。实机与部署不属于这套自动化。
+
+2026-11-21用户更新：后续仅回放 `/home/nvidia/fastlivo_timing/outdoor_bags/handheld_20261115_202612`（约123.84秒），不再默认跑室内。默认模板仅保留outdoor，一对A/B共两次回放；若未来用户另有要求再显式加入室内。新方案基线继承上轮保留的累计源码，当前为001＋002。
 
 ## 一键入口
 
@@ -10,16 +14,16 @@
 
 ```bash
 # 新方案：Codex先复制模板并填入实际编号/来源/假设/patch/允许文件
-python3 scripts/lio_benchmark.py preflight --config experiments/recipes/002.json
+python3 -B scripts/lio_benchmark.py preflight --config experiments/recipes/003.json
 
-# 自动隔离准备、构建、诊断单测、室内外A/B、审计、报告
-python3 scripts/lio_benchmark.py run --config experiments/recipes/002.json
+# 自动隔离准备、构建、诊断单测、按配方选择的bag做A/B、审计、报告
+python3 -B scripts/lio_benchmark.py run --config experiments/recipes/003.json
 
 # 中断或失败后继续，同一目录保持原证据，不能改配置后借用旧测量
-python3 scripts/lio_benchmark.py resume experiments/lio_runs/002
+python3 -B scripts/lio_benchmark.py resume experiments/lio_runs/003
 ```
 
-默认模板是 `experiments/recipes/lio_default.json`，未填方案与patch时必须报缺项，不能执行。每个方案输出目录唯一；重新实验使用新编号/修订输出根目录，不删除失败现场。只验证准备、不启动ROS时：
+上述003为下一项示例，须先制作增量patch并创建、填好配方；不要直接运行未创建的文件。默认模板是 `experiments/recipes/lio_default.json`，未填方案与patch时必须报缺项，不能执行。每个方案输出目录唯一；重新实验使用新编号/修订输出根目录，不删除失败现场。只验证准备、不启动ROS时：
 
 ```bash
 python3 scripts/lio_benchmark.py run --config experiments/recipes/001_reproduction.json --prepare-only
@@ -35,10 +39,12 @@ python3 scripts/lio_benchmark.py run --config experiments/recipes/001_reproducti
 | common setup | 两边统一应用已验证的关停异常处理，已存在则确认，不能匹配则停止 | common patch独立记录，不能冒充方案收益 |
 | build | ROS Humble、诊断ON、相同编译条件、独立build/install前缀 | 准确argv、输出、退出码、实际二进制身份 |
 | tests | 运行既有诊断单测 | 测试日志；未运行不能称通过 |
-| replay | 串行室内/室外基线与候选；domain176、localhost、仅原始LiDAR/IMU、1倍速、200Hz clock、30秒排空 | 原始events.csv、outputs.jsonl、node/player/observer日志、状态与硬件采样 |
+| replay | 仅回放配方列出的bag，默认室外基线与候选；domain176、localhost、仅原始LiDAR/IMU、1倍速、200Hz clock、30秒排空 | 原始events.csv、outputs.jsonl、node/player/observer日志、状态与硬件采样 |
 | report | 同源扫描配对、完整性审计、固定口径统计、独立判定 | comparison.json、REPORT.md、verdict.json、metrics.csv及追加方案记录 |
 
 状态持久化；已通过步骤只有冻结身份一致才能复用。失败步骤写新attempt，不改旧文件。配置、补丁、输入、源码或评估器变动导致不可比时，不能把旧结果拼进去。仅清理本流程创建的子进程，不杀用户节点、不停止实机。
+
+新清单的 `contract.required_datasets` 冻结实际选定范围；只选室外时不会调度室内，也不因缺少室内数据自动判缺项。历史清单未记录该字段时继续按原室内＋室外合同核验，不能将旧测试事后改成单包验收。指标公式、80ms目标、重复性和其他回归阈值保持不变。
 
 ## 必须记住的经验
 

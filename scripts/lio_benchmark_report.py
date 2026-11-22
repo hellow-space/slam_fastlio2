@@ -392,6 +392,13 @@ def collect_pairs(run_dir, manifest, parser, report):
     contract, runs = manifest['contract'], manifest['runs']
     bags = contract['bags']
     require(isinstance(bags, dict) and bags and 'outdoor' in bags, 'missing outdoor bag definition')
+    required_datasets = contract.get('required_datasets', REQUIRED_DATASETS)
+    if 'required_datasets' in contract:
+        require(isinstance(required_datasets, list) and required_datasets
+                and all(isinstance(name, str) and name in REQUIRED_DATASETS for name in required_datasets)
+                and 'outdoor' in required_datasets
+                and len(set(required_datasets)) == len(required_datasets)
+                and set(required_datasets) == set(bags), 'invalid frozen dataset scope')
     require(isinstance(runs, dict) and runs and all(isinstance(run, dict) for run in runs.values()),
             'no valid completed runs in manifest')
     legacy = contract.get('scheme_id') == '001' and all('variant' not in run for run in runs.values())
@@ -502,7 +509,7 @@ def collect_pairs(run_dir, manifest, parser, report):
             blockers.append(f'{variant} binary identity differs across repeats')
     if all(len(identity_by_variant[v]) == 1 for v in VARIANTS) and identity_by_variant['baseline'] == identity_by_variant['candidate']:
         blockers.append('baseline and candidate recorded the same binary identity')
-    for dataset in dict.fromkeys((*REQUIRED_DATASETS, *bags)):
+    for dataset in dict.fromkeys((*required_datasets, *bags)):
         pairs = report['datasets'].get(dataset, {}).get('pairs', {})
         measured = [pair for pair in pairs.values() if 'windows' in pair]
         count = len(measured)

@@ -1,0 +1,5 @@
+stdin is not a terminal device. Keyboard handling disabled.1795263479.989592 [176]       ros2: selected interface "lo" is not multicast-capable: disabling multicast
+[INFO] [1795263480.000773749] [rosbag2_storage]: Opened database '/home/nvidia/fastlivo_timing/imu_debug_20261112_210002/imu_debug_20261112_210002_0.db3' for READ_ONLY.
+[INFO] [1795263480.000944765] [rosbag2_player]: Set rate to 1
+[INFO] [1795263480.013344611] [rosbag2_player]: Sleep 2000000000 ns
+[INFO] [1795263482.014266911] [rosbag2_storage]: Opened database '/home/nvidia/fastlivo_timing/imu_debug_20261112_210002/imu_debug_20261112_210002_0.db3' for READ_ONLY.

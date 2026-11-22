@@ -312,8 +312,9 @@ def read_config(config_path, repo):
                 and path.parts[len(PACKAGE.parts)] in {"src", "include"}
                 and path.suffix in SOURCE_SUFFIXES - {".cmake", ".py", ".xml", ".yaml", ".yml", ".in"}):
             raise BenchmarkError(f"Candidate may only patch FAST-LIVO2 C/C++ sources: {name}")
-    if not isinstance(cfg.get("bags"), dict) or set(cfg["bags"]) != {"indoor", "outdoor"}:
-        raise BenchmarkError("Recipe must specify indoor and outdoor input bags")
+    if (not isinstance(cfg.get("bags"), dict)
+            or set(cfg["bags"]) not in ({"outdoor"}, {"indoor", "outdoor"})):
+        raise BenchmarkError("Recipe must specify an outdoor input bag; indoor is optional")
     for key, item in cfg["bags"].items():
         if not isinstance(item, dict) or not isinstance(item.get("path"), str) or not item["path"]:
             raise BenchmarkError(f"Missing path for {key} bag")
@@ -357,9 +358,10 @@ def preflight(config_path, repo=ROOT):
     for file in (Path("/opt/ros/humble/bin/ros2"), Path("/opt/ros/humble/lib/librmw_cyclonedds_cpp.so")):
         files[str(file)] = digest(file)
     bags = {name: bag_identity((repo / item["path"]).resolve()) for name, item in cfg["bags"].items()}
-    if (bags["indoor"]["duration_s"] <= cfg["warmup_seconds"]
-            or bags["outdoor"]["duration_s"] < cfg["high_load_end_s"]
-            or bags["indoor"]["path"] == bags["outdoor"]["path"]):
+    if (bags["outdoor"]["duration_s"] < cfg["high_load_end_s"]
+            or ("indoor" in bags and (
+                bags["indoor"]["duration_s"] <= cfg["warmup_seconds"]
+                or bags["indoor"]["path"] == bags["outdoor"]["path"]))):
         raise BenchmarkError("Input bag durations or pairing do not match the frozen windows")
     source = source_snapshot(repo, cfg.get("baseline_ref", "HEAD"))
     verify_files(files)
@@ -475,7 +477,8 @@ def environment(cfg, tools, *argv):
 
 
 def contract_for(cfg, source, bags):
-    contract = {**cfg, "bags": bags, "source_sha": source["commit"], "diagnostics": True,
+    contract = {**cfg, "bags": bags, "required_datasets": list(bags),
+                "source_sha": source["commit"], "diagnostics": True,
                 "ros_domain_id": 176, "localhost_only": True, "replay_rate": 1, "clock_hz": 200,
                 "ground_truth": "missing", "rmw": "rmw_cyclonedds_cpp",
                 "windows": {"warmup_seconds": cfg["warmup_seconds"],
@@ -825,6 +828,8 @@ def replay_order(cfg):
     for repeat in range(1, cfg["repetitions"] + 1):
         order = VARIANTS if repeat % 2 else VARIANTS[::-1]
         for dataset in ("indoor", "outdoor"):
+            if dataset not in cfg.get("bags", ("indoor", "outdoor")):
+                continue
             for variant in order:
                 yield f"{variant}_{dataset}_r{repeat}", variant, dataset, repeat
 

@@ -1,0 +1,16 @@
+{
+  "source_head": "e1187af5c67544603905285f0274cb1d136545a6",
+  "included_schemes": [
+    "001",
+    "002"
+  ],
+  "verified_equal_to_tested_candidate": "/tmp/lio-benchmark-c7y2xw06/candidate",
+  "files_sha256": {
+    "ws_livox/src/FAST-LIVO2-master/src/LIVMapper.cpp": "e9c4ae6b52f1be936e4aa7873e4a6d074ae492505e33f8e67f5ac813ed7f2110",
+    "ws_livox/src/FAST-LIVO2-master/src/IMU_Processing.cpp": "5bf8cc3bc01ed54556b5fb33ba1d598b67d0593926cf4603fe746eb4cae2f39d",
+    "ws_livox/src/FAST-LIVO2-master/src/voxel_map.cpp": "d8b98d7fe39514cdbd71deba2794b28441e8c57d3f3982aee216d743c48f78ac"
+  },
+  "experimental_source_only": true,
+  "normal_installation_updated": false,
+  "benchmark_verdict": "RETEST"
+}

@@ -436,8 +436,6 @@ void VoxelMapManager::StateEstimation(StatesGroup &state_propagat)
       total_residual += fabs(ptpl_list_[i].dis_to_plane_);
     }
     effct_feat_num_ = ptpl_list_.size();
-    cout << "[ LIO ] Raw feature num: " << feats_undistort_->size() << ", downsampled feature num:" << feats_down_size_ 
-         << " effective feature num: " << effct_feat_num_ << " average residual: " << total_residual / effct_feat_num_ << endl;
 
     /*** Computation of Measuremnt Jacobian matrix H and measurents covarience
      * ***/
@@ -680,15 +678,13 @@ void VoxelMapManager::BuildResidualListOMP(std::vector<pointWithVar> &pv_list, s
   int max_layer = config_setting_.max_layer_;
   double voxel_size = config_setting_.max_voxel_size_;
   double sigma_num = config_setting_.sigma_num_;
-  std::mutex mylock;
   ptpl_list.clear();
   std::vector<PointToPlane> all_ptpl_list(pv_list.size());
-  std::vector<bool> useful_ptpl(pv_list.size());
+  std::vector<uint8_t> useful_ptpl(pv_list.size(), 0);
   std::vector<size_t> index(pv_list.size());
   for (size_t i = 0; i < index.size(); ++i)
   {
     index[i] = i;
-    useful_ptpl[i] = false;
   }
   #ifdef MP_EN
     omp_set_num_threads(MP_PROC_NUM);
@@ -708,7 +704,7 @@ void VoxelMapManager::BuildResidualListOMP(std::vector<pointWithVar> &pv_list, s
     if (iter != voxel_map_.end())
     {
       VoxelOctoTree *current_octo = iter->second;
-      PointToPlane single_ptpl;
+      PointToPlane single_ptpl{};
       bool is_sucess = false;
       double prob = 0;
       build_single_residual(pv, current_octo, 0, is_sucess, prob, single_ptpl);
@@ -726,16 +722,12 @@ void VoxelMapManager::BuildResidualListOMP(std::vector<pointWithVar> &pv_list, s
       }
       if (is_sucess)
       {
-        mylock.lock();
-        useful_ptpl[i] = true;
+        useful_ptpl[i] = 1;
         all_ptpl_list[i] = single_ptpl;
-        mylock.unlock();
       }
       else
       {
-        mylock.lock();
-        useful_ptpl[i] = false;
-        mylock.unlock();
+        useful_ptpl[i] = 0;
       }
     }
   }

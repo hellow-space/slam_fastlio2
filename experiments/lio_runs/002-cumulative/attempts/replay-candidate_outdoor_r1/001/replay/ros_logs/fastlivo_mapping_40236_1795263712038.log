@@ -1,0 +1,21 @@
+[INFO] [1795263712.068231482] [laserMapping]: Found parameter: camera.model, value: Pinhole
+[INFO] [1795263712.068503108] [laserMapping]: Found parameter: camera.width, value: 1280
+[INFO] [1795263712.068534246] [laserMapping]: Found parameter: camera.height, value: 1024
+[INFO] [1795263712.068587816] [laserMapping]: Found parameter: camera.scale, value: 0.500000
+[INFO] [1795263712.068610248] [laserMapping]: Found parameter: camera.fx, value: 1293.569440
+[INFO] [1795263712.068629097] [laserMapping]: Found parameter: camera.fy, value: 1293.315500
+[INFO] [1795263712.068650282] [laserMapping]: Found parameter: camera.cx, value: 626.913590
+[INFO] [1795263712.068666219] [laserMapping]: Found parameter: camera.cy, value: 522.799224
+[INFO] [1795263712.068681163] [laserMapping]: Found parameter: camera.d0, value: -0.076160
+[INFO] [1795263712.068695756] [laserMapping]: Found parameter: camera.d1, value: 0.123001
+[INFO] [1795263712.068709676] [laserMapping]: Found parameter: camera.d2, value: -0.001130
+[INFO] [1795263712.068722893] [laserMapping]: Found parameter: camera.d3, value: 0.000251
+[INFO] [1795263712.074887319] [laserMapping]: LIO diagnostics: /home/nvidia/wsnew/experiments/lio_runs/002-cumulative/attempts/replay-candidate_outdoor_r1/001/replay/timing/run_1795263712074371172_40236/events.csv (enabled)
+[INFO] [1795263719.011150054] []: IMU Initializing: 3.3 %
+[WARN] [1795263719.011243177] []: Reset ImuProcess
+[INFO] [1795263719.100939595] []: IMU Initializing: 30.0 %
+[INFO] [1795263719.189715466] []: IMU Initializing: 93.3 %
+[INFO] [1795263719.189859952] []: IMU Initials: Gravity: 0.0094 0.0306 -9.8099 0.9927; acc covarience: 0.20000000 0.20000000 0.20000000; gry covarience: 0.50000000 0.50000000 0.50000000 
+
+[INFO] [1795263719.189885393] []: IMU Initials: ba covarience: 0.00010000 0.00010000 0.00010000; bg covarience: 0.00010000 0.00010000 0.00010000
+[INFO] [1795263873.283873485] [rclcpp]: signal_handler(SIGINT/SIGTERM)

@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "/usr/bin/bash",
+    "--noprofile",
+    "--norc",
+    "-c",
+    "source \"$1\" && source \"$2\" && shift 2 && exec \"$@\"",
+    "lio-benchmark",
+    "/opt/ros/humble/setup.bash",
+    "/home/nvidia/wsnew/ws_livox/install/setup.bash",
+    "/usr/bin/cmake",
+    "--build",
+    "/tmp/lio-benchmark-dexffe53/baseline-001-build",
+    "--target",
+    "fastlivo_mapping",
+    "-j2"
+  ],
+  "cwd": "/tmp/lio-benchmark-dexffe53/baseline-001-build",
+  "start_unix_s": 1795261698.7957947,
+  "exit_code": 0,
+  "end_unix_s": 1795261893.7161703
+}

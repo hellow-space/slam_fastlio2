@@ -30,6 +30,22 @@ class PipelineTest(unittest.TestCase):
     def git(self, *args):
         return subprocess.check_output(["git", "-C", str(self.repo), *args])
 
+    def test_outdoor_only_recipe_schedules_only_outdoor_and_freezes_scope(self):
+        cfg = bench.read_json(bench.ROOT / "experiments/recipes/lio_default.json")
+        cfg.update(reference="outdoor-only test", hypothesis="test configured datasets",
+                   patch="candidate.patch", allowed_files=[str(bench.PACKAGE / "src/test.cpp")],
+                   overlay_setup=str(self.repo / "ws_livox/install/setup.bash"),
+                   bags={"outdoor": {"path": "/outdoor"}}, repetitions=2)
+        recipe = self.root / "recipe.json"
+        bench.write_json(recipe, cfg)
+        cfg = bench.read_config(recipe, self.repo)
+        runs = list(bench.replay_order(cfg))
+        self.assertEqual([(v, d, r) for _, v, d, r in runs], [
+            ("baseline", "outdoor", 1), ("candidate", "outdoor", 1),
+            ("candidate", "outdoor", 2), ("baseline", "outdoor", 2)])
+        contract = bench.contract_for(cfg, {"commit": "source"}, cfg["bags"])
+        self.assertEqual(contract["required_datasets"], ["outdoor"])
+
     def test_snapshot_keeps_staged_and_unstaged_changes_and_untracked_source(self):
         self.source.write_text("int staged;\n")
         self.git("add", ".")

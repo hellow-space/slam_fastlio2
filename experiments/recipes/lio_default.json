@@ -19,9 +19,6 @@
   "post_play_seconds": 30,
   "surf_filter": 0.15,
   "bags": {
-    "indoor": {
-      "path": "/home/nvidia/fastlivo_timing/imu_debug_20261112_210002"
-    },
     "outdoor": {
       "path": "/home/nvidia/fastlivo_timing/outdoor_bags/handheld_20261115_202612"
     }

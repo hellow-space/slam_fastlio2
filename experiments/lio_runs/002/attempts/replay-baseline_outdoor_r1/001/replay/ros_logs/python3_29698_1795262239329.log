@@ -1,0 +1,4 @@
+[INFO] [1795262239.350458255] [rosbag2_storage]: Opened database '/home/nvidia/fastlivo_timing/outdoor_bags/handheld_20261115_202612/handheld_20261115_202612_0.db3' for READ_ONLY.
+[INFO] [1795262239.350595857] [rosbag2_player]: Set rate to 1
+[INFO] [1795262239.357268942] [rosbag2_player]: Sleep 2000000000 ns
+[INFO] [1795262241.358318179] [rosbag2_storage]: Opened database '/home/nvidia/fastlivo_timing/outdoor_bags/handheld_20261115_202612/handheld_20261115_202612_0.db3' for READ_ONLY.

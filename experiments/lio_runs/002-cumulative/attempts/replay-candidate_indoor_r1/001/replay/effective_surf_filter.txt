@@ -1,0 +1,3 @@
+Double value is: 0.15
+1795263477.888193 [176]       ros2: selected interface "lo" is not multicast-capable: disabling multicast
+1795263478.646583 [176]       ros2: selected interface "lo" is not multicast-capable: disabling multicast

@@ -1,0 +1,6 @@
+{
+  "csv": "/home/nvidia/wsnew/experiments/lio_runs/002-cumulative/attempts/replay-baseline_indoor_r1/001/replay/timing/run_1795263407308331777_38026/events.csv",
+  "full_cycles": 262,
+  "odom_events": 258,
+  "tf_creations": 1
+}

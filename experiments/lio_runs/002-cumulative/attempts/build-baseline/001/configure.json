@@ -1,0 +1,24 @@
+{
+  "argv": [
+    "/usr/bin/bash",
+    "--noprofile",
+    "--norc",
+    "-c",
+    "source \"$1\" && source \"$2\" && shift 2 && exec \"$@\"",
+    "lio-benchmark",
+    "/opt/ros/humble/setup.bash",
+    "/home/nvidia/wsnew/ws_livox/install/setup.bash",
+    "/usr/bin/cmake",
+    "-S",
+    "/tmp/lio-benchmark-c7y2xw06/baseline/ws_livox/src/FAST-LIVO2-master",
+    "-B",
+    "/tmp/lio-benchmark-c7y2xw06/baseline-001-build",
+    "-DENABLE_LIO_DIAGNOSTICS=ON",
+    "-DCMAKE_INSTALL_PREFIX=/tmp/lio-benchmark-c7y2xw06/baseline-001-install",
+    "-DCMAKE_CXX_COMPILER=/usr/bin/aarch64-linux-gnu-g++-11"
+  ],
+  "cwd": "/tmp/lio-benchmark-c7y2xw06/baseline-001-build",
+  "start_unix_s": 1795263000.3378909,
+  "exit_code": 0,
+  "end_unix_s": 1795263008.8121054
+}

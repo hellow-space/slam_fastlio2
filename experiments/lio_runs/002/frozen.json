@@ -1,0 +1,159 @@
+{
+  "config": {
+    "scheme_id": "002",
+    "reference": "\u7528\u6237\u65b9\u6848002\uff1a\u5173\u95ed\u9ad8\u9891\u8c03\u8bd5\u65e5\u5fd7",
+    "hypothesis": "\u5173\u95edIMU\u9010\u91c7\u6837\u63a7\u5236\u53f0/\u6587\u4ef6\u5237\u65b0\u548cLIO\u9010\u8fed\u4ee3/\u9010\u5e27\u8868\u683c\u8f93\u51fa\uff0c\u964d\u4f4eI/O\u4e0e\u6301\u9501\u963b\u585e\uff1b\u76f8\u540c\u8f93\u5165\u4e0b\u6bd4\u8f83\u5ba4\u591640\u2013100\u79d2\u5b8c\u6574\u5904\u7406\u5747\u503c\u662f\u5426\u8fbe\u523080ms\uff0c\u5e76\u62a5\u544aP95\u3001\u6700\u5927\u503c\u548c\u8d85\u8fc7100ms\u5e27\u6570\u3002",
+    "patch": "/home/nvidia/wsnew/experiments/002_quiet_logs/candidate.patch",
+    "allowed_files": [
+      "ws_livox/src/FAST-LIVO2-master/src/LIVMapper.cpp",
+      "ws_livox/src/FAST-LIVO2-master/src/IMU_Processing.cpp",
+      "ws_livox/src/FAST-LIVO2-master/src/voxel_map.cpp"
+    ],
+    "baseline_ref": "e1187af5c67544603905285f0274cb1d136545a6",
+    "output_root": "/home/nvidia/wsnew/experiments/lio_runs",
+    "common_patch": "/home/nvidia/wsnew/experiments/pr465/offline_shutdown_common.patch",
+    "ros_setup": "/opt/ros/humble/setup.bash",
+    "overlay_setup": "/home/nvidia/wsnew/ws_livox/install/setup.bash",
+    "build_jobs": 2,
+    "repetitions": 1,
+    "minimum_successful_pairs": 2,
+    "target_ms": 80,
+    "warmup_seconds": 5,
+    "high_load_start_s": 40,
+    "high_load_end_s": 100,
+    "post_play_seconds": 30,
+    "surf_filter": 0.15,
+    "bags": {
+      "indoor": {
+        "path": "/home/nvidia/fastlivo_timing/imu_debug_20261112_210002"
+      },
+      "outdoor": {
+        "path": "/home/nvidia/fastlivo_timing/outdoor_bags/handheld_20261115_202612"
+      }
+    },
+    "regression_gates": {
+      "successful_source_scan_sets": "identical after source warmup5s; duplicate keys forbidden",
+      "inputs": "all recorded lidar/imu callbacks present; full_cycle count >= lidar messages-1; publish/diagnostic/successful cycle counts equal",
+      "tf_odom_position_max_m": 1e-12,
+      "tf_odom_quaternion_component_max": 1e-12,
+      "paired_pose_max_m": 1e-09,
+      "paired_quaternion_component_max": 1e-12,
+      "outdoor_high_load_wall_mapped_age_p95_candidate_max": "baseline p95 + 5 ms",
+      "outdoor_high_load_lidar_q_max_candidate_max": "baseline max + 1",
+      "wall_output_interval_p95_candidate_max": "baseline p95 + 5 ms",
+      "state_age_validity": "Audit nonfinite/negative raw ages and /clock EOF; use existing steady-mapped age for tail, not frozen clock freshness",
+      "absolute_accuracy": "unmeasured; no accuracy certification",
+      "performance_claim": "mean <=80ms is average only; p95 <=80ms is 95-percent budget; baseline reproduction reported separately"
+    },
+    "record_ledger": true
+  },
+  "config_path": "/home/nvidia/wsnew/experiments/recipes/002.json",
+  "files": {
+    "/home/nvidia/wsnew/experiments/recipes/002.json": "4bfe347c7d9950d59d0202243b0029e25927c499bbce6be8d64dc48a82690afc",
+    "/home/nvidia/wsnew/experiments/002_quiet_logs/candidate.patch": "0a2b578e40f11d9d69f52fbb20b6a67c091c02ccf3da536b4988c5de715eb7d8",
+    "/home/nvidia/wsnew/experiments/pr465/offline_shutdown_common.patch": "6e60a9446d12841af5038a4568cd80b26a387144638aa8b4289315097aa3051c",
+    "/opt/ros/humble/setup.bash": "12556a2725a823c3841f8fbab50892c8b8c69df9654d2a74761407226ecca4df",
+    "/home/nvidia/wsnew/ws_livox/install/setup.bash": "2ee4dd4476d986a18711877bdee8c77dc87b58d882943c00a94c84f566c29781",
+    "/home/nvidia/wsnew/scripts/lio_benchmark.py": "af4851d595a17c361124fc0665b958bcaad9f585879993a1aa4bb26fa189cc47",
+    "/home/nvidia/wsnew/scripts/lio_benchmark_report.py": "65e0a1f47ede3ba88ec2b0b6232f863534e9f70b8ee072ede9f6edeae0985127",
+    "/home/nvidia/wsnew/scripts/summarize_pr465_ab.py": "b114b7a6eaf743751d930d167fa73d636129bf96d4c31a4ac6d87b8c0641a93c",
+    "/home/nvidia/wsnew/ws_livox/src/FAST-LIVO2-master/scripts/summarize_surf_filter_ab.py": "24194fa405d3d77a624af735d4c5ac945567eaaf2101c8cf52e1a468b7fdb5e5",
+    "/usr/bin/git": "700a0e79e3d11d025c5fd77f931fe65352414996b07f5aadb7d55b20572f6f50",
+    "/usr/bin/cmake": "9994c5f3629c4d54811be84a77eb21df7e0807b2e6510f1ba5aefe4f8b7e4de0",
+    "/usr/bin/bash": "c5f8a98c674631609902846fae6df219b3b16d97db58cf1c1334f8eb14962bde",
+    "/usr/bin/ldd": "a69ee6e72bc51c2a296d2e17b1c5e5c1dad52782bea15f3056f3abdc1348e570",
+    "/usr/bin/aarch64-linux-gnu-g++-11": "2aafdb1e153fc490fbd510d352572eee55ecdd29dd95eca239b4460c1afe3a12",
+    "/usr/bin/tegrastats": "9d81b65cccd4b982fe0b11b1aa107022ecabe0ae6ce1927bd506b9cff303db82",
+    "/usr/bin/python3.10": "06dbbe8641183e6db09f8540e7e69c9507304ee469dd9992cc5d20a13466aa3b",
+    "/opt/ros/humble/bin/ros2": "c3b1349dfa33e63922a27d7078181a9176736a27a71976281a19f98133cc05b3",
+    "/opt/ros/humble/lib/librmw_cyclonedds_cpp.so": "3337e88fa26dc39edc2de83d8b4d31890db5cc8a11e46ad964fe28566e29357e",
+    "/home/nvidia/wsnew/experiments/lio_runs/002/source/patch.patch": "0a2b578e40f11d9d69f52fbb20b6a67c091c02ccf3da536b4988c5de715eb7d8",
+    "/home/nvidia/wsnew/experiments/lio_runs/002/source/baseline_dirty.patch": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/home/nvidia/wsnew/experiments/lio_runs/002/source/initial_source.json": "5fade87725538b7a98f17bb408e77316da3126d8f6b9387d81dd9a89d3009a16",
+    "/home/nvidia/wsnew/experiments/lio_runs/002/source/common_patch.patch": "6e60a9446d12841af5038a4568cd80b26a387144638aa8b4289315097aa3051c",
+    "/home/nvidia/wsnew/experiments/lio_runs/002/source/git_status.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "tools": {
+    "git": "/usr/bin/git",
+    "cmake": "/usr/bin/cmake",
+    "bash": "/usr/bin/bash",
+    "ldd": "/usr/bin/ldd",
+    "c++": "/usr/bin/aarch64-linux-gnu-g++-11",
+    "tegrastats": "/usr/bin/tegrastats",
+    "python": "/usr/bin/python3.10"
+  },
+  "bags": {
+    "indoor": {
+      "path": "/home/nvidia/fastlivo_timing/imu_debug_20261112_210002",
+      "start_s": 1794488403.5314271,
+      "duration_s": 26.125393411,
+      "input_counts": {
+        "/livox/imu": 5224,
+        "/livox/lidar": 262
+      },
+      "input_types": {
+        "/livox/imu": "sensor_msgs/msg/Imu",
+        "/livox/lidar": "livox_ros_driver2/msg/CustomMsg"
+      },
+      "sha256": {
+        "metadata.yaml": "741a27c21c7c7973333d5527d780e204e409b0def0819545eeaf8a6794be6556",
+        "imu_debug_20261112_210002_0.db3": "63114f7095097ada4859bf57d4a4d4665f42ad6d0e32aade25ce348e023e2fec"
+      }
+    },
+    "outdoor": {
+      "path": "/home/nvidia/fastlivo_timing/outdoor_bags/handheld_20261115_202612",
+      "start_s": 1794745573.3646455,
+      "duration_s": 123.837883338,
+      "input_counts": {
+        "/livox/imu": 24771,
+        "/livox/lidar": 1238
+      },
+      "input_types": {
+        "/livox/imu": "sensor_msgs/msg/Imu",
+        "/livox/lidar": "livox_ros_driver2/msg/CustomMsg"
+      },
+      "sha256": {
+        "metadata.yaml": "5d4ab87dffd74f5272e9d4b14277f839dc98ae6da561519c9ad3c3e506f514c1",
+        "handheld_20261115_202612_0.db3": "6baa74f73e6f11a46ac422a8ec648ba787f39c2031d56b97fbd703435e9ba728"
+      }
+    }
+  },
+  "machine_identity": {
+    "uname": [
+      "Linux",
+      "nvidia-desktop",
+      "5.15.148-tegra",
+      "#1 SMP PREEMPT Tue Jan 7 17:14:38 PST 2025",
+      "aarch64"
+    ],
+    "cpu_affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "settings": {
+      "/etc/nvpmodel.conf": "#\n# Copyright (c) 2024, NVIDIA CORPORATION.  All rights reserved.\n#\n# NVIDIA CORPORATION and its licensors retain all intellectual property\n# and proprietary rights in and to this software, related documentation\n# and any modifications thereto.  Any use, reproduction, disclosure or\n# distribution of this software and related documentation without an express\n# license agreement from NVIDIA CORPORATION is strictly prohibited.\n#\n# FORMAT:\n# < PARAM TYPE=PARAM_TYPE NAME=PARAM_NAME >\n# ARG1_NAME ARG1_PATH_VAL\n# ARG2_NAME ARG2_PATH_VAL\n# ...\n# This starts a section of PARAM definitions, in which each line\n# has the syntax below:\n# ARG_NAME ARG_PATH_VAL\n# ARG_NAME is a macro name for argument value ARG_PATH_VAL.\n# PARAM_TYPE can be FILE, or CLOCK.\n#\n# < POWER_MODEL ID=id_num NAME=mode_name >\n# PARAM1_NAME ARG11_NAME ARG11_VAL\n# PARAM1_NAME ARG12_NAME ARG12_VAL\n# PARAM2_NAME ARG21_NAME ARG21_VAL\n# ...\n# This starts a section of POWER_MODEL configurations, followed by\n# lines with parameter settings as the format below:\n# PARAM_NAME ARG_NAME ARG_VAL\n# PARAM_NAME and ARG_NAME are defined in PARAM definition sections.\n# ARG_VAL is an integer for PARAM_TYPE of CLOCK, and -1 is taken\n# as INT_MAX. ARG_VAL is a string for PARAM_TYPE of FILE.\n# This file must contain at least one POWER_MODEL section.\n#\n# < PM_CONFIG DEFAULT=default_mode >\n# This is a mandatory section to specify one of the defined power\n# model as the default.\n\n###########################\n#                         #\n# PARAM DEFINITIONS       #\n#                         #\n###########################\n\n< PARAM TYPE=FILE NAME=CPU_ONLINE >\nCORE_0 /sys/devices/system/cpu/cpu0/online\nCORE_1 /sys/devices/system/cpu/cpu1/online\nCORE_2 /sys/devices/system/cpu/cpu2/online\nCORE_3 /sys/devices/system/cpu/cpu3/online\nCORE_4 /sys/devices/system/cpu/cpu4/online\nCORE_5 /sys/devices/system/cpu/cpu5/online\n\n< PARAM TYPE=FILE NAME=FBP_POWER_GATING >\nFBP_PG_MASK /sys/devices/gpu.0/fbp_pg_mask\nFBP_PG_MASK_KNEXT /sys/devices/platform/gpu.0/fbp_pg_mask\n\n< PARAM TYPE=FILE NAME=TPC_POWER_GATING >\nTPC_PG_MASK /sys/devices/gpu.0/tpc_pg_mask\nTPC_PG_MASK_KNEXT /sys/devices/platform/gpu.0/tpc_pg_mask\n\n< PARAM TYPE=FILE NAME=GPU_POWER_CONTROL_ENABLE >\nGPU_PWR_CNTL_EN /sys/devices/gpu.0/power/control\nGPU_PWR_CNTL_EN_KNEXT /sys/devices/platform/gpu.0/power/control\n\n< PARAM TYPE=FILE NAME=GPU_POWER_CONTROL_DISABLE >\nGPU_PWR_CNTL_DIS /sys/devices/gpu.0/power/control\nGPU_PWR_CNTL_DIS_KNEXT /sys/devices/platform/gpu.0/power/control\n\n< PARAM TYPE=CLOCK NAME=CPU_A78_0 >\nFREQ_TABLE /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies\nMAX_FREQ /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq\nMIN_FREQ /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq\nFREQ_TABLE_KNEXT /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies\nMAX_FREQ_KNEXT /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq\nMIN_FREQ_KNEXT /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq\n\n< PARAM TYPE=CLOCK NAME=CPU_A78_1 >\nFREQ_TABLE /sys/devices/system/cpu/cpu1/cpufreq/scaling_available_frequencies\nMAX_FREQ /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq\nMIN_FREQ /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq\nFREQ_TABLE_KNEXT /sys/devices/system/cpu/cpu1/cpufreq/scaling_available_frequencies\nMAX_FREQ_KNEXT /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq\nMIN_FREQ_KNEXT /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq\n\n< PARAM TYPE=CLOCK NAME=CPU_A78_2 >\nFREQ_TABLE /sys/devices/system/cpu/cpu2/cpufreq/scaling_available_frequencies\nMAX_FREQ /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq\nMIN_FREQ /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq\nFREQ_TABLE_KNEXT /sys/devices/system/cpu/cpu2/cpufreq/scaling_available_frequencies\nMAX_FREQ_KNEXT /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq\nMIN_FREQ_KNEXT /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq\n\n< PARAM TYPE=CLOCK NAME=CPU_A78_3 >\nFREQ_TABLE /sys/devices/system/cpu/cpu3/cpufreq/scaling_available_frequencies\nMAX_FREQ /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq\nMIN_FREQ /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq\nFREQ_TABLE_KNEXT /sys/devices/system/cpu/cpu3/cpufreq/scaling_available_frequencies\nMAX_FREQ_KNEXT /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq\nMIN_FREQ_KNEXT /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq\n\n< PARAM TYPE=CLOCK NAME=CPU_A78_4 >\nFREQ_TABLE /sys/devices/system/cpu/cpu4/cpufreq/scaling_available_frequencies\nMAX_FREQ /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq\nMIN_FREQ /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq\nFREQ_TABLE_KNEXT /sys/devices/system/cpu/cpu4/cpufreq/scaling_available_frequencies\nMAX_FREQ_KNEXT /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq\nMIN_FREQ_KNEXT /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq\n\n< PARAM TYPE=CLOCK NAME=CPU_A78_5 >\nFREQ_TABLE /sys/devices/system/cpu/cpu5/cpufreq/scaling_available_frequencies\nMAX_FREQ /sys/devices/system/cpu/cpu5/cpufreq/scaling_max_freq\nMIN_FREQ /sys/devices/system/cpu/cpu5/cpufreq/scaling_min_freq\nFREQ_TABLE_KNEXT /sys/devices/system/cpu/cpu5/cpufreq/scaling_available_frequencies\nMAX_FREQ_KNEXT /sys/devices/system/cpu/cpu5/cpufreq/scaling_max_freq\nMIN_FREQ_KNEXT /sys/devices/system/cpu/cpu5/cpufreq/scaling_min_freq\n\n< PARAM TYPE=CLOCK NAME=GPU >\nFREQ_TABLE /sys/devices/17000000.ga10b/devfreq/17000000.ga10b/available_frequencies\nMAX_FREQ /sys/devices/17000000.ga10b/devfreq/17000000.ga10b/max_freq\nMIN_FREQ /sys/devices/17000000.ga10b/devfreq/17000000.ga10b/min_freq\nFREQ_TABLE_KNEXT /sys/devices/platform/17000000.gpu/devfreq_dev/available_frequencies\nMAX_FREQ_KNEXT /sys/devices/platform/17000000.gpu/devfreq_dev/max_freq\nMIN_FREQ_KNEXT /sys/devices/platform/17000000.gpu/devfreq_dev/min_freq\n\n<PARAM TYPE=CLOCK NAME=EMC >\nMAX_FREQ /sys/kernel/nvpmodel_emc_cap/emc_iso_cap\nMAX_FREQ_KNEXT /sys/kernel/nvpmodel_clk_cap/emc\n\n< PARAM TYPE=CLOCK NAME=DLA0_CORE >\nMAX_FREQ /sys/devices/platform/13e40000.host1x/15880000.nvdla0/acm/clk_cap/dla0_core\nMAX_FREQ_KNEXT /sys/devices/platform/bus@0/13e00000.host1x/15880000.nvdla0/clk_cap/dla0_core\n\n< PARAM TYPE=CLOCK NAME=DLA0_FALCON >\nMAX_FREQ /sys/devices/platform/13e40000.host1x/15880000.nvdla0/acm/clk_cap/dla0_falcon\nMAX_FREQ_KNEXT /sys/devices/platform/bus@0/13e00000.host1x/15880000.nvdla0/clk_cap/dla0_falcon\n\n< PARAM TYPE=CLOCK NAME=DLA1_CORE >\nMAX_FREQ /sys/devices/platform/13e40000.host1x/158c0000.nvdla1/acm/clk_cap/dla1_core\nMAX_FREQ_KNEXT /sys/devices/platform/bus@0/13e00000.host1x/158c0000.nvdla1/clk_cap/dla1_core\n\n< PARAM TYPE=CLOCK NAME=DLA1_FALCON >\nMAX_FREQ /sys/devices/platform/13e40000.host1x/158c0000.nvdla1/acm/clk_cap/dla1_falcon\nMAX_FREQ_KNEXT /sys/devices/platform/bus@0/13e00000.host1x/158c0000.nvdla1/clk_cap/dla1_falcon\n\n< PARAM TYPE=CLOCK NAME=PVA0_VPS >\nMAX_FREQ /sys/devices/platform/13e40000.host1x/16000000.pva0/acm/clk_cap/pva0_vps\nMAX_FREQ_KNEXT /sys/devices/platform/bus@0/13e00000.host1x/16000000.pva0/clk_cap/pva0_vps\n\n< PARAM TYPE=CLOCK NAME=PVA0_AXI >\nMAX_FREQ /sys/devices/platform/13e40000.host1x/16000000.pva0/acm/clk_cap/pva0_cpu_axi\nMAX_FREQ_KNEXT /sys/devices/platform/bus@0/13e00000.host1x/16000000.pva0/clk_cap/pva0_cpu_axi\n\n###########################\n#                         #\n# POWER_MODEL DEFINITIONS #\n#                         #\n###########################\n\n# MAXN_SUPER is the NONE power model to release all constraints\n< POWER_MODEL ID=0 NAME=MAXN_SUPER >\nCPU_ONLINE CORE_0 1\nCPU_ONLINE CORE_1 1\nCPU_ONLINE CORE_2 1\nCPU_ONLINE CORE_3 1\nCPU_ONLINE CORE_4 1\nCPU_ONLINE CORE_5 1\nFBP_POWER_GATING FBP_PG_MASK 2\nTPC_POWER_GATING TPC_PG_MASK 240\nGPU_POWER_CONTROL_ENABLE GPU_PWR_CNTL_EN on\nCPU_A78_0 MIN_FREQ 729600\nCPU_A78_0 MAX_FREQ -1\nCPU_A78_1 MIN_FREQ 729600\nCPU_A78_1 MAX_FREQ -1\nCPU_A78_2 MIN_FREQ 729600\nCPU_A78_2 MAX_FREQ -1\nCPU_A78_3 MIN_FREQ 729600\nCPU_A78_3 MAX_FREQ -1\nCPU_A78_4 MIN_FREQ 729600\nCPU_A78_4 MAX_FREQ -1\nCPU_A78_5 MIN_FREQ 729600\nCPU_A78_5 MAX_FREQ -1\nGPU MIN_FREQ 0\nGPU MAX_FREQ -1\nGPU_POWER_CONTROL_DISABLE GPU_PWR_CNTL_DIS auto\nEMC MAX_FREQ -1\nDLA0_CORE MAX_FREQ -1\nDLA1_CORE MAX_FREQ -1\nDLA0_FALCON MAX_FREQ -1\nDLA1_FALCON MAX_FREQ -1\nPVA0_VPS MAX_FREQ -1\nPVA0_AXI MAX_FREQ -1\n\n< POWER_MODEL ID=1 NAME=10W >\nCPU_ONLINE CORE_0 1\nCPU_ONLINE CORE_1 1\nCPU_ONLINE CORE_2 1\nCPU_ONLINE CORE_3 1\nCPU_ONLINE CORE_4 0\nCPU_ONLINE CORE_5 0\nFBP_POWER_GATING FBP_PG_MASK 2\nTPC_POWER_GATING TPC_PG_MASK 252\nGPU_POWER_CONTROL_ENABLE GPU_PWR_CNTL_EN on\nCPU_A78_0 MIN_FREQ 729600\nCPU_A78_0 MAX_FREQ 1190400\nCPU_A78_1 MIN_FREQ 729600\nCPU_A78_1 MAX_FREQ 1190400\nCPU_A78_2 MIN_FREQ 729600\nCPU_A78_2 MAX_FREQ 1190400\nCPU_A78_3 MIN_FREQ 729600\nCPU_A78_3 MAX_FREQ 1190400\nGPU MIN_FREQ 0\nGPU MAX_FREQ 612000000\nGPU_POWER_CONTROL_DISABLE GPU_PWR_CNTL_DIS auto\nEMC MAX_FREQ 2133000000\nDLA0_CORE MAX_FREQ 153600000\nDLA1_CORE MAX_FREQ 153600000\nDLA0_FALCON MAX_FREQ 115000000\nDLA1_FALCON MAX_FREQ 115000000\nPVA0_VPS MAX_FREQ 115000000\nPVA0_AXI MAX_FREQ 115000000\n\n< POWER_MODEL ID=2 NAME=15W >\nCPU_ONLINE CORE_0 1\nCPU_ONLINE CORE_1 1\nCPU_ONLINE CORE_2 1\nCPU_ONLINE CORE_3 1\nCPU_ONLINE CORE_4 0\nCPU_ONLINE CORE_5 0\nFBP_POWER_GATING FBP_PG_MASK 2\nTPC_POWER_GATING TPC_PG_MASK 252\nGPU_POWER_CONTROL_ENABLE GPU_PWR_CNTL_EN on\nCPU_A78_0 MIN_FREQ 729600\nCPU_A78_0 MAX_FREQ 1420800\nCPU_A78_1 MIN_FREQ 729600\nCPU_A78_1 MAX_FREQ 1420800\nCPU_A78_2 MIN_FREQ 729600\nCPU_A78_2 MAX_FREQ 1420800\nCPU_A78_3 MIN_FREQ 729600\nCPU_A78_3 MAX_FREQ 1420800\nGPU MIN_FREQ 0\nGPU MAX_FREQ 612000000\nGPU_POWER_CONTROL_DISABLE GPU_PWR_CNTL_DIS auto\nEMC MAX_FREQ -1\nDLA0_CORE MAX_FREQ 614400000\nDLA1_CORE MAX_FREQ 614400000\nDLA0_FALCON MAX_FREQ 294400000\nDLA1_FALCON MAX_FREQ 294400000\nPVA0_VPS MAX_FREQ 115000000\nPVA0_AXI MAX_FREQ 115000000\n\n< POWER_MODEL ID=3 NAME=20W >\nCPU_ONLINE CORE_0 1\nCPU_ONLINE CORE_1 1\nCPU_ONLINE CORE_2 1\nCPU_ONLINE CORE_3 1\nCPU_ONLINE CORE_4 1\nCPU_ONLINE CORE_5 1\nFBP_POWER_GATING FBP_PG_MASK 2\nTPC_POWER_GATING TPC_PG_MASK 240\nGPU_POWER_CONTROL_ENABLE GPU_PWR_CNTL_EN on\nCPU_A78_0 MIN_FREQ 729600\nCPU_A78_0 MAX_FREQ 1497600\nCPU_A78_1 MIN_FREQ 729600\nCPU_A78_1 MAX_FREQ 1497600\nCPU_A78_2 MIN_FREQ 729600\nCPU_A78_2 MAX_FREQ 1497600\nCPU_A78_3 MIN_FREQ 729600\nCPU_A78_3 MAX_FREQ 1497600\nCPU_A78_4 MIN_FREQ 729600\nCPU_A78_4 MAX_FREQ 1497600\nCPU_A78_5 MIN_FREQ 729600\nCPU_A78_5 MAX_FREQ 1497600\nGPU MIN_FREQ 0\nGPU MAX_FREQ 408000000\nGPU_POWER_CONTROL_DISABLE GPU_PWR_CNTL_DIS auto\nEMC MAX_FREQ -1\nDLA0_CORE MAX_FREQ 614400000\nDLA1_CORE MAX_FREQ 614400000\nDLA0_FALCON MAX_FREQ 294400000\nDLA1_FALCON MAX_FREQ 294400000\nPVA0_VPS MAX_FREQ 512000000\nPVA0_AXI MAX_FREQ 358400000\n\n< POWER_MODEL ID=4 NAME=40W >\nCPU_ONLINE CORE_0 1\nCPU_ONLINE CORE_1 1\nCPU_ONLINE CORE_2 1\nCPU_ONLINE CORE_3 1\nCPU_ONLINE CORE_4 1\nCPU_ONLINE CORE_5 1\nFBP_POWER_GATING FBP_PG_MASK 2\nTPC_POWER_GATING TPC_PG_MASK 240\nGPU_POWER_CONTROL_ENABLE GPU_PWR_CNTL_EN on\nCPU_A78_0 MIN_FREQ 729600\nCPU_A78_0 MAX_FREQ 1984000\nCPU_A78_1 MIN_FREQ 729600\nCPU_A78_1 MAX_FREQ 1984000\nCPU_A78_2 MIN_FREQ 729600\nCPU_A78_2 MAX_FREQ 1984000\nCPU_A78_3 MIN_FREQ 729600\nCPU_A78_3 MAX_FREQ 1984000\nCPU_A78_4 MIN_FREQ 729600\nCPU_A78_4 MAX_FREQ 1984000\nCPU_A78_5 MIN_FREQ 729600\nCPU_A78_5 MAX_FREQ 1984000\nGPU MIN_FREQ 0\nGPU MAX_FREQ 1173000000\nGPU_POWER_CONTROL_DISABLE GPU_PWR_CNTL_DIS auto\nEMC MAX_FREQ -1\nDLA0_CORE MAX_FREQ 1203200000\nDLA1_CORE MAX_FREQ 1203200000\nDLA0_FALCON MAX_FREQ 640000000\nDLA1_FALCON MAX_FREQ 640000000\nPVA0_VPS MAX_FREQ 704000000\nPVA0_AXI MAX_FREQ 486400000\n\n# mandatory section to configure the default power mode\n< PM_CONFIG DEFAULT=4 >\n",
+      "/var/lib/nvpmodel/status": "pmode:0000",
+      "/sys/devices/system/cpu/online": "0-7\n",
+      "/sys/devices/system/cpu/cpufreq/policy4/scaling_governor": "schedutil\n",
+      "/sys/devices/system/cpu/cpufreq/policy0/scaling_governor": "schedutil\n",
+      "/sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq": "1984000\n",
+      "/sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq": "1984000\n"
+    },
+    "inherited_thread_env": {
+      "OMP_NUM_THREADS": null,
+      "OMP_DYNAMIC": null,
+      "OMP_THREAD_LIMIT": null,
+      "OMP_PROC_BIND": null,
+      "OMP_PLACES": null,
+      "GOMP_CPU_AFFINITY": null,
+      "OPENBLAS_NUM_THREADS": null,
+      "MKL_NUM_THREADS": null
+    }
+  }
+}

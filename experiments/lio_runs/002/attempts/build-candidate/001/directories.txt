@@ -1,0 +1,2 @@
+/tmp/lio-benchmark-dexffe53/candidate-001-build
+/tmp/lio-benchmark-dexffe53/candidate-001-install

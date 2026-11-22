@@ -159,6 +159,27 @@ class ReportTests(unittest.TestCase):
         self.assertTrue(result['performance_p95_pass'])
         self.assertIn('indoor', ' '.join(result['reasons']))
 
+    def test_explicit_outdoor_only_contract_does_not_require_indoor(self):
+        self.fixture(repeat_count=2, candidate=(50, 60, 70), datasets=('outdoor',))
+        path = self.root / 'manifest.json'
+        manifest = json.loads(path.read_text())
+        manifest['contract']['required_datasets'] = ['outdoor']
+        path.write_text(json.dumps(manifest))
+        result = analyze(self.root, write=False)
+        self.assertEqual(result['verdict'], 'ACCEPT', result['reasons'])
+        self.assertEqual(set(result['datasets']), {'outdoor'})
+        self.assertTrue(result['repeatability_verified'])
+
+    def test_dataset_scope_cannot_hide_required_indoor_runs(self):
+        self.fixture(repeat_count=2, candidate=(50, 60, 70))
+        path = self.root / 'manifest.json'
+        manifest = json.loads(path.read_text())
+        manifest['contract']['required_datasets'] = ['outdoor']
+        path.write_text(json.dumps(manifest))
+        result = analyze(self.root, write=False)
+        self.assertEqual(result['verdict'], 'RETEST')
+        self.assertIn('dataset scope', ' '.join(result['reasons']))
+
     def test_valid_csv_duration_modified_after_freeze_is_rejected(self):
         self.fixture()
         path = self.root / 'candidate_outdoor_1' / 'timing' / 'run_fixture' / 'events.csv'
