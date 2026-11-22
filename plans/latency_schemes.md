@@ -72,3 +72,14 @@
 - 阶段：report
 - 性能：mean≤80 ms=True, p95≤80 ms=False
 - 判定：RETEST。[报告](../experiments/lio_runs/002-cumulative/REPORT.md)
+
+
+<!-- lio-benchmark:/home/nvidia/wsnew/experiments/lio_runs/003:complete -->
+### 方案 003 自动化记录
+
+- 来源：OpenMP thread count comparison: 4 vs 8, cumulative source 001+002 unchanged
+- 假设：With identical cumulative FAST-LIVO2 source, runtime parameters, outdoor input and evaluation, MP_PROC_NUM=8 will reduce high-load full_cycle p95 relative to MP_PROC_NUM=4 by up to the targeted 5.5 ms without regression gates failing.
+- 运行目录：`experiments/lio_runs/003`
+- 阶段：report
+- 性能：mean≤80 ms=True, p95≤80 ms=True
+- 判定：RETEST。[报告](../experiments/lio_runs/003/REPORT.md)

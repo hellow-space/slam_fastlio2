@@ -1,0 +1,12 @@
+{
+  "verdict": "RETEST",
+  "reasons": [
+    "outdoor pair 1: initialization IMU acceptance fingerprints differ",
+    "outdoor: 1 successful paired runs; 2 required",
+    "outdoor pair 1: paired_pose_max_m (paired) exceeds the frozen regression limit",
+    "outdoor pair 1: paired_quaternion_component_max (paired) exceeds the frozen regression limit"
+  ],
+  "performance_mean_pass": true,
+  "performance_p95_pass": true,
+  "repeatability_verified": false
+}

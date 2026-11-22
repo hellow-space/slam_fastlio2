@@ -283,6 +283,11 @@ def read_config(config_path, repo):
         raise BenchmarkError("baseline_ref must be a string")
     if type(cfg.get("build_jobs")) is not int or cfg["build_jobs"] != 2:
         raise BenchmarkError("build_jobs must be 2")
+    thread_counts = cfg.get("openmp_threads", {})
+    if thread_counts and (not isinstance(thread_counts, dict)
+                          or set(thread_counts) != set(VARIANTS)
+                          or any(type(value) is not int or value < 1 for value in thread_counts.values())):
+        raise BenchmarkError("openmp_threads must specify positive baseline and candidate counts")
     if type(cfg.get("repetitions")) is not int or cfg["repetitions"] < 1:
         raise BenchmarkError("repetitions must be a positive integer")
     if type(cfg.get("minimum_successful_pairs", 2)) is not int or cfg.get("minimum_successful_pairs", 2) < 2:
@@ -302,7 +307,7 @@ def read_config(config_path, repo):
     if type(cfg.get("record_ledger", True)) is not bool:
         raise BenchmarkError("record_ledger must be a boolean")
     approved = cfg.get("allowed_files")
-    if (not isinstance(approved, list) or not approved or not all(isinstance(x, str) for x in approved)
+    if (not isinstance(approved, list) or not all(isinstance(x, str) for x in approved)
             or len(set(approved)) != len(approved)):
         raise BenchmarkError("allowed_files must be a nonempty list of distinct paths")
     for name in approved:
@@ -336,7 +341,7 @@ def preflight(config_path, repo=ROOT):
              Path(cfg["ros_setup"]), Path(cfg["overlay_setup"]), Path(__file__).resolve(),
              repo / "scripts/lio_benchmark_report.py", repo / "scripts/summarize_pr465_ab.py", repo / LEGACY_PARSER]}
     patch = Path(cfg["patch"]).read_bytes()
-    if patch_paths(patch, set(cfg["allowed_files"])) != set(cfg["allowed_files"]):
+    if (patch_paths(patch, set(cfg["allowed_files"])) if patch.strip() else set()) != set(cfg["allowed_files"]):
         raise BenchmarkError("Candidate patch paths differ from allowed_files")
     common = Path(cfg["common_patch"]).read_bytes()
     if hashlib.sha256(common).hexdigest() != COMMON_PATCH_SHA:
@@ -564,6 +569,8 @@ def build(attempt, cfg, tools, checkout):
     (attempt / "directories.txt").write_text(f"{path}\n{install}\n")
     for label, args in (
         ("configure", ["-S", tree, "-B", path, "-DENABLE_LIO_DIAGNOSTICS=ON",
+                       *([f"-DPROC_NUM={cfg['openmp_threads'][checkout.name]}"]
+                         if cfg.get("openmp_threads") else []),
                        f"-DCMAKE_INSTALL_PREFIX={install}", f"-DCMAKE_CXX_COMPILER={tools['c++']}"]),
         ("build", ["--build", path, "--target", "fastlivo_mapping", "-j2"]),
     ):
