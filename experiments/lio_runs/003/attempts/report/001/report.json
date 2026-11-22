@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "/usr/bin/python3.10",
+    "-B",
+    "-c",
+    "from pathlib import Path; import sys; import lio_benchmark_report as report; report.write_report(Path(sys.argv[2]), report.analyze(Path(sys.argv[1]), write=False))",
+    "/home/nvidia/wsnew/experiments/lio_runs/003",
+    "/home/nvidia/wsnew/experiments/lio_runs/003/attempts/report/001"
+  ],
+  "cwd": "/home/nvidia/wsnew/scripts",
+  "start_unix_s": 1795322766.233657,
+  "exit_code": 0,
+  "end_unix_s": 1795322773.0804422
+}

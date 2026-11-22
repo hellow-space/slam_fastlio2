@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "git",
+    "-C",
+    "/home/nvidia/wsnew",
+    "worktree",
+    "add",
+    "--detach",
+    "/tmp/lio-benchmark-zr6az9i_/baseline",
+    "9b970e3bb1ecad972c7fd3e44c796d674d137d2f"
+  ],
+  "cwd": "/home/nvidia/wsnew",
+  "start_unix_s": 1795322018.7949052,
+  "exit_code": 0,
+  "end_unix_s": 1795322020.6599135
+}

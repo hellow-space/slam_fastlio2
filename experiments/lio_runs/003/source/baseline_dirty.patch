@@ -1,0 +1,41 @@
+diff --git a/ws_livox/src/FAST-LIVO2-master/CMakeLists.txt b/ws_livox/src/FAST-LIVO2-master/CMakeLists.txt
+index 9bbb8ca..ce57018 100755
+--- a/ws_livox/src/FAST-LIVO2-master/CMakeLists.txt
++++ b/ws_livox/src/FAST-LIVO2-master/CMakeLists.txt
+@@ -49,23 +49,26 @@ endif()
+ # Define project root directory
+ add_definitions(-DROOT_DIR=\"${CMAKE_CURRENT_SOURCE_DIR}/\")
+ 
+-# Detect CPU core count for potential multithreading optimization
++# Allow reproducible selection of the OpenMP worker count; preserve the
++# existing automatic default for normal builds.
+ include(ProcessorCount)
+ ProcessorCount(N)
+ message(STATUS "Processor count: ${N}")
+-
+-# Set the number of cores for multithreading
+-if(N GREATER 4)
+-  math(EXPR PROC_NUM "4")
+-  add_definitions(-DMP_EN -DMP_PROC_NUM=${PROC_NUM})
+-  message(STATUS "Multithreading enabled. Cores: ${PROC_NUM}")
+-elseif(N GREATER 1)
+-  math(EXPR PROC_NUM "${N}")
++if(NOT DEFINED PROC_NUM OR PROC_NUM STREQUAL "")
++  if(N GREATER 4)
++    set(PROC_NUM 4)
++  elseif(N GREATER 1)
++    set(PROC_NUM ${N})
++  else()
++    set(PROC_NUM 1)
++  endif()
++endif()
++if(PROC_NUM GREATER 1)
+   add_definitions(-DMP_EN -DMP_PROC_NUM=${PROC_NUM})
+   message(STATUS "Multithreading enabled. Cores: ${PROC_NUM}")
+ else()
+   add_definitions(-DMP_PROC_NUM=1)
+-  message(STATUS "Single core detected. Multithreading disabled.")
++  message(STATUS "Single core selected.")
+ endif()
+ 
+ # Check for OpenMP support

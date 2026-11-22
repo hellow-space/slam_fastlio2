@@ -1,0 +1,76 @@
+diff --git a/ws_livox/src/FAST-LIVO2-master/CMakeLists.txt b/ws_livox/src/FAST-LIVO2-master/CMakeLists.txt
+index 9bbb8ca..ce57018 100755
+--- a/ws_livox/src/FAST-LIVO2-master/CMakeLists.txt
++++ b/ws_livox/src/FAST-LIVO2-master/CMakeLists.txt
+@@ -49,23 +49,26 @@ endif()
+ # Define project root directory
+ add_definitions(-DROOT_DIR=\"${CMAKE_CURRENT_SOURCE_DIR}/\")
+ 
+-# Detect CPU core count for potential multithreading optimization
++# Allow reproducible selection of the OpenMP worker count; preserve the
++# existing automatic default for normal builds.
+ include(ProcessorCount)
+ ProcessorCount(N)
+ message(STATUS "Processor count: ${N}")
+-
+-# Set the number of cores for multithreading
+-if(N GREATER 4)
+-  math(EXPR PROC_NUM "4")
+-  add_definitions(-DMP_EN -DMP_PROC_NUM=${PROC_NUM})
+-  message(STATUS "Multithreading enabled. Cores: ${PROC_NUM}")
+-elseif(N GREATER 1)
+-  math(EXPR PROC_NUM "${N}")
++if(NOT DEFINED PROC_NUM OR PROC_NUM STREQUAL "")
++  if(N GREATER 4)
++    set(PROC_NUM 4)
++  elseif(N GREATER 1)
++    set(PROC_NUM ${N})
++  else()
++    set(PROC_NUM 1)
++  endif()
++endif()
++if(PROC_NUM GREATER 1)
+   add_definitions(-DMP_EN -DMP_PROC_NUM=${PROC_NUM})
+   message(STATUS "Multithreading enabled. Cores: ${PROC_NUM}")
+ else()
+   add_definitions(-DMP_PROC_NUM=1)
+-  message(STATUS "Single core detected. Multithreading disabled.")
++  message(STATUS "Single core selected.")
+ endif()
+ 
+ # Check for OpenMP support
+diff --git a/ws_livox/src/FAST-LIVO2-master/src/main.cpp b/ws_livox/src/FAST-LIVO2-master/src/main.cpp
+index a313d9a..b770455 100755
+--- a/ws_livox/src/FAST-LIVO2-master/src/main.cpp
++++ b/ws_livox/src/FAST-LIVO2-master/src/main.cpp
+@@ -1,4 +1,8 @@
+ #include "LIVMapper.h"
++#include "rclcpp/exceptions/exceptions.hpp"
++
++#include <iostream>
++#include <string>
+ 
+ int main(int argc, char **argv)
+ {  
+@@ -11,7 +15,20 @@ int main(int argc, char **argv)
+   image_transport::ImageTransport it_(nh);
+   LIVMapper mapper(nh, "laserMapping", options);
+   mapper.initializeSubscribersAndPublishers(nh, it_);
+-  mapper.run(nh);
++  try
++  {
++    mapper.run(nh);
++  }
++  catch (const rclcpp::exceptions::RCLError &error)
++  {
++    const std::string message(error.what());
++    if (rclcpp::ok() || message.find("failed to create guard condition") == std::string::npos ||
++        message.find("context is not valid") == std::string::npos)
++    {
++      throw;
++    }
++    std::cerr << "Warning: offline shutdown invalidated the ROS guard condition: " << message << '\n';
++  }
+   rclcpp::shutdown();
+   return 0;
+ }

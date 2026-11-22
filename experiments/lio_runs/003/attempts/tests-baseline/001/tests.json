@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "/usr/bin/python3.10",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "/tmp/lio-benchmark-zr6az9i_/baseline/ws_livox/src/FAST-LIVO2-master/tests",
+    "-v"
+  ],
+  "cwd": "/tmp/lio-benchmark-zr6az9i_/baseline",
+  "start_unix_s": 1795322425.7928352,
+  "exit_code": 0,
+  "end_unix_s": 1795322427.5447085
+}
